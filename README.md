@@ -7,4 +7,4 @@ Schermata Login.
 
 Francesco Reda:
 
-Casi d'uso: Restituzione articoli , inserimento/modifica/eliminazione prodotti da parte dell'admin
+Casi d'uso: Restituzione articoli lato cliente , inserimento/modifica/eliminazione prodotti da parte dell'admin
