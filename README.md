@@ -2,7 +2,7 @@
 
 ANTONIO MUTO: 
 Casi d'uso: gestione profilo utente, Assistenza/aiuto/ contattaci.
-Schermata Login. Il mio account.
+Schermata Login. Schermata Sign Up Il mio account.
 
 
 Francesco Reda:
