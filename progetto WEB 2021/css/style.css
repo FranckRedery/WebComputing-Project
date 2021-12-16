@@ -524,7 +524,7 @@ header{
 }
 
 .header-search form .search-btn {
-  position: relative;
+  position: absolute;
   height: 41px;
   width: 100px;
   background: #0b3de1;
