@@ -10,4 +10,10 @@ public class HomePage {
 	public String homePage() {
 		return "index";
 	}
+	
+	@GetMapping("cartPage")
+	public String cartPage() {
+		return "cart";
+	}
+
 }
