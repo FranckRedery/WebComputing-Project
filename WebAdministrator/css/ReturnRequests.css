@@ -21,16 +21,24 @@
 }
 
 .btn.btn-success{
-    margin-top: 10%;
+    margin-top: 15%;
     margin-bottom: 5%;
 }
 
 .btn.btn-danger{
-    margin-top: 25%;
+    margin-bottom: 5%;
 }
 
 .product-info.p-3{
     border-top: auto;
+}
+
+#amount-cell{
+  margin-top: 15%;
+}
+
+#amount{
+  margin-top: 5%;
 }
 
 
