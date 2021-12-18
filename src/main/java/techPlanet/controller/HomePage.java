@@ -11,7 +11,7 @@ public class HomePage {
 		return "index";
 	}
 	
-	@GetMapping("cartPage")
+	@GetMapping("/cart.html")
 	public String cartPage() {
 		return "cart";
 	}

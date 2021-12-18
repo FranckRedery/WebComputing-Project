@@ -83,7 +83,7 @@
 
 							<!-- Cart -->
 							<div style = "padding-right: 10%;">
-								<a href="cartPage" style="text-decoration: none;">
+								<a href="cart.html" style="text-decoration: none;">
 									<i class="fa fa-shopping-cart"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
