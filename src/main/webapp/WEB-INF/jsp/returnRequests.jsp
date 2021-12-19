@@ -132,7 +132,7 @@
                     </td>
                     <td class="refund-cell">
                         <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                            min="0" max="10000" step="1" id="amount">
+                            min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
                     </div>
                     </td>
                     <td class="response-cell">
@@ -167,7 +167,7 @@
                     </td>
                     <td class="refund-cell">
                         <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                            min="0" max="10000" step="1" id="amount">
+                           min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
                     </div>
                     </td>
                     <td class="response-cell">
@@ -202,7 +202,7 @@
                     </td>
                     <td class="refund-cell">
                         <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                            min="0" max="10000" step="1" id="amount">
+                            min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
                     </div>
                     </td>
                     <td class="response-cell">
