@@ -16,4 +16,15 @@ public class HomePage {
 		return "cart";
 	}
 
+	@GetMapping("/account.html")
+	public String accountPage() {
+		return "account";
+	}
+	
+	@GetMapping("/login.html")
+	public String login() {
+		return "login";
+	}
+	
+	
 }
