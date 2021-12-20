@@ -32,7 +32,7 @@
 			<div class="container">
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
@@ -49,8 +49,8 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="../" class="logo">
-								<img src="../images/index/logo.png" alt="">
+							<a href="#" class="logo">
+								<img id = "logo" src="images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -62,8 +62,9 @@
 							<form>
 								<select class="input-select">
 									<option value="0">All Categories</option>
-									<option value="1">Category 01</option>
-									<option value="1">Category 02</option>
+									<option value="1">Smartphone</option>
+									<option value="2">TV</option>
+									<option value="3">Accessories</option>
 								</select>
 								<input class="input" placeholder="Search here">
 								<button class="search-btn">Search</button>
@@ -73,61 +74,28 @@
 					<!-- /SEARCH BAR -->
 
 					<!-- ACCOUNT -->
-					<div class="col-md-3 clearfix">
+					<div class="col-md-3">
 						<div class="header-ctn">
 							<!-- Wishlist -->
-							<div style = "margin-right: 20%;">
+							<div style = "padding-right: 10%; padding-left: 25%;">
 								<a href="#" style="text-decoration: none;">
 									<i class="fa fa-heart" id="heart"></i>
-									<div class="qty">0</div>
+									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
 							<!-- Cart -->
-							<div class="dropdown" style = "margin-right: 20%;">
-								<a style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+							<div style = "padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;">
 									<i class="fa fa-shopping-cart"></i>
-									<div class="qty">0</div>
+									<!--<div class="qty">0</div>-->
 								</a>
-								<div class="cart-dropdown">
-									<div class="cart-list">
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="../images/index/product01.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
- 
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="../images/index/product02.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
-									</div>
-									<div class="cart-summary">
-										<small>3 Item(s) selected</small>
-										<h5>SUBTOTAL: $2940.00</h5>
-									</div>
-									<div class="cart-btns">
-										<a href="#">View Cart</a>
-										<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-									</div>
-								</div>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
-							<div class="menu-toggle">
-								<a href="#" style="text-decoration: none; width: 15%;">
+							<div>
+								<a href="login.html" style="text-decoration: none;">
 									<i class="fa fa-user"></i>
 								</a>
 							</div>
