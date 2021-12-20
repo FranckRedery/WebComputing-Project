@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<link type="text/css" rel="stylesheet" href="css/admin/adminPage.css" />
+	<link type="text/css" rel="stylesheet" href="css/admin/addProduct.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -13,7 +13,7 @@
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-	<title>Admin Page</title>
+	<title>Add Product</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 							</div>
 							<!-- Wishlist -->
 							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="addProduct" style="text-decoration: none;">
+								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-cart-plus" id="add"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -69,7 +69,7 @@
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
-							
+
 							<!-- Cart -->
 							<div style="padding-right: 8%; margin-top: 3%">
 								<a href="#" style="text-decoration: none;">
@@ -86,7 +86,7 @@
 								</a>
 							</div>
 
-							<div style= "margin-top: 3%">
+							<div style="margin-top: 3%">
 								<a href="account.html" style="text-decoration: none;">
 									<i class="fas fa-sign-out-alt"></i>
 								</a>
@@ -102,43 +102,48 @@
 
 
 
-
-	<p id="title">WELCOME "ADMIN NAME FROM DB"</p>
-
-	<div class="container" id="management">
-		<div class="row" id="textManagement">
-			<div class="col-md-2">
-				Positions management
-				<br /><br />
-				<a href="collegamento al sito" style="text-decoration: none;">
-					<i class="fas fa-user-plus fa-5x" id="positions2"></i></a>
-			</div>
-			<div class="col-md-2">
-				Add product
-				<br /><br />
-				<a href="addProduct" style="text-decoration: none;">
-					<i class="fas fa-cart-plus fa-5x" id="addProd"></i></a>
-			</div>
-			<div class="col-md-2">
-				Delete product
-				<br /><br />
-				<a href="collegamento al sito" style="text-decoration: none;">
-					<i class="fas fa-trash fa-5x" id="deleteProd"></i></a>
-			</div>
-			<div class="col-md-2">
-				Users management
-				<br /><br />
-				<a href="collegamento al sito" style="text-decoration: none;">
-					<i class="fas fa-users fa-5x" id="users2"></i></a>
-			</div>
-			<div class="col-md-2">
-				Returns management
-				<br /><br />
-				<a href="returnRequests" style="text-decoration: none;">
-					<i class="fas fa-truck-loading fa-5x" id="truck2"></i></a>
-			</div>
+	<form class="needs-validation" novalidate>
+		<div class="mb-3">
+			<label class="form-label" for="productName" style="margin-top: 3%;">Name</label>
+			<input type="text" class="form-control" id="productName" placeholder="Product name" required>
+			<div class="invalid-feedback">Please enter a valid product name.</div>
 		</div>
-	</div>
+		<div class="mb-3">
+			<label class="form-label" for="productCategory">Category</label>
+			<select class="form-select" id="productCategory" placeholder="Product category" required>
+				<option selected disabled value="">Choose a category</option>
+				<option>PC</option>
+				<option>Tablet</option>
+				<option>Smartphone</option>
+				<option>Camera</option>
+			</select>
+			<div class="invalid-feedback">Please enter a valid category.</div>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="description">Description</label>
+			<textarea class="form-control" rows="10" id="description" placeholder="Product description" required></textarea>
+			<div class="invalid-feedback">Please enter a valid description.</div>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="imgFile">Images</label>
+				<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required multiple>
+				<div class="invalid-feedback">Please insert valid images.</div>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label" for="imgFile">Price</label>
+			<input type="number" class="form-label" min="1" max="10000" step=".01" oninput="validity.valid||(value='');" id="amount" required>
+			<div class="invalid-feedback">Please insert valid price.</div>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label" for="imgFile">Quantity</label>
+			<input type="number" class="form-label" min="1" max="10000" oninput="validity.valid||(value='');" id="quantity" required>
+			<div class="invalid-feedback">Please insert a valid quantity.</div>
+		</div>
+
+		<button type="submit"  class="btn btn-primary">Add product</button>
+	</form>
 
 
 
@@ -207,6 +212,7 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
+	<script src="js/admin/addProduct.js"></script>
 </body>
 
 </html>

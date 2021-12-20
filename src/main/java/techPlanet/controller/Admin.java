@@ -16,5 +16,10 @@ public class Admin {
 	public String returnRequests() {
 		return "returnRequests";
 	}
-
+	
+	@GetMapping("/addProduct")
+	public String addProduct() {
+		return "addProduct";
+	}
+	
 }
