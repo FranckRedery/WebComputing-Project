@@ -27,6 +27,7 @@
 					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
@@ -53,7 +54,6 @@
 							<div style="padding-right: 8%; padding-left:24%; margin-top: 3%" id="firstElement">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
-								</a>
 							</div>
 							<!-- Wishlist -->
 							<div style="padding-right: 8%; margin-top: 3%">

@@ -126,7 +126,7 @@ input[type=number]:focus {
      font-weight: 400;
      color: #333;
      margin: 0;
-     background: linear-gradient(#141e30, #243b55);
+     background: linear-gradient(#0d42d4, #243b55);
      
    }
    
@@ -356,7 +356,7 @@ input[type=number]:focus {
    }
    
    .input-checkbox input[type="checkbox"]+label span:after {
-     content: 'âœ”';
+     content: 'Ã¢Å“â€�';
      position: absolute;
      top: -2px;
      left: 1px;
