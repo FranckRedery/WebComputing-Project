@@ -10,10 +10,10 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS only -->
-    <link type="text/css" rel="stylesheet" href="css/productStyle.css" />
+    <link type="text/css" rel="stylesheet" href="css/productDetails/productStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Electronic</title>
+    <title>Product Details</title>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="index.html" class="logo">
-                                <img id="logo" src="./img/logo.png" alt="">
+                                <img id="logo" src="images/index/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -131,69 +131,73 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Single product details -->
 
-	<div class="small-container single-product">
-		<div class="row">
-			<div class="col-3">
-				<img src="img/iphone1.jpeg" width="100%" id="productImg">
+    <div class="small-container single-product">
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="images/carrello/iphone1.jpeg" width=100% id="productImg">
 
-				<div class="small-img-row">
-					<div class="small-img-col">
-						<img src="img/iphone1.jpeg" width="100%" class="small-img">
-					</div>
-					<div class="small-img-col">
-						<img src="img/product01.png" width="100%" class="small-img">
-					</div>
-					<div class="small-img-col">
-						<img src="img/iphone1.jpeg" width="100%" class="small-img">
-					</div>
-					<div class="small-img-col">
-						<img src="img/iphone1.jpeg" width="100%" class="small-img">
-					</div>
-				</div>
-			</div>
-			<div class="col-6">
-				<p>Home / Iphone 11</p>
-				<h1>Iphone 11 pro max WOW</h1>
-				<h4>€1200</h4>
-				<input type="number" value="1" aria-valuemin="1">
-				<br>
-				<br>
-				<a href=""><button type="button" class="btn btn-secondary">
-					<i class="fa fa-cart-plus"></i>add to Cart
-				</button></a>
-				<a href=""><button type="button" class="btn btn-secondary">
-					<i class="far fa-heart"></i>add to Wishlist
-				</button></a>
-				<h3>Product Details <i class="fa fa-indent"></i></h3>
-                <div class="rating d-flex mt-1">
-                    <span>
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span>(25 reviews)</span>
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="images/carrello/iphone1.jpeg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/carrello/iphone1.jpeg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/carrello/iphone1.jpeg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/carrello/iphone1.jpeg" width="100%" class="small-img">
+                    </div>
                 </div>
-				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, dolor. 
-					Accusantium dolorem illo fuga ipsum, nulla voluptates id ab non consequuntur 
-					accusamus, odit rem expedita, maiores labore deserunt placeat nesciunt?</p>
-			</div>
-		</div>
-	</div>
-
-	<!-- TItle -->
+            </div>
+            <div class="col-lg-6 description">
+                <p>Home / Iphone 11</p>
+                <h1>Iphone 11 pro max</h1>
+                <h4>€1200</h4>
+                <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
+                <br>
+                <br>
+                <a href=""><button type="button" class="btn btn-secondary">
+                    <i class="far fa-heart"></i>add to Wishlist
+                </button></a>
+                <a href=""><button type="button" class="btn btn-secondary">
+                        <i class="fa fa-cart-plus"></i>add to Cart
+                    </button></a>
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, dolor.
+                    Accusantium dolorem illo fuga ipsum, nulla voluptates id ab non consequuntur
+                    accusamus, odit rem expedita, maiores labore deserunt placeat nesciunt?</p>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Reviews</h3>    
+        <div class="rating d-flex mt-1">
+            <span>
+                <i class="fa fa-star"></i>
+            </span>
+            <span>
+                <i class="fa fa-star"></i>
+            </span>
+            <span>
+                <i class="fa fa-star"></i>
+            </span>
+            <span>
+                <i class="fa fa-star"></i>
+            </span>
+            <span>
+                <i class="fa fa-star"></i>
+            </span>
+            <span>(25 reviews)</span>
+        </div>
+    </div>
+    
+    <!-- TItle -->
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -260,7 +264,7 @@
         <!-- /top footer -->
     </footer>
     <!-- /FOOTER -->
-	<script src="js/productGallery.js"></script>
+    <script src="js/productGallery.js"></script>
 
 </body>
 

@@ -512,7 +512,7 @@
 					<span class="product-type">
 						Electronics & accessories
 					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
+					<a href="productDetails.html" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
 					<span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
 						<span>

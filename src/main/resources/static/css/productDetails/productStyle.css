@@ -27,12 +27,6 @@ body {
     }
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    color: #2B2D42;
-    font-weight: 700;
-    margin: 0 0 10px;
-  }
-  
   a {
     color: #2B2D42;
     font-weight: 500;
@@ -58,14 +52,7 @@ body {
 
 /*-- Text input --*/
 
-.input {
-    height: 40px;
-    padding: 0px 15px;
-    border: 1px solid #E4E7ED;
-    background-color: #FFF;
-    width: 100%;
-  }
-  
+
   textarea.input {
     padding: 15px;
     min-height: 90px;
@@ -616,19 +603,20 @@ body {
     }
   }
 
-/* PRODUCT */
-
+/*----------------------------*\
+      product details 
+\*----------------------------*/
 .single-product{
   margin-top: 80px;
-  margin-left: 25%;
+  margin-left: 30%;
   margin-bottom: 80px;
 }
 
-.single-product .col-2 img{
+.single-product .col-3 img{
   padding: 0;
 }
 
-.single-product .col-2{
+.single-product .col-3{
   padding: 20px;
 }
 
@@ -664,19 +652,6 @@ input:focus{
 .small-img-col{
   flex-basis: 24%;
   cursor: pointer;
-}
-
-@media only screen and(max-width: 600px) {
- .single-product .row{
-  text-align: left;
- }
- .single-product .col-2{
-  padding: 20px 0;
- }
- .single-product h1{
-  font-size: 26px;
-  line-height: 32px;
- }
 }
 
 /*=========================================================
@@ -744,7 +719,7 @@ input:focus{
   
   @media only screen and (max-width: 1201px) {}
   
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 992px) {
     #top-header .header-links.pull-left {
       float: none !important;
     }
@@ -767,10 +742,24 @@ input:focus{
     #rating {
       text-align: center;
     }
-    #reviews {
-      margin-top: 30px;
-      margin-bottom: 30px;
+    .single-product .row{
+      text-align:center;
+      display: block;
     }
+    .single-product {
+      font-size:  20px;
+      line-height: 36px;
+      margin: 0px 30px 30px 30px;
+    }
+
+    .single-product .col-lg-3{
+      padding: 20% 20% 5% 20%; 
+    }
+
+    .description {
+      display: inline;
+    }
+
   }
   
   @media only screen and (max-width: 767px) {
@@ -786,6 +775,9 @@ input:focus{
     }
     .header-ctn div {
       margin-top: 0;
+    }
+    .col-3 {
+      flex-basis: 100%;
     }
   }
   

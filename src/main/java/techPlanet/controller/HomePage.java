@@ -26,5 +26,10 @@ public class HomePage {
 		return "login";
 	}
 	
+	@GetMapping("/productDetails.html")
+	public String ProductDetailsPage() {
+		return "product";
+	}
+	
 	
 }
