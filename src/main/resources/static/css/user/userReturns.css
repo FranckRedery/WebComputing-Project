@@ -4,6 +4,30 @@
     text-align: center;
     font-size: large;
     padding: .0rem .0rem;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.alert.alert-success{
+	color: black;
+    background-color: rgb(0, 120, 0);
+    border-color: black;
+}
+
+.alert.alert-danger{
+	color: black;
+    background-color: rgb(176, 0, 0);
+    border-color: black;
+}
+
+.alert.alert-warning{
+	color: black;
+    background-color: rgb(201, 201, 0);
+    border-color: black;
 }
 
 .cell{

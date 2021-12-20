@@ -127,7 +127,7 @@
                         </td>
                     <td class="cell">12-17-2021</td>
                     <td class="cell">
-                        <div class="alert alert-success"><strong>Accepted</strong>
+                        <div class="alert alert-success"><strong>Accepted</strong></div>
                     </td>
                 </tr>
                 <tr>
@@ -146,7 +146,7 @@
                         </td>
                     <td class="cell">12-15-2021</td>
                     <td class="cell">
-                        <div class="alert alert-danger"><strong>Refused</strong>
+                        <div class="alert alert-danger"><strong>Refused</strong></div>
                     </td>
                 </tr>
                 <tr>
@@ -165,7 +165,7 @@
                         </td>
                     <td class="cell">12-15-2021</td>
                     <td class="cell">
-                        <div class="alert alert-warning"><strong>Pending</strong>
+                        <div class="alert alert-warning"><strong>Pending</strong></div>
                     </td>
                 </tr>
             </tbody>
