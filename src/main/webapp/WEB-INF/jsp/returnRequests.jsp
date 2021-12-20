@@ -50,21 +50,28 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-9">
 						<div class="header-ctn">
-							<div style="padding-right: 10%; padding-left: 15%; margin-top: 3%" id="firstElement">
+							<div style="padding-right: 8%; padding-left:24%; margin-top: 3%" id="firstElement">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
 							<!-- Wishlist -->
-							<div style="padding-right: 10%; margin-top: 3%">
+							<div style="padding-right: 8%; margin-top: 3%">
 								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-box-open" id="box"></i>
+									<i class="fas fa-cart-plus" id="add"></i>
+									<!--<div class="qty">0</div>-->
+								</a>
+							</div>
+
+							<div style="padding-right: 8%; margin-top: 3%">
+								<a href="#" style="text-decoration: none;">
+									<i class="fas fa-trash" id="trash"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
 							<!-- Cart -->
-							<div style="padding-right: 10%; margin-top: 3%">
+							<div style="padding-right: 8%; margin-top: 3%">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-users"></i>
 									<!--<div class="qty">0</div>-->
@@ -73,13 +80,13 @@
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
-							<div style="padding-right: 10%; margin-top: 3%">
+							<div style="padding-right: 8%; margin-top: 3%">
 								<a href="returnRequests" style="text-decoration: none;">
 									<i class="fas fa-truck-loading"></i>
 								</a>
 							</div>
 
-							<div style= "margin-top: 3%">
+							<div style="margin-top: 3%">
 								<a href="account.html" style="text-decoration: none;">
 									<i class="fas fa-sign-out-alt"></i>
 								</a>
