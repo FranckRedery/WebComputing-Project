@@ -110,15 +110,22 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="productCategory">Category</label>
-			<select class="form-select" id="productCategory" placeholder="Product category" required>
+			<select class="form-select" id="productCategory" placeholder="Product category" onclick = "caricaOpzioni()" required>
 				<option selected disabled value="">Choose a category</option>
 				<option>PC</option>
 				<option>Tablet</option>
 				<option>Smartphone</option>
 				<option>Camera</option>
+				<option>Printers</option>
+				<option>Notebook</option>
 			</select>
 			<div class="invalid-feedback">Please enter a valid category.</div>
 		</div>
+		
+		<!-- Tag che derivano da categoria -->
+		<div class="mb-3" id = "tag">
+		</div>
+		
 		<div class="mb-3">
 			<label class="form-label" for="description">Description</label>
 			<textarea class="form-control" rows="10" id="description" placeholder="Product description" required></textarea>
