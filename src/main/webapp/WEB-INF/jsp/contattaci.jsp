@@ -9,7 +9,18 @@
 	
 	<!-- CSS -->
 	<link href="../css/contattaci/contattaci.css" rel="stylesheet" type="text/css" />
+	
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>	
 
+	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!--AJAX ha la dipendenza nel pom -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!------------------------GRUPPO-------------------------------------------->	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -19,11 +30,13 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+<!------------------------GRUPPO-------------------------------------------->	
+
 
 </head>
 
 <body>
-<!-------------------------HEADER--------------------------------------------->
+<!-------------------------GRUPPO--------------------------------------------->
 
 	<!-- HEADER -->
 	<header>
@@ -119,8 +132,8 @@
 									<i class="fa fa-user"></i>
 								</a>
 								<%} else if(session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+								<a href="account.html" style="text-decoration: none; display: flex; "> 
+									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 									${username}
 								</a>
 								<%}%>
@@ -135,46 +148,42 @@
 	<!--/HEADER-->
 
 	<!-- /SECTION -->
-		<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
-			<div class="container-fluid">
-			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-				  <span class="navbar-toggler-icon">
-					  <i class="fa fa-navicon" style="color:white; font-size:28px"></i>
-				  </span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="mynavbar">
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"> <i class="fa fa-navicon"
+					style="color: white; font-size: 28px"></i>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Home</a>
-					  </li>
-					  <!--<li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Categories</a>
-					  </li>-->
-					  <li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Laptops</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Smartphones</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Tvs</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Accessories</a>
-					  </li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Home</a></li>
+					<!--<li class="nav-item">
+					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="javascript:void(0)">Categories</a>
+				  </li>-->
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Laptops</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Tvs</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Accessories</a></li>
 				</ul>
-			  </div>
 			</div>
-		  </nav>
- 	<!-- /SECTION -->
-<!-------------------------FINE HEADER--------------------------------------------->
+		</div>
+	</nav>
+	<!-- /SECTION -->
+<!-------------------------GRUPPO--------------------------------------------->
 	
 	
 
-<!-------------------------CONTATTACI--------------------------------------------->
+<!-------------------------FABIO--------------------------------------------->
 	
 	<div class="container container--grid" id = "container">
 		<!-- Grafica superiore %% immagine sfondo -->
@@ -220,13 +229,13 @@
 			</div>
 		</div>
 	</div>
-<!-------------------------FINE CONTATTACI-------------------------------------------->
+<!-------------------------FABIO--------------------------------------------->
 
 	
 	
 	
 	
-<!-------------------------FOOTER--------------------------------------------->	
+<!-------------------------GRUPPO--------------------------------------------->	
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -240,9 +249,10 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+								<li><a href="#"><i class="fa fa-map-marker"></i>1734
+										Stonecoal Road</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -265,7 +275,7 @@
 							<ul class="footer-links">
 								<li><a href="#">About Us</a></li>
 								<li><a href="/contattaci">Contact Us</a></li>
-								<li><a href="/lavoraConNoi/lavoraConNoi">Work with Us</a></li>
+								<li><a href="#">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
@@ -290,31 +300,19 @@
 			<!-- /container -->
 		</div>
 		<!-- /top footer -->
-
-		<!-- bottom footer -->
-		<div id="bottom-footer" class="section">
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<ul class="footer-payments">
-							<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-							<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-						</ul>
-					</div>
-				</div>
-					<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /bottom footer -->
 	</footer>
 	<!-- /FOOTER -->
-<!-------------------------FINE FOOTER--------------------------------------------->
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/index/index.js"></script>
+<!-------------------------GRUPPO--------------------------------------------->
 	
 
 </body>
