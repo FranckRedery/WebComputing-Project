@@ -2,36 +2,73 @@
 <html lang="it">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<link type="text/css" rel="stylesheet" href="css/index/style.css" />
-	<link rel="icon" href="images/index/logo.png" type="image/x-icon"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- CSS only -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css" rel="stylesheet" type="text/css" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link type="text/css" rel="stylesheet" href="css/index/style.css" />
+<link rel="icon" href="images/index/logo.png" type="image/x-icon" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+	integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+	integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
+	rel="stylesheet" type="text/css" />
 </head>
 
 <title>Tech Planet</title>
 </head>
 
 <body>
-	
-		<!-- HEADER -->
+
+	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+					<li><a href="#"><i class="fa fa-envelope"></i>
+							email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
+							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
+				<ul class="header-links pull-right">
+						<%if (session.getAttribute("loggato") == "si") {%>
+								<a href="/faiLogout" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Log out</span>
+									</button>
+								</a>
+								<%} else {%>
+								<a href="login.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Login</span>
+									</button>
+								</a>
+								<a href="signUp.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Sign Up</span>
+									</button>
+								</a>
+								<%}%>
 				</ul>
 			</div>
 		</div>
@@ -46,8 +83,8 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
-								<img id = "logo" src="images/index/logo.png" alt="">
+							<a href="#" class="logo"> <img id="logo"
+								src="images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -62,8 +99,7 @@
 									<option value="1">Smartphone</option>
 									<option value="2">TV</option>
 									<option value="3">Accessories</option>
-								</select>
-								<input class="input" placeholder="Search here">
+								</select> <input class="input" placeholder="Search here">
 								<button class="search-btn">Search</button>
 							</form>
 						</div>
@@ -74,27 +110,32 @@
 					<div class="col-md-3">
 						<div class="header-ctn">
 							<!-- Wishlist -->
-							<div style = "padding-right: 10%; padding-left: 25%;">
-								<a href="#" style="text-decoration: none;">
-									<i class="fa fa-heart" id="heart"></i>
-									<!--<div class="qty">0</div>-->
+							<div style="padding-right: 10%; padding-left: 25%;">
+								<a href="#" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
 							<!-- Cart -->
-							<div style = "padding-right: 10%;">
-								<a href="cart.html" style="text-decoration: none;">
-									<i class="fa fa-shopping-cart"></i>
-									<!--<div class="qty">0</div>-->
+							<div style="padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;"> <i
+									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<a href="login.html" style="text-decoration: none;">
+								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
+								<a href="login.html" style="text-decoration: none;"> 
 									<i class="fa fa-user"></i>
 								</a>
+								<%} else if(session.getAttribute("loggato") == "si"){%>
+								<a href="account.html" style="text-decoration: none;"> 
+									<img src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									${username}
+								</a>
+								<%}%>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -104,94 +145,102 @@
 		</div>
 	</header>
 	<!--/HEADER-->
-	
+
 
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
 		<div class="container-fluid">
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-			  <span class="navbar-toggler-icon">
-				  <i class="fa fa-navicon" style="color:white; font-size:28px"></i>
-			  </span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="mynavbar">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Home</a>
-				  </li>
-				  <!--<li class="nav-item">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"> <i class="fa fa-navicon"
+					style="color: white; font-size: 28px"></i>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Home</a></li>
+					<!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Tvs</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Accessories</a>
-				  </li>
-			</ul>
-		  </div>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Laptops</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Tvs</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Accessories</a></li>
+				</ul>
+			</div>
 		</div>
-	  </nav>
-    <div class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="images/index/shop01.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>Laptops<br>Collection</h3>
-						<a style="text-decoration: none;" href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+	</nav>
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="images/index/shop01.png" alt="">
+						</div>
+						<div class="shop-body">
+							<h3>
+								Laptops<br>Collection
+							</h3>
+							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+								now <i class="fa fa-arrow-circle-right"></i>
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- /shop -->
+				<!-- /shop -->
 
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="images/index/shop03.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>Accessories<br>Collection</h3>
-						<a style="text-decoration: none;" href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="images/index/shop03.png" alt="">
+						</div>
+						<div class="shop-body">
+							<h3>
+								Accessories<br>Collection
+							</h3>
+							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+								now <i class="fa fa-arrow-circle-right"></i>
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- /shop -->
+				<!-- /shop -->
 
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="images/index/shop02.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>TVs<br>Collection</h3>
-						<a style="text-decoration: none;" href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="images/index/shop02.png" alt="">
+						</div>
+						<div class="shop-body">
+							<h3>
+								TVs<br>Collection
+							</h3>
+							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+								now <i class="fa fa-arrow-circle-right"></i>
+							</a>
+						</div>
 					</div>
 				</div>
+				<!-- /shop -->
 			</div>
-			<!-- /shop -->
+			<!-- /row -->
 		</div>
-		<!-- /row -->
+		<!-- /container -->
 	</div>
-	<!-- /container -->
-</div>
-<!-- /SECTION -->
+	<!-- /SECTION -->
 
 	<!-- HOT DEAL SECTION -->
 	<div id="hot-deal" class="section">
@@ -229,7 +278,8 @@
 						</ul>
 						<h2 class="text-uppercase">hot deal this week</h2>
 						<p>New Collection Up to 50% OFF</p>
-						<a style="text-decoration: none;" class="primary-btn cta-btn" href="#">Shop now</a>
+						<a style="text-decoration: none;" class="primary-btn cta-btn"
+							href="#">Shop now</a>
 					</div>
 				</div>
 			</div>
@@ -238,19 +288,20 @@
 		<!-- /container -->
 	</div>
 	<!-- /HOT DEAL SECTION -->
-	
+
 	<div class="container">
 		<div class="row my-5">
 			<h1 class="text-center">Featured Products</h1>
-			<p class="fw-light w-75 mx-auto text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-				 expedita placeat enim laudantium esse aperiam iure, reiciendis nobis 
-				 totam earum ex unde ab, ullam pariatur nisi laborum quam. Porro, corporis!</p>
+			<p class="fw-light w-75 mx-auto text-center">Lorem ipsum dolor
+				sit amet consectetur adipisicing elit. Molestias expedita placeat
+				enim laudantium esse aperiam iure, reiciendis nobis totam earum ex
+				unde ab, ullam pariatur nisi laborum quam. Porro, corporis!</p>
 		</div>
 		<div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product01.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product01.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -263,35 +314,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product02.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product02.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -304,35 +344,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product03.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product03.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -345,35 +374,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product04.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product04.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -386,35 +404,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product05.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product05.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -427,35 +434,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product06.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product06.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -468,35 +464,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product07.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product07.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -509,35 +494,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="productDetails.html" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="productDetails.html"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product08.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product08.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -550,35 +524,24 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col product-item mx-auto">
 				<div class="product-img">
-					<img src="images/index/product09.png" alt = "" class="img-fluid d-block mx-auto">
-					<span class="heart-icon">
+					<img src="images/index/product09.png" alt=""
+						class="img-fluid d-block mx-auto"> <span class="heart-icon">
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
@@ -591,53 +554,44 @@
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type">
-						Electronics & accessories
-					</span>
-					<a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-					<span class="product-price">€100.50</span>
+					<span class="product-type"> Electronics & accessories </span> <a
+						href="#"
+						class="d-block text-dark text-decoration-none py-2 product-name">pc
+						windows</a> <span class="product-price">€100.50</span>
 					<div class="rating d-flex mt-1">
-						<span>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>
-							<i class="fa fa-star"></i>
-						</span>
-						<span>(25 reviews)</span>
+						<span> <i class="fa fa-star" aria-hidden="true"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span> <i class="fa fa-star"></i>
+						</span> <span>(25 reviews)</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</div>
 
-<!--- GUIDA SCELTA PRODOTTO -->	
+	<!--- GUIDA SCELTA PRODOTTO -->
 
-	<div class="container container--grid" id = "divSceltaProdotto">
+	<div class="container container--grid" id="divSceltaProdotto">
 		<!-- Mi crea una riga dove metto i due div -->
-		<div class="row" id = "serveAiuto"> 
-			<div class="col-sm-8 p-3 bg-primary text-white" >
-				<p class = "titolo">Need help choosing the perfect product for you?</p>
+		<div class="row" id="serveAiuto">
+			<div class="col-sm-8 p-3 bg-primary text-white">
+				<p class="titolo">Need help choosing the perfect product for
+					you?</p>
 			</div>
-    		<div class="col-sm-4 p-3 bg-primary text-white" id = "linkSelezionaProdotto">
-    			
-    			<a class="clearfix" href="guidaSceltaProdotto/guidaProdotto">
-    				<button class ="button" >Select your product</button>	
-    			</a>
-    	<!--	<a href="guidaSceltaProdotto/guidaProdotto" class="btn btn-light" stretched-link">Seleziona il tuo prodotto</a>  -->
-    		</div>    
-    	</div>
-	</div>	
+			<div class="col-sm-4 p-3 bg-primary text-white"
+				id="linkSelezionaProdotto">
+
+				<a class="clearfix" href="guidaSceltaProdotto/guidaProdotto">
+					<button class="button">Select your product</button>
+				</a>
+				<!--	<a href="guidaSceltaProdotto/guidaProdotto" class="btn btn-light" stretched-link">Seleziona il tuo prodotto</a>  -->
+			</div>
+		</div>
+	</div>
 	<br />
-<!--- FINE GUIDA SCELTA PRODOTTO -->	
+	<!--- FINE GUIDA SCELTA PRODOTTO -->
 
 	<!-- FOOTER -->
 	<footer id="footer">
@@ -652,7 +606,8 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+								<li><a href="#"><i class="fa fa-map-marker"></i>1734
+										Stonecoal Road</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
 							</ul>
@@ -705,8 +660,14 @@
 	</footer>
 	<!-- /FOOTER -->
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="js/index/index.js"></script>
 </body>
 
