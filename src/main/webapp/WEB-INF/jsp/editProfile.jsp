@@ -21,88 +21,116 @@
 </head>
 
 <body>
+		
 		<!-- HEADER -->
-		<header>
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
-						<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
-				</div>
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+					<li><a href="#"><i class="fa fa-envelope"></i>
+							email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
+							Stonecoal Road</a></li>
+					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
+				<ul class="header-links pull-right">
+						<%if (session.getAttribute("loggato") == "si") {%>
+								<a href="/faiLogout" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Log out</span>
+									</button>
+								</a>
+								<%} else {%>
+								<a href="login.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Login</span>
+									</button>
+								</a>
+								<a href="signUp.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Sign Up</span>
+									</button>
+								</a>
+								<%}%>
+				</ul>
 			</div>
-			<!-- /TOP HEADER -->
-	
-			<!-- MAIN HEADER -->
-			<div id="header">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- LOGO -->
-						<div class="col-md-3">
-							<div class="header-logo">
-								<a href="#" class="logo">
-									<img id = "logo" src="images/index/logo.png" alt="">
+		</div>
+		<!-- /TOP HEADER -->
+
+		<!-- MAIN HEADER -->
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<div class="col-md-3">
+						<div class="header-logo">
+							<a href="#" class="logo"> <img id="logo"
+								src="images/index/logo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- /LOGO -->
+
+					<!-- SEARCH BAR -->
+					<div class="col-md-6">
+						<div class="header-search">
+							<form>
+								<select class="input-select">
+									<option value="0">All Categories</option>
+									<option value="1">Smartphone</option>
+									<option value="2">TV</option>
+									<option value="3">Accessories</option>
+								</select> <input class="input" placeholder="Search here">
+								<button class="search-btn">Search</button>
+							</form>
+						</div>
+					</div>
+					<!-- /SEARCH BAR -->
+
+					<!-- ACCOUNT -->
+					<div class="col-md-3">
+						<div class="header-ctn">
+							<!-- Wishlist -->
+							<div style="padding-right: 10%; padding-left: 25%;">
+								<a href="#" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-						</div>
-						<!-- /LOGO -->
-	
-						<!-- SEARCH BAR -->
-						<div class="col-md-6">
-							<div class="header-search">
-								<form>
-									<select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Smartphone</option>
-										<option value="2">TV</option>
-										<option value="3">Accessories</option>
-									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Search</button>
-								</form>
+
+							<!-- Cart -->
+							<div style="padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;"> <i
+									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+								</a>
 							</div>
-						</div>
-						<!-- /SEARCH BAR -->
-	
-						<!-- ACCOUNT -->
-						<div class="col-md-3">
-							<div class="header-ctn">
-								<!-- Wishlist -->
-								<div style = "padding-right: 10%; padding-left: 25%;">
-									<a href="#" style="text-decoration: none;">
-										<i class="fa fa-heart" id="heart"></i>
-										<!--<div class="qty">0</div>-->
-									</a>
-								</div>
-	
-								<!-- Cart -->
-								<div style = "padding-right: 10%;">
-									<a href="#" style="text-decoration: none;">
-										<i class="fa fa-shopping-cart"></i>
-										<!--<div class="qty">0</div>-->
-									</a>
-								</div>
-								<!-- /Cart -->
-	
-								<!-- User Toogle -->
-								<div>
-									<a href="account.html" style="text-decoration: none;">
-										<i class="fa fa-user"></i>
-									</a>
-								</div>
-								<!-- /User Toogle -->
+							<!-- /Cart -->
+
+							<!-- User Toogle -->
+							<div>
+								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
+								<a href="login.html" style="text-decoration: none;"> 
+									<i class="fa fa-user"></i>
+								</a>
+								<%} else if(session.getAttribute("loggato") == "si"){%>
+								<a href="account.html" style="text-decoration: none;"> 
+									<img src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									${username}
+								</a>
+								<%}%>
 							</div>
+							<!-- /User Toogle -->
 						</div>
 					</div>
 				</div>
 			</div>
-		</header>
-		<!--/HEADER-->
-
+		</div>
+	</header>
+	<!--/HEADER-->
+		
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
 		<div class="container-fluid">
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -140,7 +168,7 @@
 
 
 
-	<h3 style="text-align: center; margin-top: 1%;">EDIT YOU PROFILE</h3>
+	<h3 style="text-align: center; margin-top: 1%;">EDIT YOUR PROFILE ${username}</h3>
 
 	<div class="container rounded bg-white mt-6 mb-6">
 		<div class="row">

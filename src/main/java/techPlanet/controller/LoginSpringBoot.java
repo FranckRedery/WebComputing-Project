@@ -23,12 +23,14 @@ public class LoginSpringBoot {
 	@GetMapping("/faiLogout")
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
+		session.setAttribute("loggato", "no");
+		session.setAttribute("account", "no");
 		session.invalidate();
 		resp.sendRedirect("/");
 	}
 	
 	@PostMapping("/loginServices")
-	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass) throws IOException {
+	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
 		String sql = "select * from users where email = '" + email + "'" + "and password = '" + pass + "'";
 		HttpSession session = req.getSession(true);
 		
@@ -39,6 +41,9 @@ public class LoginSpringBoot {
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
 				session.setAttribute("email", rs.getString("email"));
+				session.setAttribute("username", rs.getString("username"));
+				session.setAttribute("loggato", "si");
+				session.setAttribute("account", "si");
 				resp.sendRedirect("/");
 			}else {
 				return "login";
