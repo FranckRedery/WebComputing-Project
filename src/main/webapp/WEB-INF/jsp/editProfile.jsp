@@ -192,33 +192,34 @@
           </div>
 			</div>
 			<div class="col-md-6 border-right">
+			 <form  method="post" action="update">
 				<div class="p-5 py-6">
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-						<div class="col-md-10"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+						<div class="col-md-10"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
+						<div class="col-md-10"><label class="labels">Surname</label><input type="text" class="form-control" name="surname" value="${surname}" placeholder="surname"></div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-md-10"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-						<div class="col-md-10"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-						<div class="col-md-10"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-						<div class="col-md-10"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-						<div class="col-md-10"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-						<div class="col-md-10"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-						<div class="col-md-10"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+						<div class="col-md-10"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" name="phonenumber" value="${phonenumber}"></div>
+						<div class="col-md-10"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" name="addressline1" value="${addressline1}"></div>
+						<div class="col-md-10"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" name="addressline2" value="${addressline2}"></div>
+						<div class="col-md-10"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" name="postcode" value="${postcode}"></div>
 					</div>
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-						<div class="col-md-10"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+						<div class="col-md-10"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" name="country" value="${country}"></div>
+						<div class="col-md-10"><label class="labels">State/Region</label><input type="text" class="form-control" value="${stateregion}" name="stateregion" placeholder="state"></div>
 					</div>
-					<div class="mt-4 text-center">
-						<button class="btn btn-primary profile-button" type="button">Save Profile</button>
+					<div class="mt-4 text-center" style="display: flex; padding-right: 20%">
+					   <a href="account.html">
+						<button style="margin-right:3%; margin-left:3%;" class="btn btn-primary profile-button" type="button">back</button>
+					   </a>					
+						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" type="submit">Save Profile</button>
 					</div>
 				</div>
+			 </form>
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
+
 
 
 	<!-- FOOTER -->
