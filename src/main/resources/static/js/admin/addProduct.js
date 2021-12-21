@@ -17,6 +17,7 @@
     }, false);
 })();
 
+
 var opzioni = new Array();
 opzioni.push(new Array("personal use", "home office", "small business", "large company", 
 			"print", "copy", "scanner", "fax", "color", "black and white", "few", "a little", "often", "always",
