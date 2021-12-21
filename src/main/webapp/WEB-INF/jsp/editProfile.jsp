@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="owl_carousel/owl.carousel.css">
 	<link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
-    <script src="js/aditProfile/editProfile.js"></script>
+    <script src="js/editProfile/editProfile.js"></script>
 </head>
 
 <title>TechPlanet</title>
