@@ -1,4 +1,4 @@
-package techPlanet.controller;
+package techPlanet.persistenza;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,22 +7,43 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import techPlanet.Database;
+public class Login {
+	
+	private Connection conn;
+	
+	public Login(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+	
+	public boolean faiLoginCurriculum(HttpServletRequest req, HttpServletResponse resp, String username, String pass) {
+		String sql = "select * from users where username = '" + username + "'";
+		HttpSession session = req.getSession(true);
+		
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				session.setAttribute("username", rs.getString("username"));
+				return true;
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 
-@Controller
-//MVC
-public class LoginSpringBoot {
-/*	
-	@GetMapping("/faiLogout")
+//--------------------------------------------------	
+	
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("loggato", "no");
@@ -30,8 +51,7 @@ public class LoginSpringBoot {
 		resp.sendRedirect("/");
 	}
 	
-	@PostMapping("/loginServices")
-	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
+	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
 		String sql = "select * from users where email = '" + email + "'" + "and password = '" + pass + "'";
 		HttpSession session = req.getSession(true);
 		
@@ -46,7 +66,7 @@ public class LoginSpringBoot {
 				session.setAttribute("loggato", "si");
 				resp.sendRedirect("/");
 			}else {
-				return "login";
+				return true;
 			}
 				
 		} catch (SQLException e) {
@@ -54,20 +74,8 @@ public class LoginSpringBoot {
 			e.printStackTrace();
 		}
 		
-		return null;
-	}
-	*/
-	
-	@GetMapping("/faiLogout")
-	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getLogin().logout(req, resp);
+		return false;
 	}
 	
-	@PostMapping("/loginServices")
-	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
-		if(Database.getInstance().getLogin().faiLogin(req, resp, email, pass, username))
-			return "login";
-		return null;
-	}
-
+//-----------------------------------------------------------------------------
 }
