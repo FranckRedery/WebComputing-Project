@@ -30,7 +30,7 @@ public class SignUp {
 		
 		try {
 			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-															"postgres", "postgres");
+															"postgres", "F1GL10D1TR014");
 			
 			Statement registerStatement = con.createStatement();
 			ResultSet rs = registerStatement.executeQuery(check);

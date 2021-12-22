@@ -19,8 +19,8 @@ public class Database {
 	
 	private Database() {
 		try {
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/techplanet", 
-											"postgres", "postgres");
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
+											"postgres", "F1GL10D1TR014");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
