@@ -10,11 +10,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/Signup/signUp.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <title>TechPlanet</title>
 </head>
-<body>
-	<section class="vh-120 gradient-custom">
+<body id="b" onload="checkRefresh();">
 		<div class="container py-3 h-100">
 		  <div class="row d-flex justify-content-center align-items-center h-10">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -24,7 +26,24 @@
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">SIGN UP</h2>
 					<img src="images/index/logo.png" alt="">
 					<div class="form-outline form-white mb-3">
-					<form  method="post" action="SignUpServices">
+					<%if (session.getAttribute("errore") == "si"){%>
+					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
+						<label class="form-label">Username</label>
+					  <input type="text" name="username" id="typeUsernameX" class="form-control form-control-lg" />
+					<div class="form-outline form-white mb-3">
+						<label class="form-label" for="typeEmailX">Email</label>
+					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
+					</div>
+					<div class="form-outline form-white mb-5">
+						<label class="form-label" for="typePasswordX">Password</label>
+					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+					  	<div style="margin-top: 5%;" id="fail" class="alert-box failure">Username or Password is incorrect </div>
+					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
+						</div>
+					</form>
+					<%} else {%>
+					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
 						<label class="form-label">Username</label>
 					  <input type="text" name="username" id="typeEmailX" class="form-control form-control-lg" />
 					<div class="form-outline form-white mb-3">
@@ -38,6 +57,7 @@
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
 						</div>
 					</form>
+					<%}%>
 					</div>
 					</div>					
 					<div class="d-flex justify-content-center text-center mt-3 pt-1">
@@ -45,13 +65,13 @@
 					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
 					  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					</div>
-					<p class="mt-2">Do you already have an account?<a href="login.html" class="text-white-50 fw-bold"> Log In</a></p>
+					<p class="mt-2">Do you already have an account?<button style="color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button></p></p>
+				    <a id="logi" href="login.html"></a>
 				    </div>
 				</div>
 			  </div>
 			</div>
 		  </div>
-		</section>
 </body>
 
 </html>

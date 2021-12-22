@@ -1,5 +1,32 @@
-.gradient-custom {
+#b{
   background: #337ff0;
   background: -webkit-linear-gradient(to right, #17386a, rgba(37, 117, 252, 1));
   background: linear-gradient(to right, #17386a, rgba(37, 117, 252, 1))
 }
+
+.alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;  
+}
+
+.failure {
+    color: #ffffff;
+    background-color: #ff0000;
+    border-color: #ebccd1;
+}
+
+.fab:hover {
+	color: blue;
+}
+
+.px-2:hover{
+	color: aqua;
+}
+
+.fa-google:hover{
+	color: red;
+}
+
+

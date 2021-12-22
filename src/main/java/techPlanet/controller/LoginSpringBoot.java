@@ -63,6 +63,16 @@ public class LoginSpringBoot {
 		Database.getInstance().getLogin().logout(req, resp);
 	}
 	
+	@GetMapping("/resetError")
+	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Database.getInstance().getLogin().resetError(req, resp);
+	}
+	
+	@GetMapping("/activeError")
+	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Database.getInstance().getLogin().activeError(req, resp);
+	}
+	
 	@PostMapping("/loginServices")
 	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
 		if(Database.getInstance().getLogin().faiLogin(req, resp, email, pass, username))

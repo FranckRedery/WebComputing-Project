@@ -47,9 +47,25 @@ public class Login {
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("loggato", "no");
+		session.setAttribute("errore", "no");
 		session.invalidate();
 		resp.sendRedirect("/");
 	}
+	
+	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		session.setAttribute("errore", "no");
+		session.invalidate();
+		resp.sendRedirect("/");
+	}
+	
+	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		session.setAttribute("errore", "si");
+		session.invalidate();
+		resp.sendRedirect("/");
+	}
+	
 	
 	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
 		String sql = "select * from users where email = '" + email + "'" + "and password = '" + pass + "'";
@@ -57,15 +73,18 @@ public class Login {
 		
 		try {
 			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-															"postgres", "postgres");
+															"postgres", "wizard09...");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
 				session.setAttribute("email", rs.getString("email"));
 				session.setAttribute("username", rs.getString("username"));
 				session.setAttribute("loggato", "si");
+				session.setAttribute("errore", "no");
 				resp.sendRedirect("/");
 			}else {
+				session.setAttribute("errore", "si");
+				resp.sendRedirect("login.html");
 				return true;
 			}
 				
