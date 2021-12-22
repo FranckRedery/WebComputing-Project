@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import techPlanet.model.Product;
+import techPlanet.model.ReturnRequest;
 import techPlanet.persistenza.dao.ReturnRequestDao;
 
 public class ReturnRequestDaoJDBC implements ReturnRequestDao {
@@ -16,13 +17,13 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	}
 
 	@Override
-	public List<Product> findAll() {
+	public List<ReturnRequest> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Product> findByType(String type) {
+	public List<ReturnRequest> findByType(String type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

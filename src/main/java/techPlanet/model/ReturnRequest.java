@@ -4,31 +4,33 @@ import java.util.Objects;
 
 public class ReturnRequest {
 	
-	long user;
-	long prodId;
+	User user;
+	Product product;
 	String date;
 	String status;
 	float moneyReturned;
 	
-	public long getUser() {
-		return user;
+
+	public Product getProduct() {
+		return product;
 	}
-	
-	public void setUser(long user) {
-		this.user = user;
-	}
-	
-	public long getProdId() {
-		return prodId;
-	}
-	public void setProdId(long prodId) {
-		this.prodId = prodId;
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	public String getDate() {
 		return date;
 	}
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
@@ -51,8 +53,9 @@ public class ReturnRequest {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(prodId, user);
+		return Objects.hash(product, user);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,7 +65,7 @@ public class ReturnRequest {
 		if (getClass() != obj.getClass())
 			return false;
 		ReturnRequest other = (ReturnRequest) obj;
-		return prodId == other.prodId && user == other.user;
+		return Objects.equals(product, other.product) && Objects.equals(user, other.user);
 	}
 	
 	
