@@ -135,7 +135,7 @@
     <!-- Single product details -->
 
     <div class="small-container single-product">
-        <div class="row">
+        <div id = "riga" class="row">
             <div class="col-lg-3">
                 <img src="images/carrello/iphone1.jpeg" width=100% id="productImg">
 
@@ -155,9 +155,9 @@
                 </div>
             </div>
             <div class="col-lg-6 description">
-                <p>Home / Iphone 11</p>
-                <h1>Iphone 11 pro max</h1>
-                <h4>€1200</h4>
+                <p>Home / ${prodotto.name}</p>
+                <h1>${prodotto.name}</h1>
+                <h4>${prodotto.price}</h4>
                 <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
                 <br>
                 <br>
@@ -168,9 +168,7 @@
                         <i class="fa fa-cart-plus"></i>add to Cart
                     </button></a>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, dolor.
-                    Accusantium dolorem illo fuga ipsum, nulla voluptates id ab non consequuntur
-                    accusamus, odit rem expedita, maiores labore deserunt placeat nesciunt?</p>
+                <p>${prodotto.description}</p>
                 <br>
             </div>
         </div>

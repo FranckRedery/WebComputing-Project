@@ -45,7 +45,6 @@ public class ReportDaoJDBC implements ReportDao {
 	@Override
 	public boolean delete(Report report) {
 		try {
-			report.setId(IdCurriculum.getId(con));
 			String query = "delete from report "
 					+ "where id = ?";
 			PreparedStatement st = con.prepareStatement(query);
@@ -100,6 +99,26 @@ public class ReportDaoJDBC implements ReportDao {
 			}
 		}
 		return true;
+	}
+	
+	@Override
+	public Report findById(Long id) {
+		Report report = new Report();
+		String query = "select * from report where id = ?";
+		try {
+			PreparedStatement st = con.prepareStatement(query);
+			st.setLong(1, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				report.setId(rs.getLong("id"));
+				report.setProblem_origin(rs.getString("problem_origin"));
+				report.setDescription(rs.getString("description"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return report;
 	}
 
 }

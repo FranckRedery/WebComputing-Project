@@ -5,11 +5,14 @@
  font-size: 17px;
  font-weight: bold;
  margin-bottom: 5%;
- margin-right: 3%;
 
 }
 
-#textManagement{
+#management {
+	width: 100%;
+}
+
+#textManagement1{
  margin-top: 10%;
  padding-bottom: 10%;
 }
@@ -895,9 +898,6 @@ header{
       margin-top: 10px;
     }
 
-    #firstElement{
-      padding-left: 10%!important;
-    }
   }
   
   @media only screen and (max-width: 480px) {

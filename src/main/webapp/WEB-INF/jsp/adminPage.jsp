@@ -50,20 +50,26 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-9">
 						<div class="header-ctn">
-							<div style="padding-right: 8%; padding-left:24%; margin-top: 3%" id="firstElement">
+							<div style="padding-right: 5%; margin-top: 3%" id="firstElement">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
+							<div style="padding-right: 5%; margin-top: 3%">
+								<a href="/visualizzaReports" style="text-decoration: none;">
+									<i class="fas fa-bug" id="report"></i>
+									<!--<div class="qty">0</div>-->
+								</a>
+							</div>
 							<!-- Wishlist -->
-							<div style="padding-right: 8%; margin-top: 3%">
+							<div style="padding-right: 5%; margin-top: 3%">
 								<a href="addProduct" style="text-decoration: none;">
 									<i class="fas fa-cart-plus" id="add"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
-							<div style="padding-right: 8%; margin-top: 3%">
+							<div style="padding-right: 5%; margin-top: 3%">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-trash" id="trash"></i>
 									<!--<div class="qty">0</div>-->
@@ -71,7 +77,7 @@
 							</div>
 							
 							<!-- Cart -->
-							<div style="padding-right: 8%; margin-top: 3%">
+							<div style="padding-right: 5%; margin-top: 3%">
 								<a href="#" style="text-decoration: none;">
 									<i class="fas fa-users"></i>
 									<!--<div class="qty">0</div>-->
@@ -80,7 +86,7 @@
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
-							<div style="padding-right: 8%; margin-top: 3%">
+							<div style="padding-right: 5%; margin-top: 3%">
 								<a href="returnRequests" style="text-decoration: none;">
 									<i class="fas fa-truck-loading"></i>
 								</a>
@@ -105,13 +111,19 @@
 
 	<p id="title">WELCOME "ADMIN NAME FROM DB"</p>
 
-	<div class="container" id="management">
-		<div class="row" id="textManagement">
+	<div class="container-fluid" id="management">
+		<div class="row" id="textManagement1">
 			<div class="col-md-2">
 				Positions management
 				<br /><br />
 				<a href="collegamento al sito" style="text-decoration: none;">
 					<i class="fas fa-user-plus fa-5x" id="positions2"></i></a>
+			</div>
+			<div class="col-md-2">
+				View reports
+				<br /><br />
+				<a href="/visualizzaReports" style="text-decoration: none;">
+					<i class="fas fa-bug fa-5x" id="report2"></i></a>
 			</div>
 			<div class="col-md-2">
 				Add product
