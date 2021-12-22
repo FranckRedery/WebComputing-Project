@@ -25,7 +25,7 @@ public class SignUp {
 	@PostMapping("/SignUpServices")
 	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
 		String sql = "insert into users values ('"+ email +"' , '" + password + "', '" + username + "')";
-		String check = "SELECT username FROM users WHERE username = '" + username + "'"; 
+		String check = "SELECT username FROM users WHERE username = '" + username + "'" + "OR email = '" + email + "'"; 
 		HttpSession session = req.getSession(true);
 		
 		try {

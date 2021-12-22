@@ -24,7 +24,6 @@ public class LoginSpringBoot {
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("loggato", "no");
-		session.setAttribute("account", "no");
 		session.invalidate();
 		resp.sendRedirect("/");
 	}
@@ -43,7 +42,6 @@ public class LoginSpringBoot {
 				session.setAttribute("email", rs.getString("email"));
 				session.setAttribute("username", rs.getString("username"));
 				session.setAttribute("loggato", "si");
-				session.setAttribute("account", "si");
 				resp.sendRedirect("/");
 			}else {
 				return "login";
