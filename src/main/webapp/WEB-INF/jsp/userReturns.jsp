@@ -151,7 +151,7 @@
                                     ${item.product.type}
                                 </span>
                                 <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">${item.product.name}</a>
-                                <span class="product-price" style="font-size: medium;">${item.product.price}</span>
+                                <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
                             </div>
                         </div>
                         </td>
@@ -169,45 +169,6 @@
                     </td>
                 </tr>
                 </c:forEach>
-                <tr>
-                    <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
-                                class="img-fluid d-block mx-auto">
-                            <div class="product-info">
-                                <span class="product-type" style="font-size: small;">
-                                    Electronics & accessories
-                                    
-                                </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">pc
-                                    windows</a>
-                                <span class="product-price" style="font-size: medium;">$100.50</span>
-                            </div>
-                        </div>
-                        </td>
-                    <td class="cell">12-15-2021</td>
-                    <td class="cell">
-                        <div class="alert alert-danger"><strong>Refused</strong></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
-                                class="img-fluid d-block mx-auto">
-                            <div class="product-info">
-                                <span class="product-type" style="font-size: small;">
-                                    Electronics & accessories
-                                </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">pc
-                                    windows</a>
-                                <span class="product-price" style="font-size: medium;">$100.50</span>
-                            </div>
-                        </div>
-                        </td>
-                    <td class="cell">12-15-2021</td>
-                    <td class="cell">
-                        <div class="alert alert-warning"><strong>Pending</strong></div>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>

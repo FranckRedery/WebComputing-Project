@@ -80,17 +80,18 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	@Override
 	public List<ReturnRequest> findByUser(String user) {
 		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();
-		String query = "select * from return_request where user = ?";
+		String query = "select * from return_request where username = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			System.out.println(user);
 			st.setString(1, user);
-			ResultSet rs = st.executeQuery(query);
+			System.out.println(st.toString());
+			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
 				System.out.println("TROVO ALMENO UNA RETURN REQUEST");
 				ReturnRequest r = new ReturnRequest();
-				String username = rs.getString("user");
+				String username = rs.getString("username");
 				User user2 = userDaoJDBC.findByPrimaryKey(username);
 				r.setUser(user2);
 				long idProd = rs.getLong("prod");

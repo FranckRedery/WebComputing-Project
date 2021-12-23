@@ -27,8 +27,8 @@ public class User {
 	public String userReturns(HttpServletRequest req) {
 		
 		String username = (String) req.getSession().getAttribute("username");
-		//List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findByUser(username);
-		List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findAll();
+		List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findByUser(username);
+		//List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findAll();
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returns", returns);
 		
