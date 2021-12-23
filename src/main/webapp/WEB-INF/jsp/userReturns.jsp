@@ -141,29 +141,29 @@
                 </tr>
             </thead>
             <tbody>
-            	<c:forEach items="${returns}" var="return">
+            	<c:forEach items="${returns}" var="item">
                		<tr>
                     <td class="product-cell">
                         <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
                                 <span class="product-type" style="font-size: small;">
-                                    ${return.product.type}
+                                    ${item.product.type}
                                 </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">${return.product.name}</a>
-                                <span class="product-price" style="font-size: medium;">${return.product.price}</span>
+                                <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">${item.product.name}</a>
+                                <span class="product-price" style="font-size: medium;">${item.product.price}</span>
                             </div>
                         </div>
                         </td>
-                    <td class="cell">${return.date}</td>
+                    <td class="cell">${item.date}</td>
                     <td class="cell">
-                    	<c:if test= "${return.status == pending}">
+                    	<c:if test = "${item.status == 'pending'}">
                     		<div class="alert alert-warning"><strong>Pending</strong></div>
 						</c:if>
-						<c:if test= "${return.status == accepted}">
+						<c:if test = "${item.status == 'accepted'}">
                  				<div class="alert alert-success"><strong>Accepted</strong></div>
 						</c:if>
-						<c:if test= "${return.status == declined}">
+						<c:if test = "${item.status == 'declined'}">
                  			<div class="alert alert-danger"><strong>Refused</strong></div>
 						</c:if>
                     </td>

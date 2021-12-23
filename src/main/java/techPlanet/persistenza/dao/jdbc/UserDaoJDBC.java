@@ -48,6 +48,7 @@ public class UserDaoJDBC implements UserDao {
 		String query = "select * from users where username = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
+			System.out.println("sono nell'userDaoJDBC");
 			st.setString(1, username);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
