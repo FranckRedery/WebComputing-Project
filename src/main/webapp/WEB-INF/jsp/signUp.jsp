@@ -65,8 +65,8 @@
 					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
 					  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					</div>
-					<p class="mt-2">Already registered?<button style="color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button>
-					or back to <button style="color: grey; background: transparent; border: 0;" onclick="errorBox();"> Home </a></button></p>
+					<p class="mt-2">Already registered?<button style=" text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button>
+					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>
 				    <a id="logi" href="login.html"></a>
 				    </div>
 				</div>

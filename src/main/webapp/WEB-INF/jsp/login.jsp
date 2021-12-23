@@ -60,8 +60,8 @@
 					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
 					  <a href="#!" class="text-white"><i id="G" class="fab fa-google fa-lg"></i></a>
 					</div>
-					<p class="pt-4">Don't have an account? <button  style=" color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
-					or back to <button style="color: grey; background: transparent; border: 0;" onclick="errorBox();"> Home </a></button></p>					
+					<p class="pt-4">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
+					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>					
 					<a id="sign" href="signUp.html"></a>
 				  </div>
 				</div>
