@@ -27,6 +27,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 
 	@Override
 	public List<ReturnRequest> findAll() {
+
 		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();
 		String query = "select * from return_request";
 		try {
@@ -51,6 +52,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return returnRequest;
 	}
 
@@ -70,6 +72,36 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	public boolean delete(ReturnRequest returnRequest) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<ReturnRequest> findByUser(String user) {
+		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();
+		String query = "select * from return_request where user = " + user;
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				ReturnRequest r = new ReturnRequest();
+				String username = rs.getString("user");
+				User user2 = userDaoJDBC.findByPrimaryKey(username);
+				r.setUser(user2);
+				long idProd = rs.getLong("prod");
+				Product prod = productDaoJDBC.findById(idProd);
+				r.setProduct(prod);
+				r.setDate(rs.getString("date"));
+				r.setMoneyReturned(rs.getFloat("moneyreturned"));
+				r.setStatus(rs.getString("status"));
+				
+				returnRequest.add(r);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return returnRequest;
 	}
 	
 

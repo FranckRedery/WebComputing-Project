@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import techPlanet.model.Product;
-import techPlanet.model.Report;
 import techPlanet.persistenza.dao.ProductDao;
 
 

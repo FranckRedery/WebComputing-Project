@@ -4,15 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import techPlanet.model.ReturnRequest;
 import techPlanet.persistenza.Login;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ProductDao;
 import techPlanet.persistenza.dao.ReportDao;
+import techPlanet.persistenza.dao.ReturnRequestDao;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ProductDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReportDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.ReturnRequestDaoJDBC;
 
 public class Database {
 	
@@ -54,6 +57,10 @@ public class Database {
 	
 	public ReportDao getReport() {
 		return new ReportDaoJDBC(conn);
+	}
+	
+	public ReturnRequestDao getReturnRequest() {
+		return new ReturnRequestDaoJDBC(conn);
 	}
 	
 }
