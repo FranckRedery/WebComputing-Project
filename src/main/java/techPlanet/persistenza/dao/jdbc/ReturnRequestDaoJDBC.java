@@ -100,6 +100,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				r.setMoneyReturned(rs.getFloat("moneyreturned"));
 				r.setStatus(rs.getString("status"));
 				
+				
 				returnRequest.add(r);
 
 			}
