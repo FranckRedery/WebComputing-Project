@@ -22,10 +22,6 @@ public class User {
 		return "itemReturn";
 	}
 		
-	@GetMapping("/userReturns")
-	public String userReturns() {
-		return "userReturns";
-	}
 
 	@GetMapping("/userReturns")
 	public String userReturns(HttpServletRequest req) {

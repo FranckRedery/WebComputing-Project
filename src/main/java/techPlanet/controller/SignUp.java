@@ -21,8 +21,15 @@ import techPlanet.Database;
 //MVC
 public class SignUp {
 	
-
+	private Connection conn;
 	
+	public SignUp(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+	
+	
+	public SignUp() {}
 	
 	@PostMapping("/SignUpServices")
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
