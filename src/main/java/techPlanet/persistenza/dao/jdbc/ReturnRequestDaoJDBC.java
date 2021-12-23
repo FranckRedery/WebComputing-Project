@@ -83,9 +83,8 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 		String query = "select * from return_request where username = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
-			System.out.println(user);
 			st.setString(1, user);
-			System.out.println(st.toString());
+
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
