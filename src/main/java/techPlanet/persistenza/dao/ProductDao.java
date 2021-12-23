@@ -9,4 +9,5 @@ public interface ProductDao {
 	public List<Product> findByType(String type);
 	public boolean saveOrUpdate(Product product);
 	public boolean delete(Product product);
+	public Product findById(long id);
 }

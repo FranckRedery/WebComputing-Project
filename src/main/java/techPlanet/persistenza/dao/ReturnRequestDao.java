@@ -9,7 +9,7 @@ public interface ReturnRequestDao {
 
 	public List<ReturnRequest> findAll();
 	public List<ReturnRequest> findByType(String type);
-	public boolean saveOrUpdate(Product product);
-	public boolean delete(Product product);
+	public boolean saveOrUpdate(ReturnRequest returnRequest);
+	public boolean delete(ReturnRequest returnRequest);
 
 }

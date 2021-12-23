@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import techPlanet.model.Product;
+import techPlanet.model.Report;
 import techPlanet.persistenza.dao.ProductDao;
 
 
@@ -84,6 +85,32 @@ public class ProductDaoJDBC implements ProductDao {
 	public boolean delete(Product product) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Product findById(long id) {
+		String query = "select * from products where id = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				Product prod = new Product();
+				prod.setDescription(rs.getString("description"));
+				prod.setId(rs.getLong("id"));
+				prod.setName(rs.getString("name"));
+				prod.setPrice(rs.getFloat("price"));
+				prod.setQuantity(rs.getInt("quantity"));
+				prod.setReviews(rs.getFloat("reviews"));
+				prod.setTags(rs.getString("tags"));
+				prod.setType(rs.getString("type"));
+				return prod;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
