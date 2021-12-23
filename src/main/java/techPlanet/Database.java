@@ -9,6 +9,8 @@ import techPlanet.model.ReturnRequest;
 import techPlanet.controller.SignUp;
 import techPlanet.controller.UpdateProfile;
 import techPlanet.persistenza.Login;
+import techPlanet.persistenza.SignUp;
+import techPlanet.persistenza.UpdateProfile;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ProductDao;
