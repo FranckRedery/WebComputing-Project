@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import techPlanet.controller.SignUp;
+import techPlanet.controller.UpdateProfile;
 import techPlanet.persistenza.Login;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
@@ -46,6 +48,14 @@ public class Database {
 	
 	public Login getLogin() {
 		return new Login(conn);
+	}
+
+	public SignUp getSignUp() {
+		return new SignUp(conn);
+	}
+	
+	public UpdateProfile getUpdateProfile() {
+		return new UpdateProfile(conn);
 	}
 	
 	public CurriculumDao getCurriculum() {

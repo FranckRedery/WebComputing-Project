@@ -34,11 +34,11 @@
 						<label class="form-label" for="typeEmailX">Email</label>
 					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
 					</div>
-					<div class="form-outline form-white mb-5">
+					<div class="form-outline form-white mb-4">
 						<label class="form-label" for="typePasswordX">Password</label>
 					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
 					  	<div style="margin-top: 5%;" id="fail" class="alert-box failure">Username or Password is incorrect </div>
-					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+					<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
 						</div>
 					</form>
@@ -53,7 +53,7 @@
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
 					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
-					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+					<p class="small mb-3 pb-lg-2"></p>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
 						</div>
 					</form>

@@ -19,6 +19,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 //MVC
 public class SignUp {
 	
+	private Connection conn;
+	
+	public SignUp(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+	
+	
 	
 	@PostMapping("/SignUpServices")
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
@@ -27,10 +35,8 @@ public class SignUp {
 		HttpSession session = req.getSession(true);
 		
 		try {
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-															"postgres", "postgres");
 			
-			Statement registerStatement = con.createStatement();
+			Statement registerStatement = conn.createStatement();
 			ResultSet rs = registerStatement.executeQuery(check);
 			
 			if(rs.next()) {
@@ -39,7 +45,7 @@ public class SignUp {
 				return "signUp";
 			}
 			else if(session.getAttribute("errore") == "no"){			
-				PreparedStatement preparedStmt = con.prepareStatement(sql);
+				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
 				session.setAttribute("errore", "no");
 				return "login";
