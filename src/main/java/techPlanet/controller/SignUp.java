@@ -15,48 +15,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import techPlanet.Database;
+
 @Controller
 //MVC
 public class SignUp {
 	
-	private Connection conn;
-	
-	public SignUp(Connection conn) {
-		super();
-		this.conn = conn;
-	}
-	
+
 	
 	
 	@PostMapping("/SignUpServices")
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
-		String sql = "insert into users values ('"+ email +"' , '" + password + "', '" + username + "')";
-		String check = "SELECT username FROM users WHERE username = '" + username + "'" + "OR email = '" + email + "'"; 
-		HttpSession session = req.getSession(true);
 		
-		try {
-			
-			Statement registerStatement = conn.createStatement();
-			ResultSet rs = registerStatement.executeQuery(check);
-			
-			if(rs.next()) {
-				resp.sendRedirect("/signUp.html");
- 				session.setAttribute("errore", "si");
-				return "signUp";
-			}
-			else if(session.getAttribute("errore") == "no"){			
-				PreparedStatement preparedStmt = conn.prepareStatement(sql);
-				preparedStmt.execute();
-				session.setAttribute("errore", "no");
-				return "login";
-			}
-			resp.sendRedirect("/signUp.html");
-			session.setAttribute("errore", "si");
-			return "signUp";
-		 } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Database.getInstance().getSignUp().faiSignUp(req, resp, username, email, password);
 		
 		return null;
 	}
