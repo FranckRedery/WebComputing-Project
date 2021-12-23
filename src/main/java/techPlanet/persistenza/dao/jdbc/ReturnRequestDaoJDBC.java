@@ -88,7 +88,6 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println("TROVO ALMENO UNA RETURN REQUEST");
 				ReturnRequest r = new ReturnRequest();
 				String username = rs.getString("username");
 				User user2 = userDaoJDBC.findByPrimaryKey(username);
