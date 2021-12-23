@@ -20,10 +20,9 @@ public class UpdateProfile {
 		this.conn = conn;
 	}
 	
-	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {
+	public String faiUpdate(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {
 		HttpSession session = req.getSession(true);
 		String sql = "UPDATE users SET name = '" + name + "', " + "surname = '" + surname + "', " + "phonenumber = '" + phonenumber + "', " + "addressline1 = '" + addressline1 + "', " + "addressline2 = '" + addressline2 + "', " + "postcode = '" + postcode + "', " + "country = '" + country + "', " + "stateregion = '" + stateregion + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
-		System.out.println(sql);
 		try {
 		
 			PreparedStatement preparedStmt = conn.prepareStatement(sql);
@@ -39,7 +38,8 @@ public class UpdateProfile {
 				session.setAttribute("stateregion", stateregion);
 				resp.sendRedirect("account.html");
 			}else {
-				return false;
+				resp.sendRedirect("editProfile.html");
+				return "editProfile.html";
 			}
 				
 		} catch (SQLException e) {
@@ -47,7 +47,7 @@ public class UpdateProfile {
 			e.printStackTrace();
 		}
 		
-		return true;
+		return null;
 	}
 	
 	

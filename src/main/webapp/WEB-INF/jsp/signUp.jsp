@@ -22,37 +22,37 @@
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
 			  <div class="card bg-dark text-white" style="border-radius: 1rem;">
 				<div class="card-body p-3 text-center">
-				  <div class="mb-md-3 mt-md-2 pb-4">
+				  <div class="mb-md-3 mt-md-2 ">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">SIGN UP</h2>
 					<img src="images/index/logo.png" alt="">
 					<div class="form-outline form-white mb-3">
 					<%if (session.getAttribute("errore") == "si"){%>
 					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
-						<label class="form-label">UsernameSI</label>
-					  <input type="text" name="username" id="typeUsernameX" class="form-control form-control-lg" />
+						<label class="form-label">Username</label>
+					  <input type="text" name="username" id="typeUsernameX" class="form-control form-control-lg"  required pattern=".{6,15}" title="Minimo 6 e Massimo 15 caratteri"/>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
-					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
+					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required/>
 					</div>
 					<div class="form-outline form-white mb-4">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
-					  	<div style="margin-top: 5%;" id="fail" class="alert-box failure">Username or Password is incorrect </div>
+					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri" />
+					  	<div style="margin-top: 5%;" id="fail" class="alert-box failure">Username or Password alredy exist</div>
 					<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
 						</div>
 					</form>
 					<%} else {%>
 					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
-						<label class="form-label">UsernameNO</label>
-					  <input type="text" name="username" id="typeEmailX" class="form-control form-control-lg" />
+						<label class="form-label">Username</label>
+					  <input type="text" name="username" id="typeUsernameX" class="form-control form-control-lg" required pattern=".{6,15}" title="Minimo 6 e Massimo 15 caratteri" />
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
-					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
+					  <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required/>
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					<p class="small mb-3 pb-lg-2"></p>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
 						</div>
@@ -65,7 +65,8 @@
 					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
 					  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					</div>
-					<p class="mt-2">Do you already have an account?<button style="color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button></p></p>
+					<p class="mt-2">Already registered?<button style="color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button>
+					or back to <button style="color: grey; background: transparent; border: 0;" onclick="errorBox();"> Home </a></button></p>
 				    <a id="logi" href="login.html"></a>
 				    </div>
 				</div>

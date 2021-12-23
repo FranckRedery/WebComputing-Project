@@ -39,7 +39,7 @@ public class SignUp {
 			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
-				resp.sendRedirect("/signUp.html");
+				resp.sendRedirect("/login.html");
 				session.setAttribute("errore", "no");
 				return "login";
 			   }

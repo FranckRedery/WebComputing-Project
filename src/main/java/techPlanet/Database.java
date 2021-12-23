@@ -5,10 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-import techPlanet.model.ReturnRequest;
-import techPlanet.controller.SignUp;
-import techPlanet.controller.UpdateProfile;
 import techPlanet.persistenza.Login;
+import techPlanet.persistenza.SignUp;
+import techPlanet.persistenza.UpdateProfile;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ProductDao;
@@ -35,7 +34,7 @@ public class Database {
 	private Database() {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-											"postgres", "F1GL10D1TR014");
+											"postgres", "postgres");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

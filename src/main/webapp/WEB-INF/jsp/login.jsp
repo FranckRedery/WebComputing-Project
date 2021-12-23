@@ -21,19 +21,19 @@
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
 			  <div class="card bg-dark text-white" style="border-radius: 1rem;">
 				<div class="card-body p-3 text-center">
-				  <div class="mb-md-3 mt-md-2 pb-4">
+				  <div class="mb-md-3 mt-md-2">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Login</h2>
 					<img src="images/index/logo.png" alt="">
 					<%if (session.getAttribute("errore") == "si"){%>
 					<form name="loginForm"  method="post" onsubmit="return validateForm();" action="loginServices">
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required/>
 					    
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" />
+					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
@@ -44,12 +44,12 @@
 					<div class="form-outline form-white mb-3">
 					
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required />
 					    
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" />
+					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 					<button  class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
@@ -60,7 +60,8 @@
 					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
 					  <a href="#!" class="text-white"><i id="G" class="fab fa-google fa-lg"></i></a>
 					</div>
-					<p class="mt-2">Don't have an account? <button style="color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button></p>
+					<p class="pt-4">Don't have an account? <button  style=" color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
+					or back to <button style="color: grey; background: transparent; border: 0;" onclick="errorBox();"> Home </a></button></p>					
 					<a id="sign" href="signUp.html"></a>
 				  </div>
 				</div>

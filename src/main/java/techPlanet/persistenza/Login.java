@@ -61,6 +61,8 @@ public class Login {
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("errore", "si");
+		System.out.println("ATTIVOOOO");
+		session.invalidate();
 		resp.sendRedirect("/");
 	}
 	

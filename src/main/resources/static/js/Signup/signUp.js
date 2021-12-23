@@ -18,19 +18,34 @@ function errorBox(){
      window.location = document.getElementById('logi').href;
 }
 
+function resetSignUp(){	
+	 $.ajax({  
+         type : 'GET',  
+         url : "/resetError",  
+    });
+     window.location = document.getElementById('sign').href;
+}
+
+function resetLogin(){	
+	 $.ajax({  
+         type : 'GET',  
+         url : "/resetError",  
+    });
+     window.location = document.getElementById('log').href;
+}
+
 function validateFormSignUp() {
-  var exp = '\s*'
+  var exp = '\s*';
   var username = document.forms["SignUpForm"]["username"].value;
   var email = document.forms["SignUpForm"]["email"].value;
   var password = document.forms["SignUpForm"]["password"].value;
+	console.log(username);
   if (username.match(exp)) {
-	alert(1)
 	document.getElementById("fail").innerHTML = "username must be filled out";
 	$.ajax({  
          type : 'GET',  
          url : "/activeError",  
     });
-    return false;
   }
   if (email.match(exp)) {
 	document.getElementById("fail").innerHTML = "email must be filled out";
@@ -38,7 +53,6 @@ function validateFormSignUp() {
          type : 'GET',  
          url : "/activeError",  
     });
-    return false;
   }
   if (password.match(exp)){
 	document.getElementById("fail").innerHTML = "password must be filled out";
@@ -46,6 +60,5 @@ function validateFormSignUp() {
          type : 'GET',  
          url : "/activeError",  
     });
-    return false;
   }
 }

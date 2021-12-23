@@ -21,14 +21,6 @@ import techPlanet.Database;
 //MVC
 public class SignUp {
 	
-	private Connection conn;
-	
-	public SignUp(Connection conn) {
-		super();
-		this.conn = conn;
-	}
-	
-	
 	public SignUp() {}
 	
 	@PostMapping("/SignUpServices")
@@ -43,7 +35,6 @@ public class SignUp {
 	public String activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		Database.getInstance().getLogin().activeError(req, resp);
-		
 		return null;
 	}
 }

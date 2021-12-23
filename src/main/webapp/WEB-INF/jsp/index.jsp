@@ -18,8 +18,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
 	integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
@@ -30,6 +29,7 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
 	rel="stylesheet" type="text/css" />
+<script src="js/Signup/signUp.js"></script>
 </head>
 
 <title>Tech Planet</title>
@@ -50,21 +50,23 @@
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
+					<a id="log" href="login.html"></a>
+					<a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
 						<%if (session.getAttribute("loggato") == "si") {%>
 								<a href="/faiLogout" style="text-decoration: none;">
 									<button class="btnLog">
 										<span>Log out</span>
 									</button>
-								</a>
+							    </a>
 								<%} else {%>
-								<a href="login.html" style="text-decoration: none;">
-									<button class="btnLog">
+								<a style="text-decoration: none;">
+									<button onclick="resetLogin();" class="btnLog">
 										<span>Login</span>
 									</button>
 								</a>
-								<a href="signUp.html" style="text-decoration: none;">
-									<button class="btnLog">
+								<a style="text-decoration: none;">
+									<button onclick="resetSignUp();"class="btnLog">
 										<span>Sign Up</span>
 									</button>
 								</a>
@@ -126,14 +128,14 @@
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
-								</a>
-								<%} else if(session.getAttribute("loggato") == "si"){%>
+								<%if (session.getAttribute("loggato") == "si"){%>
 								<a href="account.html" style="text-decoration: none; display: flex; "> 
 									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 									${username}
+								</a>
+								<%} else {%>
+								<a href="login.html" style="text-decoration: none;"> 
+									<i class="fa fa-user"></i>
 								</a>
 								<%}%>
 							</div>
