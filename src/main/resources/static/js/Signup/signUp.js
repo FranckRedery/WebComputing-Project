@@ -24,6 +24,7 @@ function validateFormSignUp() {
   var email = document.forms["SignUpForm"]["email"].value;
   var password = document.forms["SignUpForm"]["password"].value;
   if (username.match(exp)) {
+	alert(1)
 	document.getElementById("fail").innerHTML = "username must be filled out";
 	$.ajax({  
          type : 'GET',  
@@ -41,14 +42,6 @@ function validateFormSignUp() {
   }
   if (password.match(exp)){
 	document.getElementById("fail").innerHTML = "password must be filled out";
-	$.ajax({  
-         type : 'GET',  
-         url : "/activeError",  
-    });
-    return false;
-  }
-  if (password.length < 6) {
-	document.getElementById("fail").innerHTML = "password must be at least 6 character";
 	$.ajax({  
          type : 'GET',  
          url : "/activeError",  

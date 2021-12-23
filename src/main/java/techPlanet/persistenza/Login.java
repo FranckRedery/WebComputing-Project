@@ -42,8 +42,7 @@ public class Login {
 		return false;
 	}
 
-//--------------------------------------------------	
-	
+
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("loggato", "no");
@@ -62,7 +61,6 @@ public class Login {
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("errore", "si");
-		session.invalidate();
 		resp.sendRedirect("/");
 	}
 	
@@ -94,5 +92,4 @@ public class Login {
 		return false;
 	}
 	
-//-----------------------------------------------------------------------------
 }

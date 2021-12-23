@@ -28,7 +28,7 @@
 					<div class="form-outline form-white mb-3">
 					<%if (session.getAttribute("errore") == "si"){%>
 					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
-						<label class="form-label">Username</label>
+						<label class="form-label">UsernameSI</label>
 					  <input type="text" name="username" id="typeUsernameX" class="form-control form-control-lg" />
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
@@ -44,7 +44,7 @@
 					</form>
 					<%} else {%>
 					<form name="SignUpForm" method="post" onsubmit="return validateFormSignUp();" action="SignUpServices">
-						<label class="form-label">Username</label>
+						<label class="form-label">UsernameNO</label>
 					  <input type="text" name="username" id="typeEmailX" class="form-control form-control-lg" />
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
