@@ -72,9 +72,7 @@ public class Login {
 		HttpSession session = req.getSession(true);
 		
 		try {
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-															"postgres", "wizard09...");
-			Statement st = con.createStatement();
+			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
 				session.setAttribute("email", rs.getString("email"));

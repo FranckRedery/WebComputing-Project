@@ -21,16 +21,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 //MVC
 public class UpdateProfile {
 	
+	private Connection conn;
+
+	public UpdateProfile(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+	
 	@PostMapping("/update")
 	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {
 		HttpSession session = req.getSession(true);
 		String sql = "UPDATE users SET name = '" + name + "', " + "surname = '" + surname + "', " + "phonenumber = '" + phonenumber + "', " + "addressline1 = '" + addressline1 + "', " + "addressline2 = '" + addressline2 + "', " + "postcode = '" + postcode + "', " + "country = '" + country + "', " + "stateregion = '" + stateregion + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
 		System.out.println(sql);
 		try {
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-															"postgres", "wizard09...");
-			
-			PreparedStatement preparedStmt = con.prepareStatement(sql);
+		
+			PreparedStatement preparedStmt = conn.prepareStatement(sql);
 			 preparedStmt.execute();
 			if (!sql.isEmpty()) {
 				session.setAttribute("name", name);
