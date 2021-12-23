@@ -39,5 +39,12 @@ public class SignUp {
 		return null;
 	}
 	
+	@PostMapping("/activeError")
+	public String activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		
+		Database.getInstance().getLogin().activeError(req, resp);
+		
+		return null;
+	}
 }
 

@@ -35,15 +35,20 @@ public class SignUp {
  				session.setAttribute("errore", "si");
 				return "signUp";
 			}
-			else if(session.getAttribute("errore") == "no"){			
+			else { 
+			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
+				resp.sendRedirect("/signUp.html");
 				session.setAttribute("errore", "no");
 				return "login";
+			   }
+			   else {
+					resp.sendRedirect("/signUp.html");
+					session.setAttribute("errore", "si");
+					return "signUp";   
+			   }
 			}
-			resp.sendRedirect("/signUp.html");
-			session.setAttribute("errore", "si");
-			return "signUp";
 		 } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

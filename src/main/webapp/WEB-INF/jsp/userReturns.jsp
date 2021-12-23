@@ -176,6 +176,7 @@
                             <div class="product-info">
                                 <span class="product-type" style="font-size: small;">
                                     Electronics & accessories
+                                    
                                 </span>
                                 <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">pc
                                     windows</a>
