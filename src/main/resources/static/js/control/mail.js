@@ -17,9 +17,13 @@ function sendEmail() {
 		Subject : "Verification Code",
 		Body : "Il tuo codice di conferma è: " + conf,
 	})
-    
 }
-
-function control(){
-	alert(conf);
-}
+ 
+ 
+$('#emailCard').click(function(){ 
+	
+	$.ajax({  
+         type : 'GET',  
+         url : "/setMailCode",  
+    });
+});

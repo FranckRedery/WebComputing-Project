@@ -9,9 +9,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="owl_carousel/owl.carousel.css">
 	<link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="/lib/jquery.min.js"></script>
+	<script src="/lib/jquery.plugin.js"></script>
+    <script src="js/LoginAdmin/adminLogin.js"></script>
 </head>
 
 <title>TechPlanet</title>
@@ -166,7 +170,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">SECURITY</h3>
 
   <div class="containerCardsAcc">
-	<a style="text-decoration: none;" href="control.html">
+	<a id="emailCard" style="text-decoration: none;" href="control.html">
 	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">

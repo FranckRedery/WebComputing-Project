@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
+import techPlanet.persistenza.Control;
 import techPlanet.persistenza.Login;
 import techPlanet.persistenza.SignUp;
 import techPlanet.persistenza.UpdateProfile;
@@ -51,6 +51,10 @@ public class Database {
 	
 	public Login getLogin() {
 		return new Login(conn);
+	}
+	
+	public Control getControl() {
+		return new Control(conn);
 	}
 
 	public SignUp getSignUp() {

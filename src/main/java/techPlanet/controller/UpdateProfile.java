@@ -20,10 +20,8 @@ public class UpdateProfile {
 	
 
 	@PostMapping("/update")
-	public String faiUpdate(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {
-		
+	public String faiUpdate(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {		
 		Database.getInstance().getUpdateProfile().faiUpdate(req, resp, name, surname, phonenumber, addressline1, addressline2, postcode, country, stateregion);
-	
 			return null;
 	}
 

@@ -61,7 +61,6 @@ public class Login {
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("errore", "si");
-		System.out.println("ATTIVOOOO");
 		session.invalidate();
 		resp.sendRedirect("/");
 	}
@@ -71,6 +70,7 @@ public class Login {
 		String sql = "select * from users where email = '" + email + "'" + "and password = '" + pass + "'";
 		HttpSession session = req.getSession(true);
 		
+		
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
@@ -79,6 +79,14 @@ public class Login {
 				session.setAttribute("username", rs.getString("username"));
 				session.setAttribute("loggato", "si");
 				session.setAttribute("errore", "no");
+				session.setAttribute("name", rs.getString("name"));
+				session.setAttribute("surname", rs.getString("surname"));
+				session.setAttribute("phonenumber", rs.getString("phonenumber"));
+				session.setAttribute("addressline1", rs.getString("addressline1"));
+				session.setAttribute("addressline2", rs.getString("addressline2"));
+				session.setAttribute("postcode", rs.getString("postcode"));
+				session.setAttribute("country", rs.getString("country"));
+				session.setAttribute("stateregion", rs.getString("stateregion"));
 				resp.sendRedirect("/");
 			}else {
 				session.setAttribute("errore", "si");

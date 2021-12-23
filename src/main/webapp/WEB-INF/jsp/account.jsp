@@ -13,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="owl_carousel/owl.carousel.css">
 	<link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
+	  <script src="js/LoginAdmin/adminLogin.js"></script>
 </head>
 
 <title>TechPlanet</title>
@@ -183,7 +184,8 @@
 		</div>
 	   </a>
 	</div>
-
+	
+	
 	<a style="text-decoration: none;" href="editProfile.html">
 	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">

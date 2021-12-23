@@ -3,7 +3,9 @@ package techPlanet.persistenza;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,6 +38,7 @@ public class UpdateProfile {
 				session.setAttribute("postcode", postcode);
 				session.setAttribute("country", country);
 				session.setAttribute("stateregion", stateregion);
+				session.setAttribute("loggato", "si");
 				resp.sendRedirect("account.html");
 			}else {
 				resp.sendRedirect("editProfile.html");
@@ -49,6 +52,5 @@ public class UpdateProfile {
 		
 		return null;
 	}
-	
-	
+
 }
