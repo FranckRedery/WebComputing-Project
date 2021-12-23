@@ -1,6 +1,7 @@
 package techPlanet.persistenza.dao.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,6 +24,8 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	public ReturnRequestDaoJDBC(Connection conn) {
 		super();
 		this.conn = conn;
+		userDaoJDBC = new UserDaoJDBC(conn);
+		productDaoJDBC = new ProductDaoJDBC(conn);
 	}
 
 	@Override
@@ -77,11 +80,15 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	@Override
 	public List<ReturnRequest> findByUser(String user) {
 		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();
-		String query = "select * from return_request where user = " + user;
+		String query = "select * from return_request where user = ?";
 		try {
-			Statement st = conn.createStatement();
+			PreparedStatement st = conn.prepareStatement(query);
+			System.out.println(user);
+			st.setString(1, user);
 			ResultSet rs = st.executeQuery(query);
+			
 			while (rs.next()) {
+				System.out.println("TROVO ALMENO UNA RETURN REQUEST");
 				ReturnRequest r = new ReturnRequest();
 				String username = rs.getString("user");
 				User user2 = userDaoJDBC.findByPrimaryKey(username);
