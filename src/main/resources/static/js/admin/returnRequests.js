@@ -46,7 +46,6 @@ $('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
      });
 
 
-
 function ReturnRequest(user,product,moneyReturned,status){
 	this.user = user;
 	this.product = product;

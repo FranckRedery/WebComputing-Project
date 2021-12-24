@@ -2,7 +2,7 @@ package techPlanet.persistenza.dao;
 
 import java.util.List;
 
-import techPlanet.model.Product;
+
 import techPlanet.model.ReturnRequest;
 
 public interface ReturnRequestDao {

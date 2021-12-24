@@ -98,6 +98,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			String query = "update return_request "
 			+ "set status = ?, moneyreturned = ? "
 			+ "where username = ? and prod = ?";
+
 			
 			PreparedStatement st = conn.prepareStatement(query);
 			

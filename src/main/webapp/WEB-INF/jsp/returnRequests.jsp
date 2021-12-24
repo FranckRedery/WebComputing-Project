@@ -164,7 +164,6 @@
                                 class="btn btn-success btn-lg">Accept</button><button type="button"
                                 class="btn btn-danger btn-lg">Decline</button>
                         </div>
-                       
                     </td>
                 </tr>
                 </c:forEach>
