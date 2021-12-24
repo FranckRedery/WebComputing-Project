@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,111 +117,58 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="user-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img class="rounded-circle"
+            <c:forEach items="${returns}" var="item">
+               		<tr>
+               		<td class="user-cell">
+                        <div class="align-items-center text-center " id="user"><img class="rounded-circle"
                                 width="120px"
-                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                class="font-weight-bold;" style="font-size: small;">Name</span><span
-                                class="text-black-50" style="font-size: small;">email@mail.com</span><span> </span>
+                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                                <br>
+                                <span class="info" style="font-size: small;">Username : </span>
+                                <span class="font-weight-bold;" id="username" style="font-size: small;">${item.user.username}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Email : </span>
+                                <span class="font-weight-bold;" style="font-size: small;">${item.user.email}</span><span> </span>
                         </div>
                     </td>
                     <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png"
+                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
+                            	<span class="info" style="font-size: small;">Product ID : </span>
+                            	<span class="product-id" id="prodId" style="font-size: small;">${item.product.id}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Type : </span>
                                 <span class="product-type" style="font-size: small;">
-                                    Electronics & accessories
+                                    ${item.product.type}
                                 </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name"
-                                    style="font-size: small;">pc
-                                    windows</a>
-                                <span class="product-price" style="font-size: medium;">$100.50</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Name : </span>
+                                <span class="product-name" style="font-size: small;">
+                                    ${item.product.name}
+                                </span>
+                               <br>
+                                 <span class="info" style="font-size: small;">Price : </span>
+                                <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
                             </div>
                         </div>
-                    </td>
-                    <td class="refund-cell">
-                        <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                            min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
-                    </div>
+                        </td>
+                        <td class="refund-cell">
+                        
+                        <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number" value="0" class="text-center" step=".01"
+                            min="0" max="100000" oninput="validity.valid||(value='');" id="amount"></div>
                     </td>
                     <td class="response-cell">
+                    
                         <div class="d-flex flex-column align-items-left text-center "><button type="button"
                                 class="btn btn-success btn-lg">Accept</button><button type="button"
                                 class="btn btn-danger btn-lg">Decline</button>
                         </div>
+                       
                     </td>
+                
                 </tr>
-                <tr>
-                    <td class="user-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img class="rounded-circle"
-                                width="120px"
-                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                class="font-weight-bold;" style="font-size: small;">Name</span><span
-                                class="text-black-50" style="font-size: small;">email@mail.com</span><span> </span>
-                        </div>
-                    </td>
-                    <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png"
-                                class="img-fluid d-block mx-auto">
-                            <div class="product-info">
-                                <span class="product-type" style="font-size: small;">
-                                    Electronics & accessories
-                                </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name"
-                                    style="font-size: small;">pc
-                                    windows</a>
-                                <span class="product-price" style="font-size: medium;">$100.50</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="refund-cell">
-                        <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                           min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
-                    </div>
-                    </td>
-                    <td class="response-cell">
-                        <div class="d-flex flex-column align-items-left text-center "><button type="button"
-                                class="btn btn-success btn-lg">Accept</button><button type="button"
-                                class="btn btn-danger btn-lg">Decline</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="user-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img class="rounded-circle"
-                                width="120px"
-                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                class="font-weight-bold;" style="font-size: small;">Name</span><span
-                                class="text-black-50" style="font-size: small;">email@mail.com</span><span> </span>
-                        </div>
-                    </td>
-                    <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png"
-                                class="img-fluid d-block mx-auto">
-                            <div class="product-info">
-                                <span class="product-type" style="font-size: small;">
-                                    Electronics & accessories
-                                </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name"
-                                    style="font-size: small;">pc
-                                    windows</a>
-                                <span class="product-price" style="font-size: medium;">$100.50</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="refund-cell">
-                        <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number"
-                            min="1" max="10000" oninput="validity.valid||(value='');" id="amount">
-                    </div>
-                    </td>
-                    <td class="response-cell">
-                        <div class="d-flex flex-column align-items-left text-center "><button type="button"
-                                class="btn btn-success btn-lg">Accept</button><button type="button"
-                                class="btn btn-danger btn-lg">Decline</button>
-                        </div>
-                    </td>
-                </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>

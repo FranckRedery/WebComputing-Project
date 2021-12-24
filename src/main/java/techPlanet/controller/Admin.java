@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import techPlanet.Database;
 import techPlanet.model.Report;
+import techPlanet.model.ReturnRequest;
 
 
 @Controller
@@ -22,7 +23,12 @@ public class Admin {
 	}
 	
 	@GetMapping("/returnRequests")
-	public String returnRequests() {
+	public String returnRequests(HttpServletRequest req) {
+		
+		List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findByStatusPending();
+		HttpSession session = req.getSession(true);
+		session.setAttribute("returns", returns);
+		
 		return "returnRequests";
 	}
 	

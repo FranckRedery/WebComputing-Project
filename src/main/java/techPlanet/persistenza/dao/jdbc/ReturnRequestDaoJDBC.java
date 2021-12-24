@@ -60,15 +60,61 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	}
 
 	@Override
-	public List<ReturnRequest> findByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReturnRequest> findByStatusPending() {
+		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();
+		String query = "select * from return_request where status = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, "pending");
+			ResultSet rs = st.executeQuery();
+			
+			while (rs.next()) {
+				ReturnRequest r = new ReturnRequest();
+				String username = rs.getString("username");
+				User user2 = userDaoJDBC.findByPrimaryKey(username);
+				r.setUser(user2);
+				long idProd = rs.getLong("prod");
+				Product prod = productDaoJDBC.findById(idProd);
+				r.setProduct(prod);
+				r.setDate(rs.getString("date"));
+				r.setMoneyReturned(rs.getFloat("moneyreturned"));
+				r.setStatus(rs.getString("status"));
+				
+				
+				returnRequest.add(r);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return returnRequest;
 	}
 
 	@Override
-	public boolean saveOrUpdate(ReturnRequest returnRequestt) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(ReturnRequest returnRequest) {
+		try {
+			String query = "update return_request "
+			+ "set status = ?, moneyreturned = ? "
+			+ "where username = ? and prod = ?";
+			
+			PreparedStatement st = conn.prepareStatement(query);
+			
+			st.setString(1, returnRequest.getStatus());
+			st.setFloat(2, returnRequest.getMoneyReturned());
+			st.setString(3,returnRequest.getUser().getUsername());
+			st.setLong(4, returnRequest.getProduct().getId());
+			
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	@Override

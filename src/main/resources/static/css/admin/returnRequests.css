@@ -1,3 +1,14 @@
+input:invalid+span:after {
+  content: '✖';
+  padding-left: 5px;
+}
+
+input:valid+span:after {
+  content: '✓';
+  padding-left: 5px;
+}
+
+
 
 .table{
     margin-top: 5%;
@@ -28,7 +39,7 @@
 }
 
 .btn.btn-success{
-    margin-top: 15%;
+    margin-top: 22%;
     margin-bottom: 5%;
 }
 
@@ -71,18 +82,9 @@
     border: 1px solid rgb(219,219,219);
   }
   
-  .product-type{
-    font-size: 13px;
-    opacity: 0.8;
-  }
+
   
-  .product-name{
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .product-name:hover{
-    color: #fcb941!important
-  }
+
   
   .product-price{
     color: #fcb941;
@@ -330,7 +332,7 @@ textarea.input {
 }
 
 .input-checkbox input[type="checkbox"]+label span:after {
-  content: '✔';
+  content: 'âœ”';
   position: absolute;
   top: -2px;
   left: 1px;
