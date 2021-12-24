@@ -16,6 +16,7 @@
 	<script src="/lib/jquery.min.js"></script>
 	<script src="/lib/jquery.plugin.js"></script>
     <script src="js/LoginAdmin/adminLogin.js"></script>
+    <script src="js/control/mail.js"></script>
 </head>
 
 <title>TechPlanet</title>
@@ -170,7 +171,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">SECURITY</h3>
 
   <div class="containerCardsAcc">
-	<a id="emailCard" style="text-decoration: none;" href="control.html">
+	<a id="emailCard" style="text-decoration: none;" href="setMailCode">
 	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">

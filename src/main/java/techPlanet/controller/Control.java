@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import techPlanet.Database;
 
@@ -20,8 +22,12 @@ public class Control {
 	
 	@GetMapping("/setMailCode")
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		System.out.println("bu");
 		Database.getInstance().getControl().controlEmailCode(req, resp);
+	}
+	
+	@PostMapping("/insertSCode")
+	public void insertSCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Database.getInstance().getControl().insertSCode(req, resp);
 	}
 	
 }

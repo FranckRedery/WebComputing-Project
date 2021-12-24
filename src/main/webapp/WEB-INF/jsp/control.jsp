@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<link type="text/css" rel="stylesheet" href="css/login/login_style.css"/>
@@ -26,16 +26,16 @@
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">CONTROL</h2>
 					<img src="/images/index/logo.png" alt="">
-					<h3 style=" font-size: 20px; color: gray; text-align: center;">Enter the email address associated with your TeachPlanet account.</h1>
-					<form  name="loginForm" action="InsertCodeSecurity.html">
+					 <form action="javascript:sendEmail()">
 					<div class="form-outline form-white mb-3">
+					<h3 style=" font-size: 20px; color: gray; text-align: center;">Enter the email address associated with your TeachPlanet account.</h1>
 						<label class="form-label" for="typeEmailX">Email</label>
-					  <input type="email" id="EmailX" placeholder="Enter email" class="form-control form-control-lg" required/>
+					  <input type="email" id="EmailX" placeholder="Enter email" class="form-control form-control-lg" required>
 					</div>
-					<a href="insertCodeSecurity.html">
-						<button onclick="sendEmail()" class="btn btn-outline-light btn-lg px-5" type="submit">Send Security Code</button>
+					<a>
+						<button class="btn btn-outline-light btn-lg px-5" type="submit">Send Security Code</button>
 					</a>
-					</form>
+					 </form>	
 				</div>
 				</div>
 			  </div>

@@ -11,6 +11,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/LoginAdmin/adminLogin.js"></script>
+    <script src="js/control/mail.js"></script>
 </head>
 <title>TechPlanet</title>
 </head>
@@ -24,14 +25,14 @@
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">INSERT CODE</h2>
 					<img src="/images/index/logo.png" alt="">
-					<h3 style=" font-size: 20px; color: gray; text-align: center;">check your email, we have sent you the Security code.</h1>
-					<form  name="loginForm" action="InsertCodeSecurity.html">
+					<form action="javascript:controlCode()">
 					<div class="form-outline form-white mb-3">
+					<h3 style=" font-size: 20px; color: gray; text-align: center;">check your email, we have sent you the Security code.</h1>
 						<label class="form-label" for="typeEmailX">Code</label>
 					  <input type="number" placeholder="enter code" id="typeCode" class="form-control form-control-lg" required />
 					</div>
 					<a>
-						<button onclick="SecurityCode();" class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
+						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
 					</a>
 				  </form>
 				  </div>
