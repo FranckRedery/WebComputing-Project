@@ -105,7 +105,6 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			st.setFloat(2, returnRequest.getMoneyReturned());
 			st.setString(3,returnRequest.getUser().getUsername());
 			st.setLong(4, returnRequest.getProduct().getId());
-			
 			st.executeUpdate();
 			
 		} catch (SQLException e) {

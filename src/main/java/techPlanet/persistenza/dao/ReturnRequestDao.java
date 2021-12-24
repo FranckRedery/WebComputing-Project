@@ -13,5 +13,4 @@ public interface ReturnRequestDao {
 	public boolean delete(ReturnRequest returnRequest);
 	public List<ReturnRequest> findByUser(String user);
 	
-
 }

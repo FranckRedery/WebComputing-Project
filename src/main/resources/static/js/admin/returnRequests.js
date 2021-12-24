@@ -21,7 +21,6 @@ $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 			});
 		$(this).closest('tr').remove();
 	}
-
 	
      });
 

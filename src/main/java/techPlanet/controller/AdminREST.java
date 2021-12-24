@@ -20,6 +20,7 @@ public class AdminREST {
 		Database.getInstance().getReport().delete(report);
 	}
 	
+	
 	@PostMapping("/updateRequest")
 	public void updateRequest(@RequestBody ReturnRequest returnRequest) {
 		Database.getInstance().getReturnRequest().update(returnRequest);
