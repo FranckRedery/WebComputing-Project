@@ -63,6 +63,7 @@ public class UserDaoJDBC implements UserDao {
 				user.setStateRegion(rs.getString("stateregion"));
 				user.setSurname(rs.getString("surname"));
 				user.setUsername(rs.getString("username"));
+				user.setCode(rs.getString("code"));
 				return user;
 			}
 		} catch (SQLException e) {
