@@ -161,10 +161,10 @@
                 <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
                 <br>
                 <br>
-                <a href=""><button type="button" class="btn btn-secondary">
+                <a href=""><button type="button" class="btn btn-info">
                     <i class="far fa-heart"></i>add to Wishlist
                 </button></a>
-                <a href=""><button type="button" class="btn btn-secondary">
+                <a href=""><button type="button" class="btn btn-info">
                         <i class="fa fa-cart-plus"></i>add to Cart
                     </button></a>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>

@@ -606,6 +606,7 @@ body {
 /*----------------------------*\
       product details 
 \*----------------------------*/
+
 .single-product{
   margin-top: 80px;
   margin-left: 30%;
@@ -652,6 +653,10 @@ input:focus{
 .small-img-col{
   flex-basis: 24%;
   cursor: pointer;
+}
+
+#productImg {
+	margin-bottom: 5px;
 }
 
 /*=========================================================
