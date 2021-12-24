@@ -155,7 +155,6 @@
                 </div>
             </div>
             <div class="col-lg-6 description">
-                <p>Home / ${prodotto.name}</p>
                 <h1>${prodotto.name}</h1>
                 <h4>${prodotto.price}</h4>
                 <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
@@ -173,27 +172,119 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <h3>Reviews</h3>    
-        <div class="rating d-flex mt-1">
-            <span>
-                <i class="fa fa-star"></i>
-            </span>
-            <span>
-                <i class="fa fa-star"></i>
-            </span>
-            <span>
-                <i class="fa fa-star"></i>
-            </span>
-            <span>
-                <i class="fa fa-star"></i>
-            </span>
-            <span>
-                <i class="fa fa-star"></i>
-            </span>
-            <span>(25 reviews)</span>
+    
+        <section id="testimonials">
+        <div class="testimonial-heading">
+            <span>Comments</span>
+            <h1>Clients Says</h1>
         </div>
-    </div>
+
+        <div class="testimonial-box-container">
+            <div class="testimonial-box">
+
+                <div class="box-top">
+
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="img/user01.png" alt="">
+                        </div>
+                        <div class="name-user">
+                            <strong>Stefano Giacoia</strong>
+                        </div>
+                    </div>
+
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>                  
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
+                </div>
+            </div>
+
+            <div class="testimonial-box">
+
+                <div class="box-top">
+
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="img/user01.png" alt="">
+                        </div>
+                        <div class="name-user">
+                            <strong>Stefano Giacoia</strong>
+                        </div>
+                    </div>
+
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>                  
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
+                </div>
+            </div>
+
+            <div class="testimonial-box">
+
+                <div class="box-top">
+
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="img/user01.png" alt="">
+                        </div>
+                        <div class="name-user">
+                            <strong>Stefano Giacoia</strong>
+                        </div>
+                    </div>
+
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>                  
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
+                </div>
+            </div>
+
+            <div class="testimonial-box">
+
+                <div class="box-top">
+
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="img/user01.png" alt="">
+                        </div>
+                        <div class="name-user">
+                            <strong>Stefano Giacoia</strong>
+                        </div>
+                    </div>
+
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>                  
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- TItle -->
 

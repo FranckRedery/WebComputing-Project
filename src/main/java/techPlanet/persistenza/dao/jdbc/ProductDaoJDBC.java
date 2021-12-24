@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import techPlanet.model.Product;
+import techPlanet.model.ReturnRequest;
+import techPlanet.model.User;
 import techPlanet.persistenza.dao.ProductDao;
 
 
@@ -86,15 +88,43 @@ public class ProductDaoJDBC implements ProductDao {
 		return false;
 	}
 
+	public List<Product> findByUser(String user) {
+		List<Product> product = new ArrayList<Product>();
+		String query = "select * from bought where username = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user);
+
+			ResultSet rs = st.executeQuery();
+			
+			while (rs.next()) {
+				Product prodotto = new Product();
+				prodotto.setId(rs.getLong("id"));;
+				prodotto.setName(rs.getString("name"));
+				prodotto.setQuantity(rs.getInt("quantity"));
+				prodotto.setTags(rs.getString("tags"));
+				prodotto.setDescription(rs.getString("description"));
+				prodotto.setType(rs.getString("type"));
+				prodotto.setReviews(rs.getFloat("reviews"));
+				prodotto.setPrice(rs.getFloat("price"));
+				product.add(prodotto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return product;
+	}
+	
 	@Override
 	public Product findById(long id) {
 		String query = "select * from products where id = ?";
+		Product prod = new Product();
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
-				Product prod = new Product();
 				prod.setDescription(rs.getString("description"));
 				prod.setId(rs.getLong("id"));
 				prod.setName(rs.getString("name"));
@@ -109,7 +139,7 @@ public class ProductDaoJDBC implements ProductDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return prod;
 	}
 
 }

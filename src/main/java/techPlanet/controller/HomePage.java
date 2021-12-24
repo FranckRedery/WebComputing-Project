@@ -1,13 +1,19 @@
 package techPlanet.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import techPlanet.Database;
+import techPlanet.model.Product;
 
 @Controller
 public class HomePage {
 	
 	@GetMapping("/")
 	public String homePage() {
+		
 		return "index";
 	}
 	
@@ -27,9 +33,10 @@ public class HomePage {
 	}
 	
 	@GetMapping("/productDetails.html")
-	public String ProductDetailsPage() {
+	public String ProductDetailsPage(HttpServletRequest req) {
+		Product product = Database.getInstance().getProductsDao().findById(0);
+		req.setAttribute("prodotto", product);
 		return "product";
 	}
-	
-	
+
 }
