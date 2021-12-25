@@ -27,13 +27,20 @@ public class Control {
 	 
 	public void controlEmailCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		session.setAttribute("CodSic", "email");
+		session.setAttribute("codSic", "email");
+		resp.sendRedirect("control.html");
+	}
+	
+	
+	public void setPassCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		session.setAttribute("codSic", "pass");
 		resp.sendRedirect("control.html");
 	}
 	
 	public void insertSCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		String sql = "UPDATE users SET code = '" + req.getParameter("code") + "'" + "WHERE username = '" + session.getAttribute("username") + "'";;
+		String sql = "UPDATE users SET code = '" + req.getParameter("code") + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
 			
 			 try {
 				 PreparedStatement preparedStmt = conn.prepareStatement(sql);
@@ -45,6 +52,37 @@ public class Control {
 			}
 			 
 		resp.sendRedirect("/");
+	}
+	
+	public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		String sql = "UPDATE users SET password = '" + req.getParameter("newPass") + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
+			 try {
+				 PreparedStatement preparedStmt = conn.prepareStatement(sql);
+				 preparedStmt.execute();
+				 session.setAttribute("password", req.getParameter("newPass"));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 
+		resp.sendRedirect("/account.html");
+	}
+	
+	
+	public void updateEmail(HttpServletRequest req, HttpServletResponse resp, String email) throws IOException {
+		HttpSession session = req.getSession();
+		String sql = "UPDATE users SET email = '" + email + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
+		try {
+			 PreparedStatement preparedStmt = conn.prepareStatement(sql);
+			 preparedStmt.execute();
+			 session.setAttribute("email", email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+	resp.sendRedirect("/account.html");
 	}
 	
 }

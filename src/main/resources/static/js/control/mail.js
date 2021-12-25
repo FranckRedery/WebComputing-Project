@@ -24,8 +24,38 @@ function sendEmail() {
 	window.location = "InsertCodeSecurity.html";
 }
 
-function controlCode() {
+function controlCode(c,type) {
 	
-	alert(a);
+	var input = document.getElementById('typeCode').value;
+	if(input == c && type == "email"){
+		window.location = "insertNewEmail.html";
+	}
+	if(input == c && type == "pass"){
+		window.location = "insertNewPass.html";
+	}
+	else{
+		window.location = "InsertCodeSecurity.html";
+	}
+		window.location = "insertNewPass.html";
+}
+
+function controlPass(type) {
+	
+	var newPass = document.getElementById('newPass').value;
+	var RnewPass = document.getElementById('RnewPass').value;
+	if(newPass == RnewPass && type == "pass"){	
+  			 $.ajax({
+				type: 'POST',
+				url: "/updatePass",
+				dataType: "json",
+				data: {
+					newPass: newPass
+				}
+			 });
+			 window.location = "account.html";
+	}
+	else{
+			window.location = "insertNewPass.html";	 
+	}
 }
 

@@ -115,7 +115,7 @@
 								</a>
 								<%} else if(session.getAttribute("loggato") == "si"){%>
 								<a href="account.html" style="text-decoration: none;"> 
-									<img src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 									${username}
 								</a>
 								<%}%>

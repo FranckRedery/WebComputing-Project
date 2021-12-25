@@ -11,6 +11,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/control/mail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <title>TechPlanet</title>
 </head>
@@ -22,20 +23,23 @@
 			  <div class="card bg-dark text-white" style="border-radius: 1rem;">
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
-					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">INSERT CODE</h2>
+					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">CHANGE PASSWORD</h2>
 					<img src="/images/index/logo.png" alt="">
-					<form action="javascript:controlCode(${codeS},'${codSic}')">
+					<h3 style=" font-size: 20px; color: gray; text-align: center;"></h3>
+					<form id="FormPass" action="javascript:controlPass('${codSic}');">
 					<div class="form-outline form-white mb-3">
-					<h3 style=" font-size: 20px; color: gray; text-align: center;">check your email, we have sent you the Security code.</h1>
-						<label class="form-label" for="typeEmailX">Code</label>
-					  <input type="number" placeholder="enter code" id="typeCode" class="form-control form-control-lg" required />
+						<label class="form-label" for="typeEmailX">New Password</label>
+					  <input type="password" id="newPass"  placeholder="enter here" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					</div>
+					<div class="form-outline form-white mb-3">
+						<label class="form-label" for="typeEmailX">Repeat New Password</label>
+					  <input type="password" id="RnewPass"  placeholder="enter here" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
 					<a>
-						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
+						<button class="btn btn-outline-light btn-lg px-5" >Confirm</button>
 					</a>
-				  </form>
+					</form>
 				  </div>
-				  <p class="mt-2">did not receive the code? <a href="control.html" class="text-white-50 fw-bold"> try again</a></p>
 				</div>
 			  </div>
 			</div>

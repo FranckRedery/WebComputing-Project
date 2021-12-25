@@ -53,6 +53,11 @@ public class Database {
 		return new Login(conn);
 	}
 	
+	public Login getSecurity() {
+		return new Login(conn);
+	}
+	
+	
 	public Control getControl() {
 		return new Control(conn);
 	}

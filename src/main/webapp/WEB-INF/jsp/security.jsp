@@ -187,7 +187,7 @@
 	   </a>
 	</div>
 
-	<a style="text-decoration: none;" href="control.html">
+	<a style="text-decoration: none;" href="setPassCode">
 	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
