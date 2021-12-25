@@ -45,7 +45,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				Product prod = productDaoJDBC.findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
-				r.setMoneyReturned(rs.getFloat("moneyreturned"));
+				r.setMoneyreturned(rs.getFloat("moneyreturned"));
 				r.setStatus(rs.getString("status"));
 				
 				returnRequest.add(r);
@@ -77,9 +77,10 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				Product prod = productDaoJDBC.findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
-				r.setMoneyReturned(rs.getFloat("moneyreturned"));
+				r.setMoneyreturned(rs.getFloat("moneyreturned"));
 				r.setStatus(rs.getString("status"));
-				
+				r.setReason(rs.getString("reason"));
+				r.setDescription(rs.getString("description"));
 				
 				returnRequest.add(r);
 
@@ -103,7 +104,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			PreparedStatement st = conn.prepareStatement(query);
 			
 			st.setString(1, returnRequest.getStatus());
-			st.setFloat(2, returnRequest.getMoneyReturned());
+			st.setFloat(2, returnRequest.getMoneyreturned());
 			st.setString(3,returnRequest.getUser().getUsername());
 			st.setLong(4, returnRequest.getProduct().getId());
 			st.executeUpdate();
@@ -142,8 +143,11 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				Product prod = productDaoJDBC.findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
-				r.setMoneyReturned(rs.getFloat("moneyreturned"));
+				r.setMoneyreturned(rs.getFloat("moneyreturned"));
+				System.out.println(r.getMoneyreturned());
 				r.setStatus(rs.getString("status"));
+				r.setReason(rs.getString("reason"));
+				r.setDescription(rs.getString("description"));
 				
 				
 				returnRequest.add(r);

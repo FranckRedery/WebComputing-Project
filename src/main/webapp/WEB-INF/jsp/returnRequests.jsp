@@ -106,14 +106,15 @@
 
 
     <div class="container requests" >
-        <h2 style="margin-top: 5%">Return requests</h2>
+        <h2 style="margin-top: 5%" id="pageTitle">Return requests</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Product</th>
-                    <th>Refund</th>
-                    <th>Response</th>
+                    <th class="thText">User</th>
+                    <th class="thText">Product</th>
+                    <th class="thText">Reason</th>
+                    <th class="thText">Refund</th>
+                    <th class="thText">Response</th>
                 </tr>
             </thead>
             <tbody>
@@ -128,7 +129,7 @@
                                 <span class="font-weight-bold;" id="username" style="font-size: small;">${item.user.username}</span>
                                 <br>
                                 <span class="info" style="font-size: small;">Email : </span>
-                                <span class="font-weight-bold;" style="font-size: small;">${item.user.email}</span><span> </span>
+                                <span class="font-weight-bold;" id="email" style="font-size: small;">${item.user.email}</span><span> </span>
                         </div>
                     </td>
                     <td class="product-cell">
@@ -152,6 +153,19 @@
                                 <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
                             </div>
                         </div>
+                        </td>
+                        <td class ="reason-cell">
+                        	<c:if test = "${item.description != ''}">
+                        		<c:if test= "${item.reason != 'Other, specify in the description'}">
+                 				<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}&#13;&#10;${item.description}</textarea>
+                 				</c:if>
+						</c:if>
+						<c:if test = "${item.description == ''}">
+                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}</textarea>
+                        </c:if>
+                        <c:if test = "${item.reason == 'Other, specify in the description'}">
+                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.description}</textarea>
+                        </c:if>
                         </td>
                         <td class="refund-cell">
                         

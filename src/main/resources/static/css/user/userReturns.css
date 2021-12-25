@@ -1,3 +1,55 @@
+.money-text-accepted{
+	margin-top: 32%;
+	font-size: 25px;
+	color: rgb(0, 64, 12);
+}
+
+#pageTitle{
+	font-family: arial;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.info{
+	color: black;
+}
+
+.product-type{
+	color: black;
+}
+
+.product-name{
+	color: black;
+}
+
+.date-cell{
+	color: black;
+	text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+#prodId{
+	color: black;
+}
+
+.thText{
+	color: black;
+}
+
+.money-text-refused{
+	margin-top: 32%;
+	color: rgb(102, 0, 0);
+	font-size: 20px;
+}
+
+.money-text-pending{
+	margin-top: 32%;
+	color: rgb(171, 171, 0);
+	font-size: 20px;
+}
+
 
 .table{
     margin-top: 5%;
@@ -10,6 +62,7 @@
     border-radius: 10px;
     font-weight: bold;
     color: white;
+    
 }
 
 .alert.alert-success{
@@ -86,15 +139,6 @@
   
   .product-type{
     font-size: 13px;
-    opacity: 0.8;
-  }
-  
-  .product-name{
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .product-name:hover{
-    color: #fcb941!important
   }
   
   .product-price{
@@ -115,6 +159,7 @@ body {
   font-weight: 400;
   color: #333;
   margin: 0;
+  background: linear-gradient(#d1d1d1,#919191);
 }
 
 .bg {

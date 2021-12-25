@@ -1,15 +1,14 @@
 $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 	let usernameField = $(this).closest("tr").find("#username").text();
 	let productID = $(this).closest("tr").find("#prodId").text();
-    let moneyReturned = $(this).closest("tr").find("#amount").val();
+    let moneyreturned = $(this).closest("tr").find("#amount").val();
 	let status = "accepted";
 	let user = new User(usernameField);
 	let product = new Product(productID);
-	let returnRequest = new ReturnRequest(user,product,moneyReturned,status);
+	let returnRequest = new ReturnRequest(user,product,moneyreturned,status);
 	
-	if(moneyReturned == ""){
-		console.log("è null");
-		//$(this).closest("tr").find("#amount-cell").innerHTML = "Insert a valid number"; non funziona, poi da risolvere insomma... al momento non accetta il valore vuoto
+	if(moneyreturned == "" || moneyreturned == 0){
+		$(this).closest('tr').find('#amount-cell').html('Insert a value > 0<input type="number" value="0" class="text-center" step=".01"min="0" max="100000" oninput="validity.valid||(value="");" id="amount">');
 	}
 	else{
 		$.ajax({
@@ -29,11 +28,11 @@ $('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
 
 	let usernameField = $(this).closest("tr").find("#username").text();
 	let productID = $(this).closest("tr").find("#prodId").text();
-    let moneyReturned = 0;
+    let moneyreturned = 0;
 	let status = "declined";
 	let user = new User(usernameField);
 	let product = new Product(productID);
-	let returnRequest = new ReturnRequest(user,product,moneyReturned,status);
+	let returnRequest = new ReturnRequest(user,product,moneyreturned,status);
 	
 	$.ajax({
 			type: "POST",
@@ -46,10 +45,10 @@ $('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
      });
 
 
-function ReturnRequest(user,product,moneyReturned,status){
+function ReturnRequest(user,product,moneyreturned,status){
 	this.user = user;
 	this.product = product;
-	this.moneyReturned = moneyReturned;
+	this.moneyreturned = moneyreturned;
 	this.status = status;
 }
 

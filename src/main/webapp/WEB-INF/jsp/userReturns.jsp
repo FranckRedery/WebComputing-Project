@@ -132,13 +132,15 @@
 	<!--/HEADER-->
 
     <div class="container">
-        <h2 style="margin-top: 5%;">Returns list</h2>
+        <h2 style="margin-top: 5%;" id="pageTitle">Returns list</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Request's date</th>
-                    <th>Status</th>
+                    <th class=thText>Product</th>
+                    <th class=thText>Date</th>
+                    <th class=thText>Reason</th>
+                    <th class=thText>Status</th>
+                    <th class=thText>Refund</th>
                 </tr>
             </thead>
             <tbody>
@@ -148,15 +150,38 @@
                         <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
+                            	<span class="info" style="font-size: small;">Product ID : </span>
+                            	<span class="product-id" id="prodId" style="font-size: small;">${item.product.id}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Type : </span>
                                 <span class="product-type" style="font-size: small;">
                                     ${item.product.type}
                                 </span>
-                                <a href="#" class="d-block text-dark text-decoration-none product-name" style="font-size: small;">${item.product.name}</a>
+                                <br>
+                                <span class="info" style="font-size: small;">Name : </span>
+                                <span class="product-name" style="font-size: small;">
+                                    ${item.product.name}
+                                </span>
+                               <br>
+                                 <span class="info" style="font-size: small;">Price : </span>
                                 <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
                             </div>
                         </div>
                         </td>
-                    <td class="cell">${item.date}</td>
+                    <td class="date-cell">${item.date}</td>
+                    <td class="reason-cell">
+                    <c:if test = "${item.description != ''}">
+                        		<c:if test= "${item.reason != 'Other, specify in the description'}">
+                 				<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}&#13;&#10;${item.description}</textarea>
+                 				</c:if>
+						</c:if>
+						<c:if test = "${item.description == ''}">
+                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}</textarea>
+                        </c:if>
+                        <c:if test = "${item.reason == 'Other, specify in the description'}">
+                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.description}</textarea>
+                        </c:if>
+                    </td>
                     <td class="cell">
                     	<c:if test = "${item.status == 'pending'}">
                     		<div class="alert alert-warning"><strong>Pending</strong></div>
@@ -167,6 +192,19 @@
 						<c:if test = "${item.status == 'declined'}">
                  			<div class="alert alert-danger"><strong>Refused</strong></div>
 						</c:if>
+                    </td>
+                    <td class="refund-cell">
+                    	<c:if test="${item.moneyreturned !=0.0}">
+                    		<p class="money-text-accepted">$${item.moneyreturned}</p>
+                    	</c:if>
+                    	<c:if test="${item.moneyreturned == 0.0}">
+                    		<c:if test="${item.status == 'pending'}">
+                    			<p class="money-text-pending">Still no refund</p>
+                    		</c:if>
+                    		<c:if test="${item.status != 'pending'}">
+                    			<p class="money-text-refused">No refund</p>
+                    		</c:if>
+                    	</c:if>
                     </td>
                 </tr>
                 </c:forEach>

@@ -8,7 +8,9 @@ public class ReturnRequest {
 	Product product;
 	String date;
 	String status;
-	float moneyReturned;
+	float moneyreturned;
+	String reason;
+	String description;
 	
 
 	
@@ -47,19 +49,39 @@ public class ReturnRequest {
 		this.status = status;
 	}
 	
-	public float getMoneyReturned() {
-		return moneyReturned;
-	}
+
 	
-	public void setMoneyReturned(float moneyReturned) {
-		this.moneyReturned = moneyReturned;
-	}
+
 	
+	public float getMoneyreturned() {
+		return moneyreturned;
+	}
+
+	public void setMoneyreturned(float moneyreturned) {
+		this.moneyreturned = moneyreturned;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(product, user);
 	}
 
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
