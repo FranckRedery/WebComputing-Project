@@ -19,7 +19,7 @@ function caricaOpzioni() {
 			break;
 		case "Printers":
 			for(let i = 0; i < opzioni[0].length; ++i) {
-				s += "<input type=\"checkbox\"  name=\"" + opzioni[0][i] + "\" value=\"" + opzioni[1][i] + "\">"
+				s += "<input type=\"checkbox\"  name=\"" + opzioni[0][i] + "\" value=\"" + opzioni[0][i] + "\">"
 					+ "<label for=\"vehicle1\">" +  opzioni[0][i] + " </label><br />";
 			}
 			break;
@@ -60,7 +60,8 @@ function caricaOpzioni() {
 						tags += nuovaTag;
 						tags += ',';
 						});}
-					      
+					alert(tags);
+					
 					// vediamo i tag
 					// creare l'oggetto product
 					let product = new Product(usernameField);
