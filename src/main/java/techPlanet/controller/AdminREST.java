@@ -32,6 +32,5 @@ public class AdminREST {
 	public void addProduct(@RequestBody Product product) {
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
-	
 
 }
