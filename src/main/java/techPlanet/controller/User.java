@@ -27,7 +27,7 @@ public class User {
 	public String userReturns(HttpServletRequest req) {
 		
 		String username = (String) req.getSession().getAttribute("username");
-		List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findByUser(username);
+		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByUser(username);
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returns", returns);
 		
@@ -35,4 +35,3 @@ public class User {
 	}
 
 }
-
