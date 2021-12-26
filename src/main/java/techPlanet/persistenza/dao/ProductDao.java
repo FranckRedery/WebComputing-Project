@@ -10,4 +10,5 @@ public interface ProductDao {
 	public boolean saveOrUpdate(Product product);
 	public boolean delete(Product product);
 	public Product findById(long id);
+	public List<Product> findByLastNineInserted();
 }

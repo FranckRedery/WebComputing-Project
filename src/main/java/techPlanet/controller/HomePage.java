@@ -1,5 +1,7 @@
 package techPlanet.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -12,8 +14,9 @@ import techPlanet.model.Product;
 public class HomePage {
 	
 	@GetMapping("/")
-	public String homePage() {
-		
+	public String homePage(HttpServletRequest req) {
+		List<Product> product = Database.getInstance().getProductsDao().findByLastNineInserted();
+		req.setAttribute("prodotti", product);
 		return "index";
 	}
 	
@@ -38,5 +41,5 @@ public class HomePage {
 		req.setAttribute("prodotto", product);
 		return "product";
 	}
-
+	
 }

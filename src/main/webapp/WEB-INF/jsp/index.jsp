@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -53,13 +55,17 @@
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<%if (session.getAttribute("loggato") == "si") {%>
+					<%
+					if (session.getAttribute("loggato") == "si") {
+					%>
 					<a href="/faiLogout" style="text-decoration: none;">
 						<button class="btnLog">
 							<span>Log out</span>
 						</button>
 					</a>
-					<%} else {%>
+					<%
+					} else {
+					%>
 					<a style="text-decoration: none;">
 						<button onclick="resetLogin();" class="btnLog">
 							<span>Login</span>
@@ -70,7 +76,9 @@
 							<span>Sign Up</span>
 						</button>
 					</a>
-					<%}%>
+					<%
+					}
+					%>
 				</ul>
 			</div>
 		</div>
@@ -137,11 +145,15 @@
 									style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 									${username}
 								</a>
-								<%} else {%>
+								<%
+								} else {
+								%>
 								<a href="login.html" style="text-decoration: none;"> <i
 									class="fa fa-user"></i>
 								</a>
-								<%}%>
+								<%
+								}
+								%>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -305,6 +317,7 @@
 				unde ab, ullam pariatur nisi laborum quam. Porro, corporis!</p>
 		</div>
 		<div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
+		<c:forEach items="${prodotti}" var="prod">
 			<div class="col product-item mx-auto">
 				<div class="product-img">
 					<img src="images/index/product01.png" alt=""
@@ -312,30 +325,38 @@
 						<i class="far fa-heart"></i>
 					</span>
 					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
+						<c:if test="${username != null}">
+							<button type="button" class="col-6 py-2" onclick="addToCart()">
+								<i class="fa fa-cart-plus"></i>add to Cart
+							</button>
+						</c:if>
+						<c:if test="${username == null}">
+							<button type="button" class="col-6 py-2" onclick="window.location.href='login.html'">
+								<i class="fa fa-cart-plus"></i>add to Cart
+							</button>
+						</c:if>
 						<button type="button" class="col-6 py-2">
 							<i class="fa fa-binoculars"></i>View
 						</button>
 					</div>
 				</div>
 				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
+					<div class="addedToCart" id="cart"></div>
+					<span class="product-type" id="${prod.id}"> Electronics & accessories </span> 
+					<a href="productDetails.html" class="d-block text-dark text-decoration-none py-2 product-name">
+					${prod.name}</a> <span class="product-price">$${prod.price}</span>
 					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
+						<span> <i class="fas fa-star"></i>
+						</span> <span> <i class="fas fa-star"></i>
+						</span> <span> <i class="fas fa-star"></i>
+						</span> <span> <i class="fas fa-star"></i>
+						</span> <span> <i class="fas fa-star"></i>
 						</span> <span>(25 reviews)</span>
 					</div>
 				</div>
 			</div>
-			<div class="col product-item mx-auto">
+			</c:forEach>
+			<!--<div class="col product-item mx-auto">
 				<div class="product-img">
 					<img src="images/index/product02.png" alt=""
 						class="img-fluid d-block mx-auto"> <span class="heart-icon">
@@ -574,7 +595,7 @@
 						</span> <span>(25 reviews)</span>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</div>
 	</div>
 

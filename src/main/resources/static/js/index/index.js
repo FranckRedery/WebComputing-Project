@@ -18,3 +18,14 @@ $('.owl-carousel').owlCarousel({
     }
   }
 });
+
+function addToCart() {
+	document.getElementById("cart").innerHTML = "Added to cart";
+	setTimeout(function() {
+		document.getElementById("cart").innerHTML=""; },3000)
+}
+
+/*$('button').on('click', '[class="col-6 py-2"]', function(e){ 
+	alert("worka");
+	$(this).closest('div').find('#cart').html('Added to cart');
+});*/
