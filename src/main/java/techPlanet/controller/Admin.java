@@ -25,7 +25,7 @@ public class Admin {
 	@GetMapping("/returnRequests")
 	public String returnRequests(HttpServletRequest req) {
 		
-		List<ReturnRequest> returns = Database.getInstance().getReturnRequest().findByStatusPending();
+		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByStatusPending();
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returns", returns);
 		
