@@ -1,5 +1,5 @@
 .money-text-accepted{
-	margin-top: 32%;
+	margin-top: 38%;
 	font-size: 25px;
 	color: rgb(0, 64, 12);
 }
@@ -39,13 +39,13 @@
 }
 
 .money-text-refused{
-	margin-top: 32%;
+	margin-top: 38%;
 	color: rgb(102, 0, 0);
 	font-size: 20px;
 }
 
 .money-text-pending{
-	margin-top: 32%;
+	margin-top: 38%;
 	color: rgb(171, 171, 0);
 	font-size: 20px;
 }

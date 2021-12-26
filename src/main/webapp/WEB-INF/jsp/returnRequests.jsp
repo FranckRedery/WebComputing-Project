@@ -141,7 +141,7 @@
                                 <br>
                                 <span class="info" style="font-size: small;">Type : </span>
                                 <span class="product-type" style="font-size: small;">
-                                    ${item.product.type}
+                                    ${item.product.category}
                                 </span>
                                 <br>
                                 <span class="info" style="font-size: small;">Name : </span>
