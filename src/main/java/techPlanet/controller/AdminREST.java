@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import techPlanet.Database;
+import techPlanet.model.Product;
 import techPlanet.model.Report;
 import techPlanet.model.ReturnRequest;
 
@@ -24,7 +25,12 @@ public class AdminREST {
 	
 	@PostMapping("/updateRequest")
 	public void updateRequest(@RequestBody ReturnRequest returnRequest) {
-		Database.getInstance().getReturnRequest().update(returnRequest);
+		Database.getInstance().getReturnRequestDao().update(returnRequest);
+	}
+	
+	@PostMapping("/addProduct")
+	public void addProduct(@RequestBody Product product) {
+		Database.getInstance().getProductsDao().addProduct(product);
 	}
 	
 }
