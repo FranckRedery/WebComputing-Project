@@ -33,4 +33,5 @@ public class AdminREST {
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
 	
+
 }
