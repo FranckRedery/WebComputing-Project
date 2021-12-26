@@ -13,11 +13,13 @@ import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ProductDao;
 import techPlanet.persistenza.dao.ReportDao;
 import techPlanet.persistenza.dao.ReturnRequestDao;
+import techPlanet.persistenza.dao.UserDao;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ProductDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReportDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReturnRequestDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.UserDaoJDBC;
 
 public class Database {
 	
@@ -78,8 +80,12 @@ public class Database {
 		return new ReportDaoJDBC(conn);
 	}
 	
-	public ReturnRequestDao getReturnRequest() {
+	public ReturnRequestDao getReturnRequestDao() {
 		return new ReturnRequestDaoJDBC(conn);
+	}
+	
+	public UserDao getUserDao() {
+		return new UserDaoJDBC(conn);
 	}
 	
 }
