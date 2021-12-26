@@ -8,8 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
+import techPlanet.Database;
 import techPlanet.model.Product;
 import techPlanet.model.ReturnRequest;
 import techPlanet.model.User;
@@ -18,14 +17,10 @@ import techPlanet.persistenza.dao.ReturnRequestDao;
 public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 
 	private Connection conn;
-	private UserDaoJDBC userDaoJDBC;
-	private ProductDaoJDBC productDaoJDBC;
-	
+
 	public ReturnRequestDaoJDBC(Connection conn) {
 		super();
 		this.conn = conn;
-		userDaoJDBC = new UserDaoJDBC(conn);
-		productDaoJDBC = new ProductDaoJDBC(conn);
 	}
 
 	@Override
@@ -39,10 +34,10 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			while (rs.next()) {
 				ReturnRequest r = new ReturnRequest();
 				String username = rs.getString("user");
-				User user = userDaoJDBC.findByPrimaryKey(username);
+				User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
 				r.setUser(user);
 				long idProd = rs.getLong("prod");
-				Product prod = productDaoJDBC.findById(idProd);
+				Product prod = Database.getInstance().getProductsDao().findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
 				r.setMoneyreturned(rs.getFloat("moneyreturned"));
@@ -71,10 +66,10 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			while (rs.next()) {
 				ReturnRequest r = new ReturnRequest();
 				String username = rs.getString("username");
-				User user2 = userDaoJDBC.findByPrimaryKey(username);
+				User user2 = Database.getInstance().getUserDao().findByPrimaryKey(username);
 				r.setUser(user2);
 				long idProd = rs.getLong("prod");
-				Product prod = productDaoJDBC.findById(idProd);
+				Product prod = Database.getInstance().getProductsDao().findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
 				r.setMoneyreturned(rs.getFloat("moneyreturned"));
@@ -137,14 +132,13 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			while (rs.next()) {
 				ReturnRequest r = new ReturnRequest();
 				String username = rs.getString("username");
-				User user2 = userDaoJDBC.findByPrimaryKey(username);
+				User user2 = Database.getInstance().getUserDao().findByPrimaryKey(username);
 				r.setUser(user2);
 				long idProd = rs.getLong("prod");
-				Product prod = productDaoJDBC.findById(idProd);
+				Product prod = Database.getInstance().getProductsDao().findById(idProd);
 				r.setProduct(prod);
 				r.setDate(rs.getString("date"));
 				r.setMoneyreturned(rs.getFloat("moneyreturned"));
-				System.out.println(r.getMoneyreturned());
 				r.setStatus(rs.getString("status"));
 				r.setReason(rs.getString("reason"));
 				r.setDescription(rs.getString("description"));
