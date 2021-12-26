@@ -1,23 +1,3 @@
-(function () {
-    'use strict';
-    window.addEventListener('load', function () {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-})();
-
-
 var opzioni = new Array();
 opzioni.push(new Array("personal use", "home office", "small business", "large company", 
 			"print", "copy", "scanner", "fax", "color", "black and white", "few", "a little", "often", "always",
@@ -49,4 +29,56 @@ function caricaOpzioni() {
 	
 	tag.innerHTML = "<label class=\"form-label\" for=\"productTag\">Tag</label><br />"
 					+ s;
+}
+
+
+
+
+(function () {
+    'use strict';
+    window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+				else{
+					let name = document.getElementById('productName').value;
+					let category = document.getElementById('productCategory').value;
+					let selectedCheckBoxes = document.querySelectorAll("input:checked");
+					let tags = "";
+					let nuovaTag;
+					if (selectedCheckBoxes.length > 0){
+						selectedCheckBoxes.forEach(function(checkBox, indice){
+				
+						nuovaTag = checkBox.value;
+						alert(nuovaTag);
+						tags += nuovaTag;
+						tags += ',';
+						});}
+					      
+					// vediamo i tag
+					// creare l'oggetto product
+					let product = new Product(usernameField);
+					$.ajax({
+						type: "POST",
+						url: "/addProduct",
+						contentType: "application/json",
+						data: JSON.stringify(product),
+						success: function(data){}	
+					});
+				}
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+
+function Product(){
+	
 }
