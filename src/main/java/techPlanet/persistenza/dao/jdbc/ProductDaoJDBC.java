@@ -163,6 +163,7 @@ public class ProductDaoJDBC implements ProductDao {
 		}
 	}
 	
+
 	public List<Product> findByLastNineInserted() {
 		List<Product> product = new ArrayList<Product>();
 		String query = "select * from (select * from products order by id desc limit 9)var1 order by id asc";
@@ -189,5 +190,6 @@ public class ProductDaoJDBC implements ProductDao {
 		return product;
 	}
 	
+
 
 }
