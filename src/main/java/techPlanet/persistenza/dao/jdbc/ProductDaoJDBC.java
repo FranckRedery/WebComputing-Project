@@ -37,7 +37,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setQuantity(rs.getInt("quantity"));
 				prodotto.setTags(rs.getString("tags"));
 				prodotto.setDescription(rs.getString("description"));
-				prodotto.setType(rs.getString("type"));
+				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
 				prodotti.add(prodotto);
@@ -50,12 +50,12 @@ public class ProductDaoJDBC implements ProductDao {
 	}
 
 	@Override
-	public List<Product> findByType(String type) {
+	public List<Product> findByCategory(String category) {
 		List<Product> prodotti = new ArrayList<Product>();
-		String query = "select * from products where type = ?";
+		String query = "select * from products where category = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, type);
+			st.setString(1, category);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				Product prodotto = new Product();
@@ -64,7 +64,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setQuantity(rs.getInt("quantity"));
 				prodotto.setTags(rs.getString("tags"));
 				prodotto.setDescription(rs.getString("description"));
-				prodotto.setType(rs.getString("type"));
+				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
 				prodotti.add(prodotto);
@@ -104,7 +104,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setQuantity(rs.getInt("quantity"));
 				prodotto.setTags(rs.getString("tags"));
 				prodotto.setDescription(rs.getString("description"));
-				prodotto.setType(rs.getString("type"));
+				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
 				product.add(prodotto);
@@ -132,7 +132,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prod.setQuantity(rs.getInt("quantity"));
 				prod.setReviews(rs.getFloat("reviews"));
 				prod.setTags(rs.getString("tags"));
-				prod.setType(rs.getString("type"));
+				prod.setCategory(rs.getString("category"));
 				return prod;
 			}
 		} catch (SQLException e) {
@@ -140,6 +140,27 @@ public class ProductDaoJDBC implements ProductDao {
 			e.printStackTrace();
 		}
 		return prod;
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		
+		try {
+			product.setId(IdProduct.getId(conn));
+			String query = "insert into products "
+					+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			//st.setLong(1, report.getId());
+			//st.setString(2, report.getProblem_origin());
+			//st.setString(3, report.getDescription());
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		
+		}
 	}
 	
 	public List<Product> findByLastNineInserted() {
@@ -156,7 +177,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setQuantity(rs.getInt("quantity"));
 				prodotto.setTags(rs.getString("tags"));
 				prodotto.setDescription(rs.getString("description"));
-				prodotto.setType(rs.getString("type"));
+				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
 				product.add(prodotto);
@@ -167,5 +188,6 @@ public class ProductDaoJDBC implements ProductDao {
 		}
 		return product;
 	}
+	
 
 }
