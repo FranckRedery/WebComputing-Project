@@ -8,7 +8,7 @@ public class Product {
 	private int quantity;
 	private String tags;
 	private String description;
-	private String type;
+	private String category;
 	private Float reviews;
 	private Float price;
 	
@@ -17,14 +17,14 @@ public class Product {
 
 
 
-	public Product(String name, int quantity, String tags, String description, String type,
+	public Product(String name, int quantity, String tags, String description, String category,
 			Float reviews, Float price) {
 		super();
 		this.name = name;
 		this.quantity = quantity;
 		this.tags = tags;
 		this.description = description;
-		this.type = type;
+		this.category = category;
 		this.reviews = reviews;
 		this.price = price;
 	}
@@ -88,18 +88,19 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	public Float getReviews() {
 		return reviews;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 
 	public void setReviews(Float reviews) {
