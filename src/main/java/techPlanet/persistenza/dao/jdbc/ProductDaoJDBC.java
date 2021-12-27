@@ -90,7 +90,7 @@ public class ProductDaoJDBC implements ProductDao {
 
 	public List<Product> findByUser(String user) {
 		List<Product> product = new ArrayList<Product>();
-		String query = "select * from bought where username = ?";
+		String query = "select * from chooses INNER JOIN product ON chooses.id = product.id where username = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user);

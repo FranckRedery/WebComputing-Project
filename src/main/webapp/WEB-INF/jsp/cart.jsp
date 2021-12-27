@@ -164,7 +164,7 @@
 		</div>
 	  </nav>
     <div class="container mt-3">
-        <table class="table table-borderless">
+        <table class="table table-borderless" id="price">
             <thead>
                 <tr>
                     <th>Product</th>
@@ -173,7 +173,24 @@
                 </tr>
             </thead>
             <tbody>
+            <c:forEach items="${prodotti}" var="prod">
                 <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="images/carrello/iphone1.jpeg">
+                            <div>
+                                <p>${prod.name}</p>
+                                <small>Price $${prod.price}0</small>
+                                <br>
+                                <a href="">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td class="prod_price">$${prod.price}0</td>
+                </tr>
+                </c:forEach>
+                <!-- <tr>
                     <td>
                         <div class="cart-info">
                             <img src="images/carrello/iphone1.jpeg">
@@ -203,37 +220,23 @@
                     <td><input type="number" value="1"></td>
                     <td>€1200.00</td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
-                            <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
-                </tr>
+                 -->
             </tbody>
         </table>
 
         <div class="total-price">
             <table>
                 <tr>
-                    <td>Subtotal</td>
-                    <td>€3600.00</td>
+                    <td>Subtotal <strong>(without iva)</strong></td>
+                    <td  id="tot">$</td>
                 </tr>
                 <tr>
-                    <td>Tax</td>
-                    <td>€79.00</td>
+                    <td>Tax <strong>(iva 22%)</strong></td>
+                    <td id="iva">€79.00</td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>3679.00</td>
+                    <td id=totWithIva>€3679.00</td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="button" class="btn btn-primary">Procede to order</button></td>
@@ -310,6 +313,10 @@
         <!-- /top footer -->
     </footer>
     <!-- /FOOTER -->
+    <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   	<script src="js/cart/cart.js"></script>
 </body>
-
 </html>

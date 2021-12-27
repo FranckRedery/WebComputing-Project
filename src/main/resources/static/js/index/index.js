@@ -19,13 +19,15 @@ $('.owl-carousel').owlCarousel({
   }
 });
 
-function addToCart() {
+/*function addToCart() {
 	document.getElementById("cart").innerHTML = "Added to cart";
 	setTimeout(function() {
-		document.getElementById("cart").innerHTML=""; },3000)
-}
+		document.getElementById("cart").innerHTML=""; },2000)	
+}*/
+/*var x = document.getElementsByClassName("product-type")[0].id;
+console.log(x);*/
 
-/*$('button').on('click', '[class="col-6 py-2"]', function(e){ 
+$('div').on('click', '[class="col-6 py-2 bottone"]', function(e){ 
 	alert("worka");
 	$(this).closest('div').find('#cart').html('Added to cart');
-});*/
+});
