@@ -26,7 +26,7 @@ public class ProductDaoJDBC implements ProductDao {
 	@Override
 	public List<Product> findAll() {
 		List<Product> prodotti = new ArrayList<Product>();
-		String query = "select * from products";
+		String query = "select * from product";
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
@@ -52,7 +52,7 @@ public class ProductDaoJDBC implements ProductDao {
 	@Override
 	public List<Product> findByCategory(String category) {
 		List<Product> prodotti = new ArrayList<Product>();
-		String query = "select * from products where category = ?";
+		String query = "select * from product where category = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, category);
@@ -118,7 +118,7 @@ public class ProductDaoJDBC implements ProductDao {
 	
 	@Override
 	public Product findById(long id) {
-		String query = "select * from products where id = ?";
+		String query = "select * from product where id = ?";
 		Product prod = new Product();
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -173,7 +173,7 @@ public class ProductDaoJDBC implements ProductDao {
 
 	public List<Product> findByLastNineInserted() {
 		List<Product> product = new ArrayList<Product>();
-		String query = "select * from (select * from products order by id desc limit 9)var1 order by id asc";
+		String query = "select * from (select * from product order by id desc limit 9)var1 order by id asc";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			ResultSet rs = st.executeQuery();
