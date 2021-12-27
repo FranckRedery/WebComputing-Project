@@ -27,16 +27,15 @@ function sendEmail() {
 function controlCode(c,type) {
 	
 	var input = document.getElementById('typeCode').value;
-	if(input == c && type == "email"){
-		window.location = "insertNewEmail.html";
-	}
-	if(input == c && type == "pass"){
-		window.location = "insertNewPass.html";
+	if(input == c){
+		if(type == "email")
+			window.location = "insertNewEmail.html";
+		if(type == "pass")
+			window.location = "insertNewPass.html";
 	}
 	else{
 		window.location = "InsertCodeSecurity.html";
 	}
-		window.location = "insertNewPass.html";
 }
 
 function controlPass(type) {

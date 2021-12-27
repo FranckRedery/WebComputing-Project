@@ -36,7 +36,7 @@
 					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
-					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverEmail.html">Forgot password?</a></p>
 					<button  class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
 					 </form>
 					<%} else {%>
@@ -51,7 +51,7 @@
 						<label class="form-label" for="typePasswordX">Password</label>
 					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>					
-					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverEmail">Forgot password?</a></p>
 					<button  class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
 					 </form>
 					<%}%>

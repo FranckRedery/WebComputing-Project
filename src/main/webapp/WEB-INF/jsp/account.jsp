@@ -109,14 +109,14 @@
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
-								</a>
-								<%} else if(session.getAttribute("loggato") == "si"){%>
+								<%if (session.getAttribute("loggato") == "si"){%>
 								<a href="account.html" style="text-decoration: none;"> 
 									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 									${username}
+								</a>
+								<%} else{%>
+								<a href="login.html" style="text-decoration: none;"> 
+									<i class="fa fa-user"></i>
 								</a>
 								<%}%>
 							</div>

@@ -1,0 +1,39 @@
+.divContatto {
+	border: 1px solid #888888;
+  	border-radius: 5px;
+  	margin-top: 2%;
+  	margin-bottom: 2%;
+}
+
+.row div {
+	padding: 10px;
+}
+
+#contatti a {
+	text-decoration: none;
+	color: gray;
+}
+
+#navigation {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+body {
+	overflow-wrap: break-word;
+}
+
+.header-ctn>div {
+  display: flex;
+  margin-top:0% !important;
+}
+
+.header-ctn>div+div {
+  margin-left: 2%;
+  margin-top:0% !important;
+}
+
+.profilePic{
+	margin-right: 7px;
+}

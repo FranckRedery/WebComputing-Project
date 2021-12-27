@@ -82,7 +82,7 @@ public class Control {
 			e.printStackTrace();
 		}
 		 
-	resp.sendRedirect("/account.html");
+	resp.sendRedirect("/changePassCorrect");
 	}
 	
 }

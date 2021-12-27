@@ -25,6 +25,16 @@ public class Control {
 		return "insertNewPass";
 	}
 	
+	@GetMapping("/changePassCorrect")
+	public String changePassCorrect() {
+		return "changePassCorrect";
+	}
+	
+	@GetMapping("/recoverEmail")
+	public String recoverEmail() {
+		return "recoverEmail";
+	}
+	
 	@GetMapping("/setMailCode")
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Database.getInstance().getControl().controlEmailCode(req, resp);
