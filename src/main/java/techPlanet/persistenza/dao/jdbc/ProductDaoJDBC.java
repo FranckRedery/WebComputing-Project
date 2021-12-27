@@ -144,9 +144,8 @@ public class ProductDaoJDBC implements ProductDao {
 
 	@Override
 	public void addProduct(Product product) {
-		System.out.println("entro nel metodo");
+		
 		try {
-			System.out.println("entro nel try");
 			product.setId(IdProduct.getId(conn));
 			String query = "insert into product "
 					+ "values (?, ?, ?, ?, ?, ?, ?, ?)";

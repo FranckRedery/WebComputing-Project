@@ -84,16 +84,17 @@
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="returnRequests" style="text-decoration: none;">
-									<i class="fas fa-truck-loading"></i>
+							<div>
+								<%if (session.getAttribute("loggato") == "si"){%>
+								<a href="account.html" style="text-decoration: none;"> 
+									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									${username}
 								</a>
-							</div>
-
-							<div style="margin-top: 3%">
-								<a href="account.html" style="text-decoration: none;">
-									<i class="fas fa-sign-out-alt"></i>
+								<%} else{%>
+								<a href="login.html" style="text-decoration: none;"> 
+									<i class="fa fa-user"></i>
 								</a>
+								<%}%>
 							</div>
 							<!-- /User Toogle -->
 						</div>

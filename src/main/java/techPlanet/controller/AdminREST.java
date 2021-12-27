@@ -30,7 +30,6 @@ public class AdminREST {
 	
 	@PostMapping("/addNewProduct")
 	public void addNewProduct(@RequestBody Product product) {
-		System.out.println(product.getQuantity());
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
 
