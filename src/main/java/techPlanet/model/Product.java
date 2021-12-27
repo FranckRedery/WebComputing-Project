@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Product {
 	private long id;
 	private String name;
-	private int quantity;
+	private Integer quantity;
 	private String tags;
 	private String description;
 	private String category;
@@ -17,7 +17,7 @@ public class Product {
 
 
 
-	public Product(String name, int quantity, String tags, String description, String category,
+	public Product(String name, Integer quantity, String tags, String description, String category,
 			Float reviews, Float price) {
 		super();
 		this.name = name;
@@ -64,11 +64,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

@@ -28,9 +28,9 @@ public class AdminREST {
 		Database.getInstance().getReturnRequestDao().update(returnRequest);
 	}
 	
-	@PostMapping("/addProduct")
-	public void addProduct(@RequestBody Product product) {
-		System.out.println("entro nel metodo dell'AdminREST");
+	@PostMapping("/addNewProduct")
+	public void addNewProduct(@RequestBody Product product) {
+		System.out.println(product.getQuantity());
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
 

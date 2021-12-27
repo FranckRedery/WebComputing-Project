@@ -70,7 +70,7 @@ function caricaOpzioni() {
 					alert("prima ajax")
 					$.ajax({
 						type: "POST",
-						url: "/addProduct",
+						url: "/addNewProduct",
 						contentType: "application/json",
 						data: JSON.stringify(product),
 						success: function(data){}

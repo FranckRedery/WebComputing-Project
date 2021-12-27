@@ -16,6 +16,7 @@
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<title>Add Product</title>
 </head>
 
@@ -113,7 +114,7 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="productCategory">Category</label>
-			<select class="form-select" id="productCategory" placeholder="Product category" onclick = "caricaOpzioni()" required>
+			<select class="form-select" id="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
 				<option selected disabled value="">Choose a category</option>
 				<option>PC</option>
 				<option>Tablet</option>
