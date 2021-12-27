@@ -139,7 +139,7 @@
                             	<span class="info" style="font-size: small;">Product ID : </span>
                             	<span class="product-id" id="prodId" style="font-size: small;">${item.product.id}</span>
                                 <br>
-                                <span class="info" style="font-size: small;">Type : </span>
+                                <span class="info" style="font-size: small;">Category : </span>
                                 <span class="product-type" style="font-size: small;">
                                     ${item.product.category}
                                 </span>
