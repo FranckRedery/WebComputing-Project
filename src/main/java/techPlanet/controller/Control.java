@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import techPlanet.Database;
 
@@ -25,14 +26,24 @@ public class Control {
 		return "insertNewPass";
 	}
 	
+	@GetMapping("/recoverPasswordSent")
+	public String recoverPasswordSent() {
+		return "recoverPasswordSent";
+	}
+	
 	@GetMapping("/changePassCorrect")
 	public String changePassCorrect() {
 		return "changePassCorrect";
 	}
 	
-	@GetMapping("/recoverEmail")
-	public String recoverEmail() {
-		return "recoverEmail";
+	@GetMapping("/changeEmailCorrect")
+	public String changeEmailCorrect() {
+		return "changeEmailCorrect";
+	}
+	
+	@GetMapping("/recoverPassword")
+	public String recoverPassword() {
+		return "recoverPassword";
 	}
 	
 	@GetMapping("/setMailCode")
@@ -55,9 +66,16 @@ public class Control {
 		Database.getInstance().getControl().updateEmail(req, resp, email);
 	}
 	
+	
 	@PostMapping("/updatePass")
 	public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Database.getInstance().getControl().updatePass(req, resp);
+	}
+	
+	@PostMapping("/recoverPass")
+	@ResponseBody
+	public String recoverPass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		return Database.getInstance().getControl().recoverPass(req, resp);
 	}
 	
 }

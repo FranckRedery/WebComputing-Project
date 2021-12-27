@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 public class Control {
 	
 	private Connection conn;
@@ -31,6 +32,32 @@ public class Control {
 		resp.sendRedirect("control.html");
 	}
 	
+	public void takePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		resp.sendRedirect("control.html");
+	}
+	
+	public String recoverPass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		String check = "SELECT password FROM users WHERE username = '" + req.getParameter("username") + "'" + "AND email = '" + req.getParameter("email") + "'";
+			try {
+				Statement registerStatement = conn.createStatement();
+				ResultSet rs;
+				rs = registerStatement.executeQuery(check);
+				if(rs.next()) {
+					session.setAttribute("errore", "no");
+					return rs.getString("password");
+				}
+				else { 
+					session.setAttribute("errore", "si");
+					return "null";
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "null";
+	}
 	
 	public void setPassCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
@@ -65,7 +92,6 @@ public class Control {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 
 		resp.sendRedirect("/account.html");
 	}
 	
@@ -82,7 +108,7 @@ public class Control {
 			e.printStackTrace();
 		}
 		 
-	resp.sendRedirect("/changePassCorrect");
+	resp.sendRedirect("/changeEmailCorrect");
 	}
 	
 }

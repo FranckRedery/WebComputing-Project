@@ -51,10 +51,11 @@ function controlPass(type) {
 					newPass: newPass
 				}
 			 });
-			 window.location = "account.html";
+			 window.location = "changePassCorrect";
 	}
 	else{
 			window.location = "insertNewPass.html";	 
 	}
+	
 }
 
