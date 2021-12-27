@@ -31,6 +31,7 @@
 					 <button class="btn btn-outline-light btn-lg px-5" >Confirm</button>
 					</a>
 				  </div>
+				 	<p>didn't receive that? <a href="recoverPassword" style="color: grey; background: transparent; border: 0;">Send again</a></p>
 				</div>
 			  </div>
 			</div>

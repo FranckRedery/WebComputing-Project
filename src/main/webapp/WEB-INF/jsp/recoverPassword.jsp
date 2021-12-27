@@ -25,7 +25,9 @@
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">RECOVER PASSWORD</h2>
+					  <a href="index.html">
 					<img src="/images/index/logo.png" alt="">
+					  </a>
 					 <form action="javascript:checkDataRecovery()">
 					<div class="form-outline form-white mb-3">
 					<h3 style=" font-size: 20px; color: gray; text-align: center;">Enter the email address associated with your TeachPlanet account.</h3>
