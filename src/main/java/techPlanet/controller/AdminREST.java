@@ -30,6 +30,7 @@ public class AdminREST {
 	
 	@PostMapping("/addProduct")
 	public void addProduct(@RequestBody Product product) {
+		System.out.println("entro nel metodo dell'AdminREST");
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
 

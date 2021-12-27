@@ -144,15 +144,22 @@ public class ProductDaoJDBC implements ProductDao {
 
 	@Override
 	public void addProduct(Product product) {
-		
+		System.out.println("entro nel metodo");
 		try {
+			System.out.println("entro nel try");
 			product.setId(IdProduct.getId(conn));
-			String query = "insert into products "
+			String query = "insert into product "
 					+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			//st.setLong(1, report.getId());
-			//st.setString(2, report.getProblem_origin());
-			//st.setString(3, report.getDescription());
+			st.setLong(1,product.getId());
+			st.setString(2, product.getName());
+			st.setInt(3, product.getQuantity());
+			st.setString(4, product.getTags());
+			st.setString(5, product.getDescription());
+			st.setString(6, product.getCategory());
+			// at the beginning reviews star i think should be 0
+			st.setFloat(7,0);
+			st.setFloat(8, product.getPrice());
 			st.executeUpdate();
 			
 		} catch (SQLException e) {

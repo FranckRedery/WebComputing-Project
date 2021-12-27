@@ -56,22 +56,26 @@ function caricaOpzioni() {
 						selectedCheckBoxes.forEach(function(checkBox, indice){
 				
 						nuovaTag = checkBox.value;
-						alert(nuovaTag);
 						tags += nuovaTag;
-						tags += ',';
+						if(indice != selectedCheckBoxes.length-1){
+							tags += ',';
+							}
 						});}
-					alert(tags);
+					let description = document.getElementById('description').value;
+					// TO DO.. take images... in the future maybe , when we will realize how to store img xD
+					let price = document.getElementById('amount').value;
+					let quantity = document.getElementById('quantity').value;
 					
-					// vediamo i tag
-					// creare l'oggetto product
-					let product = new Product(usernameField);
+					let product = new Product(name,category,tags,description,price,quantity);
+					alert("prima ajax")
 					$.ajax({
 						type: "POST",
 						url: "/addProduct",
 						contentType: "application/json",
 						data: JSON.stringify(product),
-						success: function(data){}	
+						success: function(data){}
 					});
+					alert("dopo ajax")
 				}
                 form.classList.add('was-validated');
             }, false);
@@ -80,6 +84,11 @@ function caricaOpzioni() {
 })();
 
 
-function Product(){
-	
+function Product(name,category,tags,description,price,quantity){
+	this.name = name;
+	this.category = category;
+	this.tags = tags;
+	this.description = description;
+	this.price = price;
+	this.quantity = quantity;
 }
