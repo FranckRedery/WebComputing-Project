@@ -3,7 +3,7 @@ function AdminLog(){
 var em = document.getElementById('typeEmailX').value;
 var pas = document.getElementById('typePasswordX').value;
 
- if(em == "admin@admin.com" && pas == "admin"){
+ if(em == "admin@admin.com" && pas == "adminadmin"){
 	 window.location = document.getElementById('admi').href;
  }
  
@@ -32,13 +32,22 @@ function errorBox(){
 function validateForm() {
   var email = document.forms["loginForm"]["email"].value;
   var password = document.forms["loginForm"]["pass"].value;
-  if (email == "") {
-	document.getElementById("fail").innerHTML = "email must be filled out";
-    return false;
-  }
-  if (password == "") {
-	document.getElementById("fail").innerHTML = "password must be filled out";
-    return false;
+  
+   if(email == "admin@admin.com" && password == "adminadmin"){
+	console.log("errore")
+	 window.location = "adminPage";
+   }
+   else{
+	$.ajax({
+		type: 'POST',
+		url: "/loginServices",
+		dataType: "json",
+		data: {
+			email: email,
+			password: password
+		}
+	});
+	window.location = "index.html";
   }
 }
 

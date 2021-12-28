@@ -25,7 +25,7 @@
 					<img src="/images/index/logo.png" alt="">
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
-					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" required />
 					</div>
 					<a>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>

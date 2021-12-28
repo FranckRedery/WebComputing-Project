@@ -27,10 +27,10 @@
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Login</h2>
 					<img src="images/index/logo.png" alt="">
 					<%if (session.getAttribute("errore") == "si"){%>
-					<form name="loginForm"  method="post" onsubmit="return validateForm();" action="loginServices">
+					<form name="loginForm"  method="post" action="javascript:validateForm()">
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required />
 					    
 					</div>
 					<div class="form-outline form-white mb-3">
@@ -45,11 +45,11 @@
 					  </div>
 					 </form>
 					<%} else {%>
-					<form name="loginForm" method="post" onsubmit="return validateForm();" action="loginServices">
+					<form name="loginForm" method="post" action="javascript:validateForm()">
 					<div class="form-outline form-white mb-3">
 					
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required />
 					    
 					</div>
 					<div class="form-outline form-white mb-3">

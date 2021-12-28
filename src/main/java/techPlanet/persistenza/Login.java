@@ -67,8 +67,8 @@ public class Login {
 	}
 	
 	
-	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass, String username) throws IOException {
-		String sql = "select * from users where email = '" + email + "'" + "and password = '" + pass + "'";
+	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String sql = "select * from users where email = '" + req.getParameter("email") + "'" + "and password = '" + req.getParameter("password") + "'";
 		HttpSession session = req.getSession(true);
 		
 		
@@ -88,7 +88,7 @@ public class Login {
 				session.setAttribute("postcode", rs.getString("postcode"));
 				session.setAttribute("country", rs.getString("country"));
 				session.setAttribute("stateregion", rs.getString("stateregion"));
-				resp.sendRedirect("/");
+				resp.sendRedirect("index.html");
 			}else {
 				session.setAttribute("errore", "si");
 				resp.sendRedirect("login.html");

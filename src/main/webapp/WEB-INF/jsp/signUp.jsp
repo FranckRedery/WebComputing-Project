@@ -54,7 +54,7 @@
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typeEmailX">Email</label> <input
 											type="email" name="email" id="typeEmailX"
-											class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+											class="form-control form-control-lg" required />
 									</div>
 									<div class="form-outline form-white mb-4">
 										<label class="form-label" for="typePasswordX">Password</label>
@@ -86,8 +86,8 @@
 										pattern=".{6,15}" title="Minimo 6 e Massimo 15 caratteri" />
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typeEmailX">Email</label> <input
-											type="email" name="email" id="typeEmailX" 
-											class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+											type="email" name="email" id="typeEmailX"
+											class="form-control form-control-lg" required />
 									</div>
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typePasswordX">Password</label>
