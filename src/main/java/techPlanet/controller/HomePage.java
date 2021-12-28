@@ -57,10 +57,8 @@ public class HomePage {
 		return "login";
 	}
 
-	@GetMapping("/productDetails.html")
+	@GetMapping("/product")
 	public String ProductDetailsPage(HttpServletRequest req) {
-		Product product = Database.getInstance().getProductsDao().findById(0);
-		req.setAttribute("prodotto", product);
 		return "product";
 	}
 

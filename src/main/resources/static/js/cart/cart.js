@@ -7,9 +7,9 @@ for (var i = 0; i < myArray.length; i++){
 document.getElementById("tot").innerHTML= "$" + sum + ".00";
 
 var iva = (sum * 22)/100;
-document.getElementById("iva").innerHTML= "$" + iva + ".00";
+document.getElementById("iva").innerHTML= "$" + iva;
 
 var totalWithIva = sum + iva;
-document.getElementById("totWithIva").innerHTML= "$" + totalWithIva + ".00";
+document.getElementById("totWithIva").innerHTML= "$" + totalWithIva;
 
 

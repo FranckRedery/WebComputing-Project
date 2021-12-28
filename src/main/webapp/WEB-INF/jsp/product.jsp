@@ -27,6 +27,7 @@
                     <li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
                     <li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+                 </ul>
             </div>
         </div>
         <!-- /TOP HEADER -->
@@ -155,8 +156,8 @@
                 </div>
             </div>
             <div class="col-lg-6 description">
-                <h1>${prodotto.name}</h1>
-                <h4>${prodotto.price}</h4>
+                <h1>${product.name}</h1>
+                <h4>${product.price}</h4>
                 <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
                 <br>
                 <br>
@@ -167,7 +168,7 @@
                         <i class="fa fa-cart-plus"></i>add to Cart
                     </button></a>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <p>${prodotto.description}</p>
+                <p>${product.description}</p>
                 <br>
             </div>
         </div>

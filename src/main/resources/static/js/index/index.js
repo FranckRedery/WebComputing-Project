@@ -19,16 +19,6 @@ $('.owl-carousel').owlCarousel({
   }
 });
 
-/*function addToCart() {
-	var bottonClicked = $("button").val();
-	console.log(bottonClicked);
-	/*document.getElementById("cart").innerHTML = "Added to cart";
-	setTimeout(function() {
-		document.getElementById("cart").innerHTML=""; },2000)	
-	
-	});
-}*/
-
 $("button#addProd").click(function(){
 	let id = $(this).val();
 	document.getElementById("cart_" + id).innerHTML = "Added to cart";
@@ -44,15 +34,19 @@ $("button#addProd").click(function(){
 	//console.log(idProduct);
 });
 
-/*var x = document.getElementsByClassName("product-type")[0].id;
-console.log(x);*/
-
-/*$("#bottone").on("click", function(e){ 
-	//alert("worka");
-	//$(this).closest('div').find('#cart').html('Added to cart');
-	let idProduct = $("button").closest("div").find(".idHidden").text();
-	console.log(idProduct);
-});*/
+$("button#viewProd").click(function(){
+	let id = $(this).val();
+		$.ajax({
+			type: "POST",
+			url: "/viewDetailsProdPage",
+			contentType: "application/json",
+			data: id,
+			success: function(){
+				window.location = "/product";
+			}
+			});
+	//console.log(idProduct);
+});
 
 
 function signOut() {
