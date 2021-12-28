@@ -33,6 +33,10 @@
 <link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
 	rel="stylesheet" type="text/css" />
 <script src="js/Signup/signUp.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<meta name="google-signin-client_id"
+	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 </head>
 
 <title>Tech Planet</title>
@@ -58,11 +62,25 @@
 					<%
 					if (session.getAttribute("loggato") == "si") {
 					%>
-					<a href="/faiLogout" style="text-decoration: none;">
-						<button class="btnLog">
-							<span>Log out</span>
-						</button>
-					</a>
+						<%
+						if (session.getAttribute("loggatoGoogle") == "si") {
+						%>
+						<a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+						<%
+						} else {
+						%>
+						<a href="/faiLogout" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+						<%
+						}
+						%>
 					<%
 					} else {
 					%>
@@ -138,12 +156,12 @@
 								<%
 								if (session.getAttribute("loggato") == "si") {
 								%>
-								<a href="account.html"
-									style="text-decoration: none; display: flex;"> <img
-									class="profilePic" src="images/account/avatar.png"
-									style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src="images/account/avatar.png"
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
 								<%
 								} else {
 								%>
@@ -326,7 +344,7 @@
 						<div class="row btns w-100 mx-auto text-center">
 							<c:if test="${username != null}">
 								<div class="idHidden" style="display: none">${prod.id}</div>
-								<button type="button" class="col-6 py-2" value="${prod.id}" id="addProd">
+								<button type="button" class="col-6 py-2" value="${prod.id}">
 									<i class="fa fa-cart-plus"></i>add to Cart
 								</button>
 							</c:if>
@@ -343,8 +361,8 @@
 					</div>
 					<div class="product-info p-3">
 						<div class="addedToCart" id="cart_${prod.id}"></div>
-						<span class="product-type"> Electronics &
-							accessories </span> <a href="productDetails.html"
+						<span class="product-type"> Electronics & accessories </span> <a
+							href="productDetails.html"
 							class="d-block text-dark text-decoration-none py-2 product-name">
 							${prod.name}</a> <span class="product-price">$${prod.price}</span>
 						<div class="rating d-flex mt-1">

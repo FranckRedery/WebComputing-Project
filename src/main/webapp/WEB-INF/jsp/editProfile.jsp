@@ -198,18 +198,20 @@
 			 <form  method="post" action="update">
 				<div class="p-5 py-6">
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
-						<div class="col-md-10"><label class="labels">Surname</label><input type="text" class="form-control" name="surname" value="${surname}" placeholder="surname"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Email</label><p style="font-size: 20px"><strong>${email}</strong><a href="security.html"><button style="margin-right:3%; margin-left:3%; padding: 5px" class="btn btn-primary profile-button" type="button">edit</button></a></p></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Username</label><p style="font-size: 20px"><strong>${username}</strong><a href="security.html"></a></p></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Surname</label><input type="text" class="form-control" name="surname" value="${surname}" placeholder="surname"></div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-md-10"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" name="phonenumber" value="${phonenumber}"></div>
-						<div class="col-md-10"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" name="addressline1" value="${addressline1}"></div>
-						<div class="col-md-10"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" name="addressline2" value="${addressline2}"></div>
-						<div class="col-md-10"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" name="postcode" value="${postcode}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" name="phonenumber" value="${phonenumber}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" name="addressline1" value="${addressline1}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" name="addressline2" value="${addressline2}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" name="postcode" value="${postcode}"></div>
 					</div>
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" name="country" value="${country}"></div>
-						<div class="col-md-10"><label class="labels">State/Region</label><input type="text" class="form-control" value="${stateregion}" name="stateregion" placeholder="state"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Country</label><input type="text" class="form-control" placeholder="country" name="country" value="${country}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">State/Region</label><input type="text" class="form-control" value="${stateregion}" name="stateregion" placeholder="state"></div>
 					</div>
 					<div class="mt-4 text-center" style="display: flex; padding-right: 20%">
 					   <a href="account.html">

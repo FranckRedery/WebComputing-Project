@@ -32,6 +32,52 @@ public class Control {
 		resp.sendRedirect("control.html");
 	}
 	
+	public void loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("id") + "', '" + req.getParameter("username") + "')";
+		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
+		HttpSession session = req.getSession(true);
+		
+		try {
+			Statement registerStatement = conn.createStatement();
+			ResultSet rs = registerStatement.executeQuery(check);
+			
+			if(rs.next()) {
+				resp.sendRedirect("/index.html");
+				session.setAttribute("loggato", "si");
+				session.setAttribute("loggatoGoogle", "si");
+				session.setAttribute("errore", "no");
+				session.setAttribute("email", req.getParameter("email"));
+				session.setAttribute("username", req.getParameter("username"));
+				session.setAttribute("image", req.getParameter("image"));
+				return;
+			}
+			else { 
+			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
+				PreparedStatement preparedStmt = conn.prepareStatement(sql);
+				preparedStmt.execute();
+				resp.sendRedirect("/index.html");
+				session.setAttribute("loggato", "si");
+				session.setAttribute("loggatoGoogle", "si");
+				session.setAttribute("errore", "no");
+				session.setAttribute("email", req.getParameter("email"));
+				session.setAttribute("username", req.getParameter("username"));
+				session.setAttribute("image", req.getParameter("image"));
+				return;
+			   }
+			   else {
+					resp.sendRedirect("/signUp.html");
+					session.setAttribute("errore", "si");
+					return;
+			   }
+			}
+		 } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return;
+	}
+	
 	public void takePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		resp.sendRedirect("control.html");

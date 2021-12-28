@@ -46,9 +46,10 @@ public class Login {
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("loggato", "no");
+		session.setAttribute("loggatoGoogle", "no");
 		session.setAttribute("errore", "no");
 		session.invalidate();
-		resp.sendRedirect("/");
+		resp.sendRedirect("index.html");
 	}
 	
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {

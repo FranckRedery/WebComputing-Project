@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/LoginAdmin/adminLogin.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 </head>
 <title>TechPlanet</title>
 </head>
@@ -56,9 +58,7 @@
 					 </form>
 					<%}%>
 					<div class="d-flex justify-content-center text-center mt-3 pt-1">
-					  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-					  <a href="#!" class="text-white"><i id="G" class="fab fa-google fa-lg"></i></a>
+					  <a class="g-signin2" data-onsuccess="onSignIn" class="text-white"><i id="G" class="fab fa-google fa-lg"></i></a>
 					</div>
 					<p class="pt-4">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
 					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>					

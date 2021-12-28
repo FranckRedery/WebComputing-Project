@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 </head>
 <title>TechPlanet</title>
 </head>
@@ -63,9 +65,7 @@
 					</div>
 					</div>					
 					<div class="d-flex justify-content-center text-center mt-3 pt-1">
-					  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-					  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-					  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+					  <a class="g-signin2" data-onsuccess="onSignIn" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					</div>
 					<p class="mt-2">Already registered?<button style=" text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();">Log In</a></button>
 					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>

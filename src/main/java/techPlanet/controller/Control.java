@@ -51,6 +51,12 @@ public class Control {
 		Database.getInstance().getControl().controlEmailCode(req, resp);
 	}
 	
+	
+	@PostMapping("/loginGoogle")
+	public void loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Database.getInstance().getControl().loginGoogle(req, resp);
+	}
+	
 	@GetMapping("/setPassCode")
 	public void setPassCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Database.getInstance().getControl().setPassCode(req, resp);

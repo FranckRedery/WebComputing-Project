@@ -53,3 +53,26 @@ console.log(x);*/
 	let idProduct = $("button").closest("div").find(".idHidden").text();
 	console.log(idProduct);
 });*/
+
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+    window.location.reload();
+    
+}
+
+ function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+ }
+
