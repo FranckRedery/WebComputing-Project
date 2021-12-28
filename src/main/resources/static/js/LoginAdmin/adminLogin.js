@@ -33,11 +33,11 @@ function validateForm() {
   var email = document.forms["loginForm"]["email"].value;
   var password = document.forms["loginForm"]["pass"].value;
   
-   if(email == "admin@admin.com" && password == "adminadmin"){
+/*   if(email == "admin@admin.com" && password == "adminadmin"){
 	console.log("errore")
 	 window.location = "adminPage";
    }
-   else{
+   else{*/
 	$.ajax({
 		type: 'POST',
 		url: "/loginServices",
@@ -46,9 +46,10 @@ function validateForm() {
 			email: email,
 			password: password
 		}
-	});
-	window.location = "index.html";
-  }
+	})		
+	console.log("ajax")
+  //}
+	
 }
 
 function onSignIn(googleUser) {
@@ -60,8 +61,10 @@ function onSignIn(googleUser) {
   console.log('ID: ' + profile.getId()); 
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
+  console.log('Email: ' + profile.getEmail()); 
   
+    window.location = "/";
+    
   $.ajax({
 		type: 'POST',
 		url: "/loginGoogle",
@@ -73,16 +76,29 @@ function onSignIn(googleUser) {
 			image: image
 		}	
 	});
-  
-  window.location = "index.html";
-  
 }
+
+
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+    window.location = "/";
 }
+
+ function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+ }
+
 
 

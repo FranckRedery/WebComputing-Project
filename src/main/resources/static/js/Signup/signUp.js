@@ -15,7 +15,7 @@ function errorBox(){
          type : 'GET',  
          url : "/resetError",  
     });
-     window.location = document.getElementById('logi').href;
+     window.location = "login.html"
 }
 
 function resetSignUp(){	
@@ -74,6 +74,8 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); 
   
+    window.location = "/";
+    
   $.ajax({
 		type: 'POST',
 		url: "/loginGoogle",
@@ -85,9 +87,6 @@ function onSignIn(googleUser) {
 			image: image
 		}	
 	});
-  
-  window.location = "index.html";
-  
 }
 
 function signOut() {
@@ -101,7 +100,7 @@ function signOut() {
          url : "/faiLogout",  
     });
     
-    window.location = "index.html";
+    window.location = "/";
 }
 
  function onLoad() {

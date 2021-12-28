@@ -52,7 +52,7 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
@@ -73,7 +73,7 @@
 						<%
 						} else {
 						%>
-						<a href="/faiLogout" style="text-decoration: none;">
+						<a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
@@ -123,7 +123,7 @@
 						<div class="header-search">
 							<form>
 								<select class="input-select">
-									<option value="0">All Categories</option>
+									<option value="0">${loggato}</option>
 									<option value="1">Smartphone</option>
 									<option value="2">TV</option>
 									<option value="3">Accessories</option>

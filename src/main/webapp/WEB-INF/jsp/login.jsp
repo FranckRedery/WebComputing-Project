@@ -27,7 +27,7 @@
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Login</h2>
 					<img src="images/index/logo.png" alt="">
 					<%if (session.getAttribute("errore") == "si"){%>
-					<form name="loginForm"  method="post" action="javascript:validateForm()">
+					<form name="loginForm"  method="post" action="/loginServices">
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
 					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required />
@@ -35,7 +35,7 @@
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverEmail.html">Forgot password?</a></p>
@@ -45,7 +45,7 @@
 					  </div>
 					 </form>
 					<%} else {%>
-					<form name="loginForm" method="post" action="javascript:validateForm()">
+					<form name="loginForm" method="post" action="/loginServices">
 					<div class="form-outline form-white mb-3">
 					
 						<label class="form-label" for="typeEmailX">Email</label>
@@ -54,7 +54,7 @@
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
-					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverPassword">Forgot password?</a></p>
 					<div id="bottoni">
@@ -66,7 +66,7 @@
 					<div class="d-flex justify-content-center text-center mt-1 pt-1">
 					</div>
 					<p class="pt-1">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
-					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>					
+					or back to <a href="/" style="color: grey; background: transparent; border: 0;"> Home </a></p>					
 					<a id="sign" href="signUp.html"></a>
 				  </div>
 				</div>

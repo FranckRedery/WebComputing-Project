@@ -167,7 +167,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>

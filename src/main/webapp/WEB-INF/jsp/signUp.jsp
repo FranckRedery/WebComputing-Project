@@ -117,7 +117,7 @@
 								onclick="errorBox();">
 								Log In</a>
 							</button>
-							or back to <a href="index.html"
+							or back to <a href="/"
 								style="color: grey; background: transparent; border: 0;">
 								Home </a>
 						</p>

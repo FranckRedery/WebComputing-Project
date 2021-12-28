@@ -45,16 +45,12 @@ public class Login {
 
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		session.setAttribute("loggato", "no");
-		session.setAttribute("loggatoGoogle", "no");
-		session.setAttribute("errore", "no");
 		session.invalidate();
-		resp.sendRedirect("index.html");
+		resp.sendRedirect("/");
 	}
 	
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		session.setAttribute("errore", "no");
 		session.invalidate();
 		resp.sendRedirect("/");
 	}
@@ -62,15 +58,13 @@ public class Login {
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("errore", "si");
-		session.invalidate();
 		resp.sendRedirect("/");
 	}
 	
 	
-	public boolean faiLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public String faiLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String sql = "select * from users where email = '" + req.getParameter("email") + "'" + "and password = '" + req.getParameter("password") + "'";
 		HttpSession session = req.getSession(true);
-		
 		
 		try {
 			Statement st = conn.createStatement();
@@ -88,11 +82,12 @@ public class Login {
 				session.setAttribute("postcode", rs.getString("postcode"));
 				session.setAttribute("country", rs.getString("country"));
 				session.setAttribute("stateregion", rs.getString("stateregion"));
-				resp.sendRedirect("index.html");
+				resp.sendRedirect("/");
+				return "index";
 			}else {
 				session.setAttribute("errore", "si");
 				resp.sendRedirect("login.html");
-				return true;
+				return "index";
 			}
 				
 		} catch (SQLException e) {
@@ -100,7 +95,7 @@ public class Login {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return "index.html";
 	}
 	
 }

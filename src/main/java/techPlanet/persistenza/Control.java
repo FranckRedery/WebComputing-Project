@@ -42,7 +42,7 @@ public class Control {
 			ResultSet rs = registerStatement.executeQuery(check);
 			
 			if(rs.next()) {
-				resp.sendRedirect("/index.html");
+				resp.sendRedirect("/");
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");
@@ -55,7 +55,7 @@ public class Control {
 			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
-				resp.sendRedirect("/index.html");
+				resp.sendRedirect("/");
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");

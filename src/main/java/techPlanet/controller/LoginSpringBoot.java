@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import techPlanet.Database;
 
@@ -39,9 +40,7 @@ public class LoginSpringBoot {
 	
 	@PostMapping("/loginServices")
 	public String faiLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		if(Database.getInstance().getLogin().faiLogin(req, resp))
-			return "login";
-		return null;
+		return Database.getInstance().getLogin().faiLogin(req, resp);
 	}
 
 }
