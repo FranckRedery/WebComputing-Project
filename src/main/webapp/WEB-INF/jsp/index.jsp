@@ -326,7 +326,7 @@
 						<div class="row btns w-100 mx-auto text-center">
 							<c:if test="${username != null}">
 								<div class="idHidden" style="display: none">${prod.id}</div>
-								<button type="button" class="col-6 py-2" value="${prod.id}">
+								<button type="button" class="col-6 py-2" value="${prod.id}" id="addProd">
 									<i class="fa fa-cart-plus"></i>add to Cart
 								</button>
 							</c:if>

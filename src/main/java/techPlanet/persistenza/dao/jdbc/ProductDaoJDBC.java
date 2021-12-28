@@ -88,6 +88,7 @@ public class ProductDaoJDBC implements ProductDao {
 		return false;
 	}
 
+	@Override
 	public List<Product> findByUser(String user) {
 		List<Product> product = new ArrayList<Product>();
 		String query = "select * from chooses INNER JOIN product ON chooses.id = product.id where username = ?";
@@ -185,6 +186,7 @@ public class ProductDaoJDBC implements ProductDao {
 		}
 	}
 
+	@Override
 	public List<Product> findByLastNineInserted() {
 		List<Product> product = new ArrayList<Product>();
 		String query = "select * from (select * from product order by id desc limit 9)var1 order by id asc";
