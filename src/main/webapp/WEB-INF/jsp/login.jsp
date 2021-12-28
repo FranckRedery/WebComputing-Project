@@ -30,7 +30,7 @@
 					<form name="loginForm"  method="post" onsubmit="return validateForm();" action="loginServices">
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required/>
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
 					    
 					</div>
 					<div class="form-outline form-white mb-3">
@@ -49,7 +49,7 @@
 					<div class="form-outline form-white mb-3">
 					
 						<label class="form-label" for="typeEmailX">Email</label>
-					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required />
+					     <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
 					    
 					</div>
 					<div class="form-outline form-white mb-3">
