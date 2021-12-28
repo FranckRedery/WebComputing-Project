@@ -325,7 +325,8 @@
 						</span>
 						<div class="row btns w-100 mx-auto text-center">
 							<c:if test="${username != null}">
-								<button type="button" class="col-6 py-2 bottone">
+								<div class="idHidden" style="display: none">${prod.id}</div>
+								<button type="button" class="col-6 py-2" value="${prod.id}">
 									<i class="fa fa-cart-plus"></i>add to Cart
 								</button>
 							</c:if>
@@ -341,8 +342,8 @@
 						</div>
 					</div>
 					<div class="product-info p-3">
-						<div class="addedToCart" id="cart"></div>
-						<span class="product-type" id="${prod.id}"> Electronics &
+						<div class="addedToCart" id="cart_${prod.id}"></div>
+						<span class="product-type"> Electronics &
 							accessories </span> <a href="productDetails.html"
 							class="d-block text-dark text-decoration-none py-2 product-name">
 							${prod.name}</a> <span class="product-price">$${prod.price}</span>

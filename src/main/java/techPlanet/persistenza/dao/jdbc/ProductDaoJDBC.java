@@ -169,6 +169,21 @@ public class ProductDaoJDBC implements ProductDao {
 		}
 	}
 	
+	@Override
+	public void addProductToCart(Long id, String username) {
+		try {
+			String query = "insert into chooses "
+					+ "values (?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1,id);
+			st.setString(2,username);
+			st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+	}
 
 	public List<Product> findByLastNineInserted() {
 		List<Product> product = new ArrayList<Product>();
