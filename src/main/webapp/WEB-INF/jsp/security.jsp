@@ -17,6 +17,13 @@
 	<script src="/lib/jquery.plugin.js"></script>
     <script src="js/LoginAdmin/adminLogin.js"></script>
     <script src="js/control/mail.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/Signup/signUp.js"></script>
+    <script src="js/Signup/signUp.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <title>TechPlanet</title>
@@ -36,25 +43,46 @@
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
+				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-						<%if (session.getAttribute("loggato") == "si") {%>
-								<a href="/faiLogout" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Log out</span>
-									</button>
-								</a>
-								<%} else {%>
-								<a href="login.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Login</span>
-									</button>
-								</a>
-								<a href="signUp.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Sign Up</span>
-									</button>
-								</a>
-								<%}%>
+					<%
+					if (session.getAttribute("loggato") == "si") {
+					%>
+						<%
+						if (session.getAttribute("loggatoGoogle") == "si") {
+						%>
+						<a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+						<%
+						} else {
+						%>
+						<a href="/faiLogout" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+						<%
+						}
+						%>
+					<%
+					} else {
+					%>
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+					<%
+					}
+					%>
 				</ul>
 			</div>
 		</div>

@@ -95,5 +95,18 @@ function signOut() {
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+    window.location = "index.html";
 }
+
+ function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+ }
 
