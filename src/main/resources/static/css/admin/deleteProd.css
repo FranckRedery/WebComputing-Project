@@ -16,16 +16,39 @@ input[type=text] {
   }
 }
 
+.info{
+	font-size: 17px!important;
+	color: white;
+}
+
+#prodId, .product-type, .product-name, .product-price{
+	font-size: 17px!important;
+	color: orange;
+}
+
+#riga{
+	margin-bottom: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+	background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 input[type=number]:focus {
     background-color: lightskyblue;
 }
 
 .btn.btn-danger{
-	margin-top: 50%;
+	margin-top: 55%;
+	margin-left: 20%;
 }
 
 #btnHome{
-	margin-top: 10%;
+	margin-left: 20%;
+	margin-top: 15%;
 }
 
 .mb-3{
@@ -43,16 +66,17 @@ input[type=number]:focus {
 	margin-top: 3%;
 	font-size: 25px;
     font-weight: bold;
+    color: white;
 }
 
-.col-md-5{
+.col-md-7{
 	text-align: center;
 }
 
 
 .needs-validation{
-    margin-bottom: 5%;
     margin-top: 5%;
+    margin-bottom: 7%;
     margin-right: 25%;
     margin-left: 25%;
     background: rgba(0,0,0,.5);

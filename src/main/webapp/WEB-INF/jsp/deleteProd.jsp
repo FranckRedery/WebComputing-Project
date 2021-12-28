@@ -99,14 +99,12 @@
 			<input type="text" class="form-control" id="productName" placeholder="Product name" required>
 			<div class="invalid-feedback">Please enter a valid product name.</div>
 		</div>
-		<button type="submit"  class="btn btn-primary" onclick="reloadFunction();" id="btnSearch">Search the product</button>
+		<button type="submit"  class="btn btn-primary" id="btnSearch">Search the product</button>
 	</form>
 	
-	<br>
 	<c:if test = "${product != null}">
      <div class="row" id="riga">
-     	<div class="col-md-2"></div>
-		<div class="col-md-5">
+		<div class="col-md-7">
             <label class="selectedProduct" id="selectedProd">Selected product</label>
             <div class="product-img">
                 <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto" width="400" height= auto>
@@ -127,15 +125,11 @@
                 </div>
         </div>
         
-        <div class="col-md-3">
+        <div class="col-md-5">
         	<button type="button" class="btn btn-danger" onclick="deleteFunction();">Delete product</button>
         	<br>
-        	<a href="/adminPage"><button type="button" class="btn btn-primary" id="btnHome">Back to homepage</button></a>
-        
-        
+        	<a href="/adminPage"><button type="button" class="btn btn-primary" id="btnHome">Back to homepage</button></a> 
         </div>
-        
-        <div class="col-md-2"></div>
         
       </div>
 	 </c:if>

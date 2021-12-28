@@ -17,7 +17,9 @@
 						url: "/deleteProduct",
 						contentType: "application/json",
 						data: name,
-						success: function(){}
+						async: false,
+						success: function(){
+							window.location.reload(); }
 					});
 				}
                 form.classList.add('was-validated');
@@ -26,9 +28,6 @@
 	}, false);
 })();
 
-function reloadFunction(){
-	window.location.reload();
-}
 
 function deleteFunction(){
 	
