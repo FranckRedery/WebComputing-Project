@@ -29,4 +29,34 @@
 	color: red;
 }
 
+#bottoni{
+	
+	display:flex; 
+	margin: 20px; 
+	justify-content: center; 
+	align-items: center; 
+	height: 100%;
+	
+}
 
+@media only screen and (max-width: 300px) {
+
+	#bottoni{
+		display: block;
+		align-items: center;
+		margin-left: auto;
+ 		margin-right: auto;
+	}
+	
+	#G{
+		 display: flex;  
+		justify-content: center;  
+		align-items: center;  
+	}
+	
+	#log{
+		justify-content: center;  
+		align-items: center;  
+	}
+	
+}

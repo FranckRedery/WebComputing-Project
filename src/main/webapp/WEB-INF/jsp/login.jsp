@@ -39,7 +39,10 @@
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverEmail.html">Forgot password?</a></p>
-					<button  class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+					 <div id="bottoni">
+					<button id="log" style="margin:20px" class="btn btn-outline-light btn-lg px-4" type="submit">Login</button>
+					  <a id="G" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+					  </div>
 					 </form>
 					<%} else {%>
 					<form name="loginForm" method="post" onsubmit="return validateForm();" action="loginServices">
@@ -54,13 +57,15 @@
 					  <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverPassword">Forgot password?</a></p>
-					<button  class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+					<div id="bottoni">
+					<button id="log" style="margin:20px" class="btn btn-outline-light btn-lg px-4" type="submit">Login</button>
+					  <a id="G" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+					  </div>
 					 </form>
 					<%}%>
-					<div class="d-flex justify-content-center text-center mt-3 pt-1">
-					  <a class="g-signin2" data-onsuccess="onSignIn" class="text-white"><i id="G" class="fab fa-google fa-lg"></i></a>
+					<div class="d-flex justify-content-center text-center mt-1 pt-1">
 					</div>
-					<p class="pt-4">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
+					<p class="pt-1">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>
 					or back to <a href="index.html" style="color: grey; background: transparent; border: 0;"> Home </a></p>					
 					<a id="sign" href="signUp.html"></a>
 				  </div>
