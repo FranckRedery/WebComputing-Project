@@ -159,6 +159,7 @@ body {
   font-weight: 400;
   color: #333;
   margin: 0;
+  background: linear-gradient(#8ab7ff,#5193fc);
 }
 
 .bg {

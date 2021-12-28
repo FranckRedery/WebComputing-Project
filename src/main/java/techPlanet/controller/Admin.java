@@ -22,6 +22,11 @@ public class Admin {
 		return "adminPage";
 	}
 	
+	@GetMapping("/deleteProd")
+	public String deleteProd(){
+		return "deleteProd";
+	}
+	
 	@GetMapping("/returnRequests")
 	public String returnRequests(HttpServletRequest req) {
 		

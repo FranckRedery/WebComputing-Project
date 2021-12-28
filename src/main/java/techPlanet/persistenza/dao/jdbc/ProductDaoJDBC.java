@@ -211,6 +211,31 @@ public class ProductDaoJDBC implements ProductDao {
 		return product;
 	}
 	
+	@Override
+	public Product findByName(String name) {
+		String query = "select * from product where name = ?";
+		Product prod = new Product();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, name);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				prod.setDescription(rs.getString("description"));
+				prod.setId(rs.getLong("id"));
+				prod.setName(rs.getString("name"));
+				prod.setPrice(rs.getFloat("price"));
+				prod.setQuantity(rs.getInt("quantity"));
+				prod.setReviews(rs.getFloat("reviews"));
+				prod.setTags(rs.getString("tags"));
+				prod.setCategory(rs.getString("category"));
+				return prod;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
 }

@@ -75,7 +75,7 @@
 							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
+								<a href="deleteProd" style="text-decoration: none;">
 									<i class="fas fa-trash" id="trash"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -90,20 +90,6 @@
 							</div>
 							<!-- /Cart -->
 
-							<!-- User Toogle -->
-							<div>
-								<%if (session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%} else{%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
-								</a>
-								<%}%>
-							</div>
-							<!-- /User Toogle -->
 						</div>
 					</div>
 				</div>
@@ -127,7 +113,7 @@
 			<div class="col-md-3">
 				Delete product
 				<br /><br />
-				<a href="collegamento al sito" style="text-decoration: none;">
+				<a href="deleteProd" style="text-decoration: none;">
 					<i class="fas fa-trash fa-5x" id="deleteProd"></i></a>
 			</div>
 			<div class="col-md-3">

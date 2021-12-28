@@ -13,5 +13,6 @@ public interface ProductDao {
 	public void addProduct(Product product);
 	public boolean delete(Product product);
 	public Product findById(long id);
+	public Product findByName(String name);
 	public void addProductToCart(Long id, String username);
 }
