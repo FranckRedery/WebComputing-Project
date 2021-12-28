@@ -53,4 +53,11 @@ public class AdminREST {
 		
 	}
 
+	@PostMapping("/deleteProdById")
+	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {
+		if(Database.getInstance().getProductsDao().deleteProductById(id)) {
+			req.getSession().removeAttribute("product");
+		}
+	}
+	
 }

@@ -21,16 +21,19 @@
 					});
 				}
                 form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
+			}, false);
+		});
+	}, false);
 })();
 
+function reloadFunction(){
+	window.location.reload();
+}
 
 function deleteFunction(){
 	
 	let id = document.getElementById("prodId").innerText;
-	alert(id);
+
 	$.ajax({
 		type: "POST",
 		url: "/deleteProdById",
@@ -38,4 +41,6 @@ function deleteFunction(){
 		data: id,
 		success: function(){}
 		});
+	document.getElementById("riga").remove();
+	
 }

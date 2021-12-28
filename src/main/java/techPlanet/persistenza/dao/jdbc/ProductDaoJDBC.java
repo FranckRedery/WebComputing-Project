@@ -83,12 +83,6 @@ public class ProductDaoJDBC implements ProductDao {
 	}
 
 	@Override
-	public boolean delete(Product product) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public List<Product> findByUser(String user) {
 		List<Product> product = new ArrayList<Product>();
 		String query = "select * from chooses INNER JOIN product ON chooses.id = product.id where username = ?";
@@ -237,6 +231,23 @@ public class ProductDaoJDBC implements ProductDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public boolean deleteProductById(long id) {
+		
+		try {
+		String query = "delete from product where id = ?";
+		PreparedStatement st = conn.prepareStatement(query);
+		st.setLong(1, id);
+		st.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
 	}
 
 

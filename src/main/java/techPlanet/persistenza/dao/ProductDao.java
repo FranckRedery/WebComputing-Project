@@ -11,7 +11,7 @@ public interface ProductDao {
 	public List<Product> findByLastNineInserted();
 	public boolean saveOrUpdate(Product product);
 	public void addProduct(Product product);
-	public boolean delete(Product product);
+	public boolean deleteProductById(long id);
 	public Product findById(long id);
 	public Product findByName(String name);
 	public void addProductToCart(Long id, String username);
