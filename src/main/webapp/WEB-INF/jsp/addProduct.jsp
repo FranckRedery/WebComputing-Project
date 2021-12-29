@@ -123,9 +123,9 @@
 			<div class="invalid-feedback">Please enter a valid description.</div>
 		</div>
 		<div class="mb-3">
-			<label class="form-label" for="imgFile">Images</label>
-				<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required multiple>
-				<div class="invalid-feedback">Please insert valid images.</div>
+			<label class="form-label" for="imgFile">Image</label>
+				<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required>
+				<div class="invalid-feedback">Please insert a valid image.</div>
 		</div>
 
 		<div class="mb-3">

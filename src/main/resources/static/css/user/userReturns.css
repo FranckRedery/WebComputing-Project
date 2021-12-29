@@ -1,7 +1,33 @@
+.btnLog {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #0b3de1;
+  outline: none;
+  transition: 1s ease-in-out;
+  border-radius: 30px 30px 30px 30px;
+}
+.btnLog:hover {
+  transition: 1s ease-in-out;
+  background: #4F95DA;
+}
+
+.btnLog:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btnLog span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
 .money-text-accepted{
-	margin-top: 38%;
+	text-align: center;
+	margin-top: 33%;
 	font-size: 25px;
-	color: rgb(0, 64, 12);
+	color: rgb(0,255,0);
 }
 
 #pageTitle{
@@ -9,44 +35,38 @@
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+	color: black;
 }
 
 .info{
-	color: black;
+	color: white;
 }
 
-.product-type{
-	color: black;
-}
-
-.product-name{
-	color: black;
+.product-type, .product-name, #prodId{
+	color: orange;
 }
 
 .date-cell{
-	color: black;
+	color: white;
 	text-align: center;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 25px;
 }
 
-#prodId{
-	color: black;
-}
 
 .thText{
 	color: black;
 }
 
 .money-text-refused{
-	margin-top: 38%;
-	color: rgb(102, 0, 0);
+	margin-top: 33%;
+	color: rgb(255, 0, 0);
 	font-size: 20px;
 }
 
 .money-text-pending{
-	margin-top: 38%;
-	color: rgb(171, 171, 0);
+	margin-top: 33%;
+	color: rgb(255, 255, 98);
 	font-size: 20px;
 }
 

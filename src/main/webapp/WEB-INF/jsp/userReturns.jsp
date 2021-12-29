@@ -196,7 +196,13 @@
                     </td>
                     <td class="refund-cell">
                     	<c:if test="${item.moneyreturned !=0.0}">
-                    		<p class="money-text-accepted">$${item.moneyreturned}</p>
+                    		<c:if test="${item.status == 'accepted'}">
+                    			<p class="money-text-accepted">$${item.moneyreturned}</p>
+                    		</c:if>
+                    		<c:if test="${item.status == 'pending'}">
+                    			<p class="money-text-accepted">Still no refund</p>
+                    		</c:if>
+                    		
                     	</c:if>
                     	<c:if test="${item.moneyreturned == 0.0}">
                     		<c:if test="${item.status == 'pending'}">

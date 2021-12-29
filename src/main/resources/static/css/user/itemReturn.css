@@ -1,8 +1,34 @@
+.btnLog {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #0b3de1;
+  outline: none;
+  transition: 1s ease-in-out;
+  border-radius: 30px 30px 30px 30px;
+}
+.btnLog:hover {
+  transition: 1s ease-in-out;
+  background: #4F95DA;
+}
+
+.btnLog:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btnLog span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
 
 @media (min-width:1400px){
     .form-control, .description, .invalid-feedback{
         position: relative;
-        top: -280%;
+        top: -260%;
+        font-weight: bold;
     }
     .btn.btn-primary{
         position: relative;
@@ -13,7 +39,8 @@
 @media (max-width:1400px){
     .form-control, .description, .invalid-feedback{
         position: relative;
-        top: -200%;
+        top: -180%;
+        font-weight: bold;
     }
     .btn.btn-primary{
         position: relative;
@@ -24,7 +51,8 @@
 @media (max-width:885px){
     .form-control, .description, .invalid-feedback{
         position: relative;
-        top: -180%;
+        top: -150%;
+        font-weight: bold;
     }
 }
 
@@ -51,6 +79,7 @@
     .refundReason{
         position: relative;
         top: 0%;
+        font-weight: bold;
     }
 }
 
@@ -64,6 +93,7 @@
     .refundReason{
         margin-top: 32%;
         font-size: large;
+        font-weight: bold;
     }
 
     .refundProduct{
@@ -71,6 +101,7 @@
         margin-left: 27%;
         font-weight: bold;
         font-size: xx-large;
+        font-weight: bold;
     }
     
 }
@@ -80,8 +111,17 @@
     margin-top: 1%;
 }
 
-.product-info.p-3{
+.product-info{
     margin-left: 25%;
+	color: white;
+	font-weight: bold;
+	font-size: 15px!important;
+}
+
+.product-type, .product-name, #prodId{
+	color: black;
+	font-weight: bold;
+	font-size: 15px!important;
 }
 
 .product-img{
@@ -128,21 +168,9 @@
     width: 50%;
   }
   
-  .product-type{
-    font-size: 13px;
-    opacity: 0.8;
-  }
-  
-  .product-name{
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .product-name:hover{
-    color: #fcb941!important
-  }
-  
   .product-price{
-    color: #fcb941;
+    color: black;
+    font-size: 15px!important;
   }
   
 

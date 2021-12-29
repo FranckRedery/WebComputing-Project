@@ -1,3 +1,5 @@
+
+
 input[type=text] {
     box-sizing: border-box;
     border-radius: 4px;
@@ -126,7 +128,7 @@ input[type=number]:focus {
      font-weight: 400;
      color: #333;
      margin: 0;
-     background: linear-gradient(#0d42d4, #243b55);
+     background: linear-gradient(#8ab7ff,#5193fc);
      
    }
    

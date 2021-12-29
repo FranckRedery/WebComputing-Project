@@ -21,6 +21,8 @@ input[type=text] {
 	color: white;
 }
 
+
+
 #prodId, .product-type, .product-name, .product-price{
 	font-size: 17px!important;
 	color: orange;

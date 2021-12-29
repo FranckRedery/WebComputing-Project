@@ -133,13 +133,23 @@
             <div class="product-img">
                 <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto">
             </div>
-            <div class="product-info p-3">
-                <span class="product-type">
-                    Electronics & accessories
+            <div class="product-info">
+            	<span class="info" style="font-size: small;">Product ID : </span>
+                <span class="product-id" id="prodId" style="font-size: small;">5</span>
+                <br>
+                <span class="info" style="font-size: small;">Category : </span>
+                <span class="product-type" style="font-size: small;">
+                      categoria prodotto
                 </span>
-                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-                <span class="product-price">$100.50</span>
-            </div>
+                <br>
+                <span class="info" style="font-size: small;">Name : </span>
+                <span class="product-name" style="font-size: small;">
+                       nome prodotto
+                </span>
+                <br>
+                <span class="info" style="font-size: small;">Price : </span>
+                <span class="product-price" style="font-size: medium;">$220,5</span>
+             </div>
         </div>
 
         <div class="col-md-4">
