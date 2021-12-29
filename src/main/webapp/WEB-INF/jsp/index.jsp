@@ -37,6 +37,7 @@
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 <meta name="google-signin-client_id"
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <title>Tech Planet</title>
@@ -117,7 +118,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -156,12 +156,27 @@
 								<%
 								if (session.getAttribute("loggato") == "si") {
 								%>
+									<%
+									if (session.getAttribute("loggatoGoogle") == "si") {
+									%>
 									<a href="account.html"
 										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src="images/account/avatar.png"
+										class="profilePic" src='${image}'
 										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
 									</a>
+									<%
+									} else {
+									%>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									<%
+									}
+									%>
 								<%
 								} else {
 								%>

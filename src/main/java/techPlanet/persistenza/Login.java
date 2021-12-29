@@ -49,6 +49,11 @@ public class Login {
 		resp.sendRedirect("/");
 	}
 	
+	public void logoutG(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		session.invalidate();
+	}
+	
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.invalidate();

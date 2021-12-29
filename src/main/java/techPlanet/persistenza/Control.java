@@ -42,31 +42,31 @@ public class Control {
 			ResultSet rs = registerStatement.executeQuery(check);
 			
 			if(rs.next()) {
-				resp.sendRedirect("/");
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
+				resp.sendRedirect("/");
 				return;
 			}
 			else { 
 			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
-				resp.sendRedirect("/");
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
+				resp.sendRedirect("/");
 				return;
 			   }
 			   else {
-					resp.sendRedirect("/signUp.html");
 					session.setAttribute("errore", "si");
+					resp.sendRedirect("/signUp.html");
 					return;
 			   }
 			}

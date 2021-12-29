@@ -74,8 +74,6 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); 
   
-    window.location = "/";
-    
   $.ajax({
 		type: 'POST',
 		url: "/loginGoogle",
@@ -84,9 +82,12 @@ function onSignIn(googleUser) {
 			id:id,
 			username: username,
 			email: email,
-			image: image
+			image: image,
 		}	
 	});
+	
+	 window.location = "/";
+	 window.location.reload();
 }
 
 function signOut() {
@@ -100,7 +101,6 @@ function signOut() {
          url : "/faiLogout",  
     });
     
-    window.location = "/";
 }
 
  function onLoad() {
@@ -108,4 +108,21 @@ function signOut() {
         gapi.auth2.init();
       });
  }
+
+
+function disconnect(log){
+ if(log != "si"){
+	  var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/logoutG",  
+    });
+ }
+}
+
+
 

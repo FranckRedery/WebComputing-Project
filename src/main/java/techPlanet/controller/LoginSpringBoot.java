@@ -28,6 +28,12 @@ public class LoginSpringBoot {
 		Database.getInstance().getLogin().logout(req, resp);
 	}
 	
+	@GetMapping("/logoutG")
+	public void logoutG(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		Database.getInstance().getLogin().logoutG(req, resp);
+	}
+	
+	
 	@GetMapping("/resetError")
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Database.getInstance().getLogin().resetError(req, resp);
