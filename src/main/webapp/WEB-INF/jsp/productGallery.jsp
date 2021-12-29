@@ -42,25 +42,11 @@
 					<%
 					if (session.getAttribute("loggato") == "si") {
 					%>
-						<%
-						if (session.getAttribute("loggatoGoogle") == "si") {
-						%>
 						<a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-						<%
-						} else {
-						%>
-						<a href="/faiLogout" style="text-decoration: none;">
-							<button class="btnLog">
-								<span>Log out</span>
-							</button>
-						</a>
-						<%
-						}
-						%>
 					<%
 					} else {
 					%>
