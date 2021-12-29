@@ -123,7 +123,7 @@
 						<div class="header-search">
 							<form>
 								<select class="input-select">
-									<option value="0">Categories</option>
+									<option value="0">All Categories</option>
 									<option value="1">Smartphone</option>
 									<option value="2">TV</option>
 									<option value="3">Accessories</option>

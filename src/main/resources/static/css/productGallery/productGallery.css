@@ -880,3 +880,7 @@ body {
 .header-search select {
 	width: 140px;
 }
+
+.profilePic{
+	margin-right: 7px;
+}

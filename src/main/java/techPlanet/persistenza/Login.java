@@ -87,7 +87,7 @@ public class Login {
 			}else {
 				session.setAttribute("errore", "si");
 				resp.sendRedirect("login.html");
-				return "index";
+				return "login";
 			}
 				
 		} catch (SQLException e) {
