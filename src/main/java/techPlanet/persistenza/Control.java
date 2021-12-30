@@ -25,14 +25,15 @@ public class Control {
 		super();
 		this.conn = conn;
 	}
-	 
+	
+	
 	public void controlEmailCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("codSic", "email");
 		resp.sendRedirect("control.html");
 	}
 	
-	public void loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public String loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("id") + "', '" + req.getParameter("username") + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
@@ -49,7 +50,7 @@ public class Control {
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
 				resp.sendRedirect("/");
-				return;
+				return "index";
 			}
 			else { 
 			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
@@ -62,12 +63,12 @@ public class Control {
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
 				resp.sendRedirect("/");
-				return;
+				return "index";
 			   }
 			   else {
 					session.setAttribute("errore", "si");
 					resp.sendRedirect("/signUp.html");
-					return;
+					return "signUp";
 			   }
 			}
 		 } catch (SQLException e) {
@@ -75,7 +76,7 @@ public class Control {
 			e.printStackTrace();
 		}
 		
-		return;
+		return "index";
 	}
 	
 	public void takePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {

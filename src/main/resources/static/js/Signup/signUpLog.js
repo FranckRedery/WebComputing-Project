@@ -1,11 +1,13 @@
 function checkRefresh(logged){
 	
-  if (logged == "si"){
+   if (logged == "si"){
 	 $.ajax({  
          type : 'GET',  
          url : "/logoutG",  
     });
-  }	
+   }	
+	
+	
 	
   if (performance.navigation.type == 1) {
 	if (location.hash !== (location.hash = "#loaded")) {
@@ -16,36 +18,6 @@ function checkRefresh(logged){
          url : "/resetError",  
     });
   }
-}
-
-function errorBox(){
-	 $.ajax({  
-         type : 'GET',  
-         url : "/resetError",  
-    });
-     window.location = "login.html"
-}
-
-function resetSignUp(){	
-	 $.ajax({  
-         type : 'GET',  
-         url : "/resetError",  
-    });
-    
-    signOutStand();
-    
-     window.location = document.getElementById('sign').href;
-}
-
-function resetLogin(){	
-	 $.ajax({  
-         type : 'GET',  
-         url : "/resetError",  
-    });
-    
-    signOutStand();
-    
-     window.location = document.getElementById('log').href;
 }
 
 function validateFormSignUp() {
@@ -99,24 +71,11 @@ function onSignIn(googleUser) {
 			image: image,
 		}	
 	});
+	
+	window.location = "/";
 }
 
 function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    
-    $.ajax({  
-         type : 'GET',  
-         url : "/faiLogout",  
-    });
-    
-    window.location = "/";
-}
-
-
-function signOutStand() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');

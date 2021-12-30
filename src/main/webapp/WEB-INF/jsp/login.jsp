@@ -17,7 +17,7 @@
 </head>
 <title>TechPlanet</title>
 </head>
-<body id="b" onload="checkRefresh();">
+<body id="b" onload="checkRefresh(${loggato});">
 		<div class="container py-4">
 		  <div class="row d-flex justify-content-center align-items-center h-10">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">

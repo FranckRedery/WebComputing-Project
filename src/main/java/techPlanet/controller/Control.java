@@ -53,8 +53,8 @@ public class Control {
 	
 	
 	@PostMapping("/loginGoogle")
-	public void loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getControl().loginGoogle(req, resp);
+	public String loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		return Database.getInstance().getControl().loginGoogle(req, resp);
 	}
 	
 	@GetMapping("/setPassCode")
@@ -71,7 +71,6 @@ public class Control {
 	public void updateEmail(HttpServletRequest req, HttpServletResponse resp, String email) throws IOException {
 		Database.getInstance().getControl().updateEmail(req, resp, email);
 	}
-	
 	
 	@PostMapping("/updatePass")
 	public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {

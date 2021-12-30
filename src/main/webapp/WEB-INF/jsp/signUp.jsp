@@ -18,7 +18,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/Signup/signUp.js"></script>
+<script src="js/Signup/signUpLog.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -31,7 +31,7 @@
 </head>
 <title>TechPlanet</title>
 </head>
-<body id="b" onload="checkRefresh();">
+<body id="b" onload="checkRefresh(${loggato});">
 	<div class="container py-3 h-100">
 		<div class="row d-flex justify-content-center align-items-center h-10">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
