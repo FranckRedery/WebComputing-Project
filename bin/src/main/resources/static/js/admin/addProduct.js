@@ -67,7 +67,6 @@ function caricaOpzioni() {
 					let quantity = document.getElementById('quantity').value;
 					
 					let product = new Product(name,category,tags,description,price,quantity);
-					alert("prima ajax")
 					$.ajax({
 						type: "POST",
 						url: "/addNewProduct",
@@ -75,7 +74,6 @@ function caricaOpzioni() {
 						data: JSON.stringify(product),
 						success: function(data){}
 					});
-					alert("dopo ajax")
 				}
                 form.classList.add('was-validated');
             }, false);

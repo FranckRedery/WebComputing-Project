@@ -14,7 +14,7 @@
 					let name = document.getElementById('productName').value;
 					$.ajax({
 						type: "POST",
-						url: "/deleteProduct",
+						url: "/getProdByName",
 						contentType: "application/json",
 						data: name,
 						async: false,

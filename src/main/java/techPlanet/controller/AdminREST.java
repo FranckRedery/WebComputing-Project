@@ -39,8 +39,8 @@ public class AdminREST {
 		Database.getInstance().getProductsDao().addProduct(product);
 	}
 	
-	@PostMapping("/deleteProduct")
-	public Product deleteProduct(@RequestBody String name, HttpServletRequest req) {
+	@PostMapping("/getProdByName")
+	public Product getProdByName(@RequestBody String name, HttpServletRequest req) {
 		
 		
 		Product product = Database.getInstance().getProductsDao().findByName(name);

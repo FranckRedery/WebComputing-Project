@@ -108,7 +108,7 @@
 				<option>Smartphone</option>
 				<option>Camera</option>
 				<option>Printers</option>
-				<option>Notebook</option>
+				<option>Laptop</option>
 			</select>
 			<div class="invalid-feedback">Please enter a valid category.</div>
 		</div>

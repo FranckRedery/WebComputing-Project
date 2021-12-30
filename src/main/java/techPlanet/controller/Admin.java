@@ -27,6 +27,11 @@ public class Admin {
 		return "deleteProd";
 	}
 	
+	@GetMapping("/modifyProd")
+	public String modifyProd(){
+		return "modifyProd";
+	}
+	
 	@GetMapping("/returnRequests")
 	public String returnRequests(HttpServletRequest req) {
 		
