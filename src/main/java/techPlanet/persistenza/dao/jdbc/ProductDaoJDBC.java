@@ -250,5 +250,33 @@ public class ProductDaoJDBC implements ProductDao {
 		
 	}
 
+	@Override
+	public void modifyProduct(Product product) {
+		
+		try {
+			String query = "update product "
+				+ "set name = ?, quantity = ? , tags = ?, description = ?, category = ?, price = ?"
+				+ "where id = ?";
+			PreparedStatement st;
+			st = conn.prepareStatement(query);
+			st.setString(1, product.getName());
+			st.setInt(2,product.getQuantity());
+			st.setString(3, product.getTags());
+			st.setString(4, product.getDescription());
+			st.setString(5, product.getCategory());
+			st.setFloat(6,product.getPrice());
+			st.setLong(7,product.getId());
+			
+			st.executeUpdate();
+			return;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 
 }

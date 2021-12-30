@@ -60,4 +60,9 @@ public class AdminREST {
 		}
 	}
 	
+	@PostMapping("/modifyProd")
+	public void modifyProd(@RequestBody Product product) {
+		Database.getInstance().getProductsDao().modifyProduct(product);
+	}
+	
 }

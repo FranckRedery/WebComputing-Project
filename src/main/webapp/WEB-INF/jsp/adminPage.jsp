@@ -83,8 +83,8 @@
 							
 							<!-- Cart -->
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-users"></i>
+								<a href="modifyProd" style="text-decoration: none;">
+									<i class="fas fa-edit"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
@@ -117,10 +117,10 @@
 					<i class="fas fa-trash fa-5x" id="deleteProd"></i></a>
 			</div>
 			<div class="col-md-3">
-				Users management
+				Modify product
 				<br /><br />
-				<a href="collegamento al sito" style="text-decoration: none;">
-					<i class="fas fa-users fa-5x" id="users2"></i></a>
+				<a href="modifyProd" style="text-decoration: none;">
+					<i class="fas fa-edit fa-5x" id="users2"></i></a>
 			</div>
 			<div class="col-md-3">
 				Returns management

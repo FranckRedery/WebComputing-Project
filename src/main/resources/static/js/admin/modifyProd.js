@@ -110,14 +110,13 @@ function modifyFunction(){
 					
 	let product = new Product(id,name,category,tags,description,price,quantity);
 
-	// CHIAMATA AJAX PER LA MODIFICA DEL PRODOTTO CON QUELL'ID'
-	/*$.ajax({
+	$.ajax({
 		type: "POST",
-		url: "/modifyProdById",
+		url: "/modifyProd",
 		contentType: "application/json",
-		data: id,
+		data: JSON.stringify(product),
 		success: function(){}
-		});*/
+		});
 	document.getElementById("riga").remove();
 	
 }
