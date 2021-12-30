@@ -1,12 +1,28 @@
 function AdminLog(){		
 
-var em = document.getElementById('typeEmailX').value;
-var pas = document.getElementById('typePasswordX').value;
-
- if(em == "admin@admin.com" && pas == "adminadmin"){
-	 window.location = document.getElementById('admi').href;
+var email = document.getElementById('typeEmailX').value;
+var password = document.getElementById('typePasswordX').value;
+ if(email == "admin@admin.com" && password == "adminadmin"){
+	 window.location = "adminPage";
+	 return;
  }
- 
+  $.ajax({
+		type: 'POST',
+		url: "/loginServices",
+		data: {
+			email: email,
+			password: password
+		},
+		success: function(data){
+		   if(data == "correct"){
+			window.location = "/";
+		   }
+		   else{			
+			window.location = "/login.html";
+		   }
+		}
+	})
+		
 }
 
 function checkRefresh(){
@@ -27,29 +43,6 @@ function errorBox(){
          url : "/resetError",  
     });
      window.location = document.getElementById('sign').href;
-}
-
-function validateForm() {
-  var email = document.forms["loginForm"]["email"].value;
-  var password = document.forms["loginForm"]["pass"].value;
-  
-/*   if(email == "admin@admin.com" && password == "adminadmin"){
-	console.log("errore")
-	 window.location = "adminPage";
-   }
-   else{*/
-	$.ajax({
-		type: 'POST',
-		url: "/loginServices",
-		dataType: "json",
-		data: {
-			email: email,
-			password: password
-		}
-	})		
-	console.log("ajax")
-  //}
-	
 }
 
 function onSignIn(googleUser) {

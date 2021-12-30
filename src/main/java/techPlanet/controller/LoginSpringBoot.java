@@ -45,8 +45,9 @@ public class LoginSpringBoot {
 	}
 	
 	@PostMapping("/loginServices")
-	public String faiLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		return Database.getInstance().getLogin().faiLogin(req, resp);
+	@ResponseBody
+	public String loginServices(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		return Database.getInstance().getLogin().loginServices(req, resp);
 	}
 
 }

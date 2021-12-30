@@ -138,11 +138,28 @@
 							<!-- User Toogle -->
 							<div>
 								<%if (session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none; display: flex; "> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%} else {%>
+									<%
+									if (session.getAttribute("loggatoGoogle") == "si") {
+									%>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									<%
+									} else {
+									%>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									<%
+									}
+									%>
+								<%} else{%>
 								<a href="login.html" style="text-decoration: none;"> 
 									<i class="fa fa-user"></i>
 								</a>
@@ -168,7 +185,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -202,7 +219,11 @@
 			<div class="col-md-4 border-right">
 				<div class="profile-pic-wrapper">
  					 <div class="pic-holder">
-					    <img id="profilePic" class="pic" src="https://source.unsplash.com/random/150x150">
+ 					   <%if (session.getAttribute("loggatoGoogle") == "si"){%>
+					    <img id="profilePic" class="pic" src="${image}">
+					    <%}else {%>
+					      <img id="profilePic" class="pic" src="images/account/avatar.png">
+					      <%}%>
    							<label for="newProfilePhoto" class="upload-file-block">
       						  <div class="text-center">
         						<div class="mb-2">

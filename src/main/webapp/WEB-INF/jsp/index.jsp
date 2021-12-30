@@ -195,12 +195,6 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)">Home</a></li>
-					<!--<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Categories</a>
-				  </li>-->
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"

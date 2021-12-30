@@ -124,10 +124,27 @@
 							<!-- User Toogle -->
 							<div>
 								<%if (session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
+									<%
+									if (session.getAttribute("loggatoGoogle") == "si") {
+									%>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									<%
+									} else {
+									%>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									<%
+									}
+									%>
 								<%} else{%>
 								<a href="login.html" style="text-decoration: none;"> 
 									<i class="fa fa-user"></i>
@@ -162,10 +179,10 @@
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
+					<a class="nav-link" href="laptopsGallery.html">Laptops</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
+					<a class="nav-link" href="smartphonesGallery.html">Smartphones</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Tvs</a>
@@ -250,7 +267,7 @@
 		   </a>
 		</div>
 	
-		<a style="text-decoration: none;" href="#">
+		<a style="text-decoration: none;" href="cart.html">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
@@ -266,7 +283,7 @@
 		   </a>
 		  </div>
 	
-		  <a style="text-decoration: none;" href="#">
+		  <a style="text-decoration: none;" href="/contattaci">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
