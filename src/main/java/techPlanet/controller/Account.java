@@ -27,4 +27,10 @@ public class Account {
 		return "index";
 	}
 	
+	@GetMapping("/aboutUs.html")
+	public String aboutUs() {
+		return "aboutUs";
+	}
+	
+	
 }

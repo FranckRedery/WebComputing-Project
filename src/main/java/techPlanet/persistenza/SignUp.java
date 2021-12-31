@@ -31,21 +31,21 @@ public class SignUp {
 			ResultSet rs = registerStatement.executeQuery(check);
 			
 			if(rs.next()) {
+				session.setAttribute("errore", "si");
 				resp.sendRedirect("/signUp.html");
- 				session.setAttribute("errore", "si");
 				return "signUp";
 			}
 			else { 
 			   if(session.getAttribute("errore") == "no" || session.getAttribute("errore") == null ){		
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
-				resp.sendRedirect("/login.html");
 				session.setAttribute("errore", "no");
+				resp.sendRedirect("/login.html");
 				return "login";
 			   }
 			   else {
+				   session.setAttribute("errore", "si");
 					resp.sendRedirect("/signUp.html");
-					session.setAttribute("errore", "si");
 					return "signUp";   
 			   }
 			}
