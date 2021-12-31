@@ -11,14 +11,19 @@ $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 		$(this).closest('tr').find('#amount-cell').html('Insert a value > 0<input type="number" value="0" class="text-center" step=".01"min="0" max="100000" oninput="validity.valid||(value="");" id="amount">');
 	}
 	else{
+		$(this).closest('tr').find('#amount-cell').html('Money to return<input type="number" value="0" class="text-center" step=".01"min="0" max="100000" oninput="validity.valid||(value="");" id="amount">');
 		$.ajax({
 			type: "POST",
 			url: "/updateRequest",
 			contentType: "application/json",
 			data: JSON.stringify(returnRequest),
-			success: function(data){}	
+			beforeSend:function(){
+        	if(confirm("Are you sure you want to accept the return request?")){ 
+				$(this).closest('tr').remove();
+			}
+		 	else{ return false; }},
+			success: function(){}	
 			});
-		$(this).closest('tr').remove();
 	}
 	
      });
@@ -39,9 +44,13 @@ $('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
 			url: "/updateRequest",
 			contentType: "application/json",
 			data: JSON.stringify(returnRequest),
-			success: function(data){}	
+			beforeSend:function(){
+        	if(confirm("Are you sure you want to refuse the return request?")){ 
+				$(this).closest('tr').remove();
+			}
+		 	else{ return false; }},
+			success: function(){}	
 			});
-		$(this).closest('tr').remove();
      });
 
 

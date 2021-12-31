@@ -67,13 +67,14 @@ function caricaOpzioni() {
 					let quantity = document.getElementById('quantity').value;
 					
 					let product = new Product(name,category,tags,description,price,quantity);
-					$.ajax({
+					
+						$.ajax({
 						type: "POST",
 						url: "/addNewProduct",
 						contentType: "application/json",
 						data: JSON.stringify(product),
-						success: function(data){}
-					});
+						success: function(){}
+						});	
 				}
                 form.classList.add('was-validated');
             }, false);

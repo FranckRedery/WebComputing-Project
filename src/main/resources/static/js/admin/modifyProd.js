@@ -64,7 +64,6 @@ function caricaOpzioni() {
 	}, false);
 })();
 
-
 (function () {
     'use strict';
     window.addEventListener('load', function () {
@@ -89,6 +88,7 @@ function caricaOpzioni() {
 
 function modifyFunction(){
 	
+	
 	let id = document.getElementById('prodId').innerText;
 	let name = document.getElementById('productNameModify').value;
 	let category = document.getElementById('productCategory').value;
@@ -110,14 +110,22 @@ function modifyFunction(){
 					
 	let product = new Product(id,name,category,tags,description,price,quantity);
 
+
+
 	$.ajax({
 		type: "POST",
 		url: "/modifyProd",
 		contentType: "application/json",
 		data: JSON.stringify(product),
+		beforeSend:function(){
+        	if(confirm("Are you sure you want to modify the product?")){ 
+				document.getElementById("riga").remove();
+			}
+		 	else{ return false; }
+      	},
 		success: function(){}
 		});
-	document.getElementById("riga").remove();
+	//document.getElementById("riga").remove();
 	
 }
 

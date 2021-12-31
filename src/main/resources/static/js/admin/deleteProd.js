@@ -38,8 +38,13 @@ function deleteFunction(){
 		url: "/deleteProdById",
 		contentType: "application/json",
 		data: id,
+		beforeSend:function(){
+        	if(confirm("Are you sure you want to delete this product?")){ 
+				document.getElementById("riga").remove();
+			}
+		 	else{ return false; }
+      	},
 		success: function(){}
 		});
-	document.getElementById("riga").remove();
 	
 }
