@@ -240,7 +240,34 @@
         </div>
 
         <div class="testimonial-box-container">
+        	<c:forEach items="${review}" var="rev">
             <div class="testimonial-box">
+
+                <div class="box-top">
+
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="img/user01.png" alt="">
+                        </div>
+                        <div class="name-user">
+                            <strong>${rev.username.username}</strong>
+                        </div>
+                    </div>
+
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>                  
+                </div>
+                <div class="client-comment">
+                    <p>${rev.description}</p>
+                </div>
+            </div>
+			</c:forEach>
+            <!-- <div class="testimonial-box">
 
                 <div class="box-top">
 
@@ -316,34 +343,8 @@
                 <div class="client-comment">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
                 </div>
-            </div>
-
-            <div class="testimonial-box">
-
-                <div class="box-top">
-
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="img/user01.png" alt="">
-                        </div>
-                        <div class="name-user">
-                            <strong>Stefano Giacoia</strong>
-                        </div>
-                    </div>
-
-                    <div class="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>                  
-                </div>
-                <div class="client-comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error et culpa eveniet ullam blanditiis sint voluptatem minus fugiat a consequuntur odio aperiam cumque nostrum sunt nisi, non quidem dolor.</p>
-                </div>
-            </div>
-        </div>
+            </div>-->
+        </div> 
     </section>
     
     <!-- TItle -->

@@ -13,12 +13,14 @@ import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ProductDao;
 import techPlanet.persistenza.dao.ReportDao;
 import techPlanet.persistenza.dao.ReturnRequestDao;
+import techPlanet.persistenza.dao.ReviewDao;
 import techPlanet.persistenza.dao.UserDao;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ProductDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReportDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReturnRequestDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.ReviewDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.UserDaoJDBC;
 
 public class Database {
@@ -36,7 +38,7 @@ public class Database {
 	private Database() {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-											"postgres", "Stefano00");
+											"postgres", "postgres");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,6 +88,10 @@ public class Database {
 	
 	public UserDao getUserDao() {
 		return new UserDaoJDBC(conn);
+	}
+	
+	public ReviewDao getReviewDao() {
+		return new ReviewDaoJDBC(conn);
 	}
 	
 }

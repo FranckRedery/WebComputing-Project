@@ -23,6 +23,7 @@
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://www.paypal.com/sdk/js?currency=EUR&client-id=ASGmzQFYx18CDf9Lu_NxWjMsWmjkugEzqzG-UK90RY2J1dnrRiR31TRnKVPNHs-wUX8sjz7J_LRiTNau"></script>
 </head>
 
 <body>
@@ -194,6 +195,7 @@
 		  </div>
 		</div>
 	  </nav>
+	  		<div id="paypal-button-container"></div>
     <div class="container mt-3">
         <table class="table table-borderless" id="price">
             <thead>
@@ -254,7 +256,6 @@
                  -->
             </tbody>
         </table>
-
         <div class="total-price">
             <table>
                 <tr>
@@ -270,7 +271,7 @@
                     <td id=totWithIva>€3679.00</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="button" class="btn btn-primary">Procede to order</button></td>
+                    <td colspan="2"><button type="button" class="btn btn-primary" onclick="generatePayment(document.getElementById('totWithIva').value)">Procede to order</button></td>
                 </tr>
             </table>
         </div>

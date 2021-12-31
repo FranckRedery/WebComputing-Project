@@ -15,12 +15,7 @@ public class HomePage {
 
 	@GetMapping("/")
 	public String homePage(HttpServletRequest req) {
-		String username = (String) req.getSession().getAttribute("username");
-		if (username != null) {
-			int numProdUser = Database.getInstance().getProductsDao().getNumProdForUser(username);
-			if (numProdUser > 0)
-				req.setAttribute("numProd", numProdUser);
-		}
+		setNumberCart(req);
 		List<Product> product = Database.getInstance().getProductsDao().findByLastNineInserted();
 		req.setAttribute("prodotti", product);
 		return "index";
@@ -46,6 +41,7 @@ public class HomePage {
 
 	@GetMapping("/laptopsGallery.html")
 	public String LaptopsGalleryPage(HttpServletRequest req) {
+		setNumberCart(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("laptop");
 		req.setAttribute("products", products);
 		return "productGallery";
@@ -53,6 +49,7 @@ public class HomePage {
 	
 	@GetMapping("/smartphonesGallery.html")
 	public String SmartphonesGalleryPage(HttpServletRequest req) {
+		setNumberCart(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("smartphone");
 		req.setAttribute("products", products);
 		return "productGallery";
@@ -60,6 +57,7 @@ public class HomePage {
 	
 	@GetMapping("/printersGallery.html")
 	public String PrintersGalleryPage(HttpServletRequest req) {
+		setNumberCart(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("printers");
 		req.setAttribute("products", products);
 		return "productGallery";
@@ -81,4 +79,12 @@ public class HomePage {
 		return "product";
 	}
 
+	public void setNumberCart(HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		if (username != null) {
+			int numProdUser = Database.getInstance().getProductsDao().getNumProdForUser(username);
+			if (numProdUser > 0)
+				req.setAttribute("numProd", numProdUser);
+		}
+	}
 }

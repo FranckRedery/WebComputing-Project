@@ -1,6 +1,7 @@
 package techPlanet.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import techPlanet.Database;
 import techPlanet.model.Product;
+import techPlanet.model.Review;
 
 @RestController
 public class ProductREST {
@@ -25,10 +27,10 @@ public class ProductREST {
 	@PostMapping("/viewDetailsProdPage") 
 	public Product viewProdPage(@RequestBody Long id, HttpServletRequest req) {
 		Product product = Database.getInstance().getProductsDao().findById(id);
-
+		List<Review> review = Database.getInstance().getReviewDao().findByProduct(id);
 		HttpSession session = req.getSession(true);
 		session.setAttribute("product", product);
-		
+		session.setAttribute("review", review);
 		return product;
 	}
 	
