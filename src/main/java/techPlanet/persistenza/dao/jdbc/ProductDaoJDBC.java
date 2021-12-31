@@ -275,7 +275,22 @@ public class ProductDaoJDBC implements ProductDao {
 			e.printStackTrace();
 		}
 		
-		
+	}
+	
+	public int getNumProdForUser(String username) {
+		String query = "Select count(id) as count from chooses where username = ?";
+		int num = 0;
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			ResultSet rs = st.executeQuery();
+			rs.next();
+			num = rs.getInt("count");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return num;
 	}
 
 

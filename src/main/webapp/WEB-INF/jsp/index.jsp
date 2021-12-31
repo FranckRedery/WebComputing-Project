@@ -132,7 +132,10 @@
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
@@ -200,7 +203,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Tvs</a></li>
+						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)">Accessories</a></li>
 				</ul>

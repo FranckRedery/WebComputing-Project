@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,14 +25,15 @@
 
 <body>
     <!-- HEADER -->
-    <header>
-        <!-- TOP HEADER -->
+    <!-- HEADER -->
+	<header>
+		<!-- TOP HEADER -->
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
@@ -66,62 +69,62 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-        <!-- MAIN HEADER -->
-        <div id="header">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- LOGO -->
-                    <div class="col-md-3">
-                        <div class="header-logo">
-                            <a href="index.html" class="logo">
-                                <img id="logo" src="images/index/logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /LOGO -->
+		<!-- MAIN HEADER -->
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<div class="col-md-3">
+						<div class="header-logo">
+							<a href="#" class="logo"> <img id="logo"
+								src="images/index/logo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- /LOGO -->
+					<!-- SEARCH BAR -->
+					<div class="col-md-6">
+						<div class="header-search">
+							<form>
+								<select class="input-select">
+									<option value="0">All Categories</option>
+									<option value="1">Smartphone</option>
+									<option value="2">TV</option>
+									<option value="3">Accessories</option>
+								</select> <input class="input" placeholder="Search here">
+								<button class="search-btn">Search</button>
+							</form>
+						</div>
+					</div>
+					<!-- /SEARCH BAR -->
 
-                    <!-- SEARCH BAR -->
-                    <div class="col-md-6">
-                        <div class="header-search">
-                            <form>
-                                <select class="input-select">
-                                    <option value="0">All Categories</option>
-                                    <option value="1">Smartphone</option>
-                                    <option value="2">TV</option>
-                                    <option value="3">Accessories</option>
-                                </select>
-                                <input class="input" placeholder="Search here">
-                                <button class="search-btn">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- /SEARCH BAR -->
+					<!-- ACCOUNT -->
+					<div class="col-md-3">
+						<div class="header-ctn">
+							<!-- Wishlist -->
+							<div style="padding-right: 10%; padding-left: 25%;">
+								<a href="#" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+								</a>
+							</div>
+							<!-- Cart -->
+							<div style="padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;"> <i
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
+								</a>
+							</div>
+							<!-- /Cart -->
 
-                    <!-- ACCOUNT -->
-                    <div class="col-md-3">
-                        <div class="header-ctn">
-                            <!-- Wishlist -->
-                            <div style="padding-right: 10%; padding-left: 25%;">
-                                <a href="#" style="text-decoration: none">
-                                    <i class="fa fa-heart" id="heart"></i>
-                                    <!--<div class="qty">0</div>-->
-                                </a>
-                            </div>
-
-                            <!-- Cart -->
-                            <div style="padding-right: 10%;">
-                                <a href="cart.html" style="text-decoration: none;">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <!--<div class="qty">0</div>-->
-                                </a>
-                            </div>
-                            <!-- /Cart -->
-
-                            <!-- User Toogle -->
+							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "si"){%>
+								<%
+								if (session.getAttribute("loggato") == "si") {
+								%>
 									<%
 									if (session.getAttribute("loggatoGoogle") == "si") {
 									%>
@@ -143,53 +146,50 @@
 									<%
 									}
 									%>
-								<%} else{%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+								<%
+								} else {
+								%>
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%}%>
+								<%
+								}
+								%>
 							</div>
 							<!-- /User Toogle -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <nav id="navigation" class="navbar navbar-expand-sm bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon">
-                    <i class="fa fa-navicon" style="color:white; font-size:28px"></i>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Home</a>
-                    </li>
-                    <!--<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Categories</a>
-				  </li>-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Laptops</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Smartphones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Tvs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Accessories</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--/HEADER-->
+
+
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"> <i class="fa fa-navicon"
+					style="color: white; font-size: 28px"></i>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="laptopsGallery.html">Laptops</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="smartphonesGallery.html">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Accessories</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
     <!-- Single product details -->
 
@@ -222,9 +222,10 @@
                 <a href=""><button type="button" class="btn btn-info">
                     <i class="far fa-heart"></i>add to Wishlist
                 </button></a>
-                <a href=""><button type="button" class="btn btn-info">
+                <a href=""><button type="button" class="btn btn-info" value="${product.id}" id="addProd">
                         <i class="fa fa-cart-plus"></i>add to Cart
                     </button></a>
+                <div class="addedToCart" id="cart_${product.id}"></div>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <p>${product.description}</p>
                 <br>
@@ -412,7 +413,7 @@
         <!-- /top footer -->
     </footer>
     <!-- /FOOTER -->
-    <script src="js/productGallery.js"></script>
+    <script src="js/productDetails/productDetails.js"></script>
 
 </body>
 

@@ -168,7 +168,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -177,13 +177,13 @@
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Laptops</a>
+                        <a class="nav-link" href="laptopsGallery.html">Laptops</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Smartphones</a>
+                        <a class="nav-link" href="smartphonesGallery.html">Smartphones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Tvs</a>
+                        <a class="nav-link" href="printersGallery.html">Printers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Accessories</a>
@@ -213,197 +213,17 @@
                 </div>
             </div>
             <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
+                <c:if test="${username != null}">
+                <a href="javascript:void(0)" style="--i:1;" class="fas fa-shopping-cart addProd" data-custom-value="${prod.id}"></a>
+                </c:if>
+                <c:if test="${username == null}">
+                <a href="login.html" style="--i:1;" class="fas fa-shopping-cart addProd" data-custom-value="${prod.id}"></a>
+                </c:if>
                 <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
+                <a href="#" style="--i:3;" class="fa fa-binoculars viewProd" data-custom-value="${prod.id}"></a>
             </div>
         </div>
         </c:forEach>
-        <!-- <div class="box">
-            <div class="image">
-                <img src="images/index/product02.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product03.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product04.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product05.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product06.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product07.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product08.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="images/index/product09.png" alt="">
-            </div>
-            <div class="info">
-                <h3 class="title">iphone x</h3>
-                <div class="subInfo">
-                    <div class="price">1200$</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                <a href="#" style="--i:1;" class="fas fa-shopping-cart"></a>
-                <a href="#" style="--i:2;" class="fas fa-heart"></a>
-                <a href="#" style="--i:3;" class="fas fa-search"></a>
-            </div>
-        </div>
-         -->
     </div>
     <ul class="pagination justify-content-center">
         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -477,7 +297,7 @@
         <!-- /top footer -->
     </footer>
     <!-- /FOOTER -->
-    <script src="js/productGallery.js"></script>
+    <script src="js/productGallery/productGallery.js"></script>
 
 </body>
 

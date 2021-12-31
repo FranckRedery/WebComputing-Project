@@ -29,9 +29,11 @@ $("button#addProd").click(function(){
 			url: "/addProductToCart",
 			contentType: "application/json",
 			data: id,
-			success: function(){}
+			success: function(){
+				setTimeout(function() {
+   					location.reload();}, 2000);
+			}
 			});
-	//console.log(idProduct);
 });
 
 $("button#viewProd").click(function(){
@@ -45,9 +47,7 @@ $("button#viewProd").click(function(){
 				window.location = "/product";
 			}
 			});
-	//console.log(idProduct);
 });
-
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
