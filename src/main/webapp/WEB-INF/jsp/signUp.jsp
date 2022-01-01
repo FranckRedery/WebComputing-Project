@@ -28,6 +28,7 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id"
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+<script src="js/Signup/signUp.js"></script>
 </head>
 <title>TechPlanet</title>
 </head>
@@ -95,6 +96,7 @@
 											class="form-control form-control-lg" required pattern=".{6,}"
 											title="Minimo 6 caratteri" />
 										<p class="small mb-3 pb-lg-2"></p>
+										</div>
 										<div id="bottoni">
 											<button id="log" style="margin: 20px"
 												class="btn btn-outline-light btn-lg px-4" type="submit">Sign
@@ -105,21 +107,13 @@
 										</div>
 								</form>
 							</div>
-							</form>
 							<%}%>
 						</div>
 					</div>
-					<div class="d-flex justify-content-center text-center mt-3 pt-1">
-						<p class="mt-2">
-							Already registered?
-							<button
-								style="text-decoration: underline; color: grey; background: transparent; border: 0;"
-								onclick="errorBox();">
-								Log In</a>
-							</button>
-							or back to <a href="/"
-								style="color: grey; background: transparent; border: 0;">
-								Home </a>
+					<div class="d-flex justify-content-center text-center">
+						<p>Already registered? 
+						    <button style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox()">Log In</button>
+							or back to <a href="/"style="color: grey; background: transparent; border: 0;">Home </a>
 						</p>
 						<a id="logi" href="login.html"></a>
 					</div>

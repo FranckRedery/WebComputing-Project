@@ -29,4 +29,23 @@
 	color: red;
 }
 
+#bottoni{
+	display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+@media screen and (max-width: 350px) { 
+	#bottoni {
+	   display: block;
+	}
+	
+	#G{
+	  display: flex;
+ 	  align-items: center;
+ 	  justify-content: center;
+	}
+}
+
 
