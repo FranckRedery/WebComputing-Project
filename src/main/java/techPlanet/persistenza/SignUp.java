@@ -20,9 +20,9 @@ public class SignUp {
 		this.conn = conn;
 	}
 	
-	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
-		String sql = "insert into users values ('"+ email +"' , '" + password + "', '" + username + "')";
-		String check = "SELECT username FROM users WHERE username = '" + username + "'" + "OR email = '" + email + "'"; 
+	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("password") + "', '" + req.getParameter("username") + "')";
+		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
 		
 		try {

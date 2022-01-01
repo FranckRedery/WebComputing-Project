@@ -99,6 +99,9 @@ function onSignIn(googleUser) {
 			image: image,
 		}	
 	});
+	
+	window.location = "/";
+	
 }
 
 function signOut() {
@@ -134,5 +137,11 @@ function signOutStand() {
         gapi.auth2.init();
       });
  }
+
+function check(){
+	if(document.referrer == "http://localhost:8080/login.html" || document.referrer == "http://localhost:8080/signUp.html"){
+		window.location.reload();
+	}
+}
 
 

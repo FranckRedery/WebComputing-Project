@@ -24,11 +24,8 @@ public class SignUp {
 	public SignUp() {}
 	
 	@PostMapping("/SignUpServices")
-	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp, String username ,String email, String password) throws IOException {
-		
-		Database.getInstance().getSignUp().faiSignUp(req, resp, username, email, password);
-		
-		return null;
+	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		return Database.getInstance().getSignUp().faiSignUp(req, resp);
 	}
 	
 	@PostMapping("/activeError")

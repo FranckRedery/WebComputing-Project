@@ -63,7 +63,7 @@ public class Control {
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
 				resp.sendRedirect("/");
-				return "index";
+				return "indexAdd";
 			   }
 			   else {
 					session.setAttribute("errore", "si");

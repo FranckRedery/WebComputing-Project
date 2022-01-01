@@ -46,8 +46,7 @@
 								<%
 								if (session.getAttribute("errore") == "si") {
 								%>
-								<form name="SignUpForm" method="post"
-									onsubmit="return validateFormSignUp();" action="SignUpServices">
+								<form name="SignUpForm" method="post"  action="javascript:SignUp()">
 									<label class="form-label">Username</label> <input type="text"
 										name="username" id="typeUsernameX"
 										class="form-control form-control-lg" required
@@ -79,8 +78,7 @@
 									</div>
 								</form>
 								<%} else {%>
-								<form name="SignUpForm" method="post"
-									onsubmit="return validateFormSignUp();" action="SignUpServices">
+								<form name="SignUpForm" method="post" action="javascript:SignUp()">
 									<label class="form-label">Username</label> <input type="text"
 										name="username" id="typeUsernameX"
 										class="form-control form-control-lg" required
