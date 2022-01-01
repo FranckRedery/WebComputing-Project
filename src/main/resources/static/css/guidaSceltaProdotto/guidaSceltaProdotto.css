@@ -1,5 +1,11 @@
 /* --- INDEX --- */
 
+#navigation {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
 #linkSelezionaProdotto {
 	text-align: right;
 }
@@ -19,12 +25,22 @@
 	display: inline !important;
 }
 
+/* non fa uscire la scritta dai div */
+body {
+	overflow-wrap: break-word;
+}
+
 /* --- GUIDA PRODOTTO --- */
 
 /* relative per metterci il div description del testo dentro
 con absolute*/
 #imageDescription {
 	position: relative;
+}
+
+#imageDescription img {
+	height: 50%;
+	width: 100%;
 }
 
 #description {
@@ -50,9 +66,16 @@ con absolute*/
 	padding-right: none;
 }
 
-#pulsanteIndietro, #indiceDomandeCenter, #pulsanteInvia {
+#pulsanteIndietro, #indiceDomandeCenter, #pulsanteInvia, #cercaProdottiMeglioRecensiti, #pulsanteCompraOra {
 	color: #0b3de1;
 	text-align: center;
+}
+
+#cercaProdottiMeglioRecensiti, #pulsanteCompraOra {
+/*	transform: translate(-50%, -50%);
+*/	position: relative;
+	top: 50%;
+	left: 50%;
 }
 
 #indiceDomandeDX {
@@ -61,10 +84,6 @@ con absolute*/
 
 #indiceDomandeSX {
 	text-align: left;
-}
-
-#descrizione {
-	margin: auto;
 }
 
 #domande {
@@ -99,6 +118,13 @@ con absolute*/
 	margin-right: auto;
 }
 
+.sticky {
+  position: sticky;
+  top: 50px;
+  font-size: 20px;
+  z-index: 0;
+}
+
 #pulsanteAvanti, #pulsanteProblema {
 	background-color: #0b3de1;
 	border-color: #0b3de1;
@@ -112,6 +138,10 @@ con absolute*/
 #segnalazione {
 	margin: auto;
 	width: 50%;
+	text-align: center;
+}
+
+.testoCentrale {
 	text-align: center;
 }
 
@@ -137,20 +167,51 @@ con absolute*/
 	margin-right: auto;
 }
 
-#descrizioneJS p {
+#descrizioneJS p, #altriProdotti p {
 	text-align: center;
 }
 
-#descrizioneJS {
+#descrizioneJS, #altriProdotti {
 	padding: 10px;
   	margin-bottom: 10px;
+}
+
+#descrizioneJS {
+	margin-top: 22%;
 }
 
 .row label {
 	padding-top: 5%;
 }
 
-/* da implementare ancora*/
+#prodotto {
+	border: 1px solid #888888;
+  	border-radius: 5px;
+  	padding-bottom: 5px;
+  	min-height: 300px;
+}
+
+#immagineProdotto {
+	position:relative;
+}
+
+#immagineProdotto img {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+#requisitoSoddisfatto {
+	width: 15%;
+}
+
+#requisito p {
+	line-height: 1.5;
+  	display: inline-block;
+  	vertical-align: middle;
+}
+
 .numDomande {
 	background-color: white;
 	color: #0b3de1;
@@ -183,13 +244,21 @@ con absolute*/
 	opacity: 0.9;
 }
 
+figure img {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
 
+#icona, #requisitoSoddisfatto {
+	display: inline !important;
+}
 
-
-
-
-
-
+.prezzo a {
+	text-decoration: none;
+	color: #0b3de1;
+	font-weight: bold;
+}
 
 .image {
 	margin-bottom: 0px;

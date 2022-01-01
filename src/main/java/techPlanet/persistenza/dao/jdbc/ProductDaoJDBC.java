@@ -190,7 +190,7 @@ public class ProductDaoJDBC implements ProductDao {
 			
 			while (rs.next()) {
 				Product prodotto = new Product();
-				prodotto.setId(rs.getLong("id"));;
+				prodotto.setId(rs.getLong("id"));
 				prodotto.setName(rs.getString("name"));
 				prodotto.setQuantity(rs.getInt("quantity"));
 				prodotto.setTags(rs.getString("tags"));

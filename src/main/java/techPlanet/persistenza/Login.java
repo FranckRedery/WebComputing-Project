@@ -23,15 +23,13 @@ public class Login {
 		this.conn = conn;
 	}
 	
-	public boolean faiLoginCurriculum(HttpServletRequest req, HttpServletResponse resp, String username, String pass) {
+	public boolean faiLoginCurriculum(String username, String pass) {
 		String sql = "select * from users where username = '" + username + "'";
-		HttpSession session = req.getSession(true);
 		
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
-				session.setAttribute("username", rs.getString("username"));
 				return true;
 			}
 				

@@ -8,7 +8,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import techPlanet.Database;
+import techPlanet.model.Job;
 import techPlanet.model.Report;
 import techPlanet.model.ReturnRequest;
 
@@ -50,12 +52,34 @@ public class Admin {
 	@GetMapping("/visualizzaReports")
 	public String visualizzaReports(HttpServletRequest req) {
 		
-		List<Report> reports = Database.getInstance().getReport().findAll();
+		List<Report> reports = Database.getInstance().getReportDao().findAll();
 		
 		HttpSession session = req.getSession(true);
 		session.setAttribute("report", reports);
 		
 		return "visualizzaReports";
+	}
+	
+	@GetMapping("/visualizzaPosizioniLavoro")
+	public String visualizzaPosizioniLavoro(HttpServletRequest req) {
+		
+		List<Job> jobs = Database.getInstance().getJobDao().findAll();
+		
+		HttpSession session = req.getSession(true);
+		session.setAttribute("lavori", jobs);
+		
+		return "posizioniLavoro";
+	}
+	
+	@GetMapping("/visualizzaCurriculum")
+	public String visualizzaCurriculum(HttpServletRequest req) {
+
+		List<Job> job = Database.getInstance().getJobDao().findAll();
+
+		HttpSession session = req.getSession(true);
+		session.setAttribute("lavori", job);
+
+		return "visualizzaCV";
 	}
 	
 }

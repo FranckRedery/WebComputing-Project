@@ -1,0 +1,254 @@
+#navigation {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+/* SFONDO */
+
+#divImmagineTestoSfondo {
+	position: relative;	
+}
+
+#testoSfondo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+	-ms-transform: translate(-50%, -50%);	transform: translate(-50%, -50%);
+}
+
+/* PAGINA JSP */
+
+#testoSezione p {
+	text-align: justify;
+}
+
+#titoloSezione {
+	text-align: center !important;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* COMUNI */
+
+.titolo {
+	/*grandezza di un h3*/
+	font-size: 36px;
+	color: white;
+	text-shadow: 0 3px 24px #000
+}
+
+.figure {
+	margin: 0px;
+	display: inline !important;
+}
+
+.button {
+	background-color: #0b3de1;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+	opacity: 1;
+}
+
+.button:hover {
+	opacity: 0.9;
+}
+
+#presentazioneAzienda {
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+#barra {
+	padding-top: 5%;	
+	padding-bottom: 5%;	
+	background-color: white !important;
+}
+
+#barra .nav-link {
+	font-size: 20px;
+	color: #0b3de1 !important;
+}
+
+#barra .nav-link:hover {
+	font-size: 20px;
+	color: #0b3de1 !important;
+	opacity: 0.9;
+}
+
+#divSovrapposto {
+	margin-top: -5%;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: none;
+	padding-right: none;
+}
+
+#navbar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#indice, #testo1, #testo2 {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	position:relative;
+}
+
+/* tabella */
+.table {
+	border-collapse: separate !important;	
+}
+
+.table .thead-dark {
+	background: #2c2d30;
+	color: white;
+}
+
+.table a {
+	text-decoration: none;
+	color: #0b3de1;
+}
+
+/* login */
+#login a {
+	color: #212529;
+	text-decoration: none;
+}
+
+#formLogin {
+	display: none;
+}
+
+#formLogin form {
+	margin-left: 20%;
+}
+
+#pulsanteLogin {
+	color: #0b3de1;
+	text-align: center;
+	background-color: white;
+	border: none;
+	border-radius: 2px;
+	padding: 10px;
+	opacity: 1;
+}
+
+#pulsanteLogin {
+	opacity: 0.9;
+}
+
+
+
+/* FORM */
+#formSX tr{
+	text-align: right;
+}
+
+#formSX input {
+	width: 100%;
+}
+
+#formSX table {
+	padding-top: 0px;
+}
+
+#datiPersonali {
+	width: 100%;
+	text-align: right;
+	padding-top: 10px;
+}
+
+#datiPersonali p {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#formDX {
+	text-align: left;
+}
+
+#formDX select {
+	width: 100%;
+}
+
+#formDX th {
+	width: 60%;
+}
+
+#centro {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#formCentrale th {
+	width: 50%;
+}
+
+#formCenter input {
+	text-align: left;
+}
+
+.dx {
+	text-align: right;
+}
+
+.navbar {
+	text-align: center;
+}
+
+input[type=text] {
+	border: "blue";
+}
+/*
+#presentazione {
+	display: none;
+}
+*/
+
+/* candidatura spontanea */
+
+#mancaLaTuaPosizione div {
+  	text-align: center;
+}
+
+#user {
+	margin-bottom: 10px;
+}
+
+.messaggioErrore {
+	text-align: center;
+	color: red;
+}
+
+.requisito {
+	font-style: italic;
+	display: inline;
+}
+
+.requisito p {
+	display: inline;
+}
+
+@media screen and (max-width: 580px) {
+
+
+	/*evita che la navbar esce fuori dai bordi quando restringo*/
+	#container {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+}
+
+#presentazioneAzienda button {
+	background-color: trasparent;
+}
+
+.asterisco {
+	color: red;
+}

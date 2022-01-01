@@ -1,12 +1,97 @@
-#checkBoxTh {
-	display: none;
-}
+/* CSS visualizzaReport posizioniLavoro visualizzaCV*/
 
-#tabellaReports {
+/* CONDIVISI */
+#tabella {
 	padding: 10px;
 }
 
 #titolo {
 	text-align: center;
 	padding: 10px;
+}
+
+input[type=button] {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+button {
+	opacity: 1;
+}
+
+button:hover {
+	opacity: 0.9;
+}
+
+#pulsanti {
+	text-align: center;	
+}
+
+table tr {
+	padding: 100px;
+}
+/* REPORT */
+
+
+
+/* CURRICULUM */
+
+/*
+body #tabellaCV {
+	overflow-wrap: 
+}
+*/
+
+
+/* LAVORO */
+
+@media screen and (max-width: 767px) {
+	
+	body .formattaTesto {
+		overflow-wrap: normal;
+	}
+	
+	table {
+		width:100%;
+	}
+	
+	thead th[id] {
+		display: none;
+	}
+	
+	table tr {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid grey;
+		padding: 5px;
+		margin: 10px;
+	}	
+	
+	thead th[data-title] {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	
+	thead th[data-title]:before {
+		padding-right: 5px;
+		width: 130px !important;
+	}
+	
+	table td[data-title], thead th[data-title] {
+		display: flex;
+	}
+	
+	table td[data-title]:before, thead th[data-title]:before {
+		content: attr(data-title);
+		color: black;
+		width: 80px;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
+	table img {
+		width: 20% !important;
+	}
+	
 }

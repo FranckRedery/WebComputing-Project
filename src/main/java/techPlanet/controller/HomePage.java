@@ -3,12 +3,14 @@ package techPlanet.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import techPlanet.Database;
 import techPlanet.model.Product;
+import techPlanet.model.Review;
 
 @Controller
 public class HomePage {
@@ -78,6 +80,21 @@ public class HomePage {
 		}
 		return "product";
 	}
+	
+	@GetMapping("/visualizzaProdotto")
+	public String guidaProdotto(HttpServletRequest req) {
+		
+		Long id = Long.parseLong(req.getParameter("id"));
+		
+		Product prodotto = Database.getInstance().getProductsDao().findById(id);
+//		List<Review> review = Database.getInstance().getReviewDao().findByProduct(id);
+		
+		HttpSession session = req.getSession(true);
+		session.setAttribute("product", prodotto);
+//		session.setAttribute("review", review);
+
+		return "product";
+	}	
 
 	public void setNumberCart(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");

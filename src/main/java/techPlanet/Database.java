@@ -10,15 +10,19 @@ import techPlanet.persistenza.SignUp;
 import techPlanet.persistenza.UpdateProfile;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
+import techPlanet.persistenza.dao.ObligatoryRequirementsDao;
 import techPlanet.persistenza.dao.ProductDao;
 import techPlanet.persistenza.dao.ReportDao;
+import techPlanet.persistenza.dao.RequirementsDao;
 import techPlanet.persistenza.dao.ReturnRequestDao;
 import techPlanet.persistenza.dao.ReviewDao;
 import techPlanet.persistenza.dao.UserDao;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.ObligatoryRequirementsDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ProductDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReportDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.RequirementsDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReturnRequestDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReviewDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.UserDaoJDBC;
@@ -37,8 +41,8 @@ public class Database {
 	
 	private Database() {
 		try {
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", 
-											"postgres", "postgres");
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/techplanet", 
+					"postgres", "postgres");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,16 +78,24 @@ public class Database {
 		return new UpdateProfile(conn);
 	}
 	
-	public CurriculumDao getCurriculum() {
+	public CurriculumDao getCurriculumDao() {
 		return new CurriculumDaoJDBC(conn);
 	}
 	
-	public ReportDao getReport() {
+	public ReportDao getReportDao() {
 		return new ReportDaoJDBC(conn);
 	}
 	
 	public ReturnRequestDao getReturnRequestDao() {
 		return new ReturnRequestDaoJDBC(conn);
+	}
+	
+	public RequirementsDao getRequirementsDao() {
+		return new RequirementsDaoJDBC(conn);
+	}
+	
+	public ObligatoryRequirementsDao getObligatoryRequirementsDao() {
+		return new ObligatoryRequirementsDaoJDBC(conn);
 	}
 	
 	public UserDao getUserDao() {

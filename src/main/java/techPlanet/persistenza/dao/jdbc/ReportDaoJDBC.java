@@ -11,7 +11,6 @@ import java.util.List;
 import techPlanet.model.Report;
 import techPlanet.persistenza.dao.ReportDao;
 
-
 public class ReportDaoJDBC implements ReportDao {
 
 	private Connection con;
@@ -100,7 +99,7 @@ public class ReportDaoJDBC implements ReportDao {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public Report findById(Long id) {
 		Report report = new Report();
@@ -109,7 +108,7 @@ public class ReportDaoJDBC implements ReportDao {
 			PreparedStatement st = con.prepareStatement(query);
 			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
-			while (rs.next()) {
+			if (rs.next()) {
 				report.setId(rs.getLong("id"));
 				report.setProblem_origin(rs.getString("problem_origin"));
 				report.setDescription(rs.getString("description"));

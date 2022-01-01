@@ -1,11 +1,13 @@
 package techPlanet.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Job {
 	private String title;
 	private String description;
 	private String requirements;
+	private List<Requirements> obligatory;
 	private boolean active;
 	
 	public String getTitle() {
@@ -28,11 +30,12 @@ public class Job {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public Job(String title, String description, String requirements, boolean active) {
+	public Job(String title, String description, String requirements, List<Requirements> obligatory, boolean active) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.requirements = requirements;
+		this.setObligatory(obligatory);
 		this.active = active;
 	}
 	@Override
@@ -56,5 +59,30 @@ public class Job {
 	public void setRequirements(String requirements) {
 		this.requirements = requirements;
 	}
-	
+	public boolean ugualiTotalmente(Job job) {
+		// controllo se hanno entrambi gli stessi requisiti obbligatori
+		// anche se posizionati in posti diversi
+		int cont = 0;
+		System.out.println(this.obligatory.size());
+		for(int i = 0; i < this.obligatory.size(); ++i) {
+			for(int j = 0; j < job.getObligatory().size(); ++j) {
+				if(this.obligatory.get(i).uguali(job.getObligatory().get(j))) {
+					System.out.println("qui");
+					++cont;
+				}
+			}
+		}
+		
+		if(cont < this.obligatory.size())
+			return false;
+		
+		return this.title.equals(job.title) && this.description.equals(job.description) &&
+				this.requirements.equals(job.requirements) && this.active == job.active;
+	}
+	public List<Requirements> getObligatory() {
+		return obligatory;
+	}
+	public void setObligatory(List<Requirements> obligatory) {
+		this.obligatory = obligatory;
+	}
 }
