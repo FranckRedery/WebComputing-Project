@@ -1,16 +1,20 @@
 $("button#addProd").click(function(){
 	let id = $(this).val();
-	document.getElementById("cart_" + id).innerHTML = "Added to cart";
-	setTimeout(function() {
-		document.getElementById("cart_" + id).innerHTML=""; },2000)	
+	var quantity = document.getElementById("quantity").value;
+	let chooses = new Chooses(id,quantity);
 		$.ajax({
 			type: "POST",
 			url: "/addProductToCart",
 			contentType: "application/json",
-			data: id,
+			data: JSON.stringify(chooses),
 			success: function(){
 				setTimeout(function() {
    					location.reload();}, 2000);
 			}
 			});
 });
+
+function Chooses(id, quantity) {
+	this.id = id;
+	this.quantity = quantity;	
+}

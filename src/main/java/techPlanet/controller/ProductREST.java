@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import techPlanet.Database;
+import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.Review;
 
@@ -20,9 +21,9 @@ import techPlanet.model.Review;
 public class ProductREST {
 	
 	@PostMapping("/addProductToCart") 
-	public void addProdToCart(@RequestBody Long id, HttpServletRequest req) {
+	public void addProdToCart(@RequestBody Chooses chooses, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
-		Database.getInstance().getProductsDao().addProductToCart(id, username);
+		Database.getInstance().getProductsDao().addProductToCart(chooses, username);
 	}
 	
 	@PostMapping("/viewDetailsProdPage") 

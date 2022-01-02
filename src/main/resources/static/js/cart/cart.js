@@ -53,6 +53,11 @@ document.getElementById("totWithIva").innerHTML= "$" + totalWithIva.toFixed(2);
 	}).render('#paypal-button-container');
 }
 */
+
+$(":input").bind('keyup mouseup', function () {
+    alert("changed");            
+});
+
 $(".removeProd").click(function(){
 	var id = $(this).data("custom-value");
 	removeProductFromCart(id);

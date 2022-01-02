@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.ReturnRequest;
 import techPlanet.model.User;
@@ -165,13 +166,14 @@ public class ProductDaoJDBC implements ProductDao {
 	}
 	
 	@Override
-	public void addProductToCart(Long id, String username) {
+	public void addProductToCart(Chooses chooses, String username) {
 		try {
 			String query = "insert into chooses "
-					+ "values (?, ?)";
+					+ "values (?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setLong(1,id);
+			st.setLong(1,chooses.getId());
 			st.setString(2,username);
+			st.setLong(3, chooses.getQuantity());
 			st.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -2,6 +2,7 @@ package techPlanet.persistenza.dao;
 
 import java.util.List;
 
+import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 
 public interface ProductDao {
@@ -17,5 +18,5 @@ public interface ProductDao {
 	public boolean deleteProductById(long id);
 	public Product findById(long id);
 	public Product findByName(String name);
-	public void addProductToCart(Long id, String username);
+	public void addProductToCart(Chooses chooses, String username);
 }

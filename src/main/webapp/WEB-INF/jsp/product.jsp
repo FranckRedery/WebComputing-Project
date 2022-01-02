@@ -177,7 +177,7 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Home</a></li>
+						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -216,16 +216,22 @@
             <div class="col-lg-6 description">
                 <h1>${product.name}</h1>
                 <h4>${product.price}0</h4>
-                <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
+                <input type="number" value="1" min="1" max="${product.quantity}" id="quantity" oninput="validity.valid||(value='');">
                 <br>
                 <br>
                 <a href=""><button type="button" class="btn btn-info">
                     <i class="far fa-heart"></i>add to Wishlist
                 </button></a>
+                <c:if test="${username != null}">
                 <a href=""><button type="button" class="btn btn-info" value="${product.id}" id="addProd">
                         <i class="fa fa-cart-plus"></i>add to Cart
                     </button></a>
-                <div class="addedToCart" id="cart_${product.id}"></div>
+                </c:if>
+                <c:if test="${username == null}">
+                <a href="login.html"><button type="button" class="btn btn-info" value="${product.id}">
+                        <i class="fa fa-cart-plus"></i>add to Cart
+                    </button></a>
+                </c:if>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <p>${product.description}</p>
                 <br>

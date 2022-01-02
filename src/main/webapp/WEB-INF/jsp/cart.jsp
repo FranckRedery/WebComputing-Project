@@ -171,7 +171,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -180,17 +180,15 @@
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
+					<a class="nav-link" href="laptopsGallery.html">Laptops</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
+					<a class="nav-link" href="smartphonesGallery.html">Smartphones</a>
 				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Tvs</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Accessories</a>
-				  </li>
+				  <li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Accessories</a></li>
 			</ul>
 		  </div>
 		</div>
@@ -219,7 +217,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><input type="number" value="1"></td>
+                    <td><input type="number" value="1" min="1" max="${prod.quantity}" oninput="validity.valid||(value='');"></td>
                     <td class="prod_price">$${prod.price}0</td>
                 </tr>
                 </c:forEach>
