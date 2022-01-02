@@ -1,18 +1,24 @@
+window.addEventListener("load", function(){
+	calcTotal();	
+});
+
+function calcTotal() {
 var text = $(".prod_price").text();
 var myArray = text.split("$").map(Number);
 var sum = 0.0;
 for (var i = 0; i < myArray.length; i++){
-	sum += parseInt(myArray[i], 10);
+	sum += parseFloat(myArray[i], 10.0);
 }
-document.getElementById("tot").innerHTML= "$" + sum + ".00";
+document.getElementById("tot").innerHTML= "$" + sum.toFixed(2);
 
-var iva = (sum * 22)/100;
-document.getElementById("iva").innerHTML= "$" + iva;
+var iva = (sum * 22.0)/100.0;
+document.getElementById("iva").innerHTML= "$" + iva.toFixed(2);
 
 var totalWithIva = sum + iva;
-document.getElementById("totWithIva").innerHTML= "$" + totalWithIva;
+document.getElementById("totWithIva").innerHTML= "$" + totalWithIva.toFixed(2);
+}
 
-function generatePayment(value) {
+/*function generatePayment(value) {
 	if (value==""){
 		alert("inserire un prodotto nel carrello");
 		return;
@@ -45,4 +51,22 @@ function generatePayment(value) {
 		});
 	}
 	}).render('#paypal-button-container');
+}
+*/
+$(".removeProd").click(function(){
+	var id = $(this).data("custom-value");
+	removeProductFromCart(id);
+	$.ajax({
+			type: "POST",
+			url: "/removeProductFromCart",
+			contentType: "application/json",
+			data: JSON.stringify(id),
+			success: function(){},
+			});
+	calcTotal();
+});
+
+function removeProductFromCart(id){
+	var rowToRemove = document.querySelector("#row_" + id);
+	rowToRemove.remove();
 }

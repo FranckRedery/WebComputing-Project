@@ -207,7 +207,7 @@
             </thead>
             <tbody>
             <c:forEach items="${prodotti}" var="prod">
-                <tr>
+                <tr id="row_${prod.id}">
                     <td>
                         <div class="cart-info">
                             <img src="images/carrello/iphone1.jpeg">
@@ -215,7 +215,7 @@
                                 <p>${prod.name}</p>
                                 <small>Price $${prod.price}0</small>
                                 <br>
-                                <a href="">Remove</a>
+                                <a href="#" disabled="disabled" style="text-decoration: none" data-custom-value="${prod.id}" class="removeProd">Remove</a>
                             </div>
                         </div>
                     </td>
@@ -223,52 +223,21 @@
                     <td class="prod_price">$${prod.price}0</td>
                 </tr>
                 </c:forEach>
-                <!-- <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
-                            <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
-                            <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
-                </tr>
-                 -->
             </tbody>
         </table>
         <div class="total-price">
             <table>
                 <tr>
                     <td>Subtotal <strong>(without iva)</strong></td>
-                    <td  id="tot">$</td>
+                    <td  id="tot"></td>
                 </tr>
                 <tr>
                     <td>Tax <strong>(iva 22%)</strong></td>
-                    <td id="iva">€79.00</td>
+                    <td id="iva"></td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td id=totWithIva>€3679.00</td>
+                    <td id=totWithIva></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="button" class="btn btn-primary" onclick="generatePayment(document.getElementById('totWithIva').value)">Procede to order</button></td>

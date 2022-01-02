@@ -9,6 +9,7 @@ public interface ProductDao {
 	public List<Product> findByCategory(String category);
 	public List<Product> findByUser(String user);
 	public List<Product> findByLastNineInserted();
+	public void removeProductFromCart(Long id, String username);
 	public boolean saveOrUpdate(Product product);
 	public int getNumProdForUser(String username);
 	public void addProduct(Product product);

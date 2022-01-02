@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.boot.sql.init.DatabaseInitializationSettings;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,5 +46,11 @@ public class ProductREST {
 		}
 		HttpSession session = req.getSession(false);
 		session.setAttribute("numProd", numProdUser);
+	}
+	
+	@PostMapping("/removeProductFromCart")
+	public void removeProdFromCart(@RequestBody Long id, HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		Database.getInstance().getProductsDao().removeProductFromCart(id, username);
 	}
 }

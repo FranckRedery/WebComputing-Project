@@ -293,5 +293,18 @@ public class ProductDaoJDBC implements ProductDao {
 		return num;
 	}
 
+	@Override
+	public void removeProductFromCart(Long id, String username) {
+		try {
+			String query = "delete from chooses where id = ? and username = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.setString(2, username);
+			st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+	}
+
 
 }

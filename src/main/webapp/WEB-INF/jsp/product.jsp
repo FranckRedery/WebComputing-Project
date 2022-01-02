@@ -215,7 +215,7 @@
             </div>
             <div class="col-lg-6 description">
                 <h1>${product.name}</h1>
-                <h4>${product.price}</h4>
+                <h4>${product.price}0</h4>
                 <input type="number" value="1" min="1" max="10" oninput="validity.valid||(value='');">
                 <br>
                 <br>
