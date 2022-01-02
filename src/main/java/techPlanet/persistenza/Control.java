@@ -37,7 +37,8 @@ public class Control {
 		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("id") + "', '" + req.getParameter("username") + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
-		
+		session.setMaxInactiveInterval(10*60);
+
 		try {
 			Statement registerStatement = conn.createStatement();
 			ResultSet rs = registerStatement.executeQuery(check);
