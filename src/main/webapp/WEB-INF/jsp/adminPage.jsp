@@ -41,7 +41,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="#" class="logo">
-								<img id="logo" src="immagini/index/logo.png" alt="">
+								<img id="logo" src="images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 						<div class="header-ctn">
 
 							<!-- Wishlist -->
-							<div style="padding-right: 3%; margin-top: 3%">
+							<div style="padding-right: 3%; margin-top: 3%"  id="firstElement">
 								<a href="addProduct" style="text-decoration: none;">
 									<i class="fas fa-cart-plus" id="add"></i>
 									<!--<div class="qty">0</div>-->
@@ -73,14 +73,19 @@
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="returnRequests" style="text-decoration: none;">
+									<i class="fas fa-truck-loading" id="truck2"></i></a>
+							</div>
 							<!-- /Cart -->
 
-							<div style="padding-right: 3%; margin-top: 3%" id="firstElement">
+							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
-							<div style="padding-right: 3%; margin-top: 3%" id="firstElement">
+							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/visualizzaCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
 								</a>
