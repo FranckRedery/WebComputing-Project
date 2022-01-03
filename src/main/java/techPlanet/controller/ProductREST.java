@@ -54,4 +54,10 @@ public class ProductREST {
 		String username = (String) req.getSession().getAttribute("username");
 		Database.getInstance().getProductsDao().removeProductFromCart(id, username);
 	}
+	
+	@PostMapping("/updateQuantity")
+	public void updateQuantity(@RequestBody Chooses chooses, HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		Database.getInstance().getChoosesDao().updateQuantity(chooses, username);
+	}
 }

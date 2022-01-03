@@ -28,7 +28,7 @@ public class HomePage {
 	public String cartPage(HttpServletRequest req) {
 		if (req.getSession().getAttribute("username") != null) {
 			String username = (String) req.getSession().getAttribute("username");
-			List<Chooses> chooses = Database.getInstance().getProductsDao()
+			List<Chooses> chooses = Database.getInstance().getChoosesDao()
 					.findByUser(username);
 			req.setAttribute("chooses", chooses);
 			return "cart";

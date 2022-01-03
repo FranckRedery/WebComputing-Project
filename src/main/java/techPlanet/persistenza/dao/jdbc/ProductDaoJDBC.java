@@ -83,33 +83,7 @@ public class ProductDaoJDBC implements ProductDao {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	@Override
-	public List<Chooses> findByUser(String user) {
-		List<Chooses> chooses = new ArrayList<Chooses>();
-		String query = "select * from chooses INNER JOIN product ON chooses.id = product.id where username = ?";
-		try {
-			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, user);
-
-			ResultSet rs = st.executeQuery();
-			
-			while (rs.next()) {
-				Chooses chosen = new Chooses();
-				Product product = Database.getInstance().getProductsDao().findById(rs.getLong("id"));
-				chosen.setId(product);
-				chosen.setQuantity(rs.getLong("quantity"));
-				User username = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
-				chosen.setUsername(username);
-				chooses.add(chosen);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return chooses;
-	}
-	
+		
 	@Override
 	public Product findById(long id) {
 		String query = "select * from product where id = ?";

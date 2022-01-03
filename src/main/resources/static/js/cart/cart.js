@@ -60,9 +60,34 @@ function calcTotal() {
 }
 */
 
-$(":input").bind('keyup mouseup', function () {
-    alert("changed");            
-});
+function updateQuantity(id,quantity) {
+	let newQuantity = $('.'+ id).val();
+	let product = new Product(id);
+	let chooses = new Chooses(product, newQuantity);
+	$.ajax({
+			type: "POST",
+			url: "/updateQuantity",
+			contentType: "application/json",
+			data: JSON.stringify(chooses),
+			success: function(){
+				calcTotal();
+			},
+			});
+}
+
+function Product(id) {
+	this.id = id;
+}
+
+function Chooses(id, quantity) {
+	this.id = id;
+	this.quantity = quantity;	
+}
+
+/*$(":input.currentQuantity").bind('keyup mouseup', function () {
+    let quantity = document.getElementsByClassName("currentQuantity");    
+	alert(quantity[0].id);        
+});*/
 
 $(".removeProd").click(function(){
 	var id = $(this).data("custom-value");

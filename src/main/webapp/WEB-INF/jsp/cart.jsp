@@ -216,7 +216,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><input type="number" value="${cho.quantity}" min="1" max="${cho.id.quantity}" class="currentQuantity" oninput="validity.valid||(value='');"></td>
+                    <td><input type="number" value="${cho.quantity}" min="1" max="${cho.id.quantity}" id="${cho.quantity}" class="currentQuantity ${cho.id.id}" oninput="validity.valid||(value='');" onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
                     <td class="prod_price" class="price" id="${cho.id.price}"></td>
                 </tr>
                 </c:forEach>

@@ -8,7 +8,6 @@ import techPlanet.model.Product;
 public interface ProductDao {
 	public List<Product> findAll();
 	public List<Product> findByCategory(String category);
-	public List<Chooses> findByUser(String user);
 	public List<Product> findByLastNineInserted();
 	public void removeProductFromCart(Long id, String username);
 	public boolean saveOrUpdate(Product product);
