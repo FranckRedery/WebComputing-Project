@@ -147,16 +147,24 @@ public class Control {
 	public void updateEmail(HttpServletRequest req, HttpServletResponse resp, String email) throws IOException {
 		HttpSession session = req.getSession();
 		String sql = "UPDATE users SET email = '" + email + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
+		String check = "SELECT * FROM users WHERE email = '" + email + "'";
 		try {
-			 PreparedStatement preparedStmt = conn.prepareStatement(sql);
-			 preparedStmt.execute();
-			 session.setAttribute("email", email);
+			Statement registerStatement = conn.createStatement();
+			ResultSet rs = registerStatement.executeQuery(check);
+			if(rs.next()) {
+				session.setAttribute("errore", "si");
+				resp.sendRedirect("/insertNewEmail.html");
+			}
+			else { 
+				PreparedStatement preparedStmt = conn.prepareStatement(sql);
+				preparedStmt.execute();
+				session.setAttribute("email", email);
+				resp.sendRedirect("/changeEmailCorrect");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
-	resp.sendRedirect("/changeEmailCorrect");
 	}
 	
 }

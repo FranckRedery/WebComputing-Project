@@ -234,6 +234,8 @@
 	   </a>
 	  </div>
     </div>
+    
+    
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->

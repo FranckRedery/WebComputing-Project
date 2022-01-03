@@ -32,5 +32,9 @@ public class Account {
 		return "aboutUs";
 	}
 	
+	@GetMapping("/signUpCorrect.html")
+	public String signUpCorrect() {
+		return "signUpCorrect";
+	}
 	
 }

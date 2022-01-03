@@ -1,5 +1,18 @@
-function checkDataRecovery(){
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: ""
+	})
+}
 
+function checkDataRecovery(){
+sendEmailS();
 var ema = document.getElementById('EmailX').value;
 var username = document.getElementById('Username').value;
 	$.ajax({

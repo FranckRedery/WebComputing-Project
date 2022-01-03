@@ -1,5 +1,4 @@
 function AdminLog(){		
-
 var email = document.getElementById('typeEmailX').value;
 var password = document.getElementById('typePasswordX').value;
  if(email == "admin@admin.com" && password == "adminadmin"){
@@ -92,6 +91,25 @@ function signOut() {
         gapi.auth2.init();
       });
  }
+ 
+ function error(){
+	document.getElementById('errore').style.display='block';
+}
 
+function close(){
+	modal.style.display = "none";
+}
 
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "dwondxoasjndoasw@jwvadvsad.com",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: "dsawa"
+	})
+}
 

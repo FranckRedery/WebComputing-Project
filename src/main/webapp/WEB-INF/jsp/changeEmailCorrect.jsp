@@ -27,7 +27,7 @@
 					<img src="/images/account/greenCheck.gif" width="100" height="80" alt=""> 
 					<p>Congratulations ${username}, your email have been changed</p>
 					</div>
-					<a href="account.html">
+					<a href="/">
 					 <button class="btn btn-outline-light btn-lg px-5" >Confirm</button>
 					</a>
 				  </div>

@@ -21,6 +21,7 @@ function checkRefresh(logged){
 }
 
 function SignUp() {
+ sendWelcomeEmailS();		
   var username = document.forms["SignUpForm"]["username"].value;
   var email = document.forms["SignUpForm"]["email"].value;
   var password = document.forms["SignUpForm"]["password"].value;
@@ -41,7 +42,7 @@ function SignUp() {
 			}
 			else{
 			  sendWelcomeEmail(email);				
-			  window.location = "login.html";
+			  window.location = "signUpCorrect.html";
 			}
 		}
 		
@@ -62,6 +63,18 @@ function sendWelcomeEmail(emailId){
 	
 }
 
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: ""
+	})
+}
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();

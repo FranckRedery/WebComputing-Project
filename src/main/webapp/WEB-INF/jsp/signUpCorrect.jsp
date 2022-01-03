@@ -21,28 +21,15 @@
 			  <div class="card bg-dark text-white" style="border-radius: 1rem;">
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
-					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">CHANGE EMAIl</h2>
+					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">WELCOME TO TECH PLANET</h2>
 					<img src="/images/index/logo.png" alt="">
-					<%if(session.getAttribute("errore") == "si"){%>
-					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
-					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
+					<p>Congratulations, now you can access the tech planet world</p>
+					<img src="/images/account/welcome.gif" width="180" height="120" alt=""> 
 					</div>
-					<div id="fail" class="alert-box failure">the email entered is associated with an existing account</div>
-					<a>
-						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
+					<a href="login.html">
+					 <button class="btn btn-outline-light btn-lg px-5" >Login Now</button>
 					</a>
-					</form>
-					<%} else {%>					
-					<form action="updateEmail">
-					<div class="form-outline form-white mb-3">
-					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
-					</div>
-					<a>
-						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
-					</a>
-					</form>
-					<%} %>
 				  </div>
 				</div>
 			  </div>

@@ -249,7 +249,38 @@
 	  </a>
 	 </div>
     </div>
-
+    
+    <%if (session.getAttribute("loggatoGoogle") == "si") {%>
+	<div class="containerCardsAcc">
+		<a style="text-decoration: none;" href="javascript:error()">
+		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="images/account/hack01.png" class="img-fluid rounded-start" alt="...">
+			  </div>
+			  <div class="col-md-8">
+				<div class="cardAcc-body">
+				  <h5 class="card-title">Security</h5>
+				  <p  class="card-text">Change your email or password here.</p>
+				</div>
+			  </div>
+			</div>
+		   </a>
+		</div>
+	
+	 <div id="errore" class="modal">
+	  <div id="msg" class="modal-content animate" style="width: 50%">
+	   <div class="container">
+	   <a href="javascript:close()">
+	     <button style="background: transparent; border: 0; font-size:24px"><i  class="fa fa-close"></i></button>
+	   </a>
+	      <img src="images/account/alert.gif"  width="120" height="120" style="margin-left: auto; margin-right: auto; display: block;">
+	     <h3 style="color: white">we are sorry but it is not possible to change your email or password if you have logged in or registered with GOOGLE, if you want to change your google account email or password, you can do it <a href="https://myaccount.google.com/intro/signinoptions/password" target="_blank">here.</a></h3>
+	   </div>
+ 	  </div>
+	 </div>
+	<%} else {%>
+	 
 	<div class="containerCardsAcc">
 		<a style="text-decoration: none;" href="security.html">
 		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
@@ -266,6 +297,7 @@
 			</div>
 		   </a>
 		</div>
+	<%}%>
 	
 		<a style="text-decoration: none;" href="cart.html">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
@@ -368,6 +400,14 @@
 	</footer>
 	<!-- /FOOTER -->
 
+<script>
+var modal = document.getElementById('errore');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 </body>
 </html>

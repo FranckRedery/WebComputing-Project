@@ -40,8 +40,8 @@ public class SignUp {
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
 				session.setAttribute("errore", "no");
-				resp.sendRedirect("/login.html");
-				return "login";
+				resp.sendRedirect("/signUpCorrect.html");
+				return "signUpCorrect";
 			   }
 			   else {
 				   session.setAttribute("errore", "si");

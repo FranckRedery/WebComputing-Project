@@ -1,3 +1,17 @@
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: ""
+	})
+}
+
+
 
 function sendEmail() {
 	var code = Math.floor(Math.random() * 999999) + 100000;
