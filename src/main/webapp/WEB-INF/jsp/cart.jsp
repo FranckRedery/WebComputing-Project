@@ -237,7 +237,7 @@
                     <td id=totWithIva></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="button" class="btn btn-primary" onclick="generatePayment(document.getElementById('totWithIva').value)">Procede to order</button></td>
+                    <td colspan="2"><button type="button" class="btn btn-primary" onclick="completeCheckout()">Procede to order</button></td>
                 </tr>
             </table>
         </div>

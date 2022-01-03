@@ -106,3 +106,20 @@ function removeProductFromCart(id){
 	var rowToRemove = document.querySelector("#row_" + id);
 	rowToRemove.remove();
 }
+
+function completeCheckout() {
+	let total = $('td#totWithIva').html();
+	let prova = total.split("$").map(Number);
+	let number = parseFloat(prova[1],10.0);
+	console.log(number);
+	$.ajax({
+			type: "POST",
+			url: "/getTotal",
+			contentType: "application/json",
+			data: JSON.stringify(number),
+			success: function(){
+				window.location = "/checkout.html"
+			},
+			});
+	calcTotal();
+}
