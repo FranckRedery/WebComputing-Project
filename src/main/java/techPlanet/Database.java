@@ -8,6 +8,7 @@ import techPlanet.persistenza.Control;
 import techPlanet.persistenza.Login;
 import techPlanet.persistenza.SignUp;
 import techPlanet.persistenza.UpdateProfile;
+import techPlanet.persistenza.dao.ChoosesDao;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
 import techPlanet.persistenza.dao.ObligatoryRequirementsDao;
@@ -17,6 +18,7 @@ import techPlanet.persistenza.dao.RequirementsDao;
 import techPlanet.persistenza.dao.ReturnRequestDao;
 import techPlanet.persistenza.dao.ReviewDao;
 import techPlanet.persistenza.dao.UserDao;
+import techPlanet.persistenza.dao.jdbc.ChoosesDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ObligatoryRequirementsDaoJDBC;
@@ -104,6 +106,10 @@ public class Database {
 	
 	public ReviewDao getReviewDao() {
 		return new ReviewDaoJDBC(conn);
+	}
+	
+	public ChoosesDao getChoosesDao() {
+		return new ChoosesDaoJDBC(conn);
 	}
 	
 }
