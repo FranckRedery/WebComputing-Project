@@ -23,7 +23,6 @@
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://www.paypal.com/sdk/js?currency=EUR&client-id=ASGmzQFYx18CDf9Lu_NxWjMsWmjkugEzqzG-UK90RY2J1dnrRiR31TRnKVPNHs-wUX8sjz7J_LRiTNau"></script>
 </head>
 
 <body>
@@ -204,21 +203,21 @@
                 </tr>
             </thead>
             <tbody>
-            <c:forEach items="${prodotti}" var="prod">
-                <tr id="row_${prod.id}">
+            <c:forEach items="${chooses}" var="cho">
+                <tr id="row_${cho.id.id}">
                     <td>
                         <div class="cart-info">
                             <img src="images/carrello/iphone1.jpeg">
                             <div>
-                                <p>${prod.name}</p>
-                                <small>Price $${prod.price}0</small>
+                                <p>${cho.id.name}</p>
+                                <small>Price $${cho.id.price}0</small>
                                 <br>
-                                <a href="#" disabled="disabled" style="text-decoration: none" data-custom-value="${prod.id}" class="removeProd">Remove</a>
+                                <a href="#" disabled="disabled" style="text-decoration: none" data-custom-value="${cho.id.id}" class="removeProd">Remove</a>
                             </div>
                         </div>
                     </td>
-                    <td><input type="number" value="1" min="1" max="${prod.quantity}" oninput="validity.valid||(value='');"></td>
-                    <td class="prod_price">$${prod.price}0</td>
+                    <td><input type="number" value="${cho.quantity}" min="1" max="${cho.id.quantity}" class="currentQuantity" oninput="validity.valid||(value='');"></td>
+                    <td class="prod_price" class="price" id="${cho.id.price}"></td>
                 </tr>
                 </c:forEach>
             </tbody>

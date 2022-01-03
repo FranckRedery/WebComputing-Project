@@ -212,10 +212,10 @@
             </div>
             <div class="overlay">
                 <c:if test="${username != null}">
-                <a href="javascript:void(0)" style="--i:1;" class="fas fa-shopping-cart addProd" data-custom-value="${prod.id}"></a>
+                <a href="#" style="--i:1;" class="fas fa-shopping-cart addProd" data-custom-value="${prod.id}"></a>
                 </c:if>
                 <c:if test="${username == null}">
-                <a href="login.html" style="--i:1;" class="fas fa-shopping-cart addProd" data-custom-value="${prod.id}"></a>
+                <a href="login.html" style="--i:1;" class="fas fa-shopping-cart" data-custom-value="${prod.id}"></a>
                 </c:if>
                 <a href="#" style="--i:2;" class="fas fa-heart"></a>
                 <a href="#" style="--i:3;" class="fa fa-binoculars viewProd" data-custom-value="${prod.id}"></a>

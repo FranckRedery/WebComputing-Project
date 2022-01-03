@@ -21,20 +21,32 @@ $('.owl-carousel').owlCarousel({
 
 $("button#addProd").click(function(){
 	let id = $(this).val();
+	let quantity = 1;
+	let product = new Product(id);
+	let chooses = new Chooses(product,quantity);
 	document.getElementById("cart_" + id).innerHTML = "Added to cart";
 	setTimeout(function() {
 		document.getElementById("cart_" + id).innerHTML=""; },2000)	
-		$.ajax({
-			type: "POST",
-			url: "/addProductToCart",
-			contentType: "application/json",
-			data: id,
-			success: function(){
-				setTimeout(function() {
+	$.ajax({
+		type: "POST",
+		url: "/addProductToCart",
+		contentType: "application/json",
+		data: JSON.stringify(chooses),
+		success: function(){
+					setTimeout(function() {
    					location.reload();}, 2000);
 			}
 			});
 });
+
+function Product(id) {
+	this.id = id;
+}
+
+function Chooses(id, quantity) {
+	this.id = id;
+	this.quantity = quantity;	
+}
 
 $("button#viewProd").click(function(){
 	let id = $(this).val();

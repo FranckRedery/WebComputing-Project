@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import techPlanet.Database;
+import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.Review;
 
@@ -27,9 +28,9 @@ public class HomePage {
 	public String cartPage(HttpServletRequest req) {
 		if (req.getSession().getAttribute("username") != null) {
 			String username = (String) req.getSession().getAttribute("username");
-			List<Product> product = Database.getInstance().getProductsDao()
+			List<Chooses> chooses = Database.getInstance().getProductsDao()
 					.findByUser(username);
-			req.setAttribute("prodotti", product);
+			req.setAttribute("chooses", chooses);
 			return "cart";
 		}
 		else 

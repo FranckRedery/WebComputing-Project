@@ -3,17 +3,17 @@ package techPlanet.model;
 import java.util.Objects;
 
 public class Chooses {
-	private Long id;
+	private Product id;
 	private User username;
 	private Long quantity;
 	
 	public Chooses() {}
 
-	public Long getId() {
+	public Product getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Product id) {
 		this.id = id;
 	}
 
@@ -49,6 +49,6 @@ public class Chooses {
 		Chooses other = (Chooses) obj;
 		return Objects.equals(id, other.id) && Objects.equals(username, other.username);
 	}
-	
+
 
 }

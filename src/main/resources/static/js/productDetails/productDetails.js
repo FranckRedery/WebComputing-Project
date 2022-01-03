@@ -1,7 +1,8 @@
 $("button#addProd").click(function(){
 	let id = $(this).val();
-	var quantity = document.getElementById("quantity").value;
-	let chooses = new Chooses(id,quantity);
+	let quantity = document.getElementById("quantity").value;
+	let product = new Product(id);
+	let chooses = new Chooses(product,quantity);
 		$.ajax({
 			type: "POST",
 			url: "/addProductToCart",
@@ -13,6 +14,10 @@ $("button#addProd").click(function(){
 			}
 			});
 });
+
+function Product(id) {
+	this.id = id;
+}
 
 function Chooses(id, quantity) {
 	this.id = id;

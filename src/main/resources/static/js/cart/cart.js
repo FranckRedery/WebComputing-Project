@@ -3,19 +3,25 @@ window.addEventListener("load", function(){
 });
 
 function calcTotal() {
-var text = $(".prod_price").text();
-var myArray = text.split("$").map(Number);
-var sum = 0.0;
-for (var i = 0; i < myArray.length; i++){
-	sum += parseFloat(myArray[i], 10.0);
-}
-document.getElementById("tot").innerHTML= "$" + sum.toFixed(2);
-
-var iva = (sum * 22.0)/100.0;
-document.getElementById("iva").innerHTML= "$" + iva.toFixed(2);
-
-var totalWithIva = sum + iva;
-document.getElementById("totWithIva").innerHTML= "$" + totalWithIva.toFixed(2);
+	let prices = document.getElementsByClassName("prod_price");
+	let myArray = [];
+	let price = 0;
+	let sum = 0;
+	let quantity = document.getElementsByClassName("currentQuantity");
+	for (let i = 0; i < prices.length; i++) {
+		myArray[i] = prices[i].id;
+		price += (parseFloat(myArray[i], 10.0)*parseFloat(quantity[i].value, 10.0));
+		sum += (parseFloat(myArray[i], 10.0)*parseFloat(quantity[i].value, 10.0));
+		prices[i].innerHTML = "$" + price.toFixed(2);
+		price = 0;
+	} 
+	document.getElementById("tot").innerHTML= "$" + sum.toFixed(2);
+	
+	var iva = (sum * 22.0)/100.0;
+	document.getElementById("iva").innerHTML= "$" + iva.toFixed(2);
+	
+	var totalWithIva = sum + iva;
+	document.getElementById("totWithIva").innerHTML= "$" + totalWithIva.toFixed(2);
 }
 
 /*function generatePayment(value) {

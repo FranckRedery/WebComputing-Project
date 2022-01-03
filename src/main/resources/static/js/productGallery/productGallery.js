@@ -1,10 +1,13 @@
 $(".addProd").click(function(){
-	var id = $(this).data("custom-value");
+	let id = $(this).data("custom-value");
+	let quantity = 1;
+	let product = new Product(id);
+	let chooses = new Chooses(product, quantity);
 	$.ajax({
 			type: "POST",
 			url: "/addProductToCart",
 			contentType: "application/json",
-			data: JSON.stringify(id),
+			data: JSON.stringify(chooses),
 			success: function(){},
 			});
 });
@@ -21,3 +24,12 @@ $(".viewProd").click(function(){
 			}
 			});
 });
+
+function Product(id) {
+	this.id = id;
+}
+
+function Chooses(id, quantity) {
+	this.id = id;
+	this.quantity = quantity;	
+}

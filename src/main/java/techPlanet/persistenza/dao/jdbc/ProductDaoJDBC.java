@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import techPlanet.Database;
 import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.ReturnRequest;
@@ -82,10 +83,10 @@ public class ProductDaoJDBC implements ProductDao {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
 	@Override
-	public List<Product> findByUser(String user) {
-		List<Product> product = new ArrayList<Product>();
+	public List<Chooses> findByUser(String user) {
+		List<Chooses> chooses = new ArrayList<Chooses>();
 		String query = "select * from chooses INNER JOIN product ON chooses.id = product.id where username = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -94,22 +95,19 @@ public class ProductDaoJDBC implements ProductDao {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				Product prodotto = new Product();
-				prodotto.setId(rs.getLong("id"));;
-				prodotto.setName(rs.getString("name"));
-				prodotto.setQuantity(rs.getInt("quantity"));
-				prodotto.setTags(rs.getString("tags"));
-				prodotto.setDescription(rs.getString("description"));
-				prodotto.setCategory(rs.getString("category"));
-				prodotto.setReviews(rs.getFloat("reviews"));
-				prodotto.setPrice(rs.getFloat("price"));
-				product.add(prodotto);
+				Chooses chosen = new Chooses();
+				Product product = Database.getInstance().getProductsDao().findById(rs.getLong("id"));
+				chosen.setId(product);
+				chosen.setQuantity(rs.getLong("quantity"));
+				User username = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
+				chosen.setUsername(username);
+				chooses.add(chosen);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return product;
+		return chooses;
 	}
 	
 	@Override
@@ -170,13 +168,12 @@ public class ProductDaoJDBC implements ProductDao {
 		try {
 			String query = "insert into chooses "
 					+ "values (?, ?, ?)";
-			PreparedStatement st = conn.prepareStatement(query);
-			st.setLong(1,chooses.getId());
+			PreparedStatement st = conn.prepareStatement(query);			
+			st.setLong(1,chooses.getId().getId());
 			st.setString(2,username);
 			st.setLong(3, chooses.getQuantity());
 			st.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
 		}
