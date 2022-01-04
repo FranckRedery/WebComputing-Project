@@ -138,22 +138,6 @@ public class ProductDaoJDBC implements ProductDao {
 	}
 	
 	@Override
-	public void addProductToCart(Chooses chooses, String username) {
-		try {
-			String query = "insert into chooses "
-					+ "values (?, ?, ?)";
-			PreparedStatement st = conn.prepareStatement(query);			
-			st.setLong(1,chooses.getId().getId());
-			st.setString(2,username);
-			st.setLong(3, chooses.getQuantity());
-			st.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return;
-		}
-	}
-
-	@Override
 	public List<Product> findByLastNineInserted() {
 		List<Product> product = new ArrayList<Product>();
 		String query = "select * from (select * from product order by id desc limit 9)var1 order by id asc";
@@ -250,34 +234,7 @@ public class ProductDaoJDBC implements ProductDao {
 		
 	}
 	
-	public int getNumProdForUser(String username) {
-		String query = "Select count(id) as count from chooses where username = ?";
-		int num = 0;
-		try {
-			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, username);
-			ResultSet rs = st.executeQuery();
-			rs.next();
-			num = rs.getInt("count");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return num;
-	}
 
-	@Override
-	public void removeProductFromCart(Long id, String username) {
-		try {
-			String query = "delete from chooses where id = ? and username = ?";
-			PreparedStatement st = conn.prepareStatement(query);
-			st.setLong(1, id);
-			st.setString(2, username);
-			st.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}	
-	}
 
 
 }

@@ -200,7 +200,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">${username}'s ACCOUNT</h3>
 
   <div class="containerCardsAcc">
-	<a style="text-decoration: none;" href="#">
+	<a style="text-decoration: none;" href="myOrder.html">
 	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">

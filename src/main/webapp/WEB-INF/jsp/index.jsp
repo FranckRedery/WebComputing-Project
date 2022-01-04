@@ -362,13 +362,13 @@
 							href="productDetails.html"
 							class="d-block text-dark text-decoration-none py-2 product-name">
 							${prod.name}</a> <span class="product-price">$${prod.price}</span>
-						<div class="rating d-flex mt-1">
+						<div class="rating d-flex mt-1 reviews" id="${prod.reviews}">
 							<span> <i class="fas fa-star"></i>
 							</span> <span> <i class="fas fa-star"></i>
 							</span> <span> <i class="fas fa-star"></i>
 							</span> <span> <i class="fas fa-star"></i>
 							</span> <span> <i class="fas fa-star"></i>
-							</span> <span>(25 reviews)</span>
+							</span>  <span>(25 reviews)</span>
 						</div>
 					</div>
 				</div>

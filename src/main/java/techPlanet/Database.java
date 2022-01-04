@@ -11,6 +11,7 @@ import techPlanet.persistenza.UpdateProfile;
 import techPlanet.persistenza.dao.ChoosesDao;
 import techPlanet.persistenza.dao.CurriculumDao;
 import techPlanet.persistenza.dao.JobDao;
+import techPlanet.persistenza.dao.MyOrderDao;
 import techPlanet.persistenza.dao.ObligatoryRequirementsDao;
 import techPlanet.persistenza.dao.ProductDao;
 import techPlanet.persistenza.dao.ReportDao;
@@ -21,6 +22,7 @@ import techPlanet.persistenza.dao.UserDao;
 import techPlanet.persistenza.dao.jdbc.ChoosesDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.MyOrderDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ObligatoryRequirementsDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ProductDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReportDaoJDBC;
@@ -110,6 +112,10 @@ public class Database {
 	
 	public ChoosesDao getChoosesDao() {
 		return new ChoosesDaoJDBC(conn);
+	}
+	
+	public MyOrderDao getMyOrderDao() {
+		return new MyOrderDaoJDBC(conn);
 	}
 	
 }

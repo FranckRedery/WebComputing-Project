@@ -23,7 +23,7 @@ public class ProductREST {
 	@PostMapping("/addProductToCart") 
 	public void addProdToCart(@RequestBody Chooses chooses, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
-		Database.getInstance().getProductsDao().addProductToCart(chooses, username);
+		Database.getInstance().getChoosesDao().addProductToCart(chooses, username);
 	}
 	
 	@PostMapping("/viewDetailsProdPage") 
@@ -41,7 +41,7 @@ public class ProductREST {
 		String username = (String) req.getSession().getAttribute("username");
 		int numProdUser = 0;
 		if (username != null) {
-			numProdUser = Database.getInstance().getProductsDao().getNumProdForUser(username);
+			numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
 			if (numProdUser > 0)
 				req.setAttribute("numProd", numProdUser);
 		}
@@ -52,7 +52,7 @@ public class ProductREST {
 	@PostMapping("/removeProductFromCart")
 	public void removeProdFromCart(@RequestBody Long id, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
-		Database.getInstance().getProductsDao().removeProductFromCart(id, username);
+		Database.getInstance().getChoosesDao().removeProductFromCart(id, username);
 	}
 	
 	@PostMapping("/updateQuantity")

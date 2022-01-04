@@ -10,4 +10,5 @@ public class Cart {
 	public String checkoutPage() {
 		return "checkout";
 	}
+
 }

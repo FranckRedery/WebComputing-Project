@@ -75,7 +75,7 @@ public class HomePage {
 	public String ProductDetailsPage(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		if (username != null) {
-			int numProdUser = Database.getInstance().getProductsDao().getNumProdForUser(username);
+			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
 			if (numProdUser > 0)
 				req.setAttribute("numProd", numProdUser);
 		}
@@ -100,7 +100,7 @@ public class HomePage {
 	public void setNumberCart(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		if (username != null) {
-			int numProdUser = Database.getInstance().getProductsDao().getNumProdForUser(username);
+			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
 			if (numProdUser > 0)
 				req.setAttribute("numProd", numProdUser);
 		}

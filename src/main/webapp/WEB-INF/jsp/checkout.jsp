@@ -134,7 +134,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">proceed to order</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="toEmptyCart()">proceed to order</button>
       </form>
     </div>
   </div>
@@ -152,7 +152,11 @@
      
  </main>
  
-<!-- Bootstrap 5 JavaScript Bundle with Popper -->
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="js/checkout/checkout.js"></script>
   </body>
 </html>
