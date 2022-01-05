@@ -38,6 +38,7 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 				order.setDate_of_purchase(rs.getString("date_of_purchase"));
 				User username = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
 				order.setUsername(username);
+				order.setQuantity(rs.getLong("quantity"));
 				orders.add(order);
 			}
 		} catch (SQLException e) {

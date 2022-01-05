@@ -6,6 +6,7 @@ public class MyOrder {
 	private Product id;
 	private User username;
 	private String date_of_purchase;
+	private Long quantity;
 	
 	public Product getId() {
 		return id;
@@ -25,11 +26,16 @@ public class MyOrder {
 	public void setDate_of_purchase(String date_of_purchase) {
 		this.date_of_purchase = date_of_purchase;
 	}
+	public Long getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, username);
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

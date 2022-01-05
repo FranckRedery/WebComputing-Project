@@ -131,12 +131,13 @@ public class ChoosesDaoJDBC implements ChoosesDao {
 	@Override
 	public void addProductToMyOrder(List<Chooses> products) {
 		for (int i = 0; i < products.size(); i++) {
-			String query = "insert into my_order " + "values (?, ?, ?)";
+			String query = "insert into my_order " + "values (?, ?, ?, ?)";
 			try {
 				PreparedStatement st = conn.prepareStatement(query);			
 				st.setLong(1,products.get(i).getId().getId());
 				st.setString(2,products.get(i).getUsername().getUsername()); 
 				st.setString(3, new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+				st.setLong(4, products.get(i).getQuantity());
 				st.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();

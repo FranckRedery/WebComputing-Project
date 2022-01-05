@@ -6,9 +6,10 @@ public class Review {
 	private Product id;
 	private User username; 
 	private String description;
+	private String title;
 	
 	public Review() {}
-	
+
 	public Product getId() {
 		return id;
 	}
@@ -33,10 +34,19 @@ public class Review {
 		this.description = description;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, username);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -48,6 +58,5 @@ public class Review {
 		Review other = (Review) obj;
 		return Objects.equals(id, other.id) && Objects.equals(username, other.username);
 	}
-	
 	
 }

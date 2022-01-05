@@ -38,6 +38,7 @@ public class ReviewDaoJDBC implements ReviewDao{
 				review.setId(product);
 				User user = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
 				review.setUsername(user);
+				review.setTitle(rs.getString("title"));
 				reviews.add(review);
 			}
 		} catch (SQLException e) {

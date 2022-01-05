@@ -786,6 +786,10 @@ input:focus{
   transition: all ease 0.3s;
 }
 
+.title{
+	margin-bottom : 20px;
+}
+
 @media(max-width:1060px) {
   .testimonial-box{
     width: 45%;

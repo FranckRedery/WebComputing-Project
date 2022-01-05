@@ -1,12 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link type="text/css" rel="stylesheet"
+	href="css/review_purchase/review_purchase.css" />
+<link rel="icon" href="images/index/logo.png" type="image/x-icon" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -14,14 +18,21 @@
 	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS only -->
-<link type="text/css" rel="stylesheet"
-	href="css/productGallery/productGallery.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Electronic</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+	integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+	integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
+	rel="stylesheet" type="text/css" />
 <script src="js/Signup/signUp.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/platform.js?onload=onLoad" async
@@ -29,10 +40,14 @@
 <meta name="google-signin-client_id"
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
+<title>Tech Planet</title>
+</head>
+
+<body onload="check()">
+
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -183,7 +198,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
-					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -196,53 +212,45 @@
 			</div>
 		</div>
 	</nav>
-
-
-	<div class="box-container">
-		<c:forEach items="${products}" var="prod">
-			<div class="box">
-				<div class="image">
-					<img src="images/index/product01.png" alt="">
-				</div>
-				<div class="info">
-					<h3 class="title">${prod.name}</h3>
-					<div class="subInfo">
-						<div class="price">
-							<strong>${prod.price}0$</strong>
-						</div>
-						<div class="stars">
-							<c:forEach var="star" begin="1" end="${prod.reviews}">
-								<span> <i class="fas fa-star"></i></span>
-							</c:forEach>
-							<c:forEach var="star" begin="${prod.reviews}" end="4">
-								<span> <i class="far fa-star"></i></span>
-							</c:forEach>
-						</div>
-					</div>
-				</div>
-				<div class="overlay">
-					<c:if test="${username != null}">
-						<a href="#" style="-i: 1;" class="fas fa-shopping-cart addProd"
-							data-custom-value="${prod.id}"></a>
-					</c:if>
-					<c:if test="${username == null}">
-						<a href="login.html" style="-i: 1;" class="fas fa-shopping-cart"
-							data-custom-value="${prod.id}"></a>
-					</c:if>
-					<a href="#" style="-i: 2;" class="fas fa-heart"></a> <a href="#"
-						style="-i: 3;" class="fa fa-binoculars viewProd"
-						data-custom-value="${prod.id}"></a>
-				</div>
+	<div class="container py-5 mx-auto" style="width: 900px;">
+	<form>
+		<div class="mb-3 mt-3">
+			<h3>Create a review</h3>
+		</div>
+		<hr>
+		<div class="mb-3 rating-star">
+			<h5>Overall rating</h5>
+			<div class="star-icon">
+			<input type="radio" name="rating1" id="rating1">
+			<label for="rating1" class="fas fa-star"></label>
+			<input type="radio" name="rating1" id="rating2">
+			<label for="rating2" class="fas fa-star"></label>
+			<input type="radio" name="rating1" id="rating3">
+			<label for="rating3" class="fas fa-star"></label>
+			<input type="radio" name="rating1" id="rating4">
+			<label for="rating4" class="fas fa-star"></label>
+			<input type="radio" name="rating1" id="rating5">
+			<label for="rating5" class="fas fa-star"></label>
 			</div>
-		</c:forEach>
+		</div>
+		<hr>
+		<div class="mb-3 mt-3">
+			<h5>Add a title</h5>
+		</div>
+		<div class="mb-3 mt-3" id="title">
+			<input type="text" class="form-control title" placeholder="what are the most important things to know?" onkeyup="stoppedTyping()">
+		</div>
+		<hr>
+		<div class="mb-3 mt-3">
+			<h5>Add a written review</h5>
+		</div>
+		<div class="mb-3 mt-3">
+			<textarea class="form-control" rows="5" id="comment" name="text" placeholder="what did you like or what did you not like?"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary" id="start_button" disabled>Submit</button>
+	</form>
 	</div>
-	<ul class="pagination justify-content-center">
-		<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-		<li class="page-item"><a class="page-link" href="#">1</a></li>
-		<li class="page-item"><a class="page-link" href="#">2</a></li>
-		<li class="page-item"><a class="page-link" href="#">3</a></li>
-		<li class="page-item"><a class="page-link" href="#">Next</a></li>
-	</ul>
+	
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -280,9 +288,10 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contattaci">Contact Us</a></li>
+								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with
+										Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
@@ -309,8 +318,16 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
-	<script src="js/productGallery/productGallery.js"></script>
 
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/review_purchase/review_purchase.js"></script>
 </body>
 
 </html>

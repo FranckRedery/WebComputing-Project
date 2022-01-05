@@ -225,6 +225,7 @@
 						<th>Name</th>
 						<th>date</th>
 						<th>action on articles</th>
+						<th>quantity</th>
 						<th>Price</th>
 					</tr>
 				</thead>
@@ -234,8 +235,10 @@
 						<td><img alt="" src="images/carrello/iphone1.jpeg"></td>
 						<td>${ord.id.name}</td>
 						<td>${ord.date_of_purchase}</td>
-						<td><button type="button" class="btn btn-info">Refund item</button></td>
-						<td>${ord.id.price}</td>
+						<td><button type="button" class="btn btn-info">Refund item</button>
+						<a href="review_purchase.html"><button type="button" class="btn btn-info">Add review</button></a></td>
+						<td>${ord.quantity}</td>
+						<td id="${ord.id.id}">${(ord.id.price * ord.quantity)}0</td>
 					</tr>
 					</c:forEach> 
 				</tbody>
