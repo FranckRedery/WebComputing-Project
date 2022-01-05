@@ -243,7 +243,7 @@
 						<c:if test="${ord.returned == false}">
 							<button type="button" class="btn btn-info">Refund item</button>
 						</c:if>
-						<a href="review_purchase.html"><button type="button" class="btn btn-info">Add review</button></a></td>
+						<button type="button" class="btn btn-primary">Add review</button></td>
 						<td>${ord.quantity}</td>
 						<td id="${ord.id.id}">${(ord.id.price * ord.quantity)}0</td>
 					</tr>

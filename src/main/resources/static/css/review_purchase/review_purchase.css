@@ -2036,6 +2036,17 @@ li {
 	margin-bottom: 30px!important;
 	width: 100%;
 }
+
+  td img{
+      width: 60px;
+      height: 80px;
+      margin-right: 10px;
+ }
+ 
+ td {
+ 	padding-top: 10px;
+ }
+ 
 /*=========================================================
 	11 -> FOOTER
 ===========================================================*/

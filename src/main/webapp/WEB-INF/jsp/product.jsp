@@ -260,11 +260,12 @@
                         </div>
                     </div>
                     <div class="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                   			<c:forEach var="star" begin="1" end="${rev.stars}">
+							<span> <i class="fas fa-star"></i></span>
+							</c:forEach>
+							<c:forEach var="star" begin="${rev.stars}" end="4">
+							<span> <i class="far fa-star"></i></span>
+							</c:forEach>
                     </div>                  
                 </div>
                 <div class="title">

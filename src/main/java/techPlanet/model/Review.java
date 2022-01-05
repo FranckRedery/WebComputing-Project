@@ -7,6 +7,7 @@ public class Review {
 	private User username; 
 	private String description;
 	private String title;
+	private Float stars;
 	
 	public Review() {}
 
@@ -42,6 +43,14 @@ public class Review {
 		this.title = title;
 	}
 
+	public Float getStars() {
+		return stars;
+	}
+
+	public void setStars(Float stars) {
+		this.stars = stars;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, username);
@@ -58,5 +67,6 @@ public class Review {
 		Review other = (Review) obj;
 		return Objects.equals(id, other.id) && Objects.equals(username, other.username);
 	}
+
 	
 }

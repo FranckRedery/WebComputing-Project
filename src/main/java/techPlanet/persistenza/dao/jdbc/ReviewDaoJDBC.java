@@ -39,6 +39,7 @@ public class ReviewDaoJDBC implements ReviewDao{
 				User user = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
 				review.setUsername(user);
 				review.setTitle(rs.getString("title"));
+				review.setStars(rs.getFloat("stars"));
 				reviews.add(review);
 			}
 		} catch (SQLException e) {
@@ -47,5 +48,25 @@ public class ReviewDaoJDBC implements ReviewDao{
 		}
 		return reviews;
 	}
+
+	@Override
+	public void addReview(Review review, String username) {
+		try {
+			String query = "insert into reviews "
+					+ "values (?, ?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);			
+			st.setLong(1,review.getId().getId());
+			st.setString(2,username);
+			st.setString(3, review.getDescription());
+			st.setString(4, review.getTitle());
+			st.setFloat(5, review.getStars());
+			st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		}
+	}
+	
+	
 
 }

@@ -213,44 +213,61 @@
 		</div>
 	</nav>
 	<div class="container py-5 mx-auto" style="width: 900px;">
-	<form>
-		<div class="mb-3 mt-3">
-			<h3>Create a review</h3>
-		</div>
-		<hr>
-		<div class="mb-3 rating-star">
-			<h5>Overall rating</h5>
-			<div class="star-icon">
-			<input type="radio" name="rating1" id="rating1">
-			<label for="rating1" class="fas fa-star"></label>
-			<input type="radio" name="rating1" id="rating2">
-			<label for="rating2" class="fas fa-star"></label>
-			<input type="radio" name="rating1" id="rating3">
-			<label for="rating3" class="fas fa-star"></label>
-			<input type="radio" name="rating1" id="rating4">
-			<label for="rating4" class="fas fa-star"></label>
-			<input type="radio" name="rating1" id="rating5">
-			<label for="rating5" class="fas fa-star"></label>
+		<form>
+			<div class="mb-3 mt-3">
+				<h3>Create a review</h3>
+				<table style="width: 100%" id="${product.id}">
+				<thead>
+					<tr id="${product.id}">
+						<th>Item</th>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody>
+				 	<tr>
+						<td><img alt="" src="images/carrello/iphone1.jpeg"></td>
+						<td>${product.name}</td>
+					</tr>
+				</tbody>
+			</table>
 			</div>
-		</div>
-		<hr>
-		<div class="mb-3 mt-3">
-			<h5>Add a title</h5>
-		</div>
-		<div class="mb-3 mt-3" id="title">
-			<input type="text" class="form-control title" placeholder="what are the most important things to know?" onkeyup="stoppedTyping()">
-		</div>
-		<hr>
-		<div class="mb-3 mt-3">
-			<h5>Add a written review</h5>
-		</div>
-		<div class="mb-3 mt-3">
-			<textarea class="form-control" rows="5" id="comment" name="text" placeholder="what did you like or what did you not like?"></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary" id="start_button" disabled>Submit</button>
-	</form>
+			<hr>
+			<div class="mb-3 rating-star">
+				<h5>Overall rating</h5>
+				<div class="star-icon">
+					<input type="radio" name="rating_1" id="rating_1"> <label
+						for="rating_1" class="fas fa-star"></label> <input type="radio"
+						name="rating_1" id="rating_2"> <label for="rating_2"
+						class="fas fa-star"></label> <input type="radio" name="rating_1"
+						id="rating_3"> <label for="rating_3" class="fas fa-star"></label>
+					<input type="radio" name="rating_1" id="rating_4"> <label
+						for="rating_4" class="fas fa-star"></label> <input type="radio"
+						name="rating_1" id="rating_5"> <label for="rating_5"
+						class="fas fa-star"></label>
+				</div>
+			</div>
+			<hr>
+			<div class="mb-3 mt-3">
+				<h5>Add a title</h5>
+			</div>
+			<div class="mb-3 mt-3" id="title">
+				<input type="text" class="form-control title"
+					placeholder="what are the most important things to know?" id="titleText"
+					onkeyup="stoppedTyping()">
+			</div>
+			<hr>
+			<div class="mb-3 mt-3">
+				<h5>Add a written review</h5>
+			</div>
+			<div class="mb-3 mt-3">
+				<textarea class="form-control" rows="5" id="descriptionText" name="text"
+					placeholder="what did you like or what did you not like?"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary" id="start_button" 
+				disabled onclick="postReview()">Submit</button>
+		</form>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
