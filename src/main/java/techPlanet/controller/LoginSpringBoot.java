@@ -25,23 +25,30 @@ public class LoginSpringBoot {
 	
 	@GetMapping("/faiLogout")
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getLogin().logout(req, resp);
+		HttpSession session = req.getSession();
+		session.invalidate();
+		resp.sendRedirect("/");
 	}
 	
 	@GetMapping("/logoutG")
 	public void logoutG(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getLogin().logoutG(req, resp);
+		HttpSession session = req.getSession();
+		session.invalidate();
 	}
 	
 	
 	@GetMapping("/resetError")
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getLogin().resetError(req, resp);
+		HttpSession session = req.getSession();
+		session.invalidate();
+		resp.sendRedirect("/");
 	}
 	
 	@GetMapping("/activeError")
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getLogin().activeError(req, resp);
+		HttpSession session = req.getSession();
+		session.setAttribute("errore", "si");
+		resp.sendRedirect("/");
 	}
 	
 	@PostMapping("/loginServices")

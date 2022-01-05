@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import techPlanet.Database;
 
@@ -24,14 +25,16 @@ public class SignUp {
 	public SignUp() {}
 	
 	@PostMapping("/SignUpServices")
+	@ResponseBody
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		return Database.getInstance().getSignUp().faiSignUp(req, resp);
+	    return Database.getInstance().getSignUp().faiSignUp(req, resp);
 	}
 	
 	@PostMapping("/activeError")
 	public String activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
-		Database.getInstance().getLogin().activeError(req, resp);
+		HttpSession session = req.getSession();
+		session.setAttribute("errore", "si");
+		resp.sendRedirect("/");
 		return null;
 	}
 }

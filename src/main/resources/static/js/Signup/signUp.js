@@ -144,4 +144,10 @@ function check(){
 	}
 }
 
+function timeOut(logStatus){
+	if(logStatus == null || logStatus == "no"){
+		window.location = "/";
+	}
+}
+
 

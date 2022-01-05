@@ -1,5 +1,6 @@
 package techPlanet.persistenza;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 public class UpdateProfile {
 
@@ -22,6 +24,26 @@ public class UpdateProfile {
 		this.conn = conn;
 	}
 	
+	
+	public String updateImage(HttpServletRequest req, HttpServletResponse resp, MultipartFile image ) throws IOException {
+		HttpSession session = req.getSession(true);
+		String percorso = System.getProperty("user.dir") + "src/main/resources/static/images/account";
+		
+		image.transferTo(new File(percorso + "/" + image.getOriginalFilename()));
+		
+		String sql = "UPDATE users SET image = '" + image.getOriginalFilename() + "'";
+		System.out.println("ciao");
+		try {
+			 PreparedStatement preparedStmt = conn.prepareStatement(sql);
+			 preparedStmt.execute();
+			 session.setAttribute("image", image.getOriginalFilename());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	 
 	public String faiUpdate(HttpServletRequest req, HttpServletResponse resp, String name, String surname, String phonenumber, String addressline1, String addressline2, String postcode, String country, String stateregion ) throws IOException {
 		HttpSession session = req.getSession(true);
 		String sql = "UPDATE users SET name = '" + name + "', " + "surname = '" + surname + "', " + "phonenumber = '" + phonenumber + "', " + "addressline1 = '" + addressline1 + "', " + "addressline2 = '" + addressline2 + "', " + "postcode = '" + postcode + "', " + "country = '" + country + "', " + "stateregion = '" + stateregion + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
@@ -53,4 +75,5 @@ public class UpdateProfile {
 		return null;
 	}
 
+	
 }

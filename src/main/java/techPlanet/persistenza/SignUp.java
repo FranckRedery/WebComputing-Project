@@ -32,7 +32,6 @@ public class SignUp {
 			
 			if(rs.next()) {
 				session.setAttribute("errore", "si");
-				resp.sendRedirect("/signUp.html");
 				return "signUp";
 			}
 			else { 
@@ -40,12 +39,10 @@ public class SignUp {
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
 				session.setAttribute("errore", "no");
-				resp.sendRedirect("/signUpCorrect.html");
 				return "signUpCorrect";
 			   }
 			   else {
 				   session.setAttribute("errore", "si");
-					resp.sendRedirect("/signUp.html");
 					return "signUp";   
 			   }
 			}

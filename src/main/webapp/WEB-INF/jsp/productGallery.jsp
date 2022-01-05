@@ -32,7 +32,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="timeOut(${loggato})">
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -48,17 +48,15 @@
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<%
-					if (session.getAttribute("loggato") == "si") {
-					%>
-					<a href="javascript:signOut()" style="text-decoration: none;">
-						<button class="btnLog">
-							<span>Log out</span>
-						</button>
-					</a>
-					<%
-					} else {
-					%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
 					<a style="text-decoration: none;">
 						<button onclick="resetLogin();" class="btnLog">
 							<span>Login</span>
@@ -69,9 +67,7 @@
 							<span>Sign Up</span>
 						</button>
 					</a>
-					<%
-					}
-					%>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -120,9 +116,9 @@
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <c:if
-										test="${username != null && numProd > 0}">
-										<div class="qty">${numProd}</div>
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
 									</c:if>
 								</a>
 							</div>
@@ -130,38 +126,29 @@
 
 							<!-- User Toogle -->
 							<div>
-								<%
-								if (session.getAttribute("loggato") == "si") {
-								%>
-								<%
-								if (session.getAttribute("loggatoGoogle") == "si") {
-								%>
-								<a href="account.html"
-									style="text-decoration: none; display: flex;"> <img
-									class="profilePic" src='${image}' style="border-radius: 50%;"
-									width="29" height="29" alt="Avatar"> ${username}
-								</a>
-								<%
-								} else {
-								%>
-								<a href="account.html"
-									style="text-decoration: none; display: flex;"> <img
-									class="profilePic" src='images/account/avatar.png'
-									style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%
-								}
-								%>
-								<%
-								} else {
-								%>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none;"> <i
 									class="fa fa-user"></i>
 								</a>
-								<%
-								}
-								%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>

@@ -41,30 +41,6 @@ public class Login {
 	}
 
 
-	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		session.invalidate();
-		resp.sendRedirect("/");
-	}
-	
-	public void logoutG(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		session.invalidate();
-	}
-	
-	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		session.invalidate();
-		resp.sendRedirect("/");
-	}
-	
-	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		session.setAttribute("errore", "si");
-		resp.sendRedirect("/");
-	}
-	
-	
 	public String loginServices(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String sql = "select * from users where email = '" + req.getParameter("email") + "'" + "and password = '" + req.getParameter("password") + "'";
 		HttpSession session = req.getSession(true);

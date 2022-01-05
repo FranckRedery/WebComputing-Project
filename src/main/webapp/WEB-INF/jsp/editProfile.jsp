@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="it">
 
 <head>
@@ -8,6 +9,8 @@
 	<link type="text/css" rel="stylesheet" href="css/account/accountStyle.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,13 +21,12 @@
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 	<meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <title>TechPlanet</title>
 </head>
 
-<body>
+<body onload="timeOut(${loggato})">
 		
 	<!-- HEADER -->
 	<header>
@@ -34,38 +36,22 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<%
-					if (session.getAttribute("loggato") == "si") {
-					%>
-						<%
-						if (session.getAttribute("loggatoGoogle") == "si") {
-						%>
-						<a href="javascript:signOut()" style="text-decoration: none;">
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-						<%
-						} else {
-						%>
-						<a href="/faiLogout" style="text-decoration: none;">
-							<button class="btnLog">
-								<span>Log out</span>
-							</button>
-						</a>
-						<%
-						}
-						%>
-					<%
-					} else {
-					%>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
 					<a style="text-decoration: none;">
 						<button onclick="resetLogin();" class="btnLog">
 							<span>Login</span>
@@ -76,9 +62,7 @@
 							<span>Sign Up</span>
 						</button>
 					</a>
-					<%
-					}
-					%>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -99,7 +83,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -125,44 +108,42 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "si"){%>
-									<%
-									if (session.getAttribute("loggatoGoogle") == "si") {
-									%>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
 									<a href="account.html"
 										style="text-decoration: none; display: flex;"> <img
 										class="profilePic" src='${image}'
 										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
-									</a>
-									<%
-									} else {
-									%>
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html"
 										style="text-decoration: none; display: flex;"> <img
 										class="profilePic" src='images/account/avatar.png'
 										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
 									</a>
-									<%
-									}
-									%>
-								<%} else{%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -233,13 +214,16 @@
      					       </div>
      				     	 </div>
    					      </label>
-   					 <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*" style="display: none;" />
+   					  <form method="post" id="ImageForm" action="/updateImage">
+	   					 <input type="file" name="image" id="image" style="display: none;" />
+	   					 <input type="hidden" name="username" value= "${username}">
+   					  </form>
  			 </div>
  			 <h1>Edit image here</h1>
           </div>
 			</div>
 			<div class="col-md-6 border-right">
-			 <form  method="post" action="update">
+			 <form  id="infoForm" method="post" action="update">
 				<div class="p-5 py-6">
 					<div class="row mt-3">
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Email</label>
@@ -388,7 +372,7 @@
 					   <a href="account.html">
 						<button style="margin-right:3%; margin-left:3%;" class="btn btn-primary profile-button" type="button">back</button>
 					   </a>					
-						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" type="submit">Save Profile</button>
+						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" onclick="submitForms()">Save Profile</button>
 					</div>
 				</div>
 			 </form>

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +49,9 @@ public class Control {
 	
 	@GetMapping("/setMailCode")
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Database.getInstance().getControl().controlEmailCode(req, resp);
+		HttpSession session = req.getSession();
+		session.setAttribute("codSic", "email");
+		resp.sendRedirect("control.html");
 	}
 	
 	

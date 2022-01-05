@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import techPlanet.Database;
 
@@ -25,4 +26,11 @@ public class UpdateProfile {
 			return null;
 	}
 
+	@PostMapping("/updateImage")
+	public String updateImage(HttpServletRequest req, HttpServletResponse resp, MultipartFile image ) throws IOException {	
+		System.out.println("ciao");
+		Database.getInstance().getUpdateProfile().updateImage(req, resp,image);
+			return null;
+	}
+	
 }

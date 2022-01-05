@@ -21,7 +21,6 @@ function checkRefresh(logged){
 }
 
 function SignUp() {
- sendWelcomeEmailS();		
   var username = document.forms["SignUpForm"]["username"].value;
   var email = document.forms["SignUpForm"]["email"].value;
   var password = document.forms["SignUpForm"]["password"].value;
@@ -38,14 +37,14 @@ function SignUp() {
 		success: function(data){
 			if(data == "signUp"){
 			  console.log("Errore")
-			  window.location = "signUp.html";
+			  window.location.reload();
 			}
-			else{
+			if(data == "signUpCorrect"){
 			  sendWelcomeEmail(email);				
-			  window.location = "signUpCorrect.html";
+			  console.log("email")
+			  window.location = "/signUpCorrect.html";
 			}
 		}
-		
 	});
 }
 

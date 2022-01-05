@@ -1,11 +1,15 @@
 package techPlanet.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import techPlanet.Database;
 import techPlanet.model.MyOrder;
@@ -50,5 +54,6 @@ public class Account {
 	public String signUpCorrect() {
 		return "signUpCorrect";
 	}
+	
 	
 }

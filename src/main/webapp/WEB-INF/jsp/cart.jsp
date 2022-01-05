@@ -25,7 +25,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="timeOut(${loggato})">
     
     <!-- HEADER -->
 	<header>
@@ -35,24 +35,22 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<%
-					if (session.getAttribute("loggato") == "si") {
-					%>
-						<a href="javascript:signOut()" style="text-decoration: none;">
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-					<%
-					} else {
-					%>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
 					<a style="text-decoration: none;">
 						<button onclick="resetLogin();" class="btnLog">
 							<span>Login</span>
@@ -63,9 +61,7 @@
 							<span>Sign Up</span>
 						</button>
 					</a>
-					<%
-					}
-					%>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -86,7 +82,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -112,44 +107,42 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "si"){%>
-									<%
-									if (session.getAttribute("loggatoGoogle") == "si") {
-									%>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
 									<a href="account.html"
 										style="text-decoration: none; display: flex;"> <img
 										class="profilePic" src='${image}'
 										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
-									</a>
-									<%
-									} else {
-									%>
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html"
 										style="text-decoration: none; display: flex;"> <img
 										class="profilePic" src='images/account/avatar.png'
 										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
 									</a>
-									<%
-									}
-									%>
-								<%} else{%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>

@@ -27,12 +27,6 @@ public class Control {
 	}
 	
 	
-	public void controlEmailCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		session.setAttribute("codSic", "email");
-		resp.sendRedirect("control.html");
-	}
-	
 	public String loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("id") + "', '" + req.getParameter("username") + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
