@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,21 +159,17 @@
                 <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto">
             </div>
             <div class="product-info">
-            	<span class="info" style="font-size: small;">Product ID : </span>
-                <span class="product-id" id="prodId" style="font-size: small;">5</span>
-                <br>
+            	<span class="info" style="font-size: small; display: none">Product ID : </span>
+                <span class="product-id" id="prodId" style="font-size: small; display: none;">${returnProd.id}</span>
                 <span class="info" style="font-size: small;">Category : </span>
-                <span class="product-type" style="font-size: small;">
-                      categoria prodotto
-                </span>
+                <span class="product-type" style="font-size: small;">${returnProd.category}</span>
                 <br>
                 <span class="info" style="font-size: small;">Name : </span>
-                <span class="product-name" style="font-size: small;">
-                       nome prodotto
-                </span>
+                <span class="product-name" style="font-size: small;">${returnProd.name}</span>
                 <br>
                 <span class="info" style="font-size: small;">Price : </span>
-                <span class="product-price" style="font-size: medium;">$220,5</span>
+                <span class="product-price" style="font-size: medium;">$${returnProd.price}</span>
+                
              </div>
         </div>
 

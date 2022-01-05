@@ -39,6 +39,7 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 				User username = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
 				order.setUsername(username);
 				order.setQuantity(rs.getLong("quantity"));
+				order.setReturned(rs.getBoolean("returned"));
 				orders.add(order);
 			}
 		} catch (SQLException e) {
@@ -46,6 +47,29 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 			e.printStackTrace();
 		}
 		return orders;
+	}
+
+	@Override
+	public void setReturned(boolean b, Long id) {
+		try {
+			String query = "update my_order "
+			+ "set returned = ?"
+			+ "where id = ?";
+
+			
+			PreparedStatement st = conn.prepareStatement(query);
+			
+			st.setBoolean(1, b);
+			st.setLong(2, id);
+			st.executeUpdate();
+			return;
+		} catch (SQLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 	
 }

@@ -156,6 +156,29 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 	}
 	
 	
+	@Override
+	public void addRequest(ReturnRequest returnRequest) {
+		
+		try {
+			String query = "insert into return_request "
+					+ "values (?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, returnRequest.getUser().getUsername());
+			st.setLong(2, returnRequest.getProduct().getId());
+			st.setString(3, returnRequest.getDate());
+			st.setString(4, "pending");
+			st.setFloat(5,0);
+			st.setString(6, returnRequest.getReason());
+			st.setString(7, returnRequest.getDescription());
 
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		
+		}
+	}
 
 }

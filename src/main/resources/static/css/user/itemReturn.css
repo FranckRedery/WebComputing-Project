@@ -18,7 +18,7 @@
 }
 
 .btnLog span {
-  color: white;
+  color: #4F95DA;
   font-size: 18px;
   font-weight: 100;
 }
@@ -113,7 +113,7 @@
 
 .product-info{
     margin-left: 25%;
-	color: white;
+	color: black;
 	font-weight: bold;
 	font-size: 15px!important;
 }
@@ -164,7 +164,6 @@ body {
   font-weight: 400;
   color: #333;
   margin: 0;
-  background: linear-gradient(#8ab7ff,#5193fc);
 }
 
 h1, h2, h3, h4, h5, h6 {

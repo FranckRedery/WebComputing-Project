@@ -12,5 +12,6 @@ public interface ReturnRequestDao {
 	public boolean update(ReturnRequest returnRequest);
 	public boolean delete(ReturnRequest returnRequest);
 	public List<ReturnRequest> findByUser(String user);
+	public void addRequest(ReturnRequest returnRequest);
 	
 }

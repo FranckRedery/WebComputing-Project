@@ -7,7 +7,14 @@ public class MyOrder {
 	private User username;
 	private String date_of_purchase;
 	private Long quantity;
+	private Boolean returned;
 	
+	public Boolean getReturned() {
+		return returned;
+	}
+	public void setReturned(Boolean returned) {
+		this.returned = returned;
+	}
 	public Product getId() {
 		return id;
 	}
@@ -47,6 +54,6 @@ public class MyOrder {
 		MyOrder other = (MyOrder) obj;
 		return Objects.equals(id, other.id) && Objects.equals(username, other.username);
 	}
-	
+
 	
 }

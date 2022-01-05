@@ -173,9 +173,8 @@
                         <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
-                            	<span class="info" style="font-size: small;">Product ID : </span>
-                            	<span class="product-id" id="prodId" style="font-size: small;">${item.product.id}</span>
-                                <br>
+                            	<span class="info" style="font-size: small; display: none">Product ID : </span>
+                            	<span class="product-id" id="prodId" style="font-size: small; display: none">${item.product.id}</span>
                                 <span class="info" style="font-size: small;">Category : </span>
                                 <span class="product-type" style="font-size: small;">
                                     ${item.product.category}

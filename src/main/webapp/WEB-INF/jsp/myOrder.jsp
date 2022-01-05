@@ -216,7 +216,8 @@
 		</div>
 	</nav>
 	<div class="container py-5">
-		<div><button type="button" class="btn btn-info">check my returns</button></div>
+		<!--  Porta alla pagine dei resi dell'utente  -->
+		<div><a href="userReturns" style="text-decoration: none;"><button type="button" class="btn btn-info">check my returns </button></a></div>
 		<div class="row">
 			<table id="example" class="table table-striped" style="width: 100%">
 				<thead>
@@ -235,7 +236,13 @@
 						<td><img alt="" src="images/carrello/iphone1.jpeg"></td>
 						<td>${ord.id.name}</td>
 						<td>${ord.date_of_purchase}</td>
-						<td><button type="button" class="btn btn-info">Refund item</button>
+						<td>
+						<c:if test="${ord.returned == true}">
+							<button type="button" class="btn btn-info" disabled>Refund item</button>
+						</c:if>
+						<c:if test="${ord.returned == false}">
+							<button type="button" class="btn btn-info">Refund item</button>
+						</c:if>
 						<a href="review_purchase.html"><button type="button" class="btn btn-info">Add review</button></a></td>
 						<td>${ord.quantity}</td>
 						<td id="${ord.id.id}">${(ord.id.price * ord.quantity)}0</td>

@@ -14,14 +14,13 @@ import techPlanet.model.ReturnRequest;
 
 
 @Controller
-public class User {
+public class UserController {
 
 		
 	@GetMapping("/itemReturn")
 	public String itemReturn() {
 		return "itemReturn";
 	}
-		
 
 	@GetMapping("/userReturns")
 	public String userReturns(HttpServletRequest req) {
