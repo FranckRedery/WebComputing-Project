@@ -42,6 +42,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				r.setDate(rs.getString("date"));
 				r.setMoneyreturned(rs.getFloat("moneyreturned"));
 				r.setStatus(rs.getString("status"));
+				r.setQuantity(rs.getInt("quantity"));
 				
 				returnRequest.add(r);
 
@@ -76,6 +77,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				r.setStatus(rs.getString("status"));
 				r.setReason(rs.getString("reason"));
 				r.setDescription(rs.getString("description"));
+				r.setQuantity(rs.getInt("quantity"));
 				
 				returnRequest.add(r);
 
@@ -142,7 +144,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				r.setStatus(rs.getString("status"));
 				r.setReason(rs.getString("reason"));
 				r.setDescription(rs.getString("description"));
-				
+				r.setQuantity(rs.getInt("quantity"));
 				
 				returnRequest.add(r);
 
@@ -161,7 +163,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 		
 		try {
 			String query = "insert into return_request "
-					+ "values (?, ?, ?, ?, ?, ?, ?)";
+					+ "values (?, ?, ?, ?, ?, ?, ?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, returnRequest.getUser().getUsername());
 			st.setLong(2, returnRequest.getProduct().getId());
@@ -170,7 +172,8 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 			st.setFloat(5,0);
 			st.setString(6, returnRequest.getReason());
 			st.setString(7, returnRequest.getDescription());
-
+			st.setInt(8, returnRequest.getQuantity());
+			
 			st.executeUpdate();
 			
 		} catch (SQLException e) {

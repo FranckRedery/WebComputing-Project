@@ -185,8 +185,11 @@
                                     ${item.product.name}
                                 </span>
                                <br>
-                                 <span class="info" style="font-size: small;">Price : </span>
-                                <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
+                               <span class="info" style="font-size: small;">Quantity : </span>
+                			   <span class="product-quantity" id="qty" style="font-size: medium;">${item.quantity}</span>
+                			   <br>
+                               <span class="info" style="font-size: small;">Price : </span>
+                               <span class="product-price" style="font-size: medium;">$${item.product.price * item.quantity}</span>
                             </div>
                         </div>
                         </td>
@@ -215,25 +218,17 @@
                  			<div class="alert alert-danger"><strong>Refused</strong></div>
 						</c:if>
                     </td>
-                    <td class="refund-cell">
-                    	<c:if test="${item.moneyreturned !=0.0}">
-                    		<c:if test="${item.status == 'accepted'}">
-                    			<p class="money-text-accepted">$${item.moneyreturned}</p>
-                    		</c:if>
-                    		<c:if test="${item.status == 'pending'}">
-                    			<p class="money-text-accepted">Still no refund</p>
-                    		</c:if>
-                    		
+                    <c:if test="${item.moneyreturned !=0.0}">
+                    	<td class="refund-cell-accepted">$${item.moneyreturned}</td>
                     	</c:if>
-                    	<c:if test="${item.moneyreturned == 0.0}">
+                    <c:if test="${item.moneyreturned == 0.0}">
                     		<c:if test="${item.status == 'pending'}">
-                    			<p class="money-text-pending">Still no refund</p>
+                    			<td class="refund-cell-pending">$${item.moneyreturned}</td>
                     		</c:if>
-                    		<c:if test="${item.status != 'pending'}">
-                    			<p class="money-text-refused">No refund</p>
+                    		<c:if test="${item.status == 'declined'}">
+                    			<td class="refund-cell-declined">$${item.moneyreturned}</td>
                     		</c:if>
-                    	</c:if>
-                    </td>
+                    </c:if>
                 </tr>
                 </c:forEach>
             </tbody>

@@ -22,13 +22,15 @@ $('table').on('click', '[class="btn btn-primary"]', function(e){
 $('table').on('click', '[class="btn btn-info"]', function(e){
 	
 	let id = $(this).closest("tr").attr('id');
-
+	let quantity = $(this).closest("tr").find('#quantity').text();
 	
 	$.ajax({
 			type: "POST",
 			url: "/addReturnRequest",
-			contentType: "application/json",
-			data: JSON.stringify(id),
+			data: {
+					id : id, 
+					quantity : quantity,
+				},
 			success: function(){ window.location = "/itemReturn";}	
 			});
 	

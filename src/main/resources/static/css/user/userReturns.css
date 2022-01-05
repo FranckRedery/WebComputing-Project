@@ -23,11 +23,25 @@
   font-weight: 100;
 }
 
-.money-text-accepted{
+.refund-cell-accepted{
 	text-align: center;
-	margin-top: 33%;
-	font-size: 25px;
-	color: rgb(0,255,0);
+    vertical-align:middle;
+    color: rgb(0,255,0);
+    font-size: 20px;
+}
+
+.refund-cell-pending{
+	text-align: center;
+    vertical-align:middle;
+    color: rgb(255, 255, 98);
+     font-size: 20px;
+}
+
+.refund-cell-declined{
+	text-align: center;
+    vertical-align:middle;
+    color: rgb(255, 0, 0);
+	font-size: 20px;
 }
 
 #pageTitle{
@@ -42,7 +56,7 @@
 	color: white;
 }
 
-.product-type, .product-name, #prodId, .product-price{
+.product-type, .product-name, #prodId, .product-price, #qty{
 	color: orange;
 	font-size: 13px;
 }
@@ -57,18 +71,6 @@
 
 .thText{
 	color: black;
-}
-
-.money-text-refused{
-	margin-top: 33%;
-	color: rgb(255, 0, 0);
-	font-size: 20px;
-}
-
-.money-text-pending{
-	margin-top: 33%;
-	color: rgb(255, 255, 98);
-	font-size: 20px;
 }
 
 
@@ -107,7 +109,6 @@
 .cell{
    text-align: center;
    vertical-align: middle;
-
 }
 
 .container{

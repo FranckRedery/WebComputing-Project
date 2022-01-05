@@ -23,13 +23,20 @@ public class UserREST {
 	
 	//addReturnRequest
 	@PostMapping("/addReturnRequest")
-	public void addNewProduct(@RequestBody Long id, HttpServletRequest req) {
+	public void addNewProduct(HttpServletRequest req) {
 		
+		String quantity = req.getParameter("quantity");
+		String idProd = req.getParameter("id");
+		
+		int qty = Integer.parseInt(quantity);
+		int id = Integer.parseInt(idProd);
+
+
 		Product returnProd = Database.getInstance().getProductsDao().findById(id);
 		
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returnProd", returnProd);
-		
+		session.setAttribute("qty", qty);
 	}
 	
 	@PostMapping("/addRequest")

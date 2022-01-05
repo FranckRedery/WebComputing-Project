@@ -167,8 +167,11 @@
                 <span class="info" style="font-size: small;">Name : </span>
                 <span class="product-name" style="font-size: small;">${returnProd.name}</span>
                 <br>
+                <span class="info" style="font-size: small;">Quantity : </span>
+                <span class="product-quantity" id="qty" style="font-size: medium;">${qty}</span>
+                <br>
                 <span class="info" style="font-size: small;">Price : </span>
-                <span class="product-price" style="font-size: medium;">$${returnProd.price}</span>
+                <span class="product-price" style="font-size: medium;">$${(returnProd.price * qty)}</span>
                 
              </div>
         </div>
@@ -195,8 +198,8 @@
         <div class="col-md-4">
                 <!--<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">-->
-                <label for="description" class="description" id="description">Additional description (optional)</label>
-                <textarea class="form-control" rows="5" name="text" id="textArea"></textarea>
+                <label for="description" class="description" id="description" >Additional description (optional)</label>
+                <textarea class="form-control" rows="5" name="text" id="textArea" style="resize: none;"></textarea>
                 <!--<div class="invalid-feedback">
                     Specify the reasons for the refund in the description.
                 </div>-->
