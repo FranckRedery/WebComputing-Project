@@ -24,7 +24,8 @@
     <title>Refund page</title>
 </head>
 
-<body onload="timeOut('${loggato}')">
+
+<body onload="timeOut(${loggato})">
    <!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -65,7 +66,7 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-			<!-- MAIN HEADER -->
+		<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -128,13 +129,10 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
 									</a>
 									</c:if>
@@ -155,33 +153,34 @@
 	<!--/HEADER-->
 
 
-
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6">
-            <label for="refundProduct" class="refundProduct">Selected product</label>
+    <form class="needs-validation" novalidate>
+    	<div class="row" id="riga">
+		<div class="col-md-7">
+            <label class="refundProduct">Selected product</label>
             <div class="product-img">
-                <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto">
+                <img src="${returnProd.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
             </div>
             <div class="product-info">
-            	<span class="info" style="font-size: small; display: none">Product ID : </span>
+            	<span class="info" style="font-size: small; display: none;">Product ID : </span>
                 <span class="product-id" id="prodId" style="font-size: small; display: none;">${returnProd.id}</span>
+                <br>
                 <span class="info" style="font-size: small;">Category : </span>
                 <span class="product-type" style="font-size: small;">${returnProd.category}</span>
                 <br>
                 <span class="info" style="font-size: small;">Name : </span>
-                <span class="product-name" style="font-size: small;">${returnProd.name}</span>
+                <span class="product-name" style="font-size: small;">${returnProd.name}
+                </span>
                 <br>
                 <span class="info" style="font-size: small;">Quantity : </span>
                 <span class="product-quantity" id="qty" style="font-size: medium;">${qty}</span>
                 <br>
-                <span class="info" style="font-size: small;">Price : </span>
-                <span class="product-price" style="font-size: medium;">$${(returnProd.price * qty)}</span>
-                
-             </div>
+                <span class="info" id="product-price" style="font-size: small;">Price : </span>
+                <span class="product-price" id="prodPrice" style="font-size: medium;">$${(returnProd.price * qty)}</span>
+                </div>
         </div>
-
-        <div class="col-md-4">
-            <label for="refundReason" class="refundReason">Refund reason</label>
+        
+        <div class="col-md-5">
+        	<label for="refundReason" class="refundReason">Refund reason</label>
             <select class="form-select" id="validationReason" required>
                 <option selected disabled value="">Choose a reason</option>
                 <option>Inadequate performance or quality</option>
@@ -195,23 +194,14 @@
             <div class="invalid-feedback">
                 Please select a valid reason.
             </div>
+        	<br>
+        	<label for="description" class="description" id="description" >Additional description (optional)</label>
+            <textarea class="form-control" rows="5" name="text" id="textArea" style="resize: none;"></textarea>
+            <br>
+            <button class="btn btn-primary" type="submit" id="btnSubmit">Submit</button>
         </div>
-
-        <div class="col-md-2"></div>
-        <div class="col-md-6"></div>
-        <div class="col-md-4">
-                <!--<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">-->
-                <label for="description" class="description" id="description" >Additional description (optional)</label>
-                <textarea class="form-control" rows="5" name="text" id="textArea" style="resize: none;"></textarea>
-                <!--<div class="invalid-feedback">
-                    Specify the reasons for the refund in the description.
-                </div>-->
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-12">
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
+        
+      </div>
     </form>
 
 

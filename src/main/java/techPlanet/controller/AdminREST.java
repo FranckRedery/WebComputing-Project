@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import techPlanet.Database;
 import techPlanet.model.Curriculum;
@@ -29,15 +30,44 @@ public class AdminREST {
 		Database.getInstance().getReturnRequestDao().update(returnRequest);
 	}
 	
+	
 	@PostMapping("/addNewProduct")
-	public void addNewProduct(@RequestBody Product product) {
+	public void addNewProduct(String productName, String productCategory,String tags, String productDescription, MultipartFile image, float productPrice, int productQuantity, HttpServletResponse res) {
+		
+		Product product = new Product();
+		product.setName(productName);
+		product.setCategory(productCategory);
+		product.setTags(tags);
+		product.setDescription(productDescription);
+		product.setPrice(productPrice);
+		product.setQuantity(productQuantity);
+		product.setImage("images/prodotti/" + image.getOriginalFilename());
+		
+		String path = System.getProperty("user.dir") + "/src/main/resources/static/images/prodotti";
+		
+		try {
+			image.transferTo(new File(path+ "/" + image.getOriginalFilename()));
+		} catch (IllegalStateException e) {
+			System.out.println("Can't transfer the photo");
+		} catch (IOException e) {
+			System.out.println("Can't transfer the photo");
+		}
+		
 		Database.getInstance().getProductsDao().addProduct(product);
+		try {
+			res.sendRedirect("/addProduct");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	
 	
 	@PostMapping("/getProdByName")
 	public Product getProdByName(@RequestBody String name, HttpServletRequest req) {
 		
-		
+
 		Product product = Database.getInstance().getProductsDao().findByName(name);
 		
 		HttpSession session = req.getSession(true);
@@ -51,6 +81,7 @@ public class AdminREST {
 	@PostMapping("/deleteProdById")
 	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {
 		if(Database.getInstance().getProductsDao().deleteProductById(id)) {
+			
 			req.getSession().removeAttribute("product");
 		}
 	}

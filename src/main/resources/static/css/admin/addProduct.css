@@ -18,6 +18,7 @@ input[type=text]:focus {
     background-color: lightblue;
   }
 
+
 @media screen and (min-width: 1200px){
 
 input[type=text] {

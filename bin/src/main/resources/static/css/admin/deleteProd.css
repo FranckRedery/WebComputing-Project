@@ -3,72 +3,73 @@ input[type=text] {
     border-radius: 4px;
   }
 
-  input[type=file] {
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-  input[type=number] {
-    box-sizing: border-box;
-
-    border-radius: 4px;
-    }
-
 input[type=text]:focus {
     background-color: lightblue;
   }
 
-@media screen and (min-width: 1200px){
+.info{
+	font-size: 17px!important;
+	color: white;
+}
 
-input[type=text] {
-    width: 30%;
+
+
+#prodId, .product-type, .product-name, .product-price{
+	font-size: 17px!important;
+	color: orange;
+}
+
+#riga{
+	margin-bottom: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+	background: rgba(0,0,0,.5);
     box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-
-input[type=file] {
-    width: 35%;
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-input[type=number] {
-    width: 10%;
-    box-sizing: border-box;
-    border-radius: 4px;
-    }
-
-#productCategory{
-        width: 30%;
-    }
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 input[type=number]:focus {
     background-color: lightskyblue;
-  }
-
-
-
-#description:focus{
-    background-color: lightblue;
 }
 
-#productCategory:focus{
-    background-color: lightblue;
+.btn.btn-danger{
+	margin-top: 55%;
+	margin-left: 20%;
 }
 
+#btnHome{
+	margin-left: 20%;
+	margin-top: 15%;
+}
 
 .mb-3{
     margin-left: 5%;
     margin-right: 5%;
 }
 
+.product-info{
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 3%;
+}
+  
+#selectedProd{
+	margin-top: 3%;
+	font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.col-md-7{
+	text-align: center;
+}
 
 
 .needs-validation{
-    margin-bottom: 5%;
     margin-top: 5%;
+    margin-bottom: 7%;
     margin-right: 25%;
     margin-left: 25%;
     background: rgba(0,0,0,.5);
@@ -79,9 +80,9 @@ input[type=number]:focus {
     color: white;
 }
 
-.btn.btn-primary{
+#btnSearch{
     margin-bottom: 5%;
-    margin-left: 43%;
+    margin-left: 5%;
     margin-top: 5%;
     border-radius: 4px;
 }
@@ -92,9 +93,8 @@ input[type=number]:focus {
     font-weight: bold;
     padding-top: 2%;
 }
-   
 
-   
+
    
    body {
      font-family: 'Montserrat', sans-serif;
@@ -104,6 +104,7 @@ input[type=number]:focus {
      background: linear-gradient(#8ab7ff,#5193fc);
      
    }
+
    
    ul, ol {
      margin: 0;
@@ -111,9 +112,14 @@ input[type=number]:focus {
      list-style: none
    }
    
+
    /*=========================================================
        02 -> HEADER
    ===========================================================*/
+   
+   /*----------------------------*\
+       Top header
+   \*----------------------------*/
    
    #top-header {
      background-color: #2c2d30;
@@ -140,6 +146,9 @@ input[type=number]:focus {
      margin-right: 5px;
    }
    
+   /*----------------------------*\
+       Logo
+   \*----------------------------*/
    header{
      display: grid;
    }
@@ -156,6 +165,12 @@ input[type=number]:focus {
    .header-logo .logo img {
      display: block;
    }
+   
+   
+   /*----------------------------*\
+       Cart
+   \*----------------------------*/
+   
    
    .header-ctn {
      display: flex;
@@ -206,7 +221,6 @@ input[type=number]:focus {
    .header-ctn .menu-toggle {
      display: inline;
    }
-   
      
      /*=========================================================
        11 -> FOOTER
@@ -247,6 +261,7 @@ input[type=number]:focus {
    .footer-links li a:hover {
      color: #0b3de1;
    }
+   
 
      /*=========================================================
          13 -> RESPONSIVE
@@ -270,19 +285,46 @@ input[type=number]:focus {
        .header-logo .logo {
          display: inline-block;
        }
+       
+       input[type=text] {
+    		width: 40%!important;
+    		box-sizing: border-box;
+    		border-radius: 4px;
+  		}
      }
      
      @media only screen and (max-width: 767px) {
-        
+   
        #firstElement{
          padding-left: 10%!important;
        }
+       
+       #btnHome{
+       	margin-bottom: 5%;
+       	margin-top: 5%;
+       }
+       
+       .btn.btn-danger{
+       	margin-top: 10%;
+       }
+       
+       input[type=text] {
+    		width: 70%!important;
+    		box-sizing: border-box;
+    		border-radius: 4px;
+  		}
      }
      
      @media only screen and (max-width: 480px) {
        [class*='col-xs'] {
          width: 100%;
        }
+       
+       input[type=text] {
+    		width: 70%!important;
+    		box-sizing: border-box;
+    		border-radius: 4px;
+  		}
      }
    
      #logo {
@@ -293,4 +335,19 @@ input[type=number]:focus {
        #logo {
            padding-left: 0%;
        }
+       
+       input[type=text] {
+    		width: 30%;
+    		box-sizing: border-box;
+    		border-radius: 4px;
+  		}
    }
+   
+   @media screen and (min-width: 1200px){
+
+		input[type=text] {
+    		width: 30%;
+    		box-sizing: border-box;
+    		border-radius: 4px;
+  		}
+	}

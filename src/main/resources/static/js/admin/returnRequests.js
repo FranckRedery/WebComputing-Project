@@ -30,6 +30,8 @@ $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 	
      });
 
+
+
 $('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
        
 

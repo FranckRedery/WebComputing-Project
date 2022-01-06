@@ -125,7 +125,7 @@
 		<div class="col-md-7">
             <label class="selectedProduct" id="selectedProd">Selected product</label>
             <div class="product-img">
-                <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto" width="400" height= auto>
+                <img src="${product.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
             </div>
             <div class="product-info">
             	<span class="info" style="font-size: small;">Product ID : </span>

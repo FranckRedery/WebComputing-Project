@@ -1,4 +1,12 @@
-function checkRefresh(){
+function checkRefresh(logged){
+	
+  if (logged == "si"){
+	 $.ajax({  
+         type : 'GET',  
+         url : "/logoutG",  
+    });
+  }	
+	
   if (performance.navigation.type == 1) {
 	if (location.hash !== (location.hash = "#loaded")) {
  	  window.location.reload();
@@ -15,7 +23,7 @@ function errorBox(){
          type : 'GET',  
          url : "/resetError",  
     });
-     window.location = document.getElementById('logi').href;
+     window.location = "login.html"
 }
 
 function resetSignUp(){	
@@ -23,6 +31,9 @@ function resetSignUp(){
          type : 'GET',  
          url : "/resetError",  
     });
+    
+    signOutStand();
+    
      window.location = document.getElementById('sign').href;
 }
 
@@ -31,6 +42,9 @@ function resetLogin(){
          type : 'GET',  
          url : "/resetError",  
     });
+    
+    signOutStand();
+    
      window.location = document.getElementById('log').href;
 }
 
@@ -62,3 +76,78 @@ function validateFormSignUp() {
     });
   }
 }
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var username = profile.getName();
+  var email = profile.getEmail();
+  var image = profile.getImageUrl();
+  var id = profile.getId();
+  console.log('ID: ' + profile.getId()); 
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); 
+  
+  $.ajax({
+		type: 'POST',
+		url: "/loginGoogle",
+		dataType: "json",
+		data: {
+			id:id,
+			username: username,
+			email: email,
+			image: image,
+		}	
+	});
+	
+	window.location = "/";
+	
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+    window.location = "/";
+}
+
+
+function signOutStand() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+}
+
+ function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+ }
+
+function check(){
+	if(document.referrer == "http://localhost:8080/login.html" || document.referrer == "http://localhost:8080/signUp.html"){
+		window.location.reload();
+	}
+}
+
+function timeOut(logStatus){
+	if(logStatus == null || logStatus == "no"){
+		window.location = "/";
+	}
+}
+
+

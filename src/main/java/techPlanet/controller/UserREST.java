@@ -19,6 +19,7 @@ import techPlanet.model.User;
 @RestController
 public class UserREST {
 
+	
 	private String pattern = "dd-MM-yyyy";
 	
 	//addReturnRequest
@@ -30,8 +31,7 @@ public class UserREST {
 		
 		int qty = Integer.parseInt(quantity);
 		int id = Integer.parseInt(idProd);
-
-
+		
 		Product returnProd = Database.getInstance().getProductsDao().findById(id);
 		
 		HttpSession session = req.getSession(true);
@@ -48,7 +48,9 @@ public class UserREST {
 		User user = new User();
 		user.setUsername(username);
 		request.setUser(user);
-
+		
+		Product prod = Database.getInstance().getProductsDao().findById(request.getProduct().getId());
+		request.setProduct(prod);
 		
 		String dateInString =new SimpleDateFormat(pattern).format(new Date());
 		request.setDate(dateInString);

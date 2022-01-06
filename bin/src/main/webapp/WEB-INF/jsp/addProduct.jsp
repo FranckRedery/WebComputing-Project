@@ -54,48 +54,53 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-9">
 						<div class="header-ctn">
-							<div style="padding-right: 8%; padding-left:24%; margin-top: 3%" id="firstElement">
-								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-user-plus" id="positions"></i></a>
-								</a>
-							</div>
+
 							<!-- Wishlist -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
+							<div style="padding-right: 3%; margin-top: 3%"  id="firstElement">
+								<a href="addProduct" style="text-decoration: none;">
 									<i class="fas fa-cart-plus" id="add"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="deleteProd" style="text-decoration: none;">
 									<i class="fas fa-trash" id="trash"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
+							
 							<!-- Cart -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-users"></i>
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="modifyProd" style="text-decoration: none;">
+									<i class="fas fa-edit"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="returnRequests" style="text-decoration: none;">
+									<i class="fas fa-truck-loading" id="truck2"></i></a>
+							</div>
 							<!-- /Cart -->
 
-							<!-- User Toogle -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="returnRequests" style="text-decoration: none;">
-									<i class="fas fa-truck-loading"></i>
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+									<i class="fas fa-user-plus" id="positions"></i></a>
+								</a>
+							</div>
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaCurriculum" style="text-decoration: none;">
+									<i class="fas fa-book-open" id="curriculum"></i></a>
+								</a>
+							</div>							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaReports" style="text-decoration: none;">
+									<i class="fas fa-bug" id="report"></i>
+									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
-							<div style="margin-top: 3%">
-								<a href="account.html" style="text-decoration: none;">
-									<i class="fas fa-sign-out-alt"></i>
-								</a>
-							</div>
-							<!-- /User Toogle -->
 						</div>
 					</div>
 				</div>
@@ -121,7 +126,7 @@
 				<option>Smartphone</option>
 				<option>Camera</option>
 				<option>Printers</option>
-				<option>Notebook</option>
+				<option>Laptop</option>
 			</select>
 			<div class="invalid-feedback">Please enter a valid category.</div>
 		</div>
@@ -136,9 +141,9 @@
 			<div class="invalid-feedback">Please enter a valid description.</div>
 		</div>
 		<div class="mb-3">
-			<label class="form-label" for="imgFile">Images</label>
-				<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required multiple>
-				<div class="invalid-feedback">Please insert valid images.</div>
+			<label class="form-label" for="imgFile">Image</label>
+				<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required>
+				<div class="invalid-feedback">Please insert a valid image.</div>
 		</div>
 
 		<div class="mb-3">

@@ -21,8 +21,48 @@
             event.preventDefault()
             event.stopPropagation()
           }
-  
+  		  else{
+			createRequest();
+		  }
           form.classList.add('was-validated')
         }, false)
       })
   })()
+
+
+function createRequest(){
+	
+
+	let id = document.getElementById('prodId').innerHTML;
+
+	let product = new Product(id);
+	let quantity = document.getElementById('qty').innerHTML;
+	let reason = document.getElementById('validationReason').value;
+	let description = document.getElementById('textArea').value;
+	
+	let returnRequest = new ReturnRequest(product,reason,description,quantity);
+	
+	$.ajax({
+			type: "POST",
+			url: "/addRequest",
+			contentType: "application/json",
+			data: JSON.stringify(returnRequest),
+			success: function(){ window.location = "/userReturns";}	
+			});
+	
+}
+
+
+function Product(id){
+	this.id = id;
+}
+
+
+function ReturnRequest(product,reason,description,quantity){
+	this.product = product;
+	this.reason = reason;
+	this.description = description;
+	this.quantity = quantity;
+}
+
+

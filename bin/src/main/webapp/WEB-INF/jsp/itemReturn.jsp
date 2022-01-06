@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +16,15 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/Signup/signUp.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Refund page</title>
 </head>
 
-<body>
+<body onload="timeOut('${loggato}')">
    <!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -25,36 +33,39 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
+				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-						<%if (session.getAttribute("loggato") == "si") {%>
-								<a href="/faiLogout" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Log out</span>
-									</button>
-								</a>
-								<%} else {%>
-								<a href="login.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Login</span>
-									</button>
-								</a>
-								<a href="signUp.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Sign Up</span>
-									</button>
-								</a>
-								<%}%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+				</c:if>
 				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -69,7 +80,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -95,27 +105,45 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%} else if(session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -127,19 +155,29 @@
 	<!--/HEADER-->
 
 
+
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
             <label for="refundProduct" class="refundProduct">Selected product</label>
             <div class="product-img">
                 <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto">
             </div>
-            <div class="product-info p-3">
-                <span class="product-type">
-                    Electronics & accessories
-                </span>
-                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">pc windows</a>
-                <span class="product-price">$100.50</span>
-            </div>
+            <div class="product-info">
+            	<span class="info" style="font-size: small; display: none">Product ID : </span>
+                <span class="product-id" id="prodId" style="font-size: small; display: none;">${returnProd.id}</span>
+                <span class="info" style="font-size: small;">Category : </span>
+                <span class="product-type" style="font-size: small;">${returnProd.category}</span>
+                <br>
+                <span class="info" style="font-size: small;">Name : </span>
+                <span class="product-name" style="font-size: small;">${returnProd.name}</span>
+                <br>
+                <span class="info" style="font-size: small;">Quantity : </span>
+                <span class="product-quantity" id="qty" style="font-size: medium;">${qty}</span>
+                <br>
+                <span class="info" style="font-size: small;">Price : </span>
+                <span class="product-price" style="font-size: medium;">$${(returnProd.price * qty)}</span>
+                
+             </div>
         </div>
 
         <div class="col-md-4">
@@ -164,8 +202,8 @@
         <div class="col-md-4">
                 <!--<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">-->
-                <label for="description" class="description" id="description">Additional description (optional)</label>
-                <textarea class="form-control" rows="5" name="text" id="textArea"></textarea>
+                <label for="description" class="description" id="description" >Additional description (optional)</label>
+                <textarea class="form-control" rows="5" name="text" id="textArea" style="resize: none;"></textarea>
                 <!--<div class="invalid-feedback">
                     Specify the reasons for the refund in the description.
                 </div>-->

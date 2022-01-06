@@ -17,6 +17,8 @@
   stroke-dashoffset: -480;
 }
 
+
+
 .btnLog span {
   color: white;
   font-size: 18px;
@@ -116,7 +118,7 @@
 }
 
 .img-fluid{
-  width: 120px;
+  width: 200px;
   height: auto;
 }
 

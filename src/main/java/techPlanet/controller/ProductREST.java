@@ -36,6 +36,7 @@ public class ProductREST {
 		return product;
 	}
 	
+	
 	@PostMapping("/viewCounterProdCart")
 	public void viewProdCart(HttpServletRequest req, HttpServletResponse res) {
 		String username = (String) req.getSession().getAttribute("username");

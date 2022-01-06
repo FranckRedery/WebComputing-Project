@@ -21,6 +21,7 @@ input[type=text]:focus {
 	color: orange;
 }
 
+
 input[type=number]:focus {
     background-color: lightskyblue;
 }

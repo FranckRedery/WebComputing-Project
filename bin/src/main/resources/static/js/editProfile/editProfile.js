@@ -9,6 +9,7 @@ $(document).on("change", ".uploadProfileInput", function () {
     return;
   }
   if (/^image/.test(files[0].type)) {
+	
     // only image file
     var reader = new FileReader(); // instance of the FileReader
     reader.readAsDataURL(files[0]); // read the local file
@@ -29,7 +30,7 @@ $(document).on("change", ".uploadProfileInput", function () {
           $(wrapper).append(
             '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Profile image updated successfully</div>'
           );
-
+          
           // Clear input after upload
           $(triggerInput).val("");
 
@@ -59,6 +60,3 @@ $(document).on("change", ".uploadProfileInput", function () {
     }, 3000);
   }
 });
-
-
-

@@ -1,3 +1,17 @@
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: ""
+	})
+}
+
+
 
 function sendEmail() {
 	var code = Math.floor(Math.random() * 999999) + 100000;
@@ -27,16 +41,15 @@ function sendEmail() {
 function controlCode(c,type) {
 	
 	var input = document.getElementById('typeCode').value;
-	if(input == c && type == "email"){
-		window.location = "insertNewEmail.html";
-	}
-	if(input == c && type == "pass"){
-		window.location = "insertNewPass.html";
+	if(input == c){
+		if(type == "email")
+			window.location = "insertNewEmail.html";
+		if(type == "pass")
+			window.location = "insertNewPass.html";
 	}
 	else{
 		window.location = "InsertCodeSecurity.html";
 	}
-		window.location = "insertNewPass.html";
 }
 
 function controlPass(type) {
@@ -52,10 +65,11 @@ function controlPass(type) {
 					newPass: newPass
 				}
 			 });
-			 window.location = "account.html";
+			 window.location = "changePassCorrect";
 	}
 	else{
 			window.location = "insertNewPass.html";	 
 	}
+	
 }
 

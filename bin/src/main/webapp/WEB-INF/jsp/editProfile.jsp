@@ -1,4 +1,4 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="it">
 
 <head>
@@ -9,18 +9,29 @@
 	<link type="text/css" rel="stylesheet" href="css/account/accountStyle.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="owl_carousel/owl.carousel.css">
 	<link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
     <script src="js/editProfile/editProfile.js"></script>
+    <script src="js/Signup/signUp.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 </head>
 
 <title>TechPlanet</title>
 </head>
 
-<body>
+<body onload="timeOut('${loggato}'">
 		
 	<!-- HEADER -->
 	<header>
@@ -30,32 +41,33 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
-					<a id="log" href="login.html"></a>
-					<a id="sign" href="signUp.html"></a>
+				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-						<%if (session.getAttribute("loggato") == "si") {%>
-								<a href="/faiLogout" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Log out</span>
-									</button>
-							    </a>
-								<%} else {%>
-								<a style="text-decoration: none;">
-									<button onclick="resetLogin();" class="btnLog">
-										<span>Login</span>
-									</button>
-								</a>
-								<a style="text-decoration: none;">
-									<button onclick="resetSignUp();"class="btnLog">
-										<span>Sign Up</span>
-									</button>
-								</a>
-								<%}%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -76,7 +88,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -102,27 +113,45 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none; display: flex; "> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%} else {%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
-								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -144,7 +173,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -178,44 +207,181 @@
 			<div class="col-md-4 border-right">
 				<div class="profile-pic-wrapper">
  					 <div class="pic-holder">
-					    <img id="profilePic" class="pic" src="https://source.unsplash.com/random/150x150">
-   							<label for="newProfilePhoto" class="upload-file-block">
-      						  <div class="text-center">
-        						<div class="mb-2">
-        						  <i class="fa fa-camera fa-2x"></i>
-       						    </div>
-       						   <div class="text-uppercase">
-      						     Update <br /> Profile Photo
-     					       </div>
-     				     	 </div>
-   					      </label>
-   					 <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*" style="display: none;" />
- 			 </div>
+ 					   <c:if test="${loggatoGoogle == 'si'}">
+ 					   <div class="circle">
+					     <img id="profilePicIMG" class="pic" src="${image}">
+					   </div>
+					    </c:if>
+ 					   <div class="circle">
+ 					   <c:if test="${image != null && image != ''}">
+					      <img id="profilePicIMG" class="pic" src="images/account/${image}">										
+				       </c:if>
+ 					   <c:if test="${image == null || image == ''}">
+					      <img id="profilePicIMG" class="pic" src="images/account/avatar.png">										
+					   </c:if>
+					   </div>
+ 			 		 </div>
+   					  <form method="post" id="ImageForm" enctype="multipart/form-data" action="/updateImage">
+	   					 <input type="file" name="image" id="image">
+	   					 <input type="hidden" name="username" value= "${username}">
+	   					 <div style="margin-top: 20px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+	   					 	<button class="btn btn-primary profile-button" type="submit" >Update Image</button>
+	   					 </div>
+   					  </form>
  			 <h1>Edit image here</h1>
           </div>
 			</div>
 			<div class="col-md-6 border-right">
-			 <form  method="post" action="update">
+			 <form  id="infoForm" method="post" action="update">
 				<div class="p-5 py-6">
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
-						<div class="col-md-10"><label class="labels">Surname</label><input type="text" class="form-control" name="surname" value="${surname}" placeholder="surname"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Email</label>
+						    <p style="font-size: 20px"><strong>${email}</strong>
+						   <a href="security.html">
+						   <c:if test="${loggato == 'no' || loggatoGoogle == null}">
+						  <button style="margin-right:3%; margin-left:3%; padding: 5px" class="btn btn-primary profile-button" type="button">edit</button>
+						    </c:if>
+						   </a>
+						    </p>
+						</div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Username</label><p style="font-size: 20px"><strong>${username}</strong><a href="security.html"></a></p></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Surname</label><input type="text" class="form-control" name="surname" value="${surname}" placeholder="surname"></div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-md-10"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" name="phonenumber" value="${phonenumber}"></div>
-						<div class="col-md-10"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" name="addressline1" value="${addressline1}"></div>
-						<div class="col-md-10"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" name="addressline2" value="${addressline2}"></div>
-						<div class="col-md-10"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" name="postcode" value="${postcode}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Mobile Number</label><input type="tel" class="form-control" placeholder="enter phone number" name="phonenumber" value="${phonenumber}"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="the number entered is not in the required format of 10 numbers" ></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" name="addressline1" value="${addressline1}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" name="addressline2" value="${addressline2}"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter postcode" name="postcode" value="${postcode}" pattern="[0-9]{5}" title="the inserted postcode is not in the required format. ex (10010, 77644, 87050)"></div>
 					</div>
 					<div class="row mt-3">
-						<div class="col-md-10"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" name="country" value="${country}"></div>
-						<div class="col-md-10"><label class="labels">State/Region</label><input type="text" class="form-control" value="${stateregion}" name="stateregion" placeholder="state"></div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Province</label>
+						<select class="form-control"  name="stateregion">
+							<c:if test="${stateregion == '' || stateregion == null}">
+						        <option value="${stateregion}" selected>${stateregion}</option>
+							</c:if>
+							<c:if test="${stateregion != '' || stateregion != null}">
+						        <option value="${stateregion}" selected>${stateregion}</option>
+							</c:if>
+	              		        <option value="Agrigento">Agrigento</option>
+								<option value="Alessandria">Alessandria</option>
+								<option value="Ancona">Ancona</option>
+								<option value="Aosta">Aosta</option>
+								<option value="Arezzo">Arezzo</option>
+								<option value="Ascoli Piceno">Ascoli Piceno</option>
+								<option value="Asti">Asti</option>
+								<option value="Avellino">Avellino</option>
+								<option value="Bari">Bari</option>
+								<option value="Barletta-Andria-Trani">Barletta-Andria-Trani</option>
+								<option value="Belluno">Belluno</option>
+								<option value="Benevento">Benevento</option>
+								<option value="Bergamo">Bergamo</option>
+								<option value="Biella">Biella</option>
+								<option value="Bologna">Bologna</option>
+								<option value="Bolzano">Bolzano</option>
+								<option value="Brescia">Brescia</option>
+								<option value="Brindisi">Brindisi</option>
+								<option value="Cagliari">Cagliari</option>
+								<option value="Caltanissetta">Caltanissetta</option>
+								<option value="Campobasso">Campobasso</option>
+								<option value="Carbonia-iglesias">Carbonia-iglesias</option>
+								<option value="Caserta">Caserta</option>
+								<option value="Catania">Catania</option>
+								<option value="Catanzaro">Catanzaro</option>
+								<option value="Chieti">Chieti</option>
+								<option value="Como">Como</option>
+								<option value="Cosenza">Cosenza</option>
+								<option value="Cremona">Cremona</option>
+								<option value="Crotone">Crotone</option>
+								<option value="Cuneo">Cuneo</option>
+								<option value="Enna">Enna</option>
+								<option value="Fermo">Fermo</option>
+								<option value="Ferrara">Ferrara</option>
+								<option value="Firenze">Firenze</option>
+								<option value="Foggia">Foggia</option>
+								<option value="Forlì-Cesena">Forl&igrave;-Cesena</option>
+								<option value="Frosinone">Frosinone</option>
+								<option value="Genova">Genova</option>
+								<option value="Gorizia">Gorizia</option>
+								<option value="Grosseto">Grosseto</option>
+								<option value="Imperia">Imperia</option>
+								<option value="Isernia">Isernia</option>
+								<option value="La spezia">La spezia</option>
+								<option value="L'aquila">L'aquila</option>
+								<option value="Latina">Latina</option>
+								<option value="Lecce">Lecce</option>
+								<option value="Lecco">Lecco</option>
+								<option value="Livorno">Livorno</option>
+								<option value="Lodi">Lodi</option>
+								<option value="Lucca">Lucca</option>
+								<option value="Macerata">Macerata</option>
+								<option value="Mantova">Mantova</option>
+								<option value="Massa-Carrara">Massa-Carrara</option>
+								<option value="Matera">Matera</option>
+								<option value="Medio Campidano">Medio Campidano</option>
+								<option value="Messina">Messina</option>
+								<option value="Milano">Milano</option>
+								<option value="Modena">Modena</option>
+								<option value="Monza e della Brianza">Monza e della Brianza</option>
+								<option value="Napoli">Napoli</option>
+								<option value="Novara">Novara</option>
+								<option value="Nuoro">Nuoro</option>
+								<option value="Ogliastra">Ogliastra</option>
+								<option value="Olbia-Tempio">Olbia-Tempio</option>
+								<option value="Oristano">Oristano</option>
+								<option value="Padova">Padova</option>
+								<option value="Palermo">Palermo</option>
+								<option value="Parma">Parma</option>
+								<option value="Pavia">Pavia</option>
+								<option value="Perugia">Perugia</option>
+								<option value="Pesaro e Urbino">Pesaro e Urbino</option>
+								<option value="Pescara">Pescara</option>
+								<option value="Piacenza">Piacenza</option>
+								<option value="Pisa">Pisa</option>
+								<option value="Pistoia">Pistoia</option>
+								<option value="Pordenone">Pordenone</option>
+								<option value="Potenza">Potenza</option>
+								<option value="Prato">Prato</option>
+								<option value="Ragusa">Ragusa</option>
+								<option value="Ravenna">Ravenna</option>
+								<option value="Reggio di Calabria">Reggio di Calabria</option>
+								<option value="Reggio nell'Emilia">Reggio nell'Emilia</option>
+								<option value="Rieti">Rieti</option>
+								<option value="Rimini">Rimini</option>
+								<option value="Roma">Roma</option>
+								<option value="Rovigo">Rovigo</option>
+								<option value="Salerno">Salerno</option>
+								<option value="Sassari">Sassari</option>
+								<option value="Savona">Savona</option>
+								<option value="Siena">Siena</option>
+								<option value="Siracusa">Siracusa</option>
+								<option value="Sondrio">Sondrio</option>
+								<option value="Taranto">Taranto</option>
+								<option value="Teramo">Teramo</option>
+								<option value="Terni">Terni</option>
+								<option value="Torino">Torino</option>
+								<option value="Trapani">Trapani</option>
+								<option value="Trento">Trento</option>
+								<option value="Treviso">Treviso</option>
+								<option value="Trieste">Trieste</option>
+								<option value="Udine">Udine</option>
+								<option value="Varese">Varese</option>
+								<option value="Venezia">Venezia</option>
+								<option value="Verbano-Cusio-Ossola">Verbano-Cusio-Ossola</option>
+								<option value="Vercelli">Vercelli</option>
+								<option value="Verona">Verona</option>
+								<option value="Vibo valentia">Vibo valentia</option>
+								<option value="Vicenza">Vicenza</option>
+								<option value="Viterbo">Viterbo</option>
+						</select>
+						</div>
+						<div class="col-md-10"><label style="font-size: 15px" class="labels">Common</label><input type="text" class="form-control" placeholder="country" name="country" value="${country}"></div>
 					</div>
 					<div class="mt-4 text-center" style="display: flex; padding-right: 20%">
 					   <a href="account.html">
 						<button style="margin-right:3%; margin-left:3%;" class="btn btn-primary profile-button" type="button">back</button>
 					   </a>					
-						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" type="submit">Save Profile</button>
+						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" type="submit" >Save Profile</button>
 					</div>
 				</div>
 			 </form>

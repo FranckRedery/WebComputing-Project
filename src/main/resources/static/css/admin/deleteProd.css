@@ -13,7 +13,6 @@ input[type=text]:focus {
 }
 
 
-
 #prodId, .product-type, .product-name, .product-price{
 	font-size: 17px!important;
 	color: orange;
@@ -35,7 +34,7 @@ input[type=number]:focus {
 }
 
 .btn.btn-danger{
-	margin-top: 55%;
+	margin-top: 35%;
 	margin-left: 20%;
 }
 
@@ -66,6 +65,10 @@ input[type=number]:focus {
 	text-align: center;
 }
 
+.img-fluid{
+		margin-top: 2%;
+        margin-bottom: 2%;
+}
 
 .needs-validation{
     margin-top: 5%;

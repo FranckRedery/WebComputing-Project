@@ -121,7 +121,7 @@
                         </div>
                     </td>
                     <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
+                        <div class="d-flex flex-column align-items-center text-center "><img src="${item.product.image}" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
                             	<span class="info" style="font-size: small;">Product ID : </span>

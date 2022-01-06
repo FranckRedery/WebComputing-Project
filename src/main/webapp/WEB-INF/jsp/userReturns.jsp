@@ -24,9 +24,10 @@
     <title>Returns page</title>
 </head>
 
-<body onload="timeOut('${loggato}'">
-		
-	<!-- HEADER -->
+<body onload="timeOut(${loggato})">
+
+   
+   <!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -129,13 +130,10 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='images/account/avatar.png'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										${username}
 									</a>
 									</c:if>
@@ -172,7 +170,8 @@
             	<c:forEach items="${returns}" var="item">
                		<tr>
                     <td class="product-cell">
-                        <div class="d-flex flex-column align-items-center text-center "><img src="images/index/product01.png" 
+                    	<br>
+                        <div class="d-flex flex-column align-items-center text-center "><img src="${item.product.image}" 
                                 class="img-fluid d-block mx-auto">
                             <div class="product-info">
                             	<span class="info" style="font-size: small; display: none">Product ID : </span>
@@ -199,14 +198,14 @@
                     <td class="reason-cell">
                     <c:if test = "${item.description != ''}">
                         		<c:if test= "${item.reason != 'Other, specify in the description'}">
-                 				<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}&#13;&#10;${item.description}</textarea>
+                 				<textarea class="form-control" id="textArea" rows="10" cols="9" readonly>${item.reason}.&#13;&#10;${item.description}</textarea>
                  				</c:if>
 						</c:if>
 						<c:if test = "${item.description == ''}">
-                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.reason}</textarea>
+                        	<textarea class="form-control" id="textArea" rows="10" cols="9" readonly>${item.reason}.</textarea>
                         </c:if>
                         <c:if test = "${item.reason == 'Other, specify in the description'}">
-                        	<textarea class="form-control" id="textArea" rows="9" cols="9" readonly>${item.description}</textarea>
+                        	<textarea class="form-control" id="textArea" rows="10" cols="9" readonly>${item.description}</textarea>
                         </c:if>
                     </td>
                     <td class="cell">

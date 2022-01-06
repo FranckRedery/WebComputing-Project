@@ -42,6 +42,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
+				prodotto.setImage(rs.getString("image"));
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -51,6 +52,7 @@ public class ProductDaoJDBC implements ProductDao {
 		return prodotti;
 	}
 
+	
 	@Override
 	public List<Product> findByCategory(String category) {
 		List<Product> prodotti = new ArrayList<Product>();
@@ -69,6 +71,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
+				prodotto.setImage(rs.getString("image"));
 				prodotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -101,6 +104,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prod.setReviews(rs.getFloat("reviews"));
 				prod.setTags(rs.getString("tags"));
 				prod.setCategory(rs.getString("category"));
+				prod.setImage(rs.getString("image"));
 				return prod;
 			}
 		} catch (SQLException e) {
@@ -116,7 +120,7 @@ public class ProductDaoJDBC implements ProductDao {
 		try {
 			product.setId(IdProduct.getId(conn));
 			String query = "insert into product "
-					+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1,product.getId());
 			st.setString(2, product.getName());
@@ -127,6 +131,7 @@ public class ProductDaoJDBC implements ProductDao {
 			// at the beginning reviews star i think should be 0
 			st.setFloat(7,0);
 			st.setFloat(8, product.getPrice());
+			st.setString(9, product.getImage());
 			st.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -181,6 +186,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prod.setReviews(rs.getFloat("reviews"));
 				prod.setTags(rs.getString("tags"));
 				prod.setCategory(rs.getString("category"));
+				prod.setImage(rs.getString("image"));
 				return prod;
 			}
 		} catch (SQLException e) {

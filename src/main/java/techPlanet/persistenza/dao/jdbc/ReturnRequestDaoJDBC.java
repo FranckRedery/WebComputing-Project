@@ -121,6 +121,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 		return false;
 	}
 
+	
 	@Override
 	public List<ReturnRequest> findByUser(String user) {
 		List<ReturnRequest> returnRequest = new ArrayList<ReturnRequest>();

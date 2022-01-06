@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -14,12 +15,20 @@
 	<link rel="stylesheet" href="owl_carousel/owl.carousel.css">
 	<link rel="stylesheet" href="owl_carousel/owl.theme.default.css">
 	  <script src="js/LoginAdmin/adminLogin.js"></script>
+<script src="js/Signup/signUp.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<meta name="google-signin-client_id"
+	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <title>TechPlanet</title>
 </head>
 
-<body>
+<body onload="timeOut('${loggato}'">
+		
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -28,36 +37,39 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
+				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-						<%if (session.getAttribute("loggato") == "si") {%>
-								<a href="/faiLogout" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Log out</span>
-									</button>
-								</a>
-								<%} else {%>
-								<a href="login.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Login</span>
-									</button>
-								</a>
-								<a href="signUp.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Sign Up</span>
-									</button>
-								</a>
-								<%}%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+				</c:if>
 				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -72,7 +84,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -98,27 +109,45 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%} else if(session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -128,6 +157,7 @@
 		</div>
 	</header>
 	<!--/HEADER-->
+
 
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
 		<div class="container-fluid">
@@ -139,7 +169,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -148,10 +178,10 @@
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
+					<a class="nav-link" href="laptopsGallery.html">Laptops</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
+					<a class="nav-link" href="smartphonesGallery.html">Smartphones</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Tvs</a>
@@ -169,7 +199,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">${username}'s ACCOUNT</h3>
 
   <div class="containerCardsAcc">
-	<a style="text-decoration: none;" href="#">
+	<a style="text-decoration: none;" href="myOrder.html">
 	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
@@ -218,7 +248,38 @@
 	  </a>
 	 </div>
     </div>
-
+    
+    <c:if test="${loggatoGoogle == 'si'}">
+	<div class="containerCardsAcc">
+		<a style="text-decoration: none;" href="javascript:error()">
+		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="images/account/hack01.png" class="img-fluid rounded-start" alt="...">
+			  </div>
+			  <div class="col-md-8">
+				<div class="cardAcc-body">
+				  <h5 class="card-title">Security</h5>
+				  <p  class="card-text">Change your email or password here.</p>
+				</div>
+			  </div>
+			</div>
+		   </a>
+		</div>
+	
+	 <div id="errore" class="modal">
+	  <div id="msg" class="modal-content animate" style="width: 50%">
+	   <div class="container">
+	   <a href="javascript:close()">
+	     <button style="background: transparent; border: 0; font-size:24px"><i  class="fa fa-close"></i></button>
+	   </a>
+	      <img src="images/account/alert.gif"  width="120" height="120" style="margin-left: auto; margin-right: auto; display: block;">
+	     <h3 style="color: white">we are sorry but it is not possible to change your email or password if you have logged in or registered with GOOGLE, if you want to change your google account email or password, you can do it <a href="https://myaccount.google.com/intro/signinoptions/password" target="_blank">here.</a></h3>
+	   </div>
+ 	  </div>
+	 </div>
+	</c:if>
+	 <c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null}">
 	<div class="containerCardsAcc">
 		<a style="text-decoration: none;" href="security.html">
 		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
@@ -235,8 +296,9 @@
 			</div>
 		   </a>
 		</div>
+	</c:if>
 	
-		<a style="text-decoration: none;" href="#">
+		<a style="text-decoration: none;" href="cart.html">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
@@ -252,7 +314,7 @@
 		   </a>
 		  </div>
 	
-		  <a style="text-decoration: none;" href="#">
+		  <a style="text-decoration: none;" href="/contattaci">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
@@ -337,6 +399,14 @@
 	</footer>
 	<!-- /FOOTER -->
 
+<script>
+var modal = document.getElementById('errore');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 </body>
 </html>

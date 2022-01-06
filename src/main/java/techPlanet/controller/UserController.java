@@ -16,6 +16,7 @@ import techPlanet.model.ReturnRequest;
 @Controller
 public class UserController {
 
+	
 		
 	@GetMapping("/itemReturn")
 	public String itemReturn() {
@@ -29,7 +30,6 @@ public class UserController {
 		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByUser(username);
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returns", returns);
-		
 		return "userReturns";
 	}
 

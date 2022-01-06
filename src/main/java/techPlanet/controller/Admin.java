@@ -17,12 +17,12 @@ import techPlanet.model.ReturnRequest;
 
 @Controller
 public class Admin {
-
 	
 	@GetMapping("/adminPage")
 	public String adminPage() {
 		return "adminPage";
 	}
+	
 	
 	@GetMapping("/deleteProd")
 	public String deleteProd(){

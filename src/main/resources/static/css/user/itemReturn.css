@@ -1,3 +1,47 @@
+
+#riga{
+	margin-top: 5%;
+	margin-bottom: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+	background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.refundReason{
+	color: white;
+	margin-bottom: 1%;
+	margin-top: 5%;
+	font-weight: bold;
+	
+}
+
+
+.description{
+	color: white;
+	margin-bottom: 1%;
+	margin-top: 6%;
+	font-weight: bold;
+}
+
+.btn.btn-primary{
+	margin-left: 40%;
+}
+
+.refundProduct{
+	margin-left: 35%;
+	margin-bottom: 5%;
+	margin-top: 3%;
+	font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+
+
 .btnLog {
   width: 100px;
   height: 40px;
@@ -8,6 +52,11 @@
   transition: 1s ease-in-out;
   border-radius: 30px 30px 30px 30px;
 }
+
+#btnSubmit{
+	margin-bottom: 2%;
+}
+
 .btnLog:hover {
   transition: 1s ease-in-out;
   background: #4F95DA;
@@ -23,132 +72,26 @@
   font-weight: 100;
 }
 
-
-@media (min-width:1400px){
-    .form-control, .description, .invalid-feedback{
-        position: relative;
-        top: -260%;
-        font-weight: bold;
-    }
-    .btn.btn-primary{
-        position: relative;
-        top: 0%;
-    }
-}
-
-@media (max-width:1400px){
-    .form-control, .description, .invalid-feedback{
-        position: relative;
-        top: -180%;
-        font-weight: bold;
-    }
-    .btn.btn-primary{
-        position: relative;
-        margin-top: -5%;
-    }
-}
-
-@media (max-width:885px){
-    .form-control, .description, .invalid-feedback{
-        position: relative;
-        top: -150%;
-        font-weight: bold;
-    }
-}
-
-@media (max-width:767px){
-    .form-control, .description, .invalid-feedback{
-        position: relative;
-        top: 0%;
-    }
-    .btn.btn-primary{
-        position: relative;
-        align-items: center;
-        top: 0%;
-        margin-bottom: 0%;
-        margin-left: 43%;
-    }
-
-    .refundProduct{
-        margin-top: 20%;
-        margin-left: 25%;
-        font-weight: bold;
-        font-size: xx-large;
-    }
-    
-    .refundReason{
-        position: relative;
-        top: 0%;
-        font-weight: bold;
-    }
-}
-
-
-@media(min-width:767px){
-    .btn.btn-primary{
-        position: relative;
-        top: -900%;
-        left: 50.5%;
-    }
-    .refundReason{
-        margin-top: 32%;
-        font-size: large;
-        font-weight: bold;
-    }
-
-    .refundProduct{
-        margin-top: 20%;
-        margin-left: 27%;
-        font-weight: bold;
-        font-size: xx-large;
-        font-weight: bold;
-    }
-    
-}
-
-
-.row.g-3.needs-validation{
-    margin-top: 1%;
-}
-
 .product-info{
-    margin-left: 25%;
-	color: black;
+    margin-left: 35%;
+	color: white;
+	font-weight: bold;
+	font-size: 15px!important;
+	margin-bottom: 5%;
+}
+
+.product-type, .product-name, #prodId, #qty, #prodPrice{
+	color: orange;
 	font-weight: bold;
 	font-size: 15px!important;
 }
 
-.product-type, .product-name, #prodId{
-	color: black;
-	font-weight: bold;
-	font-size: 15px!important;
-}
-
-.product-img{
-    margin-left: 25%;
-}
-
-.image {
-    display: block;
-    width: 50%;
-    height: 50%;
-    margin-left: 10%;
-  }
 
 .form-select, .invalid-feedback{
     margin-top: 2%;
 }
- 
-  .product-img{
-    position: relative;
-    height: 50%;
-    width: 50%;
-  }
   
-  .product-price{
-    color: black;
-    font-size: 15px!important;
-  }
+
   
 
 /*=========================================================

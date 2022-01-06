@@ -72,6 +72,7 @@
 }
 
 .img-fluid{
+		margin-top: 2%;
         width: 120px;
         height: auto;
 }
@@ -365,7 +366,7 @@ textarea.input {
 }
 
 .input-checkbox input[type="checkbox"]+label span:after {
-  content: 'âœ”';
+  content: 'Ã¢Å“â€�';
   position: absolute;
   top: -2px;
   left: 1px;

@@ -1,12 +1,27 @@
 function AdminLog(){		
-
-var em = document.getElementById('typeEmailX').value;
-var pas = document.getElementById('typePasswordX').value;
-
- if(em == "admin@admin.com" && pas == "admin"){
-	 window.location = document.getElementById('admi').href;
+var email = document.getElementById('typeEmailX').value;
+var password = document.getElementById('typePasswordX').value;
+ if(email == "admin@admin.com" && password == "adminadmin"){
+	 window.location = "adminPage";
+	 return;
  }
- 
+  $.ajax({
+		type: 'POST',
+		url: "/loginServices",
+		data: {
+			email: email,
+			password: password
+		},
+		success: function(data){
+		   if(data == "correct"){
+			window.location = "/";
+		   }
+		   else{			
+			window.location = "/login.html";
+		   }
+		}
+	})
+		
 }
 
 function checkRefresh(){
@@ -29,15 +44,72 @@ function errorBox(){
      window.location = document.getElementById('sign').href;
 }
 
-function validateForm() {
-  var email = document.forms["loginForm"]["email"].value;
-  var password = document.forms["loginForm"]["pass"].value;
-  if (email == "") {
-	document.getElementById("fail").innerHTML = "email must be filled out";
-    return false;
-  }
-  if (password == "") {
-	document.getElementById("fail").innerHTML = "password must be filled out";
-    return false;
-  }
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var username = profile.getName();
+  var email = profile.getEmail();
+  var image = profile.getImageUrl();
+  var id = profile.getId();
+  console.log('ID: ' + profile.getId()); 
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); 
+  
+    window.location = "/";
+    
+  $.ajax({
+		type: 'POST',
+		url: "/loginGoogle",
+		dataType: "json",
+		data: {
+			id:id,
+			username: username,
+			email: email,
+			image: image
+		}	
+	});
 }
+
+
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+    $.ajax({  
+         type : 'GET',  
+         url : "/faiLogout",  
+    });
+    
+    window.location = "/";
+}
+
+ function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+ }
+ 
+ function error(){
+	document.getElementById('errore').style.display='block';
+}
+
+function close(){
+	modal.style.display = "none";
+}
+
+function sendEmailS(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "dwondxoasjndoasw@jwvadvsad.com",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: "dsawa"
+	})
+}
+

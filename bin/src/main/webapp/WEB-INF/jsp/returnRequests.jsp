@@ -82,19 +82,6 @@
 							</div>
 							<!-- /Cart -->
 
-							<!-- User Toogle -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="returnRequests" style="text-decoration: none;">
-									<i class="fas fa-truck-loading"></i>
-								</a>
-							</div>
-
-							<div style="margin-top: 3%">
-								<a href="account.html" style="text-decoration: none;">
-									<i class="fas fa-sign-out-alt"></i>
-								</a>
-							</div>
-							<!-- /User Toogle -->
 						</div>
 					</div>
 				</div>
@@ -150,8 +137,11 @@
                                     ${item.product.name}
                                 </span>
                                <br>
+                               <span class="info" style="font-size: small;">Quantity : </span>
+                			   <span class="product-quantity" id="qty" style="font-size: medium;">${item.quantity}</span>
+                			   <br>
                                  <span class="info" style="font-size: small;">Price : </span>
-                                <span class="product-price" style="font-size: medium;">$${item.product.price}</span>
+                                <span class="product-price" style="font-size: medium;">$${item.product.price * item.quantity}</span>
                             </div>
                         </div>
                         </td>
@@ -171,7 +161,7 @@
                         <td class="refund-cell">
                         
                         <div class="d-flex flex-column align-items-center text-center" id="amount-cell">Money to return<input type="number" value="0" class="text-center" step=".01"
-                            min="0" max="100000" oninput="validity.valid||(value='');" id="amount"></div>
+                            min="0" max="${item.product.price * item.quantity}" oninput="validity.valid||(value='');" id="amount"></div>
                     </td>
                     <td class="response-cell">
                     

@@ -1,32 +1,14 @@
+
+
 .info{
-	color: black;
+	color: white;
 }
 
-.product-type{
-	color: black;
-}
-
-.product-name{
-	color: black;
-}
-
-#prodId{
-	color: black;
-}
-
-#amount-cell{
-	color: black;
+#prodId, #username , #email, .product-type, .product-name, #qty, .product-price{
+	color: orange;
 }
 
 .thText{
-	color: black;
-}
-
-#username{
-	color: black;
-}
-
-#email{
 	color: black;
 }
 
@@ -39,6 +21,7 @@
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+	color: black;
 }
 
 @media screen and (max-width: 767px) { 
@@ -108,6 +91,7 @@
 
 #amount-cell{
   margin-top: 15%;
+  color: white;
 }
 
 #amount{
@@ -136,14 +120,7 @@
 .product-item {
     border: 1px solid rgb(219,219,219);
   }
-  
 
-  
-
-  
-  .product-price{
-    color: #fcb941;
-  }
   
 
 /*=========================================================
@@ -159,7 +136,7 @@ body {
   font-weight: 400;
   color: #333;
   margin: 0;
-  background: linear-gradient(#d1d1d1,#919191);
+  background: linear-gradient(#8ab7ff,#5193fc);
 }
 
 .bg {

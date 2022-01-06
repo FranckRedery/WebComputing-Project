@@ -16,11 +16,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Electronic</title>
+    <script src="js/Signup/signUp.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<meta name="google-signin-client_id"
+	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body>
-    
-    <!-- HEADER -->
+<body onload="timeOut('${loggato}'">
+		
+	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -28,36 +35,39 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
+				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-						<%if (session.getAttribute("loggato") == "si") {%>
-								<a href="/faiLogout" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Log out</span>
-									</button>
-								</a>
-								<%} else {%>
-								<a href="login.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Login</span>
-									</button>
-								</a>
-								<a href="signUp.html" style="text-decoration: none;">
-									<button class="btnLog">
-										<span>Sign Up</span>
-									</button>
-								</a>
-								<%}%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+				</c:if>
 				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -72,7 +82,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -98,27 +107,45 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
-								<a href="login.html" style="text-decoration: none;"> 
-									<i class="fa fa-user"></i>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
 								</a>
-								<%} else if(session.getAttribute("loggato") == "si"){%>
-								<a href="account.html" style="text-decoration: none;"> 
-									<img class="profilePic" src="images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%}%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -128,6 +155,7 @@
 		</div>
 	</header>
 	<!--/HEADER-->
+
     
     <nav id="navigation" class="navbar navbar-expand-sm bg-dark">
 		<div class="container-fluid">
@@ -139,7 +167,7 @@
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Home</a>
+					<a class="nav-link" href="/">Home</a>
 				  </li>
 				  <!--<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
@@ -148,23 +176,22 @@
 					<a class="nav-link" href="javascript:void(0)">Categories</a>
 				  </li>-->
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
+					<a class="nav-link" href="laptopsGallery.html">Laptops</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
+					<a class="nav-link" href="smartphonesGallery.html">Smartphones</a>
 				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Tvs</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Accessories</a>
-				  </li>
+				  <li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)">Accessories</a></li>
 			</ul>
 		  </div>
 		</div>
 	  </nav>
+	  		<div id="paypal-button-container"></div>
     <div class="container mt-3">
-        <table class="table table-borderless">
+        <table class="table table-borderless" id="price">
             <thead>
                 <tr>
                     <th>Product</th>
@@ -173,70 +200,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+            <c:forEach items="${chooses}" var="cho">
+                <tr id="row_${cho.id.id}">
                     <td>
                         <div class="cart-info">
                             <img src="images/carrello/iphone1.jpeg">
                             <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
+                                <p>${cho.id.name}</p>
+                                <small>Price $${cho.id.price}0</small>
                                 <br>
-                                <a href="">Remove</a>
+                                <a href="#" disabled="disabled" style="text-decoration: none" data-custom-value="${cho.id.id}" class="removeProd">Remove</a>
                             </div>
                         </div>
                     </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
+                    <td><input type="number" value="${cho.quantity}" min="1" max="${cho.id.quantity}" id="${cho.quantity}" class="currentQuantity ${cho.id.id}" oninput="validity.valid||(value='');" onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
+                    <td class="prod_price" class="price" id="${cho.id.price}"></td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
-                            <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
-                            <div>
-                                <p>Iphone X</p>
-                                <small>Price €1200.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>€1200.00</td>
-                </tr>
+                </c:forEach>
             </tbody>
         </table>
-
         <div class="total-price">
             <table>
                 <tr>
-                    <td>Subtotal</td>
-                    <td>€3600.00</td>
+                    <td>Subtotal <strong>(without iva)</strong></td>
+                    <td  id="tot"></td>
                 </tr>
                 <tr>
-                    <td>Tax</td>
-                    <td>€79.00</td>
+                    <td>Tax <strong>(iva 22%)</strong></td>
+                    <td id="iva"></td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>3679.00</td>
+                    <td id=totWithIva></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="button" class="btn btn-primary">Procede to order</button></td>
+                    <td colspan="2"><button type="button" class="btn btn-primary" onclick="completeCheckout()">Procede to order</button></td>
                 </tr>
             </table>
         </div>
@@ -310,6 +308,10 @@
         <!-- /top footer -->
     </footer>
     <!-- /FOOTER -->
+    <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   	<script src="js/cart/cart.js"></script>
 </body>
-
 </html>

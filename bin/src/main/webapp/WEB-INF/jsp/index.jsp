@@ -33,12 +33,17 @@
 <link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
 	rel="stylesheet" type="text/css" />
 <script src="js/Signup/signUp.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<meta name="google-signin-client_id"
+	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <title>Tech Planet</title>
 </head>
 
-<body>
+<body onload="check()">
 
 	<!-- HEADER -->
 	<header>
@@ -48,24 +53,22 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							email@email.com</a></li>
+							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<%
-					if (session.getAttribute("loggato") == "si") {
-					%>
-					<a href="/faiLogout" style="text-decoration: none;">
-						<button class="btnLog">
-							<span>Log out</span>
-						</button>
-					</a>
-					<%
-					} else {
-					%>
+					<c:if test="${loggato == 'si'}">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
+							<button class="btnLog">
+								<span>Log out</span>
+							</button>
+						</a>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
 					<a style="text-decoration: none;">
 						<button onclick="resetLogin();" class="btnLog">
 							<span>Login</span>
@@ -76,9 +79,7 @@
 							<span>Sign Up</span>
 						</button>
 					</a>
-					<%
-					}
-					%>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -99,7 +100,6 @@
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -125,35 +125,45 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<%
-								if (session.getAttribute("loggato") == "si") {
-								%>
-								<a href="account.html"
-									style="text-decoration: none; display: flex;"> <img
-									class="profilePic" src="images/account/avatar.png"
-									style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-									${username}
-								</a>
-								<%
-								} else {
-								%>
+								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
+									</c:if>
+								</c:if>
+								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none;"> <i
 									class="fa fa-user"></i>
 								</a>
-								<%
-								}
-								%>
+								</c:if>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -177,18 +187,12 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)">Home</a></li>
-					<!--<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Categories</a>
-				  </li>-->
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Laptops</a></li>
+						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Smartphones</a></li>
+						href="smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Tvs</a></li>
+						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)">Accessories</a></li>
 				</ul>
@@ -317,285 +321,48 @@
 				unde ab, ullam pariatur nisi laborum quam. Porro, corporis!</p>
 		</div>
 		<div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
-		<c:forEach items="${prodotti}" var="prod">
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product01.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<c:if test="${username != null}">
-							<button type="button" class="col-6 py-2" onclick="addToCart()">
-								<i class="fa fa-cart-plus"></i>add to Cart
+			<c:forEach items="${prodotti}" var="prod">
+				<div class="col product-item mx-auto">
+					<div class="product-img">
+						<img src="images/index/product01.png" alt=""
+							class="img-fluid d-block mx-auto"> <span class="heart-icon">
+							<i class="far fa-heart"></i>
+						</span>
+						<div class="row btns w-100 mx-auto text-center">
+							<c:if test="${username != null}">
+								<button type="button" class="col-6 py-2" value="${prod.id}" id="addProd">
+									<i class="fa fa-cart-plus"></i>add to Cart
+								</button>
+							</c:if>
+							<c:if test="${username == null}">
+								<button type="button" class="col-6 py-2"
+									onclick="window.location.href='login.html'">
+									<i class="fa fa-cart-plus"></i>add to Cart
+								</button>
+							</c:if>
+							<button type="button" class="col-6 py-2" value="${prod.id}" id="viewProd">
+								<i class="fa fa-binoculars"></i>View
 							</button>
-						</c:if>
-						<c:if test="${username == null}">
-							<button type="button" class="col-6 py-2" onclick="window.location.href='login.html'">
-								<i class="fa fa-cart-plus"></i>add to Cart
-							</button>
-						</c:if>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
+						</div>
+					</div>
+					<div class="product-info p-3">
+						<div class="addedToCart" id="cart_${prod.id}"></div>
+						<span class="product-type"> Electronics & accessories </span> <a
+							href="productDetails.html"
+							class="d-block text-dark text-decoration-none py-2 product-name">
+							${prod.name}</a> <span class="product-price">$${prod.price}</span>
+							<div class="rating d-flex mt-1 reviews" id="${prod.reviews}">
+							<c:forEach var="star" begin="1" end="${prod.reviews}">
+							<span> <i class="fas fa-star"></i></span>
+							</c:forEach>
+							<c:forEach var="star" begin="${prod.reviews}" end="4">
+							<span> <i class="far fa-star"></i></span>
+							</c:forEach>
+							<span>(25 reviews)</span>
+						</div>
 					</div>
 				</div>
-				<div class="product-info p-3">
-					<div class="addedToCart" id="cart"></div>
-					<span class="product-type" id="${prod.id}"> Electronics & accessories </span> 
-					<a href="productDetails.html" class="d-block text-dark text-decoration-none py-2 product-name">
-					${prod.name}</a> <span class="product-price">$${prod.price}</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fas fa-star"></i>
-						</span> <span> <i class="fas fa-star"></i>
-						</span> <span> <i class="fas fa-star"></i>
-						</span> <span> <i class="fas fa-star"></i>
-						</span> <span> <i class="fas fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
 			</c:forEach>
-			<!--<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product02.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product03.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product04.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product05.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product06.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product07.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="productDetails.html"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product08.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>
-			<div class="col product-item mx-auto">
-				<div class="product-img">
-					<img src="images/index/product09.png" alt=""
-						class="img-fluid d-block mx-auto"> <span class="heart-icon">
-						<i class="far fa-heart"></i>
-					</span>
-					<div class="row btns w-100 mx-auto text-center">
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-cart-plus"></i>add to Cart
-						</button>
-						<button type="button" class="col-6 py-2">
-							<i class="fa fa-binoculars"></i>View
-						</button>
-					</div>
-				</div>
-				<div class="product-info p-3">
-					<span class="product-type"> Electronics & accessories </span> <a
-						href="#"
-						class="d-block text-dark text-decoration-none py-2 product-name">pc
-						windows</a> <span class="product-price">$100.50</span>
-					<div class="rating d-flex mt-1">
-						<span> <i class="fa fa-star" aria-hidden="true"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span> <i class="fa fa-star"></i>
-						</span> <span>(25 reviews)</span>
-					</div>
-				</div>
-			</div>-->
 		</div>
 	</div>
 
@@ -611,7 +378,7 @@
 			<div class="col-sm-4 p-3 bg-primary text-white"
 				id="linkSelezionaProdotto">
 
-				<a class="clearfix" href="guidaSceltaProdotto/guidaProdotto">
+				<a class="clearfix" href="guidaSceltaProdotto/guidaSceltaProdotto">
 					<button class="button">Select your product</button>
 				</a>
 				<!--	<a href="guidaSceltaProdotto/guidaProdotto" class="btn btn-light" stretched-link">Seleziona il tuo prodotto</a>  -->
@@ -658,9 +425,9 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
 								<li><a href="/contattaci">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
+								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>

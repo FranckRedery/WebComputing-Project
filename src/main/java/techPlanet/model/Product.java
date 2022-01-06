@@ -3,6 +3,7 @@ package techPlanet.model;
 import java.util.Objects;
 
 public class Product {
+	
 	private long id;
 	private String name;
 	private Integer quantity;
@@ -11,6 +12,9 @@ public class Product {
 	private String category;
 	private Float reviews;
 	private Float price;
+	private String image;
+	
+
 	
 	public Product() {
 	}
@@ -18,7 +22,7 @@ public class Product {
 
 
 	public Product(String name, Integer quantity, String tags, String description, String category,
-			Float reviews, Float price) {
+			Float reviews, Float price, String image) {
 		super();
 		this.name = name;
 		this.quantity = quantity;
@@ -27,14 +31,19 @@ public class Product {
 		this.category = category;
 		this.reviews = reviews;
 		this.price = price;
+		this.image = image;
 	}
 
 
 
+
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -47,6 +56,8 @@ public class Product {
 		Product other = (Product) obj;
 		return id == other.id;
 	}
+
+
 
 	public long getId() {
 		return id;
@@ -113,6 +124,16 @@ public class Product {
 
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }
