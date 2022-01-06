@@ -30,7 +30,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOutS('${loggato}'">
+<body onload="timeOut('${loggato}'">
 		
 	<!-- HEADER -->
 	<header>

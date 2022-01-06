@@ -32,7 +32,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body onload="timeOutS('${loggato}'">
+<body onload="timeOut('${loggato}'">
 		
 	<!-- HEADER -->
 	<header>
