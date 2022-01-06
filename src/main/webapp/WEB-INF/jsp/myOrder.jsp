@@ -234,7 +234,7 @@
 							<button type="button" class="btn btn-info">Refund item</button>
 						</c:if>
 						<button type="button" class="btn btn-primary">Add review</button></td>
-						<td>${ord.quantity}</td>
+						<td id="quantity">${ord.quantity}</td>
 						<td id="${ord.id.id}">${(ord.id.price * ord.quantity)}0</td>
 					</tr>
 					</c:forEach> 

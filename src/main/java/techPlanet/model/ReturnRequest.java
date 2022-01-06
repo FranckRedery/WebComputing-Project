@@ -11,9 +11,18 @@ public class ReturnRequest {
 	float moneyreturned;
 	String reason;
 	String description;
+	int quantity;
 	
 
 	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	public ReturnRequest() {}
 	
 	public Product getProduct() {
@@ -49,10 +58,6 @@ public class ReturnRequest {
 		this.status = status;
 	}
 	
-
-	
-
-	
 	public float getMoneyreturned() {
 		return moneyreturned;
 	}
@@ -64,6 +69,18 @@ public class ReturnRequest {
 	@Override
 	public int hashCode() {
 		return Objects.hash(product, user);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReturnRequest other = (ReturnRequest) obj;
+		return Objects.equals(product, other.product) && Objects.equals(user, other.user);
 	}
 
 	public String getReason() {
@@ -81,18 +98,5 @@ public class ReturnRequest {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ReturnRequest other = (ReturnRequest) obj;
-		return Objects.equals(product, other.product) && Objects.equals(user, other.user);
-	}
-	
 	
 }
