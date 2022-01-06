@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -26,7 +31,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut(${loggato})">
+<body onload="timeOut('${loggato}'">
 		
 	<!-- HEADER -->
 	<header>
@@ -131,10 +136,13 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='images/account/avatar.png'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
 										${username}
 									</a>
 									</c:if>
@@ -199,26 +207,27 @@
 			<div class="col-md-4 border-right">
 				<div class="profile-pic-wrapper">
  					 <div class="pic-holder">
- 					   <%if (session.getAttribute("loggatoGoogle") == "si"){%>
-					    <img id="profilePic" class="pic" src="${image}">
-					    <%}else {%>
-					      <img id="profilePic" class="pic" src="images/account/avatar.png">
-					      <%}%>
-   							<label for="newProfilePhoto" class="upload-file-block">
-      						  <div class="text-center">
-        						<div class="mb-2">
-        						  <i class="fa fa-camera fa-2x"></i>
-       						    </div>
-       						   <div class="text-uppercase">
-      						     Update <br /> Profile Photo
-     					       </div>
-     				     	 </div>
-   					      </label>
-   					  <form method="post" id="ImageForm" action="/updateImage">
-	   					 <input type="file" name="image" id="image" style="display: none;" />
+ 					   <c:if test="${loggatoGoogle == 'si'}">
+ 					   <div class="circle">
+					     <img id="profilePicIMG" class="pic" src="${image}">
+					   </div>
+					    </c:if>
+ 					   <div class="circle">
+ 					   <c:if test="${image != null && image != ''}">
+					      <img id="profilePicIMG" class="pic" src="images/account/${image}">										
+				       </c:if>
+ 					   <c:if test="${image == null || image == ''}">
+					      <img id="profilePicIMG" class="pic" src="images/account/avatar.png">										
+					   </c:if>
+					   </div>
+ 			 		 </div>
+   					  <form method="post" id="ImageForm" enctype="multipart/form-data" action="/updateImage">
+	   					 <input type="file" name="image" id="image">
 	   					 <input type="hidden" name="username" value= "${username}">
+	   					 <div style="margin-top: 20px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+	   					 	<button class="btn btn-primary profile-button" type="submit" >Update Image</button>
+	   					 </div>
    					  </form>
- 			 </div>
  			 <h1>Edit image here</h1>
           </div>
 			</div>
@@ -228,12 +237,12 @@
 					<div class="row mt-3">
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Email</label>
 						    <p style="font-size: 20px"><strong>${email}</strong>
-						    <%if(session.getAttribute("loggatoGoogle") == "no" || session.getAttribute("loggatoGoogle") == null){%>
 						   <a href="security.html">
+						   <c:if test="${loggato == 'no' || loggatoGoogle == null}">
 						  <button style="margin-right:3%; margin-left:3%; padding: 5px" class="btn btn-primary profile-button" type="button">edit</button>
+						    </c:if>
 						   </a>
 						    </p>
-						    <%}%>
 						</div>
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Username</label><p style="font-size: 20px"><strong>${username}</strong><a href="security.html"></a></p></div>
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="name" value="${name}"></div>
@@ -248,12 +257,12 @@
 					<div class="row mt-3">
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Province</label>
 						<select class="form-control"  name="stateregion">
-							<%if(session.getAttribute("stateregion") == null || session.getAttribute("stateregion") == ""){%>
+							<c:if test="${stateregion == '' || stateregion == null}">
 						        <option value="${stateregion}" selected>${stateregion}</option>
-						     <%} else {%>
-						     
+							</c:if>
+							<c:if test="${stateregion != '' || stateregion != null}">
 						        <option value="${stateregion}" selected>${stateregion}</option>
-						     <%}%>   
+							</c:if>
 	              		        <option value="Agrigento">Agrigento</option>
 								<option value="Alessandria">Alessandria</option>
 								<option value="Ancona">Ancona</option>
@@ -372,7 +381,7 @@
 					   <a href="account.html">
 						<button style="margin-right:3%; margin-left:3%;" class="btn btn-primary profile-button" type="button">back</button>
 					   </a>					
-						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" onclick="submitForms()">Save Profile</button>
+						<button style="margin-left:3%; margin-right:3%;" class="btn btn-primary profile-button" type="submit" >Save Profile</button>
 					</div>
 				</div>
 			 </form>

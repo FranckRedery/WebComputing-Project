@@ -5,6 +5,7 @@ import java.sql.Connection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +29,14 @@ public class UpdateProfile {
 
 	@PostMapping("/updateImage")
 	public String updateImage(HttpServletRequest req, HttpServletResponse resp, MultipartFile image ) throws IOException {	
-		System.out.println("ciao");
 		Database.getInstance().getUpdateProfile().updateImage(req, resp,image);
 			return null;
+	}
+	
+	@GetMapping("/resetUpdate")
+	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession();
+		session.setAttribute("update", null);
 	}
 	
 }

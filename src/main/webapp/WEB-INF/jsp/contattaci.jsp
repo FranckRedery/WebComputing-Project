@@ -40,9 +40,8 @@
 
 </head>
 
-<body onload="timeOut(${loggato})">
-<!-------------------------GRUPPO--------------------------------------------->
-
+<body onload="timeOutS('${loggato}'">
+		
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -83,7 +82,7 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -146,10 +145,13 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='images/account/avatar.png'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
 										${username}
 									</a>
 									</c:if>
@@ -168,6 +170,7 @@
 		</div>
 	</header>
 	<!--/HEADER-->
+
 
 	<!-- /SECTION -->
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">

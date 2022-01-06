@@ -60,6 +60,7 @@ public class Login {
 				session.setAttribute("postcode", rs.getString("postcode"));
 				session.setAttribute("country", rs.getString("country"));
 				session.setAttribute("stateregion", rs.getString("stateregion"));
+				session.setAttribute("image", rs.getString("image"));
 				return "correct";
 			}else {
 				session.setAttribute("errore", "si");

@@ -44,7 +44,8 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut(${loggato})">
+<body onload="timeOut('${loggato}'">
+		
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -148,10 +149,13 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='images/account/avatar.png'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
 										${username}
 									</a>
 									</c:if>

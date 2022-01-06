@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -43,9 +44,7 @@
 								UP</h2>
 							<img src="images/index/logo.png" alt="">
 							<div class="form-outline form-white mb-3">
-								<%
-								if (session.getAttribute("errore") == "si") {
-								%>
+							  <c:if test="${errore == 'si'}">
 								<form name="SignUpForm" method="post"  action="javascript:SignUp()">
 									<label class="form-label">Username</label> <input type="text"
 										name="username" id="typeUsernameX"
@@ -77,7 +76,8 @@
 										</div>
 									</div>
 								</form>
-								<%} else {%>
+								</c:if>
+								<c:if test="${errore != 'si'}">
 								<form name="SignUpForm" method="post" action="javascript:SignUp()">
 									<label class="form-label">Username</label> <input type="text"
 										name="username" id="typeUsernameX"
@@ -104,8 +104,8 @@
 												class="fab fa-google fa-lg"></i></a>
 										</div>
 								</form>
+							</c:if>
 							</div>
-							<%}%>
 						</div>
 					</div>
 					<div class="d-flex justify-content-center text-center">

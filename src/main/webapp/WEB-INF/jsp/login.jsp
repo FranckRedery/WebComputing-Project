@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -26,7 +28,7 @@
 				  <div class="mb-md-3 mt-md-2">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Login</h2>
 					<img src="images/index/logo.png" alt="">
-					<%if (session.getAttribute("errore") == "si"){%>
+					<c:if test="${errore == 'si'}">
 					<form name="loginForm"  method="post" action="javascript:AdminLog()">
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Email</label>
@@ -44,7 +46,8 @@
 					  <a id="G" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					  </div>
 					 </form>
-					<%} else {%>
+					</c:if>
+					<c:if test="${errore != 'si'}">
 					<form name="loginForm" method="post" action="javascript:AdminLog()">
 					<div class="form-outline form-white mb-3">
 					
@@ -62,7 +65,7 @@
 					  <a id="G" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" class="text-white"><i class="fab fa-google fa-lg"></i></a>
 					  </div>
 					 </form>
-					<%}%>
+					</c:if>
 					<div class="d-flex justify-content-center text-center mt-1 pt-1">
 					</div>
 					<p class="pt-1">Don't have an account? <button  style="text-decoration: underline; color: grey; background: transparent; border: 0;" onclick="errorBox();"> Sign Up</a></button>

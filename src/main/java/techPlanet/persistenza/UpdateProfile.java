@@ -27,16 +27,28 @@ public class UpdateProfile {
 	
 	public String updateImage(HttpServletRequest req, HttpServletResponse resp, MultipartFile image ) throws IOException {
 		HttpSession session = req.getSession(true);
-		String percorso = System.getProperty("user.dir") + "src/main/resources/static/images/account";
+		String percorso = System.getProperty("user.dir") + "/src/main/resources/static/images/account";
+		String pathTemp = image.getOriginalFilename();
+		String path = null;
+		if(pathTemp.contains(".png")){
+			path = req.getParameter("username") + ".png";
+		}
+		if(pathTemp.contains(".jpg")){
+			path = req.getParameter("username") + ".jpg";
+		}
+		if(pathTemp.contains(".gif")){
+			path = req.getParameter("username") + ".gif";
+		}
+		System.out.println(path);
+		image.transferTo(new File(percorso + "/" + path));
 		
-		image.transferTo(new File(percorso + "/" + image.getOriginalFilename()));
-		
-		String sql = "UPDATE users SET image = '" + image.getOriginalFilename() + "'";
-		System.out.println("ciao");
+		String sql = "UPDATE users SET image = '" + path + "'" + "WHERE username = '" + req.getParameter("username") + "'";
 		try {
 			 PreparedStatement preparedStmt = conn.prepareStatement(sql);
 			 preparedStmt.execute();
-			 session.setAttribute("image", image.getOriginalFilename());
+			 session.setAttribute("image", path);
+			 session.setAttribute("update", "si");
+			 resp.sendRedirect("/account.html");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

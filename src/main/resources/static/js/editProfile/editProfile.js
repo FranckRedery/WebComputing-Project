@@ -60,10 +60,3 @@ $(document).on("change", ".uploadProfileInput", function () {
     }, 3000);
   }
 });
-
-
-function submitForms(){
-	document.querySelector("#ImageForm").submit;
-	document.querySelector("#infoForm").submit;
-}
-

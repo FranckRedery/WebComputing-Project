@@ -27,10 +27,9 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut(${loggato})">
+<body onload="timeOutS('${loggato}'">
+		
 	<!-- HEADER -->
-	<header>
-		<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -46,7 +45,7 @@
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
-				     	<a href="javascript:signOut()" style="text-decoration: none;">
+				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
@@ -59,7 +58,6 @@
 							<span>Login</span>
 						</button>
 					</a>
-					
 					<a style="text-decoration: none;">
 						<button onclick="resetSignUp();" class="btnLog">
 							<span>Sign Up</span>
@@ -71,7 +69,7 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -134,10 +132,13 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='images/account/avatar.png'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
 										${username}
 									</a>
 									</c:if>
@@ -156,6 +157,7 @@
 		</div>
 	</header>
 	<!--/HEADER-->
+
 
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
 		<div class="container-fluid">
@@ -247,7 +249,7 @@
 	 </div>
     </div>
     
-    <%if (session.getAttribute("loggatoGoogle") == "si") {%>
+    <c:if test="${loggatoGoogle == 'si'}">
 	<div class="containerCardsAcc">
 		<a style="text-decoration: none;" href="javascript:error()">
 		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
@@ -276,8 +278,8 @@
 	   </div>
  	  </div>
 	 </div>
-	<%} else {%>
-	 
+	</c:if>
+	 <c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null}">
 	<div class="containerCardsAcc">
 		<a style="text-decoration: none;" href="security.html">
 		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
@@ -294,7 +296,7 @@
 			</div>
 		   </a>
 		</div>
-	<%}%>
+	</c:if>
 	
 		<a style="text-decoration: none;" href="cart.html">
 		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">

@@ -2281,6 +2281,34 @@ header{
   margin: 15px 0px;
 }
 
+label {
+   cursor: pointer;
+}
+
+#image::file-selector-button{
+	color: #0b3de1;
+}
+
+#image::file-selector-button:hover{
+	color: #D10024;
+}
+
+.circle img {
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  cursor:pointer;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+.circle:hover img {
+ transform: scale(1.1);
+-ms-transform: scale(1.1); 
+-webkit-transform: scale(1.1);
+  box-shadow: 2px 2px 2px #4b4b4b;
+  
+}
+
 .profile-pic-wrapper {
   height: 100vh;
   width: 100%;

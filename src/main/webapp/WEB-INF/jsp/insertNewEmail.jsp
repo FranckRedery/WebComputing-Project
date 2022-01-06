@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -23,7 +24,7 @@
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">CHANGE EMAIl</h2>
 					<img src="/images/index/logo.png" alt="">
-					<%if(session.getAttribute("errore") == "si"){%>
+					<c:if test="${errore == 'si'}">
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
 					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
@@ -33,7 +34,8 @@
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
 					</a>
 					</form>
-					<%} else {%>					
+					</c:if>
+					<c:if test="${errore != 'si'}">				
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
 					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
@@ -42,7 +44,7 @@
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
 					</a>
 					</form>
-					<%} %>
+					</c:if>
 				  </div>
 				</div>
 			  </div>
