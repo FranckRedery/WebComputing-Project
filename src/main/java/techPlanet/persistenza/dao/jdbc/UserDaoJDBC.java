@@ -64,6 +64,7 @@ public class UserDaoJDBC implements UserDao {
 				user.setSurname(rs.getString("surname"));
 				user.setUsername(rs.getString("username"));
 				user.setCode(rs.getString("code"));
+				user.setImage(rs.getString("image"));
 				return user;
 			}
 		} catch (SQLException e) {
