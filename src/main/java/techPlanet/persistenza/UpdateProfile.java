@@ -27,7 +27,7 @@ public class UpdateProfile {
 	
 	public String updateImage(HttpServletRequest req, HttpServletResponse resp, MultipartFile image ) throws IOException {
 		HttpSession session = req.getSession(true);
-		String percorso = System.getProperty("user.dir") + "/src/main/resources/static/images/account";
+		String percorso = System.getProperty("user.dir") + "/src/main/resources/static/images/profilePic";
 		String pathTemp = image.getOriginalFilename();
 		String path = null;
 		if(pathTemp.contains(".png")){
@@ -41,11 +41,12 @@ public class UpdateProfile {
 		}
 		image.transferTo(new File(percorso + "/" + path));
 		
-		String sql = "UPDATE users SET image = '" + path + "'" + "WHERE username = '" + req.getParameter("username") + "'";
+		String pathcomplete = "images/profilePic/" + path;
+		String sql = "UPDATE users SET image = '" + pathcomplete + "'" + "WHERE username = '" + req.getParameter("username") + "'";
 		try {
 			 PreparedStatement preparedStmt = conn.prepareStatement(sql);
 			 preparedStmt.execute();
-			 session.setAttribute("image", path);
+			 session.setAttribute("image", pathcomplete);
 			 session.setAttribute("update", "si");
 			 resp.sendRedirect("/editProfile.html");
 		} catch (SQLException e) {
