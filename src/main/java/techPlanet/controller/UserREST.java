@@ -45,8 +45,7 @@ public class UserREST {
 		HttpSession session = req.getSession(true);
 		String username = (String) session.getAttribute("username");
 		
-		User user = new User();
-		user.setUsername(username);
+		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
 		request.setUser(user);
 		
 		Product prod = Database.getInstance().getProductsDao().findById(request.getProduct().getId());
@@ -58,7 +57,7 @@ public class UserREST {
 		Database.getInstance().getReturnRequestDao().addRequest(request);
 		Database.getInstance().getMyOrderDao().setReturned(true,request.getProduct().getId());
 		
-		
+
 	}
 	
 }

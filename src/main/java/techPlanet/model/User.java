@@ -16,7 +16,14 @@ public class User {
 	String country;
 	String stateRegion;
 	String code;
+	String image;
 
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getCode() {
 		return code;
 	}
@@ -89,10 +96,9 @@ public class User {
 	public void setStateRegion(String stateRegion) {
 		this.stateRegion = stateRegion;
 	}
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, username);
+		return Objects.hash(username);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -103,6 +109,7 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(email, other.email) && Objects.equals(username, other.username);
+		return Objects.equals(username, other.username);
 	}
+
 }

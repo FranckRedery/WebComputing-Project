@@ -109,10 +109,15 @@
             <c:forEach items="${returns}" var="item">
                		<tr>
                		<td class="user-cell">
-                        <div class="align-items-center text-center " id="user"><img class="rounded-circle"
-                                width="120px"
-                                src="${item.user.image}">
-                                <br>
+                         <div class="align-items-center text-center " id="user">
+                        <c:if test = "${item.user.image != null}">
+                        	<img class="rounded-circle" width="120px" src="${item.user.image}">
+                               
+                        </c:if>
+                        <c:if test = "${item.user.image == null}">
+                        	<img class="rounded-circle" width="120px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        </c:if>
+           						<br>    
                                 <span class="info" style="font-size: small;">Username : </span>
                                 <span class="font-weight-bold;" id="username" style="font-size: small;">${item.user.username}</span>
                                 <br>

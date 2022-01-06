@@ -49,7 +49,7 @@ function createRequest(){
 			url: "/addRequest",
 			contentType: "application/json",
 			data: JSON.stringify(returnRequest),
-			success: function(){ window.location = "/userReturns";}	
+			success: function(){ window.location.href = "/userReturns";}	
 			});
 	
 }

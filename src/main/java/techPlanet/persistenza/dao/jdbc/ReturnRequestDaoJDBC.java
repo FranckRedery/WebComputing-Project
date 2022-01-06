@@ -43,6 +43,7 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 				r.setMoneyreturned(rs.getFloat("moneyreturned"));
 				r.setStatus(rs.getString("status"));
 				r.setQuantity(rs.getInt("quantity"));
+
 				
 				returnRequest.add(r);
 
