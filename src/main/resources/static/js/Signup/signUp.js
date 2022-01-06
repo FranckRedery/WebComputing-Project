@@ -145,7 +145,7 @@ function check(){
 }
 
 function timeOut(logStatus){
-	if(logStatus == null || logStatus == "no"){
+	if(logStatus == null || logStatus == "no" || logStatus == ""){
 		window.location = "/";
 	}
 }

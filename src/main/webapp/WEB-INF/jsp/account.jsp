@@ -27,7 +27,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<body onload="timeOut('${loggato}')">
 		
 	<!-- HEADER -->
 	<header>
@@ -279,6 +279,7 @@
  	  </div>
 	 </div>
 	</c:if>
+	
 	 <c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null}">
 	<div class="containerCardsAcc">
 		<a style="text-decoration: none;" href="security.html">

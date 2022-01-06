@@ -36,7 +36,7 @@ public class UpdateProfile {
 	@GetMapping("/resetUpdate")
 	public void activeError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		session.setAttribute("update", null);
+		session.setAttribute("update", "no");
 	}
 	
 }

@@ -39,7 +39,6 @@ public class UpdateProfile {
 		if(pathTemp.contains(".gif")){
 			path = req.getParameter("username") + ".gif";
 		}
-		System.out.println(path);
 		image.transferTo(new File(percorso + "/" + path));
 		
 		String sql = "UPDATE users SET image = '" + path + "'" + "WHERE username = '" + req.getParameter("username") + "'";
@@ -48,7 +47,7 @@ public class UpdateProfile {
 			 preparedStmt.execute();
 			 session.setAttribute("image", path);
 			 session.setAttribute("update", "si");
-			 resp.sendRedirect("/account.html");
+			 resp.sendRedirect("/editProfile.html");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

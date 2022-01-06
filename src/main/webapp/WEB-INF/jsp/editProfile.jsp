@@ -31,7 +31,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<body onload="timeOutS('${loggato}','${update}')">
 		
 	<!-- HEADER -->
 	<header>
@@ -225,12 +225,32 @@
 	   					 <input type="file" name="image" id="image">
 	   					 <input type="hidden" name="username" value= "${username}">
 	   					 <div style="margin-top: 20px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
-	   					 	<button class="btn btn-primary profile-button" type="submit" >Update Image</button>
+	   					 	<button class="btn btn-primary profile-button" onclick="javascript:formImage()" type="button">Update Image</button>
 	   					 </div>
    					  </form>
  			 <h1>Edit image here</h1>
           </div>
 			</div>
+			
+	<div id="errore" class="modal">
+	  <div id="msg" class="modal-content animate" style="width: 50%">
+	   	<div class="container">
+	   		<a href="javascript:reload()">
+	     		<button style="background: transparent; border: 0; font-size:24px"><i  class="fa fa-close"></i></button>
+	   		</a>
+	      <img src="images/account/greenCheck.gif"  width="120" height="120" style="margin-left: auto; margin-right: auto; display: block;">
+	     <h3 style="color: white">Image Update correctly update to view your new Profile Picture </h3>
+	     <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+	     <a href="javascript:reload()">
+	     	<button class="btn btn-primary profile-button">close</button>
+	     	<br></br>
+	     </a>
+	     </div>
+	   </div>
+ 	  </div>
+	 </div>
+			
+			
 			<div class="col-md-6 border-right">
 			 <form  id="infoForm" method="post" action="update">
 				<div class="p-5 py-6">
@@ -388,8 +408,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<!-- FOOTER -->
 	<footer id="footer">
