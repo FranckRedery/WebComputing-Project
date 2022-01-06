@@ -80,15 +80,43 @@ public class AdminREST {
 
 	@PostMapping("/deleteProdById")
 	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {
-		if(Database.getInstance().getProductsDao().deleteProductById(id)) {
-			
-			req.getSession().removeAttribute("product");
-		}
+		
+		
+		// deleta il prodotto da my_order se esiste una table che ha per id l'id di questo prod
+		Database.getInstance().getMyOrderDao().deleteMyOrdersByProductId(id);
+		
+		// deleta da returnRequest una table che ha come prod.id l'id di questo prodotto
+		Database.getInstance().getReturnRequestDao().deleteReturnRequestsByProductId(id);
+		
+		
+		Database.getInstance().getProductsDao().deleteProductById(id);
+		req.getSession().removeAttribute("product");
 	}
 	
-	@PostMapping("/modifyProd")
-	public void modifyProd(@RequestBody Product product) {
+	@PostMapping("/modifyProduct")
+	public void modifyProduct(int productID, String productName, String productCategory,String tags, String productDescription, MultipartFile image, float productPrice, int productQuantity, HttpServletResponse res) {
+		
+		Product product = new Product();
+		product.setId(productID);
+		product.setName(productName);
+		product.setCategory(productCategory);
+		product.setTags(tags);
+		product.setDescription(productDescription);
+		product.setPrice(productPrice);
+		product.setQuantity(productQuantity);
+		product.setImage("images/prodotti/" + image.getOriginalFilename());
+		
+		String path = System.getProperty("user.dir") + "/src/main/resources/static/images/prodotti";
 		Database.getInstance().getProductsDao().modifyProduct(product);
+		try {
+			image.transferTo(new File(path+ "/" + image.getOriginalFilename()));
+			res.sendRedirect("/adminPage");
+		} catch (IllegalStateException e) {
+			System.out.println("Can't transfer the photo or can't redirect to page addProduct");
+		} catch (IOException e) {
+			System.out.println("Can't transfer the photo or can't redirect to page addProduct");
+		}
+	
 	}
 	
 	

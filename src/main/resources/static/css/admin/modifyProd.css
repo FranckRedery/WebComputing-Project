@@ -124,7 +124,10 @@ input[type=file] {
 }
 
 
-   
+.img-fluid{
+	margin-top: 15%;
+	margin-bottom: 15%;
+}
    
    
    body {

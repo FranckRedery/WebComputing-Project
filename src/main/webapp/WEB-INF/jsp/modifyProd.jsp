@@ -125,7 +125,7 @@
 		<div class="col-md-2">
             <label class="selectedProduct" id="selectedProd">Selected product</label>
             <div class="product-img">
-                <img src="images/index/product01.png" alt="" class="img-fluid d-block mx-auto" width="400" height= auto>
+                <img src="${product.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
             </div>
             <div class="product-info">
             	<span class="info" style="font-size: small;">Product ID : </span>
@@ -144,15 +144,16 @@
         </div>
         
         <div class="col-md-4">
-        	<form class="needs-validation-form-modify" novalidate>
+        	<form class="needs-validation-form-modify" method="post" action="/modifyProduct" enctype="multipart/form-data" id="modifyProduct" novalidate>
+        		<input type="number" name="productID" class="form-control" required value="${product.id}" style="display: none">
 				<div class="mb-3">
 					<label class="form-label" for="productName" style="margin-top: 3%;">Name</label>
-					<input type="text" class="form-control" id="productNameModify" placeholder="Product name" required>
+					<input type="text" name="productName" class="form-control" id="productNameModify" placeholder="Product name" required>
 					<div class="invalid-feedback">Please enter a valid product name.</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="productCategory">Category</label>
-					<select class="form-select" id="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
+					<select class="form-select" id="productCategory" name="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
 						<option selected disabled value="">Choose a category</option>
 						<option>PC</option>
 						<option>Tablet</option>
@@ -170,24 +171,24 @@
 		
 				<div class="mb-3">
 					<label class="form-label" for="description">Description</label>
-					<textarea class="form-control" rows="5" id="description" placeholder="Product description" required></textarea>
+					<textarea class="form-control" rows="5" id="description" name="productDescription" placeholder="Product description" required></textarea>
 					<div class="invalid-feedback">Please enter a valid description.</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="imgFile">Image</label>
-					<input type="file" class="form-control fileupload" id="images"  accept="image/x-png,image/gif,image/jpeg" required>
+					<input type="file" class="form-control fileupload" id="images" name="image" accept="image/x-png,image/gif,image/jpeg" required>
 					<div class="invalid-feedback">Please insert a valid image.</div>
 				</div>
 
 				<div class="mb-3">
 					<label class="form-label" for="imgFile">Price</label>
-					<input type="number" class="form-label" min="1" max="10000" step=".01" oninput="validity.valid||(value='');" id="amount" required>
+					<input type="number" class="form-label" min="1" max="10000" step=".01" name="productPrice" oninput="validity.valid||(value='');" id="amount" required>
 					<div class="invalid-feedback">Please insert valid price.</div>
 				</div>
 
 				<div class="mb-3">
 					<label class="form-label" for="imgFile">Quantity</label>
-					<input type="number" class="form-label" min="1" max="10000" oninput="validity.valid||(value='');" id="quantity" required>
+					<input type="number" class="form-label" min="1" max="10000" name="productQuantity" oninput="validity.valid||(value='');" id="quantity" required>
 					<div class="invalid-feedback">Please insert a valid quantity.</div>
 				</div>
 

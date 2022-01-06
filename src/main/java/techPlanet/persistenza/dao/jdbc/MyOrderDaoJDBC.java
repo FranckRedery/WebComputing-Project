@@ -71,5 +71,19 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 
 		
 	}
+
+	@Override
+	public void deleteMyOrdersByProductId(Long id) {
+		
+		try {
+			String query = "delete from my_order where id = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 }

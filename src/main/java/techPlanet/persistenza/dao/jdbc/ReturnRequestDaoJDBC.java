@@ -185,4 +185,19 @@ public class ReturnRequestDaoJDBC implements ReturnRequestDao {
 		}
 	}
 
+	@Override
+	public void deleteReturnRequestsByProductId(Long id) {
+		// TODO Auto-generated method stub
+		
+		try {
+			String query = "delete from return_request where prod = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

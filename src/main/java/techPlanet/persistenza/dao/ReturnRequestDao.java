@@ -13,5 +13,6 @@ public interface ReturnRequestDao {
 	public boolean delete(ReturnRequest returnRequest);
 	public List<ReturnRequest> findByUser(String user);
 	public void addRequest(ReturnRequest returnRequest);
+	public void deleteReturnRequestsByProductId(Long id);
 	
 }

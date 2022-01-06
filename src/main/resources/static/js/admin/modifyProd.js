@@ -13,13 +13,13 @@ function caricaOpzioni() {
 	switch(categoria) {
 		case "Notebook":
 			for(let i = 0; i < opzioni[1].length; ++i) {
-				s += "<input type=\"checkbox\"  name=\"" + opzioni[1][i] + "\" value=\"" + opzioni[1][i] + "\">"
+				s += "<input type=\"checkbox\"  name=\"tags" + "\" value=\"" + opzioni[1][i] + "\">"
 					+ "<label for=\"vehicle1\">" +  opzioni[1][i] + "</label><br />";
 			}
 			break;
 		case "Printers":
 			for(let i = 0; i < opzioni[0].length; ++i) {
-				s += "<input type=\"checkbox\"  name=\"" + opzioni[0][i] + "\" value=\"" + opzioni[0][i] + "\">"
+				s += "<input type=\"checkbox\"  name=\"tags" + "\" value=\"" + opzioni[0][i] + "\">"
 					+ "<label for=\"vehicle1\">" +  opzioni[0][i] + " </label><br />";
 			}
 			break;
@@ -75,7 +75,14 @@ function caricaOpzioni() {
                     event.stopPropagation();
                 }
 				else{
-					modifyFunction();
+					//modifyFunction();
+					if(confirm("Are you sure you want to modify the product?")){ 
+						//document.querySelector('#modifyProduct').submit;
+						}
+		 			else{ 
+						event.preventDefault();
+						return false; 
+						}
 				}
                 form.classList.add('was-validated');
 			}, false);
@@ -84,7 +91,7 @@ function caricaOpzioni() {
 })();
 
 
-function modifyFunction(){
+/*function modifyFunction(){
 	
 	
 	let id = document.getElementById('prodId').innerText;
@@ -135,4 +142,4 @@ function Product(id,name,category,tags,description,price,quantity){
 	this.description = description;
 	this.price = price;
 	this.quantity = quantity;
-}
+}*/

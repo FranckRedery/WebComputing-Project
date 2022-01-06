@@ -45,7 +45,11 @@ function caricaOpzioni() {
                     event.stopPropagation();
                 }
 				else{
-					document.querySelector('#addProd').submit;
+					if(confirm("Are you sure you want to add the product?")){}
+					else{
+						event.preventDefault();
+						return false;
+					}
 				}
                 form.classList.add('was-validated');
             }, false);

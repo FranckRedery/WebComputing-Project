@@ -218,7 +218,7 @@ public class ProductDaoJDBC implements ProductDao {
 		
 		try {
 			String query = "update product "
-				+ "set name = ?, quantity = ? , tags = ?, description = ?, category = ?, price = ?"
+				+ "set name = ?, quantity = ? , tags = ?, description = ?, category = ?, price = ?, image =  ?"
 				+ "where id = ?";
 			PreparedStatement st;
 			st = conn.prepareStatement(query);
@@ -228,7 +228,8 @@ public class ProductDaoJDBC implements ProductDao {
 			st.setString(4, product.getDescription());
 			st.setString(5, product.getCategory());
 			st.setFloat(6,product.getPrice());
-			st.setLong(7,product.getId());
+			st.setString(7, product.getImage());
+			st.setLong(8,product.getId());
 			
 			st.executeUpdate();
 			return;
