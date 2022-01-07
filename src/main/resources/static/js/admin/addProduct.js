@@ -45,7 +45,9 @@ function caricaOpzioni() {
                     event.stopPropagation();
                 }
 				else{
-					if(confirm("Are you sure you want to add the product?")){}
+					if(confirm("Are you sure you want to add the product?")){
+						alert("Product added");
+					}
 					else{
 						event.preventDefault();
 						return false;

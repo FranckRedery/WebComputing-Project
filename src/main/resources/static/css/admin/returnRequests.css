@@ -1,4 +1,6 @@
-
+.rounded-circle{
+	margin-top: 2%;
+}
 
 .info{
 	color: white;
@@ -17,33 +19,14 @@
 }
 
 #pageTitle{
-	font-family: arial;
-	font-weight: bold;
+	font-family: Cinzel Decorative;
+	font-size: 40px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 700; 
+	line-height: 26.4px;
 	text-align: center;
-	text-transform: uppercase;
 	color: black;
-}
-
-@media screen and (max-width: 767px) { 
-	
-	.btn.btn-success{
-   		margin-top: 100%;
-    	margin-bottom: 10%;
-	}
-	
-	td{
-	  overflow: hidden;
-	  width: 20px;
-	}
-	
-	td.reason-cell{
-		font-size: 8px;
-		width: 40px!important;
-	}
-	.rounded-circle {
-    	border-radius: 50%!important;
-    	width: 50px;
-	}
 }
 
 
@@ -59,6 +42,7 @@
     font-weight: bold;
     color: white;
     table-layout: fixed;
+    margin-bottom:20%!important;
 }
 
 .cell{
@@ -979,6 +963,25 @@ header{
     .section-tab-nav li {
       margin-top: 10px;
     }
+    
+    .btn.btn-success{
+   		margin-top: 100%;
+    	margin-bottom: 10%;
+	}
+	
+	td{
+	  overflow: hidden;
+	  width: 20px;
+	}
+	
+	td.reason-cell{
+		font-size: 8px;
+		width: 40px!important;
+	}
+	.rounded-circle {
+    	border-radius: 50%!important;
+    	width: 50px;
+	}
   }
   
   @media only screen and (max-width: 480px) {

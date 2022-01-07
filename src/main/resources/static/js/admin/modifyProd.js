@@ -75,9 +75,8 @@ function caricaOpzioni() {
                     event.stopPropagation();
                 }
 				else{
-					//modifyFunction();
 					if(confirm("Are you sure you want to modify the product?")){ 
-						//document.querySelector('#modifyProduct').submit;
+						alert("Product modified");
 						}
 		 			else{ 
 						event.preventDefault();
@@ -89,57 +88,3 @@ function caricaOpzioni() {
 		});
 	}, false);
 })();
-
-
-/*function modifyFunction(){
-	
-	
-	let id = document.getElementById('prodId').innerText;
-	let name = document.getElementById('productNameModify').value;
-	let category = document.getElementById('productCategory').value;
-	let selectedCheckBoxes = document.querySelectorAll("input:checked");
-	let tags = "";
-	let nuovaTag;
-	if (selectedCheckBoxes.length > 0){
-		selectedCheckBoxes.forEach(function(checkBox, indice){
-		nuovaTag = checkBox.value;
-		tags += nuovaTag;
-		if(indice != selectedCheckBoxes.length-1){
-			tags += ',';
-			}
-		});}
-	let description = document.getElementById('description').value;
-	// TO DO.. take images... in the future maybe , when we will realize how to store img xD
-	let price = document.getElementById('amount').value;
-	let quantity = document.getElementById('quantity').value;
-					
-	let product = new Product(id,name,category,tags,description,price,quantity);
-
-
-
-	$.ajax({
-		type: "POST",
-		url: "/modifyProd",
-		contentType: "application/json",
-		data: JSON.stringify(product),
-		beforeSend:function(){
-        	if(confirm("Are you sure you want to modify the product?")){ 
-				document.getElementById("riga").remove();
-			}
-		 	else{ return false; }
-      	},
-		success: function(){}
-		});
-	//document.getElementById("riga").remove();
-	
-}
-
-function Product(id,name,category,tags,description,price,quantity){
-	this.id = id;
-	this.name = name;
-	this.category = category;
-	this.tags = tags;
-	this.description = description;
-	this.price = price;
-	this.quantity = quantity;
-}*/

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -54,33 +55,52 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-9">
 						<div class="header-ctn">
-							<div style="padding-right: 8%; padding-left:24%; margin-top: 3%" id="firstElement">
-								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-user-plus" id="positions"></i></a>
-							</div>
+
 							<!-- Wishlist -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
+							<div style="padding-right: 3%; margin-top: 3%"  id="firstElement">
+								<a href="addProduct" style="text-decoration: none;">
 									<i class="fas fa-cart-plus" id="add"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
 
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="deleteProd" style="text-decoration: none;">
 									<i class="fas fa-trash" id="trash"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
-
+							
 							<!-- Cart -->
-							<div style="padding-right: 8%; margin-top: 3%">
-								<a href="#" style="text-decoration: none;">
-									<i class="fas fa-users"></i>
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="modifyProd" style="text-decoration: none;">
+									<i class="fas fa-edit"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="returnRequests" style="text-decoration: none;">
+									<i class="fas fa-truck-loading" id="truck2"></i></a>
+							</div>
 							<!-- /Cart -->
+
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+									<i class="fas fa-user-plus" id="positions"></i></a>
+								</a>
+							</div>
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaCurriculum" style="text-decoration: none;">
+									<i class="fas fa-book-open" id="curriculum"></i></a>
+								</a>
+							</div>							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="/visualizzaReports" style="text-decoration: none;">
+									<i class="fas fa-bug" id="report"></i>
+									<!--<div class="qty">0</div>-->
+								</a>
+							</div>
 
 						</div>
 					</div>
@@ -111,11 +131,11 @@
                		<td class="user-cell">
                          <div class="align-items-center text-center " id="user">
                         <c:if test = "${item.user.image != null}">
-                        	<img class="rounded-circle" width="120px" src="${item.user.image}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="${item.user.image}">
                                
                         </c:if>
                         <c:if test = "${item.user.image == null}">
-                        	<img class="rounded-circle" width="120px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        	<img class="rounded-circle" width="120px" height="auto" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                         </c:if>
            						<br>    
                                 <span class="info" style="font-size: small;">Username : </span>

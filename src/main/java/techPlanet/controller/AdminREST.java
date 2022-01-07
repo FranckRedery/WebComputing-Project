@@ -82,13 +82,8 @@ public class AdminREST {
 	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {
 		
 		
-		// deleta il prodotto da my_order se esiste una table che ha per id l'id di questo prod
-		Database.getInstance().getMyOrderDao().deleteMyOrdersByProductId(id);
-		
-		// deleta da returnRequest una table che ha come prod.id l'id di questo prodotto
+		Database.getInstance().getMyOrderDao().deleteMyOrdersByProductId(id);	
 		Database.getInstance().getReturnRequestDao().deleteReturnRequestsByProductId(id);
-		
-		
 		Database.getInstance().getProductsDao().deleteProductById(id);
 		req.getSession().removeAttribute("product");
 	}
