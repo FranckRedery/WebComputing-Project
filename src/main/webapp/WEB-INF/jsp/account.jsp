@@ -45,6 +45,13 @@
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
+						<c:if test="${isAdmin == 't'}">
+						  <a href="adminPage" style="text-decoration: none;">
+							<button class="btnAdmin">
+								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
+							</button>
+						  </a>
+						</c:if>
 				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>

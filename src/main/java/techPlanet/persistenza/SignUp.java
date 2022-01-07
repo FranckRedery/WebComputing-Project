@@ -21,7 +21,7 @@ public class SignUp {
 	}
 	
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("password") + "', '" + req.getParameter("username") + "')";
+		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("password") + "', '" + req.getParameter("username") +  "', '" + false + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
 		

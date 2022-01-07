@@ -50,25 +50,32 @@
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
-						<a href="javascript:signOut()" style="text-decoration: none;">
+						<c:if test="${isAdmin == 't'}">
+						  <a href="adminPage" style="text-decoration: none;">
+							<button class="btnAdmin">
+								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
+							</button>
+						  </a>
+						</c:if>
+				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-					</c:if>
-					<c:if test="${loggato == 'no' || loggato == null}">
-
-						<a style="text-decoration: none;">
-							<button onclick="resetLogin();" class="btnLog">
-								<span>Login</span>
-							</button>
-						</a>
-						<a style="text-decoration: none;">
-							<button onclick="resetSignUp();" class="btnLog">
-								<span>Sign Up</span>
-							</button>
-						</a>
-					</c:if>
+				  </c:if>
+				<c:if test="${loggato == 'no' || loggato == null}">
+				
+					<a style="text-decoration: none;">
+						<button onclick="resetLogin();" class="btnLog">
+							<span>Login</span>
+						</button>
+					</a>
+					<a style="text-decoration: none;">
+						<button onclick="resetSignUp();" class="btnLog">
+							<span>Sign Up</span>
+						</button>
+					</a>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -129,31 +136,29 @@
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<c:if test="${loggatoGoogle == 'si'}">
-										<a href="account.html"
-											style="text-decoration: none; display: flex;"> <img
-											class="profilePic" src='${image}' style="border-radius: 50%;"
-											width="29" height="29" alt="Avatar"> ${username}
-										</a>
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-										<a href="account.html"
-											style="text-decoration: none; display: flex;"> <c:if
-												test="${image != null && image != ''}">
-												<img class="profilePic" src='${image}'
-													style="border-radius: 50%;" width="29" height="29"
-													alt="Avatar">
-											</c:if> <c:if test="${image == null || image == ''}">
-												<img class="profilePic" src='images/account/avatar.png'
-													style="border-radius: 50%;" width="29" height="29"
-													alt="Avatar">
-											</c:if> ${username}
-										</a>
+									<a href="account.html" style="text-decoration: none; display: flex;">
+										<c:if test="${image != null && image != ''}">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										<c:if test="${image == null || image == ''}">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										</c:if>
+										${username}
+									</a>
 									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-									<a href="login.html" style="text-decoration: none;"> <i
-										class="fa fa-user"></i>
-									</a>
+								<a href="login.html" style="text-decoration: none;"> <i
+									class="fa fa-user"></i>
+								</a>
 								</c:if>
 							</div>
 							<!-- /User Toogle -->

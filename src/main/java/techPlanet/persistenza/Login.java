@@ -52,6 +52,7 @@ public class Login {
 				session.setAttribute("username", rs.getString("username"));
 				session.setAttribute("loggato", "si");
 				session.setAttribute("errore", "no");
+				session.setAttribute("isAdmin", rs.getString("isadmin"));
 				session.setAttribute("name", rs.getString("name"));
 				session.setAttribute("surname", rs.getString("surname"));
 				session.setAttribute("phonenumber", rs.getString("phonenumber"));

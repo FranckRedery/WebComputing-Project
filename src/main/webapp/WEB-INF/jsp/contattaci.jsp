@@ -58,6 +58,13 @@
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
+						<c:if test="${isAdmin == 't'}">
+						  <a href="adminPage" style="text-decoration: none;">
+							<button class="btnAdmin">
+								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
+							</button>
+						  </a>
+						</c:if>
 				     <a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
@@ -147,7 +154,7 @@
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
