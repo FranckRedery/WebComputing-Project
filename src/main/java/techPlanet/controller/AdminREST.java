@@ -73,7 +73,6 @@ public class AdminREST {
 		HttpSession session = req.getSession(true);
 		session.setAttribute("product", product);
 
-		
 		return product;
 		
 	}

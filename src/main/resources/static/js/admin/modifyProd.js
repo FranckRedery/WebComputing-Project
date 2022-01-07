@@ -52,8 +52,14 @@ function caricaOpzioni() {
 						contentType: "application/json",
 						data: name,
 						async: false,
-						success: function(){
-							window.location.reload(); }
+						success: function(data){
+							if (!$.trim(data)){   
+   								 alert("The product you are looking for does not exist");
+								}
+							else{   
+    							window.location.reload();;
+								}
+							}
 					});
 				}
                 form.classList.add('was-validated');
