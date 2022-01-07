@@ -16,11 +16,12 @@ function postReview() {
 		starNumber.shift();
 		star = starNumber;
 	}
+	starInt = parseInt(star);
 	const titleText = document.getElementById('titleText').value;
 	const descriptionText = document.getElementById('descriptionText').value; 
 	const id = $('tbody').closest('table').attr('id');
 	let product = new Product(id);	
-	let reviews = new Review(product,titleText,descriptionText, star);
+	let reviews = new Review(product,titleText,descriptionText, starInt);
 	$.ajax({
 			type: "POST",
 			url: "/addReview",

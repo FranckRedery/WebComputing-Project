@@ -15,6 +15,18 @@ $("button#addProd").click(function(){
 			});
 });
 
+function RemoveReview(id) {
+	$.ajax({
+			type: "POST",
+			url: "/removeReview",
+			contentType: "application/json",
+			data: JSON.stringify(id),
+			success: function(){
+   				window.location = "/product";
+		}
+	});
+}
+
 function Product(id) {
 	this.id = id;
 }

@@ -132,7 +132,7 @@
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -204,7 +204,7 @@
                 <tr id="row_${cho.id.id}">
                     <td>
                         <div class="cart-info">
-                            <img src="images/carrello/iphone1.jpeg">
+                            <img src="${cho.id.image}">
                             <div>
                                 <p>${cho.id.name}</p>
                                 <small>Price $${cho.id.price}0</small>

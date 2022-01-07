@@ -13,15 +13,15 @@ import techPlanet.model.Review;
 import techPlanet.model.User;
 import techPlanet.persistenza.dao.ReviewDao;
 
-public class ReviewDaoJDBC implements ReviewDao{
+public class ReviewDaoJDBC implements ReviewDao {
 
 	private Connection conn;
-	
+
 	public ReviewDaoJDBC(Connection conn) {
 		super();
 		this.conn = conn;
 	}
-	
+
 	@Override
 	public List<Review> findByProduct(Long id) {
 		List<Review> reviews = new ArrayList<Review>();
@@ -31,7 +31,7 @@ public class ReviewDaoJDBC implements ReviewDao{
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Review review = new Review();
 				review.setDescription(rs.getString("description"));
 				Product product = Database.getInstance().getProductsDao().findById(id);
@@ -50,23 +50,76 @@ public class ReviewDaoJDBC implements ReviewDao{
 	}
 
 	@Override
-	public void addReview(Review review, String username) {
-		try {
-			String query = "insert into reviews "
-					+ "values (?, ?, ?, ?, ?)";
-			PreparedStatement st = conn.prepareStatement(query);			
-			st.setLong(1,review.getId().getId());
-			st.setString(2,username);
-			st.setString(3, review.getDescription());
-			st.setString(4, review.getTitle());
-			st.setFloat(5, review.getStars());
-			st.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return;
+	public void saveOrUpdate(Review review, String username) {
+		if (!AlreadyInserted(review.getId().getId(), username)) {
+			try {
+				String query = "insert into reviews " + "values (?, ?, ?, ?, ?)";
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setLong(1, review.getId().getId());
+				st.setString(2, username);
+				st.setString(3, review.getDescription());
+				st.setString(4, review.getTitle());
+				st.setFloat(5, review.getStars());
+				st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
+		else {
+			try {
+				String query = "update reviews " +
+						"set title = ?, description = ?, stars = ?" + 
+						"where id = ? and username = ?";
+				PreparedStatement st;
+				st = conn.prepareStatement(query);
+				st.setString(1, review.getTitle());
+				st.setString(2,review.getDescription());
+				st.setFloat(3, review.getStars());
+				st.setLong(4, review.getId().getId());
+				st.setString(5, username);
+				st.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 	}
+
+	@Override
+	public void removeReview(Long id, String username) {
+		try {
+			String query = "delete from reviews where id = ? and username = ?"; 
+			PreparedStatement st;
+			st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.setString(2, username);
+			st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	}
 	
-	
+	public boolean AlreadyInserted(Long id, String username) {
+		String query = "select id from reviews where username = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				if (rs.getLong("id") == id) {
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

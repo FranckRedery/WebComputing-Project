@@ -186,7 +186,7 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Home</a></li>
+						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -194,7 +194,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Accessories</a></li>
+						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>
 			</div>
 		</div>
@@ -324,7 +324,7 @@
 			<c:forEach items="${prodotti}" var="prod">
 				<div class="col product-item mx-auto">
 					<div class="product-img">
-						<img src="images/index/product01.png" alt=""
+						<img src="${prod.image}" alt=""
 							class="img-fluid d-block mx-auto"> <span class="heart-icon">
 							<i class="far fa-heart"></i>
 						</span>

@@ -3,12 +3,18 @@ $(".addProd").click(function(){
 	let quantity = 1;
 	let product = new Product(id);
 	let chooses = new Chooses(product, quantity);
+	document.getElementById("cart_" + id).innerHTML = "Added to cart";
+	setTimeout(function() {
+		document.getElementById("cart_" + id).innerHTML=""; },1000)	
 	$.ajax({
 			type: "POST",
 			url: "/addProductToCart",
 			contentType: "application/json",
 			data: JSON.stringify(chooses),
-			success: function(){},
+			success: function(){
+				setTimeout(function() {
+   					location.reload();}, 1000);
+			},
 			});
 });
 

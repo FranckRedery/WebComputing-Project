@@ -711,6 +711,13 @@ body {
 .pagination{
   text-align: center;
 }
+
+.addedToCart{
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	color: blue;
+}
 /*=========================================================
 	11 -> FOOTER
 ===========================================================*/

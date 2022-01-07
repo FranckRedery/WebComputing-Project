@@ -664,11 +664,6 @@ input:focus{
   outline: none;
 }
 
-.single-product .fa-indent{
-  color: #0b3de1;
-  margin-left: 10px;
-}
-
 .small-img-row{
   display: flex;
   justify-content: space-between;
@@ -815,6 +810,17 @@ input:focus{
   .reviews{
     margin-top: 10px;
   }
+}
+
+.changeReview {
+	background-color: transparent; 
+	border: none; 
+	width: 10px;
+	margin-right: 10px;
+}
+
+.fa-minus {
+	color: red;
 }
 
 /*=========================================================

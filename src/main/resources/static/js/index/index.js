@@ -30,7 +30,7 @@ $("button#addProd").click(function(){
 	let chooses = new Chooses(product,quantity);
 	document.getElementById("cart_" + id).innerHTML = "Added to cart";
 	setTimeout(function() {
-		document.getElementById("cart_" + id).innerHTML=""; },2000)	
+		document.getElementById("cart_" + id).innerHTML=""; },1000)	
 	$.ajax({
 		type: "POST",
 		url: "/addProductToCart",
@@ -38,7 +38,7 @@ $("button#addProd").click(function(){
 		data: JSON.stringify(chooses),
 		success: function(){
 					setTimeout(function() {
-   					location.reload();}, 2000);
+   					location.reload();}, 1000);
 			}
 			});
 });

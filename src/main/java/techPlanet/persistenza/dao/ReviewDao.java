@@ -6,5 +6,6 @@ import techPlanet.model.Review;
 
 public interface ReviewDao {
 	public List<Review> findByProduct(Long id);
-	public void addReview(Review review, String username);
+	public void saveOrUpdate(Review review, String username);
+	public void removeReview(Long id, String username);
 }

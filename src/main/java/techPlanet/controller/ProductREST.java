@@ -61,4 +61,13 @@ public class ProductREST {
 		String username = (String) req.getSession().getAttribute("username");
 		Database.getInstance().getChoosesDao().updateQuantity(chooses, username);
 	}
+	
+	@PostMapping("/removeReview") 
+	public void removeReview(@RequestBody Long id, HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		Database.getInstance().getReviewDao().removeReview(id, username);
+		List<Review> review = Database.getInstance().getReviewDao().findByProduct(id);
+		HttpSession session = req.getSession(true);
+		session.setAttribute("review", review);
+	}
 }

@@ -139,7 +139,7 @@
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -182,7 +182,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Accessories</a></li>
+						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>
 			</div>
 		</div>
@@ -192,8 +192,9 @@
 	<div class="box-container">
 		<c:forEach items="${products}" var="prod">
 			<div class="box">
+								<div class="addedToCart" id="cart_${prod.id}"></div>
 				<div class="image">
-					<img src="images/index/product01.png" alt="">
+					<img src="${prod.image}" alt="">
 				</div>
 				<div class="info">
 					<h3 class="title">${prod.name}</h3>

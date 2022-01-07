@@ -24,6 +24,7 @@ public class MyOrderREST {
 	@PostMapping("/addReview") 
 	public void addReview(@RequestBody Review review, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
-		Database.getInstance().getReviewDao().addReview(review, username);
+		Database.getInstance().getReviewDao().saveOrUpdate(review, username);
 	}
+	
 }

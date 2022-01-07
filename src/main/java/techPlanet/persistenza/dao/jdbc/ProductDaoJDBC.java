@@ -160,6 +160,7 @@ public class ProductDaoJDBC implements ProductDao {
 				prodotto.setCategory(rs.getString("category"));
 				prodotto.setReviews(rs.getFloat("reviews"));
 				prodotto.setPrice(rs.getFloat("price"));
+				prodotto.setImage(rs.getString("image"));				
 				product.add(prodotto);
 			}
 		} catch (SQLException e) {

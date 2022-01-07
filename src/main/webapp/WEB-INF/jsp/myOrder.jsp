@@ -156,7 +156,7 @@
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -223,7 +223,7 @@
 				<tbody>
 					<c:forEach items="${orders}" var="ord">
 				 	<tr id="${ord.id.id}">
-						<td><img alt="" src="images/carrello/iphone1.jpeg"></td>
+						<td><img alt="" src="${ord.id.image}"></td>
 						<td>${ord.id.name}</td>
 						<td>${ord.date_of_purchase}</td>
 						<td>

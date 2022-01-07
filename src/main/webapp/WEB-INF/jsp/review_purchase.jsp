@@ -153,7 +153,7 @@
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='images/account/${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -189,7 +189,7 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Home</a></li>
+						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -197,7 +197,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Accessories</a></li>
+						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>
 			</div>
 		</div>
@@ -215,7 +215,7 @@
 				</thead>
 				<tbody>
 				 	<tr>
-						<td><img alt="" src="images/carrello/iphone1.jpeg"></td>
+						<td><img alt="" src="${product.image}"></td>
 						<td>${product.name}</td>
 					</tr>
 				</tbody>

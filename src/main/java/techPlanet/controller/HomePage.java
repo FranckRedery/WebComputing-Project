@@ -61,7 +61,15 @@ public class HomePage {
 	@GetMapping("/printersGallery.html")
 	public String PrintersGalleryPage(HttpServletRequest req) {
 		setNumberCart(req);
-		List<Product> products = Database.getInstance().getProductsDao().findByCategory("printers");
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("printer");
+		req.setAttribute("products", products);
+		return "productGallery";
+	}
+	
+	@GetMapping("/accessoriesGallery.html")
+	public String AccessoriesGalleryPage(HttpServletRequest req) {
+		setNumberCart(req);
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("accessory");
 		req.setAttribute("products", products);
 		return "productGallery";
 	}
