@@ -66,6 +66,14 @@ public class HomePage {
 		return "productGallery";
 	}
 	
+	@GetMapping("/camerasGallery.html")
+	public String camerasGalleryPage(HttpServletRequest req) {
+		setNumberCart(req);
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("camera");
+		req.setAttribute("products", products);
+		return "productGallery";
+	}
+	
 	@GetMapping("/accessoriesGallery.html")
 	public String AccessoriesGalleryPage(HttpServletRequest req) {
 		setNumberCart(req);

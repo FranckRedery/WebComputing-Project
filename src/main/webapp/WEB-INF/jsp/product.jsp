@@ -32,7 +32,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<body>
 
 	<!-- HEADER -->
 	<header>
@@ -189,7 +189,9 @@
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Accessories</a></li>
+						href="camerasGallery.html">Cameras</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>
 			</div>
 		</div>

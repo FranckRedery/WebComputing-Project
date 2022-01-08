@@ -32,7 +32,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<body>
 		
 	<!-- HEADER -->
 	<header>
@@ -90,7 +90,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <img id="logo"
+							<a href="/" class="logo"> <img id="logo"
 								src="images/index/logo.png" alt="">
 							</a>
 						</div>
@@ -188,6 +188,8 @@
 						href="smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>

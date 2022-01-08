@@ -107,7 +107,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <img id="logo"
+							<a href="/" class="logo"> <img id="logo"
 								src="images/index/logo.png" alt="">
 							</a>
 						</div>
@@ -199,7 +199,7 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Home</a></li>
+						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="laptopsGallery.html">Laptops</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -207,7 +207,9 @@
 					<li class="nav-item"><a class="nav-link"
 						href="printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Accessories</a></li>
+						href="camerasGallery.html">Cameras</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="accessoriesGallery.html">Accessories</a></li>
 				</ul>
 			</div>
 		</div>

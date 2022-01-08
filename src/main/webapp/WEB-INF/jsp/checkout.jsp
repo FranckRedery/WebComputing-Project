@@ -84,7 +84,6 @@
 								class="form-control" id="address2" placeholder="${addressline2}"
 								readonly>
 						</div>
-
 						<hr class="mb-4">
 						<h4 class="mb-3">Payment</h4>
 
@@ -109,13 +108,15 @@
 							<div class="col-md-6 mb-3">
 								<label for="cc-name">Name on card</label> <input type="text"
 									class="form-control" id="cc-name" placeholder="Mario Rossi"
-									required onkeyup="stoppedTyping()"> <small class="text-muted">Full name
-									as displayed on card</small>
+									required onkeyup="stoppedTyping()"> <small
+									class="text-muted">Full name as displayed on card</small>
 								<div class="invalid-feedback">Name on card is required</div>
 							</div>
 							<div class="col-md-6 mb-3">
-								<label for="cc-number">Credit card number</label> 
-								<input type="text" class="form-control" id="cc-number" placeholder="" required pattern=".{13,16}" required title="13 to 16 characters" onkeyup="stoppedTyping()">
+								<label for="cc-number">Credit card number</label> <input
+									type="text" class="form-control" id="cc-number" placeholder=""
+									required pattern="[0-9].{13,16}" required
+									title="13 to 16 numbers" onkeyup="stoppedTyping()">
 								<div class="invalid-feedback">Credit card number is
 									required</div>
 							</div>
@@ -129,13 +130,40 @@
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="cc-cvv">CVV</label> <input type="text"
-									class="form-control" id="cc-cvv" placeholder="XXX" required pattern="[0-9]{3}" required title="3 number required"  onkeyup="stoppedTyping()">
+									class="form-control" id="cc-cvv" placeholder="XXX" required
+									pattern="[0-9]{3}" required title="3 number required"
+									onkeyup="stoppedTyping()">
 								<div class="invalid-feedback">Security code required</div>
 							</div>
 						</div>
 						<hr class="mb-4">
-						<button class="btn btn-primary btn-lg btn-block" id="completeOrder" type="submit" disabled
-							onclick="toEmptyCart()">proceed to order</button>
+						<button class="btn btn-primary btn-lg btn-block"
+							id="completeOrder" type="button" data-bs-toggle="modal"
+							data-bs-target="#myModal" disabled onclick="toEmptyCart()">proceed
+							to order</button>
+						<div class="modal" id="myModal">
+							<div class="modal-dialog">
+								<div class="modal-content">
+
+									<!-- Modal Header -->
+									<div class="modal-header">
+										<h4 class="modal-title">purchase completed</h4>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal"></button>
+									</div>
+
+									<!-- Modal body -->
+									<div class="modal-body">thanks for the purchase, you will be able to manage the purchased products directly from the my orders page</div>
+
+									<!-- Modal footer -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger"
+											data-bs-dismiss="modal" onclick="window.location.href='/'">Close</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
