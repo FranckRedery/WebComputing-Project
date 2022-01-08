@@ -29,6 +29,11 @@ public class Admin {
 		return "deleteProd";
 	}
 	
+	@GetMapping("/addAdmin")
+	public String addAdmin() {
+		return "addAdmin";
+	}
+	
 	@GetMapping("/modifyProd")
 	public String modifyProd(){
 		return "modifyProd";

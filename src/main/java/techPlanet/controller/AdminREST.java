@@ -21,6 +21,7 @@ import techPlanet.model.Job;
 import techPlanet.model.Product;
 import techPlanet.model.Report;
 import techPlanet.model.ReturnRequest;
+import techPlanet.model.User;
 
 @RestController
 public class AdminREST {
@@ -74,6 +75,24 @@ public class AdminREST {
 		session.setAttribute("product", product);
 
 		return product;
+		
+	}
+	
+	@PostMapping("/getUserByUsername")
+	public User getUserByUsername(@RequestBody String username, HttpServletRequest req) {
+		
+		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
+		HttpSession session = req.getSession(true);
+		session.setAttribute("user", user);
+		
+		return user;
+	}
+	
+	@PostMapping("/makeAdminByUsername")
+	public void makeAdminByUsername(@RequestBody String username) {
+
+		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
+		Database.getInstance().getUserDao().makeAdmin(user);
 		
 	}
 

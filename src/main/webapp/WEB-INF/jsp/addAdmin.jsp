@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<link type="text/css" rel="stylesheet" href="css/admin/adminPage.css" />
+	<link type="text/css" rel="stylesheet" href="css/admin/addAdmin.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -13,7 +16,8 @@
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-	<title>Admin Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Add admin</title>
 </head>
 
 <body>
@@ -79,11 +83,6 @@
 									<i class="fas fa-truck-loading" id="truck2"></i></a>
 							</div>
 							<!-- /Cart -->
-							
-							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="addAdmin" style="text-decoration: none;">
-									<i class="fas fa-user-tie" id="addAdmin"></i></a>
-							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
@@ -112,66 +111,45 @@
 
 
 
-	<p id="title">WELCOME "ADMIN NAME FROM DB"</p>
-
-	<div class="container-fluid" id="management">
-		<div class="row" id="textManagement1">
-			<div class="col-md-3">
-				Add product
-				<br /><br />
-				<a href="addProduct" style="text-decoration: none;">
-					<i class="fas fa-cart-plus fa-5x" id="addProd"></i></a>
-			</div>
-			<div class="col-md-3">
-				Delete product
-				<br /><br />
-				<a href="deleteProd" style="text-decoration: none;">
-					<i class="fas fa-trash fa-5x" id="deleteProd"></i></a>
-			</div>
-			<div class="col-md-3">
-				Modify product
-				<br /><br />
-				<a href="modifyProd" style="text-decoration: none;">
-					<i class="fas fa-edit fa-5x" id="users2"></i></a>
-			</div>
-			<div class="col-md-3">
-				Returns management
-				<br /><br />
-				<a href="returnRequests" style="text-decoration: none;">
-					<i class="fas fa-truck-loading fa-5x" id="truck2"></i></a>
-			</div>
+	<form class="needs-validation" novalidate>
+		<div class="mb-3">
+			<label class="form-label" for="userName" style="margin-top: 3%;">Username</label>
+			<input type="text" class="form-control" id="userName" placeholder="User's username" required>
+			<div class="invalid-feedback">Please enter a valid username.</div>
 		</div>
-		<div class="row" id="textManagement2">
-			
-			<div class="col-md-3">
-				Add admin
-				<br /><br />
-				<a href="addAdmin" style="text-decoration: none;">
-					<i class="fas fa-user-tie fa-5x" id="addAdmin"></i></a>
-			</div>
-		
-			<div class="col-md-3">
-				Positions management
-				<br /><br />
-				<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
-					<i class="fas fa-user-plus fa-5x" id="positions2"></i></a>
-			</div>
-			<div class="col-md-3">
-				View reports
-				<br /><br />
-				<a href="/visualizzaReports" style="text-decoration: none;">
-					<i class="fas fa-bug fa-5x" id="report2"></i></a>
-			</div>
-			<div class="col-md-3">
-				View curriculum
-				<br /><br />
-				<a href="/visualizzaCurriculum" style="text-decoration: none;">
-					<i class="fas fa-book-open fa-5x" id="report2"></i></a>
-			</div>
-		</div>
-	</div>
-
-
+		<button type="submit"  class="btn btn-primary" id="btnSearch">Search the user</button>
+	</form>
+	
+	<c:if test = "${user != null}">
+     <div class="row" id="riga">
+		<div class="col-md-7">
+            <label class="selectedUser" id="selectedUser">Selected user</label>
+            <div class="align-items-center text-center " id="user">
+                        <c:if test = "${user.image != null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="${user.image}">
+                               
+                        </c:if>
+                        <c:if test = "${user.image == null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        </c:if>
+           						<br>    
+                                <span class="info" style="font-size: small;">Username : </span>
+                                <span class="font-weight-bold;" id="username" style="font-size: small;">${user.username}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Email : </span>
+                                <span class="font-weight-bold;" id="email" style="font-size: small;">${user.email}</span>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+        	<button type="button" class="golden-btn" onclick="makeAdmin();">Make admin</button>
+        	<br>
+        	<a href="/adminPage"><button type="button" class="btn btn-secondary" id="btnHome">Back to homepage</button></a> 
+        </div>
+        
+      </div>
+	 </c:if>
+	   
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -237,6 +215,7 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
+	<script src="js/admin/addAdmin.js"></script>
 </body>
 
 </html>

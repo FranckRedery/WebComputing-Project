@@ -83,6 +83,11 @@
 									<i class="fas fa-truck-loading" id="truck2"></i></a>
 							</div>
 							<!-- /Cart -->
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="addAdmin" style="text-decoration: none;">
+									<i class="fas fa-user-tie" id="addAdmin"></i></a>
+							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">

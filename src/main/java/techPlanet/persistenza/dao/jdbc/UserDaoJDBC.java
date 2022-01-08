@@ -65,6 +65,7 @@ public class UserDaoJDBC implements UserDao {
 				user.setUsername(rs.getString("username"));
 				user.setCode(rs.getString("code"));
 				user.setImage(rs.getString("image"));
+				user.setIsadmin(rs.getBoolean("isadmin"));
 				return user;
 			}
 		} catch (SQLException e) {
@@ -72,6 +73,25 @@ public class UserDaoJDBC implements UserDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void makeAdmin(User user) {
+		
+		try {
+			String query = "update users "
+			+ "set isadmin = ?"
+			+ "where username = ?";
+
+			
+			PreparedStatement st = conn.prepareStatement(query);
+			
+			st.setBoolean(1, true);
+			st.setString(2, user.getUsername());
+			st.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error occurred in makeAdmin function");
+		}
 	}
 
 	

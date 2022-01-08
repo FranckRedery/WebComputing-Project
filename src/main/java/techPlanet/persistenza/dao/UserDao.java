@@ -12,4 +12,5 @@ public interface UserDao {
 	public User findByPrimaryKey(String username);
 	public boolean saveOrUpdate(User user);
 	public boolean delete(User user);
+	public void makeAdmin(User user);
 }

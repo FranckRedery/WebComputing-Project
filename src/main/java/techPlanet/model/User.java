@@ -17,7 +17,14 @@ public class User {
 	String stateRegion;
 	String code;
 	String image;
+	boolean isadmin;
 
+	public boolean isIsadmin() {
+		return isadmin;
+	}
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
+	}
 	public String getImage() {
 		return image;
 	}
