@@ -387,7 +387,7 @@
 			<div class="col-sm-4 p-3 bg-primary text-white"
 				id="linkSelezionaProdotto">
 
-				<a class="clearfix" href="guidaSceltaProdotto/guidaSceltaProdotto">
+				<a class="clearfix" href="/productSelectionGuide">
 					<button class="button">Select your product</button>
 				</a>
 				<!--	<a href="guidaSceltaProdotto/guidaProdotto" class="btn btn-light" stretched-link">Seleziona il tuo prodotto</a>  -->
@@ -435,8 +435,8 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="/aboutUs.html">About Us</a></li>
-								<li><a href="/contattaci">Contact Us</a></li>
-								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
 								<li><a href="/privacyPolicy">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
@@ -451,7 +451,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

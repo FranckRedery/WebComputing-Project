@@ -20,7 +20,7 @@
 
 /* PAGINA JSP */
 
-#testoSezione p {
+#testoSezione1 p, #testoSezione2 p {
 	text-align: justify;
 }
 
@@ -221,8 +221,8 @@ input[type=text] {
 	margin-bottom: 10px;
 }
 
-.messaggioErrore {
-	text-align: center;
+.messaggioErrore p {
+	text-align: center !important;
 	color: red;
 }
 
@@ -238,7 +238,7 @@ input[type=text] {
 @media screen and (max-width: 580px) {
 
 
-	/*evita che la navbar esce fuori dai bordi quando restringo*/
+	/*evita che il div container esce fuori dai bordi quando restringo*/
 	#container {
 		padding-left: 0px !important;
 		padding-right: 0px !important;

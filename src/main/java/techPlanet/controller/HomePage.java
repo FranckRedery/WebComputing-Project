@@ -103,7 +103,7 @@ public class HomePage {
 		return "product";
 	}
 	
-	@GetMapping("/visualizzaProdotto")
+	@GetMapping("/viewProduct")
 	public String guidaProdotto(HttpServletRequest req) {
 		
 		Long id = Long.parseLong(req.getParameter("id"));
@@ -117,6 +117,16 @@ public class HomePage {
 
 		return "product";
 	}	
+	
+	@GetMapping("/contactUs")
+	public String contattaci() {
+		return "contattaci";
+	}
+	
+	@GetMapping("/customerSupport")
+	public String supportoClienti() {
+		return "supportoClienti";
+	}
 
 	public void setNumberCart(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");

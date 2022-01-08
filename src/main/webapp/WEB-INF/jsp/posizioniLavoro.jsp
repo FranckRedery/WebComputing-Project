@@ -57,6 +57,7 @@
 					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
@@ -81,12 +82,12 @@
 					<div class="col-md-9">
 						<div class="header-ctn">
 							<div style="padding-right: 5%; margin-top: 3%" id="firstElement">
-								<a href="/visualizzaCurriculum" style="text-decoration: none;">
-									<i class="fas fa-book-open" id="positions"></i></a>
+								<a href="/viewCurriculum" style="text-decoration: none;">
+									<i class="fas fa-book-open" id="positions"></i>
 								</a>
 							</div>
 							<div style="padding-right: 5%; margin-top: 3%">
-								<a href="/visualizzaReports" style="text-decoration: none;">
+								<a href="/viewReports" style="text-decoration: none;">
 									<i class="fas fa-bug" id="report"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -164,14 +165,12 @@
 								</c:forEach>
 							</td>
 							<td data-title = "Active">
-								<c:if test = "${lav.active == true}">
-									<input type="checkbox" id = "lavoroCheckBox" value = "true"/>
+								<c:if test = "${lav.active == true}"><input type="checkbox" id = "lavoroCheckBox" value = "true"/>
 									<figure>
 										<img src = "images/admin/posizioniLavoro/si.png">
 									</figure>
 								</c:if>
-								<c:if test = "${lav.active == false}">
-									<input type="checkbox" id = "lavoroCheckBox" value = "false"/>
+								<c:if test = "${lav.active == false}"><input type="checkbox" id = "lavoroCheckBox" value = "false"/>
 									<figure>
 										<img src = "images/admin/posizioniLavoro/no.png">
 									</figure>
@@ -241,7 +240,7 @@
 
 <!------------------------GRUPPO-------------------------------------------->	
 
-	<!-- FOOTER -->
+<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
@@ -254,7 +253,8 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+								<li><a href="#"><i class="fa fa-map-marker"></i>1734
+										Stonecoal Road</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
 							</ul>
@@ -278,8 +278,8 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="#">About Us</a></li>
-								<li><a href="/contattaci">Contact Us</a></li>
-								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
@@ -294,7 +294,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

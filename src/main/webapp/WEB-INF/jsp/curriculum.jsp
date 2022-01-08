@@ -21,11 +21,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<!-- JS -->
-	<script language="javascript" src="../js/lavoraConNoi/modelloLavoraConNoi.js"></script>
-	<script language="javascript" src="../js/lavoraConNoi/campiForm.js"></script>
-	<script language="javascript" src="../js/lavoraConNoi/vaiA.js"></script>
-	<script language="javascript" src="../js/lavoraConNoi/funzioni.js"></script>
-	<script language="javascript" src="../js/lavoraConNoi/curriculum.js"></script>
+	<script src="../js/lavoraConNoi/modelloLavoraConNoi.js"></script>
+	<script src="../js/lavoraConNoi/campiForm.js"></script>
+	<script src="../js/lavoraConNoi/vaiA.js"></script>
+	<script src="../js/lavoraConNoi/funzioni.js"></script>
+	<script src="../js/lavoraConNoi/curriculum.js"></script>
 
 	<!--AJAX ha la dipendenza nel pom -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,8 +45,10 @@
 
 </head>
 
-<body onload="timeOut('${loggato}'">
-		
+<body>
+
+<!-------------------------GRUPPO--------------------------------------------->
+
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -55,46 +57,36 @@
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
-							techPlanet2022@gmail.com</a></li>
+							email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
 							Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
-				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
-					<c:if test="${loggato == 'si'}">
-						<c:if test="${isAdmin == 't'}">
-						  <a href="adminPage" style="text-decoration: none;">
-							<button class="btnAdmin">
-								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
-							</button>
-						  </a>
-						</c:if>
-				     <a href="javascript:signOut()" style="text-decoration: none;">
-							<button class="btnLog">
-								<span>Log out</span>
-							</button>
-						</a>
-				  </c:if>
-				<c:if test="${loggato == 'no' || loggato == null}">
-				
-					<a style="text-decoration: none;">
-						<button onclick="resetLogin();" class="btnLog">
-							<span>Login</span>
-						</button>
-					</a>
-					<a style="text-decoration: none;">
-						<button onclick="resetSignUp();" class="btnLog">
-							<span>Sign Up</span>
-						</button>
-					</a>
-				</c:if>
+						<%if (session.getAttribute("loggato") == "si") {%>
+								<a href="/faiLogout" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Log out</span>
+									</button>
+								</a>
+								<%} else {%>
+								<a href="login.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Login</span>
+									</button>
+								</a>
+								<a href="signUp.html" style="text-decoration: none;">
+									<button class="btnLog">
+										<span>Sign Up</span>
+									</button>
+								</a>
+								<%}%>
 				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
-		
-			<!-- MAIN HEADER -->
+
+		<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -103,12 +95,13 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <img id="logo"
-								src="images/index/logo.png" alt="">
+							<a href="/" class="logo"> <img id="logo"
+								src="../images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
 					<!-- /LOGO -->
+
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -134,45 +127,27 @@
 									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
+
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> 
-									<c:if test="${username != null && numProd > 0}">
-									<div class="qty">${numProd}</div>
-									</c:if>
+									class="fa fa-shopping-cart"></i> <!--<div class="qty">0</div>-->
 								</a>
 							</div>
 							<!-- /Cart -->
 
 							<!-- User Toogle -->
 							<div>
-								<c:if test="${loggato == 'si'}">
-									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
-									</c:if>
-									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										${username}
-									</a>
-									</c:if>
-								</c:if>
-								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none;"> <i
-									class="fa fa-user"></i>
+								<%if (session.getAttribute("loggato") == "no" || session.getAttribute("loggato") == null){%>
+								<a href="login.html" style="text-decoration: none;"> 
+									<i class="fa fa-user"></i>
 								</a>
-								</c:if>
+								<%} else if(session.getAttribute("loggato") == "si"){%>
+								<a href="account.html" style="text-decoration: none; display: flex; "> 
+									<img class="profilePic" src="../images/account/avatar.png" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+									${username}
+								</a>
+								<%}%>
 							</div>
 							<!-- /User Toogle -->
 						</div>
@@ -182,7 +157,6 @@
 		</div>
 	</header>
 	<!--/HEADER-->
-
 
 	<!-- /SECTION -->
 	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
@@ -301,9 +275,9 @@
 				</div>
 				<br />
 				
-				<div id = "testo1">
-					<form method = "post" action = "/lavoraConNoi/salvaPresentazione" enctype="multipart/form-data">
-					<div class = "row">
+				<div id = "testoSezione1">
+					<form method = "post" action = "/workWithUs/saveCurriculum" enctype="multipart/form-data">
+						<div class = "row">
 							<div class = "col-sm-12" id = "formCentrale">
 								<div id = "titolo">
 								</div>
@@ -491,7 +465,7 @@
 												</label>
 											</td>
 											<td>
-												<textarea name="letteraPresentazione" rows="4" cols="20"></textarea>
+												<textarea name="letteraPresentazione" rows="4" cols="20" placeholder="Additional presentation ..."></textarea>
 											</td>
 										</tr>
 									</tbody>
@@ -499,7 +473,7 @@
 							</div>
 						</div>
 						<br /><br />
-						<div id = "testo2">
+						<div id = "testoSezione2">
 							<div class = "row" id = "mancaLaTuaPosizione">
 								<div class = "col-sm-12">
 									<p><i>By clicking on the "send curriculum" button, you accept the information on online candidates pursuant to art. 13 of Regulation (EU) 2016/679.</i></p>
@@ -558,7 +532,7 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="#">About Us</a></li>
-								<li><a href="/contattaci">Contact Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
 								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
@@ -574,7 +548,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

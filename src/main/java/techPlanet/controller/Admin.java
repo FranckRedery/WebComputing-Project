@@ -81,7 +81,7 @@ public class Admin {
 		return "addProduct";
 	}
 	
-	@GetMapping("/visualizzaReports")
+	@GetMapping("/viewReports")
 	public String visualizzaReports(HttpServletRequest req) {
 		
 		HttpSession session = req.getSession(true);
@@ -95,7 +95,7 @@ public class Admin {
 		return "visualizzaReports";
 	}
 	
-	@GetMapping("/visualizzaPosizioniLavoro")
+	@GetMapping("/viewJobs")
 	public String visualizzaPosizioniLavoro(HttpServletRequest req) {
 		
 		HttpSession session = req.getSession(true);
@@ -109,7 +109,7 @@ public class Admin {
 		return "posizioniLavoro";
 	}
 	
-	@GetMapping("/visualizzaCurriculum")
+	@GetMapping("/viewCurriculum")
 	public String visualizzaCurriculum(HttpServletRequest req) {
 
 		HttpSession session = req.getSession(true);

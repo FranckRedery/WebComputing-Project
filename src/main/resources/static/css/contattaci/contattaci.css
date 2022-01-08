@@ -14,14 +14,15 @@
 	color: gray;
 }
 
+
+body {
+	overflow-wrap: break-word;
+}
+
 #navigation {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-}
-
-body {
-	overflow-wrap: break-word;
 }
 
 .header-ctn>div {
@@ -34,32 +35,3 @@ body {
   margin-top:0% !important;
 }
 
-.profilePic{
-	margin-right: 7px;
-}
-
-.btnAdmin {
-  width: 160px;
-  height: 40px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #0b3de1;
-  outline: none;
-  transition: 1s ease-in-out;
-  border-radius: 30px 30px 30px 30px;
-}
-
-.btnAdmin:hover {
-  transition: 1s ease-in-out;
-  background: #4F95DA;
-}
-
-.btnAdmin:hover svg {
-  stroke-dashoffset: -480;
-}
-
-.btnAdmin span {
-  color: white;
-  font-size: 18px;
-  font-weight: 100;
-}

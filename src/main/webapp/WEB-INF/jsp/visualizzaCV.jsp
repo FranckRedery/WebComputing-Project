@@ -21,8 +21,8 @@
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>	
 
 	<!-- JS -->
-	<script language="javascript" src="js/admin/visualizzaCV/visualizzaCV.js"></script>
-	<script language="javascript" src="js/admin/visualizzaCV/chiamateAjax.js"></script>
+	<script src="js/admin/visualizzaCV/visualizzaCV.js"></script>
+	<script src="js/admin/visualizzaCV/chiamateAjax.js"></script>
 
 	<!--AJAX ha la dipendenza nel pom -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,6 +55,7 @@
 					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
@@ -79,12 +80,12 @@
 					<div class="col-md-9">
 						<div class="header-ctn">
 							<div style="padding-right: 3%; margin-top: 3%" id="firstElement">
-								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
-									<i class="fas fa-user-plus" id="positions"></i></a>
+								<a href="/viewJobs" style="text-decoration: none;">
+									<i class="fas fa-user-plus" id="positions"></i>
 								</a>
 							</div>						
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaReports" style="text-decoration: none;">
+								<a href="/viewReports" style="text-decoration: none;">
 									<i class="fas fa-bug" id="report"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -176,7 +177,7 @@
 
 <!------------------------GRUPPO-------------------------------------------->	
 
-	<!-- FOOTER -->
+<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
@@ -189,7 +190,8 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+								<li><a href="#"><i class="fa fa-map-marker"></i>1734
+										Stonecoal Road</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
 							</ul>
@@ -213,8 +215,8 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="#">About Us</a></li>
-								<li><a href="/contattaci">Contact Us</a></li>
-								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
@@ -229,7 +231,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

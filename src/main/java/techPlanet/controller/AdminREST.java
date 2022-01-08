@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import techPlanet.Database;
 import techPlanet.model.Curriculum;
+import techPlanet.model.GestisciCartelle;
 import techPlanet.model.Job;
 import techPlanet.model.Product;
 import techPlanet.model.Report;
@@ -146,6 +148,64 @@ public class AdminREST {
 		
 		Job lavoro = Database.getInstance().getJobDao().findByPrimaryKey(titolo);
 		
+		List<Curriculum> curriculum = Database.getInstance().getCurriculumDao().findByJob(lavoro);
+		
+		for(var i : curriculum) {
+			
+			String nomeCartella = i.getLast_name() + "_" + i.getFirst_name() + "_" + i.getDate_birth();
+			
+			String s = GestisciCartelle.scriviCartella("curriculumRicevuti/Spontaneous Candidature", 
+					nomeCartella);
+
+			if(s != null) {
+//				System.out.println("qui");
+
+				File foto =  new File(System.getProperty("user.dir") + "/src/main/resources/static/" + i.getPhoto());
+				File cv = new File(System.getProperty("user.dir") + "/src/main/resources/static/" + i.getCurriculum());
+				
+				GestisciCartelle.copiaFile(foto, s);
+				GestisciCartelle.copiaFile(cv, s);
+				
+				i.setPhoto("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + foto.getName());
+				i.setCurriculum("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + cv.getName());
+//				System.out.println("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + foto.getName());
+				Database.getInstance().getCurriculumDao().saveOrUpdate(i);
+	//			System.out.println(i.getPhoto());
+			} else {
+
+				Curriculum c1 = Database.getInstance().getCurriculumDao().findByNameSurnameDateSpontaneous(i.getFirst_name(), 
+						i.getLast_name(), i.getDate_birth());
+				
+				if(c1.getId() < i.getId()) {
+					File foto = new File(System.getProperty("user.dir") + "/src/main/resources/static/" + c1.getPhoto());
+					foto.delete();
+					
+					File cv = new File(System.getProperty("user.dir") + "/src/main/resources/static/" + c1.getCurriculum());
+					cv.delete();
+					
+					foto =  new File(System.getProperty("user.dir") + "/src/main/resources/static/" + i.getPhoto());
+					cv = new File(System.getProperty("user.dir") + "/src/main/resources/static/" + i.getCurriculum());
+					
+					
+					s = System.getProperty("user.dir") + "/src/main/resources/static/curriculumRicevuti/Spontaneous Candidature/" + 
+					i.getLast_name() + "_" + i.getFirst_name() + "_" + i.getDate_birth();
+
+					GestisciCartelle.copiaFile(foto, s);
+					GestisciCartelle.copiaFile(cv, s);
+					
+
+					i.setPhoto("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + foto.getName());
+					i.setCurriculum("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + cv.getName());
+//					System.out.println("curriculumRicevuti/Spontaneous Candidature/" + nomeCartella + "/" + foto.getName());
+					Database.getInstance().getCurriculumDao().saveOrUpdate(i);
+				}
+			}
+				
+		}	
+
+		GestisciCartelle.eliminaCartella("curriculumRicevuti", titolo);
+				
+
 		Database.getInstance().getJobDao().delete(lavoro);
 	}
 	
@@ -153,7 +213,8 @@ public class AdminREST {
 	@PostMapping("/salvaModificaPosizioneLavoro")
 	public void salvaModificaPosizioneLavoro(@RequestBody Job lavoro) {
 
-		Database.getInstance().getJobDao().saveOrUpdate(lavoro);
+		if(Database.getInstance().getJobDao().saveOrUpdate(lavoro))
+			GestisciCartelle.scriviCartella("curriculumRicevuti", lavoro.getTitle());
 		
 	}	
 
@@ -177,20 +238,11 @@ public class AdminREST {
 		
 		Curriculum cv = Database.getInstance().getCurriculumDao().findById(id);
 	
-		System.out.println(cv.getLast_name() + "_" + cv.getFirst_name() + "_" + cv.getDate_birth()
-					+ "_" + cv.getJob().getTitle());
+//		System.out.println(cv.getLast_name() + "_" + cv.getFirst_name() + "_" + cv.getDate_birth()
+//					+ "_" + cv.getJob().getTitle());
 		
-		String p = System.getProperty("user.dir") + "/src/main/resources/static/curriculumRicevuti/" 
-					+ cv.getLast_name() + "_" + cv.getFirst_name() + "_" + cv.getDate_birth()
-					+ "_" + cv.getJob().getTitle();
-		
-		try {
-			FileUtils.deleteDirectory(new File(p));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+		GestisciCartelle.eliminaCartella("curriculumRicevuti/" + cv.getJob().getTitle(), cv.getLast_name() + "_" + cv.getFirst_name() + "_" + cv.getDate_birth());
 		
 		Database.getInstance().getCurriculumDao().delete(cv);
 	}
@@ -207,7 +259,7 @@ public class AdminREST {
 			
 			Job lavoro = Database.getInstance().getJobDao().findByPrimaryKey(titoloLavoro);
 			
-			System.out.println(lavoro.getTitle());
+//			System.out.println(lavoro.getTitle());
 			
 			cv = Database.getInstance().getCurriculumDao().findByJob(lavoro);
 		}

@@ -86,17 +86,17 @@
 							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+								<a href="/viewJobs" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaCurriculum" style="text-decoration: none;">
+								<a href="/viewCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
 								</a>
 							</div>							
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaReports" style="text-decoration: none;">
+								<a href="/viewReports" style="text-decoration: none;">
 									<i class="fas fa-bug" id="report"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -112,7 +112,7 @@
 
 
 
-	<p id="title">WELCOME "ADMIN NAME FROM DB"</p>
+	<p id="title">Welcome ${username}</p>
 
 	<div class="container-fluid" id="management">
 		<div class="row" id="textManagement1">
@@ -153,19 +153,19 @@
 			<div class="col-md-3">
 				Positions management
 				<br /><br />
-				<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+				<a href="/viewJobs" style="text-decoration: none;">
 					<i class="fas fa-user-plus fa-5x" id="positions2"></i></a>
 			</div>
 			<div class="col-md-3">
 				View reports
 				<br /><br />
-				<a href="/visualizzaReports" style="text-decoration: none;">
+				<a href="/viewReports" style="text-decoration: none;">
 					<i class="fas fa-bug fa-5x" id="report2"></i></a>
 			</div>
 			<div class="col-md-3">
 				View curriculum
 				<br /><br />
-				<a href="/visualizzaCurriculum" style="text-decoration: none;">
+				<a href="/viewCurriculum" style="text-decoration: none;">
 					<i class="fas fa-book-open fa-5x" id="report2"></i></a>
 			</div>
 		</div>
@@ -209,7 +209,7 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="/">Contact Us</a></li>
 								<li><a href="#">Work with Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
