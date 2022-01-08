@@ -126,6 +126,7 @@
 	</form>
 	
 	<c:if test = "${user != null}">
+		<c:if test = "${user.isadmin == false}">
      <div class="row" id="riga">
 		<div class="col-md-7">
             <label class="selectedUser" id="selectedUser">Selected user</label>
@@ -152,7 +153,41 @@
         	<a href="/adminPage"><button type="button" class="btn btn-secondary" id="btnHome">Back to homepage</button></a> 
         </div>
         
-      </div>
+      	</div>
+      </c:if>
+      
+      <c:if test = "${user.isadmin == true}">
+      	<div class="row" id="riga">
+		<div class="col-md-7">
+            <label class="selectedUser" id="selectedUser">Selected user</label>
+            <div class="align-items-center text-center " id="user">
+                        <c:if test = "${user.image != null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="${user.image}">
+                               
+                        </c:if>
+                        <c:if test = "${user.image == null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        </c:if>
+           						<br>    
+                                <span class="info" style="font-size: small;">Username : </span>
+                                <span class="font-weight-bold;" id="username" style="font-size: small;">${user.username}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Email : </span>
+                                <span class="font-weight-bold;" id="email" style="font-size: small;">${user.email}</span>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+        	<br><br><br>
+            <span class="info" style="font-size: 20px ; text-align: middle;">This user is already an administrator</span>
+        	<br>
+        	<a href="/adminPage"><button type="button" class="btn btn-secondary" id="btnHome2">Back to homepage</button></a> 
+        </div>
+        
+      	</div>
+      
+      
+      </c:if>
 	 </c:if>
 	   
 	<!-- FOOTER -->
