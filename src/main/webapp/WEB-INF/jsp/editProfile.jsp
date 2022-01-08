@@ -259,7 +259,7 @@
 			
 			
 			<div class="col-md-6 border-right">
-			 <form  id="infoForm" method="post" action="javascript:saveProfile()">
+			 <form  id="infoForm" method="post" action="update">
 				<div class="p-5 py-6">
 					<div class="row mt-3">
 						<div class="col-md-10"><label style="font-size: 15px" class="labels">Email</label>

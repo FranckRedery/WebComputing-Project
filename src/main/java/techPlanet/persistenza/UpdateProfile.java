@@ -60,7 +60,7 @@ public class UpdateProfile {
 		HttpSession session = req.getSession(true);
 		String sql = "UPDATE users SET name = '" + name + "', " + "surname = '" + surname + "', " + "phonenumber = '" + phonenumber + "', " + "addressline1 = '" + addressline1 + "', " + "addressline2 = '" + addressline2 + "', " + "postcode = '" + postcode + "', " + "country = '" + country + "', " + "stateregion = '" + stateregion + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
 		try {
-		
+		 System.out.println("entra");
 			PreparedStatement preparedStmt = conn.prepareStatement(sql);
 			 preparedStmt.execute();
 			if (!sql.isEmpty()) {
