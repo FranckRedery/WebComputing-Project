@@ -73,7 +73,8 @@ public class UpdateProfile {
 				session.setAttribute("country", country);
 				session.setAttribute("stateregion", stateregion);
 				session.setAttribute("loggato", "si");
-				resp.sendRedirect("account.html");
+				resp.sendRedirect("editProfile.html");
+				return null;
 			}else {
 				resp.sendRedirect("editProfile.html");
 				return "editProfile.html";
