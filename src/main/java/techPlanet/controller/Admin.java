@@ -19,47 +19,77 @@ import techPlanet.model.ReturnRequest;
 public class Admin {
 	
 	@GetMapping("/adminPage")
-	public String adminPage() {
+	public String adminPage(HttpServletRequest req) {
+		
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		return "adminPage";
 	}
 	
 	
 	@GetMapping("/deleteProd")
-	public String deleteProd(){
+	public String deleteProd(HttpServletRequest req){
+		
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		return "deleteProd";
 	}
 	
 	@GetMapping("/addAdmin")
-	public String addAdmin() {
+	public String addAdmin(HttpServletRequest req) {
+		
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		return "addAdmin";
 	}
 	
 	@GetMapping("/modifyProd")
-	public String modifyProd(){
+	public String modifyProd(HttpServletRequest req){
+		
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		return "modifyProd";
 	}
 	
 	@GetMapping("/returnRequests")
 	public String returnRequests(HttpServletRequest req) {
 		
-		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByStatusPending();
 		HttpSession session = req.getSession(true);
-		session.setAttribute("returns", returns);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		
+		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByStatusPending();
+		session.setAttribute("returns", returns);
 		return "returnRequests";
 	}
 	
 	@GetMapping("/addProduct")
-	public String addProduct() {
+	public String addProduct(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		return "addProduct";
 	}
 	
 	@GetMapping("/visualizzaReports")
 	public String visualizzaReports(HttpServletRequest req) {
 		
-		List<Report> reports = Database.getInstance().getReportDao().findAll();
-		
 		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
+		
+		List<Report> reports = Database.getInstance().getReportDao().findAll();
 		session.setAttribute("report", reports);
 		
 		return "visualizzaReports";
@@ -68,9 +98,12 @@ public class Admin {
 	@GetMapping("/visualizzaPosizioniLavoro")
 	public String visualizzaPosizioniLavoro(HttpServletRequest req) {
 		
-		List<Job> jobs = Database.getInstance().getJobDao().findAll();
-		
 		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
+		
+		List<Job> jobs = Database.getInstance().getJobDao().findAll();
 		session.setAttribute("lavori", jobs);
 		
 		return "posizioniLavoro";
@@ -79,9 +112,12 @@ public class Admin {
 	@GetMapping("/visualizzaCurriculum")
 	public String visualizzaCurriculum(HttpServletRequest req) {
 
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
 		List<Job> job = Database.getInstance().getJobDao().findAll();
 
-		HttpSession session = req.getSession(true);
 		session.setAttribute("lavori", job);
 
 		return "visualizzaCV";
