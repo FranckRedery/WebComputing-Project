@@ -96,14 +96,55 @@ public class ChoosesDaoJDBC implements ChoosesDao {
 	}
 	
 	@Override
-	public void addProductToCart(Chooses chooses, String username) {
+	public void saveOrUpdateProdInCart(Chooses chooses, String username) {
+		if (!AlreadyInserted(chooses.getId().getId(), username)) {
+			saveInCart(chooses.getId().getId(), username, chooses.getQuantity());
+		}
+		else {
+			try {
+				Long quantity = getQuantity(chooses.getId().getId(), username);
+				String query = "update chooses " +
+						"set quantity = ?" + 
+						"where id = ? and username = ?";
+				PreparedStatement st;
+				st = conn.prepareStatement(query);
+				st.setLong(1, quantity + 1);
+				st.setLong(2,chooses.getId().getId());
+				st.setString(3, username);
+				st.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public Long getQuantity(Long id, String username) {
+		Long quantity = 0L;
+		try {
+			String query = "select quantity from chooses where id = ? and username = ?";
+			PreparedStatement st;
+			st = conn.prepareStatement(query);
+			st.setLong(1,id);
+			st.setString(2, username);
+			ResultSet rs = st.executeQuery();
+			rs.next();
+			quantity = rs.getLong("quantity");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return quantity;
+	}
+	
+	public void saveInCart(Long id, String username, Long quantity) {
 		try {
 			String query = "insert into chooses "
 					+ "values (?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);			
-			st.setLong(1,chooses.getId().getId());
+			st.setLong(1,id);
 			st.setString(2,username);
-			st.setLong(3, chooses.getQuantity());
+			st.setLong(3, quantity);
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -143,6 +184,48 @@ public class ChoosesDaoJDBC implements ChoosesDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return;
+			}
+		}
+	}
+	
+	public boolean AlreadyInserted(Long id, String username) {
+		String query = "select id from chooses where username = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				if (rs.getLong("id") == id) {
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public void quantityBasedAddition(Chooses chooses, String username) {
+		if (!AlreadyInserted(chooses.getId().getId(), username)) {
+			saveInCart(chooses.getId().getId(), username, chooses.getQuantity());
+		}
+		else {
+			try {
+				Long quantity = getQuantity(chooses.getId().getId(), username);
+				String query = "update chooses " +
+						"set quantity = ?" + 
+						"where id = ? and username = ?";
+				PreparedStatement st;
+				st = conn.prepareStatement(query);
+				st.setLong(1, quantity + chooses.getQuantity());
+				st.setLong(2,chooses.getId().getId());
+				st.setString(3, username);
+				st.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}

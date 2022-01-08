@@ -5,12 +5,12 @@ $("button#addProd").click(function(){
 	let chooses = new Chooses(product,quantity);
 		$.ajax({
 			type: "POST",
-			url: "/addProductToCart",
+			url: "/quantityBasedAddition",
 			contentType: "application/json",
 			data: JSON.stringify(chooses),
 			success: function(){
 				setTimeout(function() {
-   					location.reload();}, 2000);
+   					location.reload();}, 1000);
 			}
 			});
 });

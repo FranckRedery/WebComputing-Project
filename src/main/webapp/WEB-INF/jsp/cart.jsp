@@ -220,7 +220,12 @@
                             </div>
                         </div>
                     </td>
+                    <c:if test="${cho.quantity >= cho.id.quantity}">
+                    <td><input type="number" value="${cho.id.quantity}" min="1" max="${cho.id.quantity}" id="${cho.quantity}" class="currentQuantity ${cho.id.id}" oninput="validity.valid||(value='');" onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
+                    </c:if>
+                    <c:if test="${cho.quantity < cho.id.quantity}">
                     <td><input type="number" value="${cho.quantity}" min="1" max="${cho.id.quantity}" id="${cho.quantity}" class="currentQuantity ${cho.id.id}" oninput="validity.valid||(value='');" onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
+                    </c:if>
                     <td class="prod_price" class="price" id="${cho.id.price}"></td>
                 </tr>
                 </c:forEach>

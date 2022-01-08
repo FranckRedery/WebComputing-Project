@@ -23,7 +23,13 @@ public class ProductREST {
 	@PostMapping("/addProductToCart") 
 	public void addProdToCart(@RequestBody Chooses chooses, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
-		Database.getInstance().getChoosesDao().addProductToCart(chooses, username);
+		Database.getInstance().getChoosesDao().saveOrUpdateProdInCart(chooses, username);
+	}
+	
+	@PostMapping("/quantityBasedAddition") 
+	public void addProdToCartBasedQuantity(@RequestBody Chooses chooses, HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		Database.getInstance().getChoosesDao().quantityBasedAddition(chooses, username);
 	}
 	
 	@PostMapping("/viewDetailsProdPage") 
