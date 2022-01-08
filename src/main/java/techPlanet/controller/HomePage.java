@@ -23,6 +23,11 @@ public class HomePage {
 		req.setAttribute("prodotti", product);
 		return "index";
 	}
+	
+	@GetMapping("/privacyPolicy")
+	public String privacyPolicy() {
+		return "privacyPolicy";
+	}
 
 	@GetMapping("/cart.html")
 	public String cartPage(HttpServletRequest req) {

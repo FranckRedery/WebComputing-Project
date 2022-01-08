@@ -437,7 +437,7 @@
 								<li><a href="/aboutUs.html">About Us</a></li>
 								<li><a href="/contattaci">Contact Us</a></li>
 								<li><a href="/lavoraConNoi/lavoraInAzienda">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
 								<li><a href="#">Terms & Conditions</a></li>
 							</ul>
 						</div>

@@ -17,127 +17,11 @@
   stroke-dashoffset: -480;
 }
 
-#textArea{
-	resize: none;
-}
-
 .btnLog span {
   color: white;
   font-size: 18px;
   font-weight: 100;
 }
-
-.refund-cell-accepted{
-	text-align: center;
-    vertical-align:middle;
-    color: rgb(0,255,0);
-    font-size: 20px;
-}
-
-.refund-cell-pending{
-	text-align: center;
-    vertical-align:middle;
-    color: rgb(255, 255, 98);
-     font-size: 20px;
-}
-
-.refund-cell-declined{
-	text-align: center;
-    vertical-align:middle;
-    color: rgb(255, 0, 0);
-	font-size: 20px;
-}
-
-#pageTitle{
-	font-family: Cinzel Decorative;
-	font-size: 40px; 
-	font-style: normal; 
-	font-variant: normal; 
-	font-weight: 700; 
-	line-height: 26.4px;
-	text-align: center;
-	color: black;
-}
-
-.info{
-	color: white;
-}
-
-.product-type, .product-name, #prodId, .product-price, #qty{
-	color: orange;
-	font-size: 13px;
-}
-
-.date-cell{
-	color: white;
-	text-align: center;
-    vertical-align: middle;
-    font-size: 25px;
-}
-
-
-.thText{
-	color: black;
-}
-
-
-.table{
-    margin-top: 5%;
-    text-align: center;
-    font-size: large;
-    padding: .0rem .0rem;
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
-    margin-bottom:20%!important;
-}
-
-.alert.alert-success{
-	color: black;
-    background-color: rgb(0, 120, 0);
-    border-color: black;
-}
-
-.alert.alert-danger{
-	color: black;
-    background-color: rgb(176, 0, 0);
-    border-color: black;
-}
-
-.alert.alert-warning{
-	color: black;
-    background-color: rgb(201, 201, 0);
-    border-color: black;
-}
-
-.cell{
-   text-align: center;
-   vertical-align: middle;
-}
-
-#prova{
-    margin-bottom: 5%;
-}
-
-.img-fluid{
-  width: 200px;
-  height: auto;
-}
-
-
-.product-img{
-    width: 150px;
-    height: auto;
-    margin-left: auto;
-}
-  
-
-/*=========================================================
-	01 -> GENERAL
-===========================================================*/
 
 
 body {
@@ -145,14 +29,21 @@ body {
   font-weight: 400;
   color: #333;
   margin: 0;
-  background: linear-gradient(#8ab7ff,#5193fc);
 }
 
+.privacyPolicy{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
+	
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: #2B2D42;
   font-weight: 700;
   margin: 0 0 10px;
+  text-align: center
 }
 
 a {
