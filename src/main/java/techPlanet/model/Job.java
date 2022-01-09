@@ -63,17 +63,17 @@ public class Job {
 		// controllo se hanno entrambi gli stessi requisiti obbligatori
 		// anche se posizionati in posti diversi
 		int cont = 0;
-		System.out.println(this.obligatory.size());
+//		System.out.println(this.obligatory.size());
 		for(int i = 0; i < this.obligatory.size(); ++i) {
 			for(int j = 0; j < job.getObligatory().size(); ++j) {
 				if(this.obligatory.get(i).uguali(job.getObligatory().get(j))) {
-					System.out.println("qui");
+//					System.out.println("qui");
 					++cont;
 				}
 			}
 		}
 		
-		if(cont < this.obligatory.size())
+		if(cont < this.obligatory.size() || cont < job.getObligatory().size())
 			return false;
 		
 		return this.title.equals(job.title) && this.description.equals(job.description) &&
