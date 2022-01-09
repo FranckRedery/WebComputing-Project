@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<link type="text/css" rel="stylesheet" href="css/admin/modifyProd.css" />
+	<link type="text/css" rel="stylesheet" href="css/admin/deleteAdmin.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -18,7 +18,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<title>Modify product</title>
+	<title>Delete admin</title>
 </head>
 
 <body>
@@ -120,96 +120,81 @@
 	</header>
 	<!--/HEADER-->
 
-	<h2 style="margin-top:2%;" id="pageTitle">Modify product</h2>
-	
-	<form class="needs-validation-form-search" novalidate>
+	<h2 style="margin-top:2%;" id="pageTitle">Delete admin</h2>
+
+
+	<form class="needs-validation" novalidate>
 		<div class="mb-3">
-			<label class="form-label" for="productName" style="margin-top: 3%;">Name</label>
-			<input type="text" class="form-control" id="productName" placeholder="Product name" required>
-			<div class="invalid-feedback">Please enter a valid product name.</div>
+			<label class="form-label" for="userName" style="margin-top: 3%;">Username</label>
+			<input type="text" class="form-control" id="userName" placeholder="User's username" required>
+			<div class="invalid-feedback">Please enter a valid username.</div>
 		</div>
-		<button type="submit"  class="btn btn-primary" id="btnSearch">Search the product</button>
+		<button type="submit"  class="btn btn-primary" id="btnSearch">Search the user</button>
 	</form>
 	
-	<c:if test = "${product != null}">
+	<c:if test = "${user != null}">
+		<c:if test = "${user.isadmin == true}">
      <div class="row" id="riga">
-		<div class="col-md-2">
-            <label class="selectedProduct" id="selectedProd">Selected product</label>
-            <div class="product-img">
-                <img src="${product.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
+		<div class="col-md-7">
+            <label class="selectedUser" id="selectedUser">Selected user</label>
+            <div class="align-items-center text-center " id="user">
+                        <c:if test = "${user.image != null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="${user.image}">
+                               
+                        </c:if>
+                        <c:if test = "${user.image == null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        </c:if>
+           						<br>    
+                                <span class="info" style="font-size: small;">Username : </span>
+                                <span class="font-weight-bold;" id="username" style="font-size: small;">${user.username}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Email : </span>
+                                <span class="font-weight-bold;" id="email" style="font-size: small;">${user.email}</span>
             </div>
-            <div class="product-info">
-            	<span class="info" style="font-size: small;">Product ID : </span>
-                <span class="product-id" id="prodId" style="font-size: small;">${product.id}</span>
-                <br>
-                <span class="info" style="font-size: small;">Category : </span>
-                <span class="product-type" style="font-size: small;">${product.category}</span>
-                <br>
-                <span class="info" style="font-size: small;">Name : </span>
-                <span class="product-name" style="font-size: small;">${product.name}
-                </span>
-                <br>
-                <span class="info" style="font-size: small;">Price : </span>
-                <span class="product-price" style="font-size: medium;">$${product.price}</span>
-                </div>
         </div>
         
-        <div class="col-md-4">
-        	<form class="needs-validation-form-modify" method="post" action="/modifyProduct" enctype="multipart/form-data" id="modifyProduct" novalidate>
-        		<input type="number" name="productID" class="form-control" required value="${product.id}" style="display: none">
-				<div class="mb-3">
-					<label class="form-label" for="productName" style="margin-top: 3%;">Name</label>
-					<input type="text" name="productName" class="form-control" id="productNameModify" placeholder="Product name" required>
-					<div class="invalid-feedback">Please enter a valid product name.</div>
-				</div>
-				<div class="mb-3">
-					<label class="form-label" for="productCategory">Category</label>
-					<select class="form-select" id="productCategory" name="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
-						<option selected disabled value="">Choose a category</option>
-						<option>PC</option>
-						<option>Tablet</option>
-						<option>Smartphone</option>
-						<option>Camera</option>
-						<option>Printers</option>
-						<option>Laptop</option>
-					</select>
-						<div class="invalid-feedback">Please enter a valid category.</div>
-				</div>
-		
-				<!-- Tag che derivano da categoria -->
-				<div class="mb-3" id = "tag">
-				</div>
-		
-				<div class="mb-3">
-					<label class="form-label" for="description">Description</label>
-					<textarea class="form-control" rows="5" id="description" name="productDescription" placeholder="Product description" required></textarea>
-					<div class="invalid-feedback">Please enter a valid description.</div>
-				</div>
-				<div class="mb-3">
-					<label class="form-label" for="imgFile">Image</label>
-					<input type="file" class="form-control fileupload" id="images" name="image" accept="image/x-png,image/gif,image/jpeg" required>
-					<div class="invalid-feedback">Please insert a valid image.</div>
-				</div>
-
-				<div class="mb-3">
-					<label class="form-label" for="imgFile">Price</label>
-					<input type="number" class="form-label" min="1" max="10000" step=".01" name="productPrice" oninput="validity.valid||(value='');" id="amount" required>
-					<div class="invalid-feedback">Please insert valid price.</div>
-				</div>
-
-				<div class="mb-3">
-					<label class="form-label" for="imgFile">Quantity</label>
-					<input type="number" class="form-label" min="1" max="10000" name="productQuantity" oninput="validity.valid||(value='');" id="quantity" required>
-					<div class="invalid-feedback">Please insert a valid quantity.</div>
-				</div>
-
-				<button type="submit"  class="btn btn-primary" id="btn-modify">Modify product</button>
-			</form>
-        
-        
+        <div class="col-md-5">
+        	<button type="button" class="btn btn-danger" onclick="deleteAdmin();">Delete admin</button>
+        	<br>
+        	<a href="/adminPage"><button type="button" class="btn btn-secondary" id="btnHome">Back to homepage</button></a> 
         </div>
         
-      </div>
+      	</div>
+      </c:if>
+      
+      <c:if test = "${user.isadmin == false}">
+      	<div class="row" id="riga">
+		<div class="col-md-7">
+            <label class="selectedUser" id="selectedUser">Selected user</label>
+            <div class="align-items-center text-center " id="user">
+                        <c:if test = "${user.image != null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="${user.image}">
+                               
+                        </c:if>
+                        <c:if test = "${user.image == null}">
+                        	<img class="rounded-circle" width="120px" height="auto" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        </c:if>
+           						<br>    
+                                <span class="info" style="font-size: small;">Username : </span>
+                                <span class="font-weight-bold;" id="username" style="font-size: small;">${user.username}</span>
+                                <br>
+                                <span class="info" style="font-size: small;">Email : </span>
+                                <span class="font-weight-bold;" id="email" style="font-size: small;">${user.email}</span>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+        	<br><br><br>
+            <span class="info" style="font-size: 20px ; text-align: middle;">This user is not an administrator</span>
+        	<br>
+        	<a href="/adminPage"><button type="button" class="btn btn-secondary" id="btnHome2">Back to homepage</button></a> 
+        </div>
+        
+      	</div>
+      
+      
+      </c:if>
 	 </c:if>
 	   
 	<!-- FOOTER -->
@@ -277,7 +262,7 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
-	<script src="js/admin/modifyProd.js"></script>
+	<script src="js/admin/deleteAdmin.js"></script>
 </body>
 
 </html>

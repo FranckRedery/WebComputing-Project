@@ -1,3 +1,16 @@
+#pageTitle{
+	font-family: Cinzel Decorative;
+	font-size: 40px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 700; 
+	line-height: 26.4px;
+	text-align: center;
+	color: black;
+}
+
+
+
 input[type=text] {
     box-sizing: border-box;
     border-radius: 4px;
@@ -68,7 +81,7 @@ input[type=number]:focus {
 
 
 .needs-validation-form-search{
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 11%;
     margin-right: 25%;
     margin-left: 25%;

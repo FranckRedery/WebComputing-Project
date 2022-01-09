@@ -49,6 +49,17 @@ public class Admin {
 		return "addAdmin";
 	}
 	
+	@GetMapping("/deleteAdmin")
+	public String deleteAdmin(HttpServletRequest req) {
+		
+		HttpSession session = req.getSession(true);
+		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
+			return "index";
+		}
+		return "deleteAdmin";
+		
+	}
+	
 	@GetMapping("/modifyProd")
 	public String modifyProd(HttpServletRequest req){
 		

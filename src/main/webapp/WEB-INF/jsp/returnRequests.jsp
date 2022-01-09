@@ -89,19 +89,24 @@
 								<a href="addAdmin" style="text-decoration: none;">
 									<i class="fas fa-user-tie" id="addAdmin"></i></a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="deleteAdmin" style="text-decoration: none;">
+									<i class="fas fa-user-slash" id="deleteAdmin"></i></a>
+							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+								<a href="/viewJobs" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaCurriculum" style="text-decoration: none;">
+								<a href="/viewCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
 								</a>
 							</div>							
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaReports" style="text-decoration: none;">
+								<a href="/viewReports" style="text-decoration: none;">
 									<i class="fas fa-bug" id="report"></i>
 									<!--<div class="qty">0</div>-->
 								</a>

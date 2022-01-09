@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -88,19 +89,24 @@
 								<a href="addAdmin" style="text-decoration: none;">
 									<i class="fas fa-user-tie" id="addAdmin"></i></a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="deleteAdmin" style="text-decoration: none;">
+									<i class="fas fa-user-slash" id="deleteAdmin"></i></a>
+							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaPosizioniLavoro" style="text-decoration: none;">
+								<a href="/viewJobs" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
 								</a>
 							</div>
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaCurriculum" style="text-decoration: none;">
+								<a href="/viewCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
 								</a>
 							</div>							
 							<div style="padding-right: 3%; margin-top: 3%">
-								<a href="/visualizzaReports" style="text-decoration: none;">
+								<a href="/viewReports" style="text-decoration: none;">
 									<i class="fas fa-bug" id="report"></i>
 									<!--<div class="qty">0</div>-->
 								</a>
@@ -114,7 +120,7 @@
 	</header>
 	<!--/HEADER-->
 
-
+	<h2 style="margin-top:2%;" id="pageTitle">Add admin</h2>
 
 	<form class="needs-validation" novalidate>
 		<div class="mb-3">

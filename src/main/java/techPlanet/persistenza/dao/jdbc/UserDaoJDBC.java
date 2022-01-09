@@ -94,5 +94,25 @@ public class UserDaoJDBC implements UserDao {
 		}
 	}
 
+	@Override
+	public void deleteAdmin(User user) {
+		
+		try {
+			String query = "update users "
+			+ "set isadmin = ?"
+			+ "where username = ?";
+
+			
+			PreparedStatement st = conn.prepareStatement(query);
+			
+			st.setBoolean(1, false);
+			st.setString(2, user.getUsername());
+			st.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error occurred in deleteAdmin function");
+		}
+		
+	}
+
 	
 }

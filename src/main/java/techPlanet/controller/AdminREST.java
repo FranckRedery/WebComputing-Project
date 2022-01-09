@@ -97,6 +97,15 @@ public class AdminREST {
 		Database.getInstance().getUserDao().makeAdmin(user);
 		
 	}
+	
+	@PostMapping("/deleteAdminByUsername")
+	public void deleteAdminByUsername(@RequestBody String username) {
+
+		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
+		Database.getInstance().getUserDao().deleteAdmin(user);
+		
+	}
+	
 
 	@PostMapping("/deleteProdById")
 	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {

@@ -13,4 +13,5 @@ public interface UserDao {
 	public boolean saveOrUpdate(User user);
 	public boolean delete(User user);
 	public void makeAdmin(User user);
+	public void deleteAdmin(User user);
 }

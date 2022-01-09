@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -84,6 +85,11 @@
 								<a href="addAdmin" style="text-decoration: none;">
 									<i class="fas fa-user-tie" id="addAdmin"></i></a>
 							</div>
+							
+							<div style="padding-right: 3%; margin-top: 3%">
+								<a href="deleteAdmin" style="text-decoration: none;">
+									<i class="fas fa-user-slash" id="deleteAdmin"></i></a>
+							</div>
 
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewJobs" style="text-decoration: none;">
@@ -112,64 +118,74 @@
 
 
 
-	<p id="title">Welcome ${username}</p>
+	<p id="pageTitle">Welcome ${username}</p>
 
 	<div class="container-fluid" id="management">
 		<div class="row" id="textManagement1">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				Add product
 				<br /><br />
 				<a href="addProduct" style="text-decoration: none;">
 					<i class="fas fa-cart-plus fa-5x" id="addProd"></i></a>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				Delete product
 				<br /><br />
 				<a href="deleteProd" style="text-decoration: none;">
 					<i class="fas fa-trash fa-5x" id="deleteProd"></i></a>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				Modify product
 				<br /><br />
 				<a href="modifyProd" style="text-decoration: none;">
 					<i class="fas fa-edit fa-5x" id="users2"></i></a>
 			</div>
-			<div class="col-md-3">
+		</div>
+		</div>
+		<div class="row" id="textManagement2">
+			
+			<div class="col-md-4">
 				Returns management
 				<br /><br />
 				<a href="returnRequests" style="text-decoration: none;">
 					<i class="fas fa-truck-loading fa-5x" id="truck2"></i></a>
 			</div>
-		</div>
-		<div class="row" id="textManagement2">
 			
-			<div class="col-md-3">
+			<div class="col-md-4">
 				Add admin
 				<br /><br />
 				<a href="addAdmin" style="text-decoration: none;">
 					<i class="fas fa-user-tie fa-5x" id="addAdmin"></i></a>
 			</div>
+			
+			<div class="col-md-4">
+				Delete admin
+				<br /><br />
+				<a href="deleteAdmin" style="text-decoration: none;">
+					<i class="fas fa-user-slash fa-5x" id="deleteAdmin"></i></a>
+			</div>
+		</div>
 		
-			<div class="col-md-3">
+		<div class="row" id ="textManagement3">
+			<div class="col-md-4">
 				Positions management
 				<br /><br />
 				<a href="/viewJobs" style="text-decoration: none;">
 					<i class="fas fa-user-plus fa-5x" id="positions2"></i></a>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				View reports
 				<br /><br />
 				<a href="/viewReports" style="text-decoration: none;">
 					<i class="fas fa-bug fa-5x" id="report2"></i></a>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				View curriculum
 				<br /><br />
 				<a href="/viewCurriculum" style="text-decoration: none;">
 					<i class="fas fa-book-open fa-5x" id="report2"></i></a>
 			</div>
 		</div>
-	</div>
 
 
 	<!-- FOOTER -->
