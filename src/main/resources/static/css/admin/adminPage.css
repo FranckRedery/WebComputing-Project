@@ -27,6 +27,8 @@
 #textManagement1, #textManagement2, #textManagement3{
 	text-align: center;
 	font-weight: bold;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 #textManagement3 > .col-md-4, #textManagement2 > .col-md-4,  #textManagement1 > .col-md-4{
@@ -937,6 +939,13 @@ header{
 @media screen and (max-width: 1200px) { 
 	#logo {
 		padding-left: 0%;
+	}
+	
+}
+
+@media screen and (max-width: 468px) { 
+	.header-ctn {
+		margin-left: 0px;
 	}
 }
 

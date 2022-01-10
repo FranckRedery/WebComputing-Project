@@ -100,6 +100,7 @@ public class JobDaoJDBC implements JobDao {
 			ResultSet rs = st.executeQuery();
 			Job job = null;
 			while (rs.next()) {
+				System.out.println("qui");
 				/* se il nuovo titolo di lavoro è diverso da quello precedente
 				 * salvo il lavoro creato e ne creo uno nuovo da inserire */
 				if(!prec.equals(rs.getString("j_title"))) {

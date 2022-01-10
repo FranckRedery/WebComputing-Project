@@ -166,12 +166,12 @@
 					<label class="form-label" for="productCategory">Category</label>
 					<select class="form-select" id="productCategory" name="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
 						<option selected disabled value="">Choose a category</option>
-						<option>PC</option>
-						<option>Tablet</option>
-						<option>Smartphone</option>
-						<option>Camera</option>
-						<option>Printers</option>
-						<option>Laptop</option>
+						<option value = "pc">PC</option>
+						<option value = "tablet">Tablet</option>
+						<option value = "smartphone">Smartphone</option>
+						<option value = "camera">Camera</option>
+						<option value = "printers">Printers</option>
+						<option value = "notebook">Notebook</option>
 					</select>
 						<div class="invalid-feedback">Please enter a valid category.</div>
 				</div>
