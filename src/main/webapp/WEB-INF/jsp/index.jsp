@@ -438,7 +438,7 @@
 								<li><a href="/contactUs">Contact Us</a></li>
 								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
 								<li><a href="/privacyPolicy">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>

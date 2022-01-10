@@ -28,6 +28,11 @@ public class HomePage {
 	public String privacyPolicy() {
 		return "privacyPolicy";
 	}
+	
+	@GetMapping("/termsAndConditions")
+	public String termsAndConditions() {
+		return "termsAndConditions";
+	}
 
 	@GetMapping("/cart.html")
 	public String cartPage(HttpServletRequest req) {
