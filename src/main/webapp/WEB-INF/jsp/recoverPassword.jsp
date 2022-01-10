@@ -32,7 +32,7 @@
 					<div class="form-outline form-white mb-3">
 					<h3 style=" font-size: 20px; color: gray; text-align: center;">Enter the email address associated with your TeachPlanet account.</h3>
 						<label class="form-label" for="typeEmailX">Email</label>
-					  <input type="email" id="EmailX" placeholder="Enter email" class="form-control form-control-lg" required>
+					  <input type="email" id="EmailX" placeholder="Enter email" class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Username</label>

@@ -27,7 +27,7 @@
 					<c:if test="${errore == 'si'}">
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
-					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
+					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
 					</div>
 					<div id="fail" class="alert-box failure">the email entered is associated with an existing account</div>
 					<a>
@@ -38,7 +38,7 @@
 					<c:if test="${errore != 'si'}">				
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">
-					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" />
+					  <input type="email" name="email" placeholder="enter new Email here" id="typeCode" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
 					</div>
 					<a>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>

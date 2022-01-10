@@ -53,7 +53,7 @@
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typeEmailX">Email</label> <input
 											type="email" name="email" id="typeEmailX"
-											class="form-control form-control-lg" required />
+											class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
 									</div>
 									<div class="form-outline form-white mb-4">
 										<label class="form-label" for="typePasswordX">Password</label>
@@ -86,7 +86,7 @@
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typeEmailX">Email</label> <input
 											type="email" name="email" id="typeEmailX"
-											class="form-control form-control-lg" required />
+											class="form-control form-control-lg" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
 									</div>
 									<div class="form-outline form-white mb-3">
 										<label class="form-label" for="typePasswordX">Password</label>

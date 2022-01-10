@@ -194,12 +194,6 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/">Home</a>
 				  </li>
-				  <!--<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Categories</a>
-				  </li>-->
 				  <li class="nav-item">
 					<a class="nav-link" href="laptopsGallery.html">Laptops</a>
 				  </li>
@@ -223,9 +217,8 @@
       <div class="col-lg-6">
         <h1 class="display-4">About us</h1>
         <p class="lead text-muted mb-0">We are 4 friends with a passion for technology, we met at university and we embarked on this technological e-commerce project</p>
-        </p>
       </div>
-      <div class="col-lg-6 d-none d-lg-block"><img src="images/account/Technology.png" alt="" class="img-fluid"></div>
+      <div class="col-lg-6 d-none d-lg-block"><img src="images/aboutUs/Technology.png" alt="" class="img-fluid"></div>
     </div>
   </div>
 </div>
@@ -237,7 +230,7 @@
         <h2 class="font-weight-light">How we organize the work</h2>
         <p class="font-italic text-muted mb-4">We are like a team, each one with their own roles to solve your problems, our work first of all</p>
       </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://bootstrapious.com/i/snippets/sn-about/img-1.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="images/aboutUs/working.gif" alt="" class="img-fluid mb-4 mb-lg-0"></div>
     </div>
   </div>
 </div>
@@ -252,9 +245,10 @@
     </div>
 
     <div class="row text-center">
+    
       <!-- Team item-->
-      <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/account/antonio.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+      <div  class="col-xl-3 col-sm-6 mb-5">
+        <div id="TeamItemCard" class="bg-white rounded shadow-sm py-5 px-4"><img src="images/account/antonio.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Muto Antonio</h5><span class="small text-uppercase text-muted">Team</span>
           <ul class="social mb-0 list-inline mt-3">
             <li class="list-inline-item"><a href="https://www.facebook.com/antonio.muto.752" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
@@ -267,7 +261,7 @@
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div id="TeamItemCard" class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Giacoia Stefano</h5><span class="small text-uppercase text-muted">Team</span>
           <ul class="social mb-0 list-inline mt-3">
             <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
@@ -280,7 +274,7 @@
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div id="TeamItemCard" class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Reda Francesco</h5><span class="small text-uppercase text-muted">Team</span>
           <ul class="social mb-0 list-inline mt-3">
             <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
@@ -293,7 +287,7 @@
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div id="TeamItemCard" class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Cangieri Fabio</h5><span class="small text-uppercase text-muted">Team</span>
           <ul class="social mb-0 list-inline mt-3">
             <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>

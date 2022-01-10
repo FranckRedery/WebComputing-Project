@@ -180,12 +180,6 @@
 				<li class="nav-item">
 					<a class="nav-link" href="index.html">Home</a>
 				  </li>
-				  <!--<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Hot Deals</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Categories</a>
-				  </li>-->
 				  <li class="nav-item">
 					<a class="nav-link" href="javascript:void(0)">Laptops</a>
 				  </li>
