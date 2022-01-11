@@ -59,7 +59,7 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 			
 			PreparedStatement st = conn.prepareStatement(query);
 			
-			st.setString(1, "b");
+			st.setBoolean(1, b);
 			st.setLong(2, id);
 			st.executeUpdate();
 			return;
