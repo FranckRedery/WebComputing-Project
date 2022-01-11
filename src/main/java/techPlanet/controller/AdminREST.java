@@ -91,18 +91,21 @@ public class AdminREST {
 	}
 	
 	@PostMapping("/makeAdminByUsername")
-	public void makeAdminByUsername(@RequestBody String username) {
+	public void makeAdminByUsername(@RequestBody String username, HttpServletRequest req) {
 
 		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
 		Database.getInstance().getUserDao().makeAdmin(user);
+		req.getSession().removeAttribute("user");
+		
 		
 	}
 	
 	@PostMapping("/deleteAdminByUsername")
-	public void deleteAdminByUsername(@RequestBody String username) {
+	public void deleteAdminByUsername(@RequestBody String username, HttpServletRequest req) {
 
 		User user = Database.getInstance().getUserDao().findByPrimaryKey(username);
 		Database.getInstance().getUserDao().deleteAdmin(user);
+		req.getSession().removeAttribute("user");
 		
 	}
 	
@@ -118,7 +121,7 @@ public class AdminREST {
 	}
 	
 	@PostMapping("/modifyProduct")
-	public void modifyProduct(int productID, String productName, String productCategory,String tags, String productDescription, MultipartFile image, float productPrice, int productQuantity, HttpServletResponse res) {
+	public void modifyProduct(int productID, String productName, String productCategory,String tags, String productDescription, MultipartFile image, float productPrice, int productQuantity, HttpServletResponse res, HttpServletRequest req) {
 		
 		Product product = new Product();
 		product.setId(productID);
@@ -134,7 +137,8 @@ public class AdminREST {
 		Database.getInstance().getProductsDao().modifyProduct(product);
 		try {
 			image.transferTo(new File(path+ "/" + image.getOriginalFilename()));
-			res.sendRedirect("/adminPage");
+			req.getSession().removeAttribute("product");
+			res.sendRedirect("/modifyProd");		
 		} catch (IllegalStateException e) {
 			System.out.println("Can't transfer the photo or can't redirect to page addProduct");
 		} catch (IOException e) {
