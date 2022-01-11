@@ -22,6 +22,7 @@
             event.stopPropagation()
           }
   		  else{
+	        alert("The return request has been created. You will be able to view the status of the return on your personal returns page");
 			createRequest();
 		  }
           form.classList.add('was-validated')
@@ -49,7 +50,7 @@ function createRequest(){
 			url: "/addRequest",
 			contentType: "application/json",
 			data: JSON.stringify(returnRequest),
-			success: function(){ window.location.href = "/userReturns";}	
+			success: function(){ window.location.href = "/myOrder.html";}	
 			});
 	
 }

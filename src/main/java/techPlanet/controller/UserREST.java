@@ -57,7 +57,9 @@ public class UserREST {
 		Database.getInstance().getReturnRequestDao().addRequest(request);
 		Database.getInstance().getMyOrderDao().setReturned(true,request.getProduct().getId());
 		
-
+		session.removeAttribute("returnProd");
+		session.removeAttribute("qty");
+		
 	}
 	
 }
