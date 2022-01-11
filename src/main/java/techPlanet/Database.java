@@ -19,6 +19,7 @@ import techPlanet.persistenza.dao.RequirementsDao;
 import techPlanet.persistenza.dao.ReturnRequestDao;
 import techPlanet.persistenza.dao.ReviewDao;
 import techPlanet.persistenza.dao.UserDao;
+import techPlanet.persistenza.dao.WishesDao;
 import techPlanet.persistenza.dao.jdbc.ChoosesDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.CurriculumDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.JobDaoJDBC;
@@ -30,6 +31,7 @@ import techPlanet.persistenza.dao.jdbc.RequirementsDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReturnRequestDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.ReviewDaoJDBC;
 import techPlanet.persistenza.dao.jdbc.UserDaoJDBC;
+import techPlanet.persistenza.dao.jdbc.WishesDaoJDBC;
 
 public class Database {
 	
@@ -116,6 +118,10 @@ public class Database {
 	
 	public MyOrderDao getMyOrderDao() {
 		return new MyOrderDaoJDBC(conn);
+	}
+	
+	public WishesDao getWishesDao() {
+		return new WishesDaoJDBC(conn);
 	}
 	
 }
