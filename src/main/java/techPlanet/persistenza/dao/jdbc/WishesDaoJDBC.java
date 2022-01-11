@@ -96,4 +96,17 @@ public class WishesDaoJDBC implements WishesDao {
 		}
 		return num;
 	}
+
+	@Override
+	public void removeProductFromWishList(Long id, String username) {
+		try {
+			String query = "delete from wishes where id = ? and username = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.setString(2, username);
+			st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
 }

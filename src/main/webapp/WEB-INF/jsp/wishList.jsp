@@ -204,7 +204,7 @@
 	<div class="container">
 		<div class="row g-3 m-auto">
 			<c:forEach items="${wishes}" var="wish">
-			<div class="col-12 col-md-6 col-lg-3">
+			<div class="col-12 col-md-6 col-lg-3" id="col_${wish.id.id}">
 				<div class="card">
 					<img alt="" src="${wish.id.image}"
 						class="card-img-top">
@@ -212,7 +212,7 @@
 						<h5 class="card-title">${wish.id.name}</h5>
 						<div class="info">
 							<div class="price">
-							<h3 class="card-text"><strong>${wish.id.price}</strong></h3>
+							<h3 class="card-text"><strong>$${wish.id.price}0</strong></h3>
 							</div>
 							<div class="star">
 							<c:forEach var="star" begin="1" end="${wish.id.reviews}">
@@ -224,125 +224,13 @@
 							</div>
 						</div>
 						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-light removeProd" onclick="removeFromWishList(${wish.id.id})">Remove</button>
 						<button type="button" class="btn btn-primary">Move to cart</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			</c:forEach>
-			<!-- <div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product02.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product03.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product04.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product05.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product06.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product07.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product08.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="card">
-					<img alt="" src="images/prodotti/product09.png"
-						class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title">wow top phone</h5>
-						<p class="card-text">lorem ipsu</p>
-						<div class="action">
-						<button type="button" class="btn btn-light">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</div> 
 	</div>
 	<!-- FOOTER -->
