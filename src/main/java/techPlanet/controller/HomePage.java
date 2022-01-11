@@ -22,8 +22,6 @@ public class HomePage {
 		setNumberCart(req);
 		String username = (String) req.getSession().getAttribute("username");
 		List<Product> product = Database.getInstance().getProductsDao().findByLastNineInserted();
-		List<Wishes> wishes = Database.getInstance().getWishesDao().findByUser(username);
-		req.setAttribute("wishes", wishes);
 		req.setAttribute("prodotti", product);
 		return "index";
 	}
