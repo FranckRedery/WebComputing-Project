@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-	//showReviews();	
+		
 });
 
 $('.owl-carousel').owlCarousel({

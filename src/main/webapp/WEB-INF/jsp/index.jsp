@@ -131,7 +131,7 @@
 								<a href="wishList.html" style="text-decoration: none;"> <i
 									class="fa fa-heart" id="heart"></i> 
 									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty">${numWishList}</div>
+									<div class="qty" id="wishList">${numWishList}</div>
 									</c:if>
 								</a>
 							</div>
@@ -338,7 +338,16 @@
 					<div class="product-img">
 						<img src="${prod.image}" alt=""
 							class="img-fluid d-block mx-auto"> <span class="heart-icon">
-							<c:if test="${username != null}">
+							<c:set var="alreadyAdded" scope="request" value="false"/>
+							<c:forEach items="${wishes}" var="wish">
+							<c:if test="${wish.id.id == prod.id}">
+								<c:set var="alreadyAdded" scope="request" value="true"/>
+							</c:if>
+							</c:forEach>
+							<c:if test="${username != null && alreadyAdded}">
+							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}"><i class="fas fa-heart"></i></button>
+							</c:if>
+							<c:if test="${username != null && !alreadyAdded}">
 							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}"><i class="far fa-heart"></i></button>
 							</c:if>
 							<c:if test="${username == null}">

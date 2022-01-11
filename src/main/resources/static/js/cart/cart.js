@@ -88,11 +88,6 @@ function Chooses(id, quantity) {
 	this.quantity = quantity;	
 }
 
-/*$(":input.currentQuantity").bind('keyup mouseup', function () {
-    let quantity = document.getElementsByClassName("currentQuantity");    
-	alert(quantity[0].id);        
-});*/
-
 $(".removeProd").click(function(){
 	var id = $(this).data("custom-value");
 	removeProductFromCart(id);
