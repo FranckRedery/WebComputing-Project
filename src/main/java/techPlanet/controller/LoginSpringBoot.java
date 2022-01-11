@@ -40,7 +40,7 @@ public class LoginSpringBoot {
 	@GetMapping("/resetError")
 	public void resetError(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		session.invalidate();
+		session.setAttribute("errore", null);
 		resp.sendRedirect("/");
 	}
 	

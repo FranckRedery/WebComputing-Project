@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,9 @@ public class Control {
 	
 	
 	public String loginGoogle(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("id") + "', '" + req.getParameter("username") + "')";
+		
+		String cryptedID = BCrypt.hashpw(req.getParameter("id"), BCrypt.gensalt(12));
+		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + cryptedID + "', '" + req.getParameter("username") + "', '" + false + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
 		session.setMaxInactiveInterval(10*60);
@@ -58,7 +61,7 @@ public class Control {
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", req.getParameter("image"));
 				resp.sendRedirect("/");
-				return "indexAdd";
+				return "index";
 			   }
 			   else {
 					session.setAttribute("errore", "si");
@@ -74,21 +77,20 @@ public class Control {
 		return "index";
 	}
 	
-	public void takePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HttpSession session = req.getSession();
-		resp.sendRedirect("control.html");
-	}
-	
 	public String recoverPass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String newPass = generatePassword();
+		String cryptedPass = BCrypt.hashpw(newPass, BCrypt.gensalt(12));
 		HttpSession session = req.getSession();
-		String check = "SELECT password FROM users WHERE username = '" + req.getParameter("username") + "'" + "AND email = '" + req.getParameter("email") + "'";
+		String check = "SELECT * FROM users WHERE username = '" + req.getParameter("username") + "'" + "AND email = '" + req.getParameter("email") + "'";
+		String sql = "UPDATE users SET password = '" + cryptedPass + "'" + "WHERE username = '" + req.getParameter("username") + "'" + "AND email = '" + req.getParameter("email") + "'";
 			try {
 				Statement registerStatement = conn.createStatement();
-				ResultSet rs;
-				rs = registerStatement.executeQuery(check);
+				ResultSet rs = registerStatement.executeQuery(check);
 				if(rs.next()) {
 					session.setAttribute("errore", "no");
-					return rs.getString("password");
+					PreparedStatement preparedStmt = conn.prepareStatement(sql);
+					 preparedStmt.execute();
+					return newPass;
 				}
 				else { 
 					session.setAttribute("errore", "si");
@@ -125,7 +127,8 @@ public class Control {
 	
 	public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		String sql = "UPDATE users SET password = '" + req.getParameter("newPass") + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
+		String cryptedPass = BCrypt.hashpw(req.getParameter("newPass"), BCrypt.gensalt(12));
+		String sql = "UPDATE users SET password = '" + cryptedPass + "'" + "WHERE username = '" + session.getAttribute("username") + "'";
 			 try {
 				 PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				 preparedStmt.execute();
@@ -152,6 +155,7 @@ public class Control {
 			else { 
 				PreparedStatement preparedStmt = conn.prepareStatement(sql);
 				preparedStmt.execute();
+				session.setAttribute("errore", "no");
 				session.setAttribute("email", email);
 				resp.sendRedirect("/changeEmailCorrect");
 			}
@@ -160,5 +164,18 @@ public class Control {
 			e.printStackTrace();
 		}
 	}
+	
+	public String generatePassword() {
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+			StringBuilder sb = new StringBuilder(9);
+				for (int i = 0; i < 9; i++) {
+					int index = (int)(AlphaNumericString.length() * Math.random());
+					sb.append(AlphaNumericString.charAt(index));
+				}
+		return sb.toString();
+	}
+	
 	
 }

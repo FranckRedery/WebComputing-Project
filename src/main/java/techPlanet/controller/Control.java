@@ -18,33 +18,129 @@ import techPlanet.Database;
 public class Control {
 
 	@GetMapping("/InsertCodeSecurity.html")
-	public String codeSecurity() {
-		return "InsertCodeSecurity";
+	public String codeSecurity(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "InsertCodeSecurity";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "InsertCodeSecurity";
+			}
+		}
 	}
 	
 	@GetMapping("/insertNewPass.html")
-	public String insertNewPass() {
-		return "insertNewPass";
+	public String insertNewPass(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "insertNewPass";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "insertNewPass";
+			}
+		}
 	}
 	
 	@GetMapping("/recoverPasswordSent")
-	public String recoverPasswordSent() {
-		return "recoverPasswordSent";
+	public String recoverPasswordSent(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "recoverPasswordSent";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "recoverPasswordSent";
+			}
+		}
 	}
 	
 	@GetMapping("/changePassCorrect")
-	public String changePassCorrect() {
-		return "changePassCorrect";
+	public String changePassCorrect(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "changePassCorrect";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "changePassCorrect";
+			}
+		}
 	}
 	
 	@GetMapping("/changeEmailCorrect")
-	public String changeEmailCorrect() {
-		return "changeEmailCorrect";
+	public String changeEmailCorrect(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "changeEmailCorrect";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "changeEmailCorrect";
+			}
+		}
 	}
 	
 	@GetMapping("/recoverPassword")
-	public String recoverPassword() {
-		return "recoverPassword";
+	public String recoverPassword(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "recoverPassword";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "recoverPassword";
+			}
+		}
 	}
 	
 	@GetMapping("/setMailCode")
@@ -84,6 +180,27 @@ public class Control {
 	@ResponseBody
 	public String recoverPass(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		return Database.getInstance().getControl().recoverPass(req, resp);
+	}
+	
+	@GetMapping("/insertNewEmail.html")
+	public String insertNewEmail(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "insertNewEmail";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "insertNewEmail";
+			}
+		}
 	}
 	
 }

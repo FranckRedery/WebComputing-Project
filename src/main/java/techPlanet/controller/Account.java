@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,18 +27,52 @@ public class Account {
 	}
 	
 	@GetMapping("/account")
-	public String account() {
-		return "account";
+	public String account(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") != null) {
+			if(session.getAttribute("loggato").equals("si"))
+				return "account";
+			else 
+				return "index";
+		}
+		else {
+			return "index";
+		}
 	}
 	
 	@GetMapping("/editProfile.html")
-	public String editProfile() {
-		return "editProfile";
+	public String editProfile(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") != null) {
+			if(session.getAttribute("loggato").equals("si"))
+				return "editProfile";
+			else 
+				return "index";
+		}
+		else {
+			return "index";
+		}
 	}
 	
 	@GetMapping("/security.html")
-	public String security() {
-		return "security";
+	public String security(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "security";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "account";
+				else
+					return "security";
+			}
+		}
 	}
 	
 	@GetMapping("/index.html")
@@ -51,8 +86,24 @@ public class Account {
 	}
 	
 	@GetMapping("/signUpCorrect.html")
-	public String signUpCorrect() {
-		return "signUpCorrect";
+	public String signUpCorrect(HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(session.getAttribute("loggato") == null) 
+			return "index";
+		else {
+			if(session.getAttribute("loggatoGoogle") == null) {
+				if(session.getAttribute("loggato").equals("si"))
+					return "signUpCorrect";
+				else
+					return "index";
+			}
+			else {
+				if(session.getAttribute("loggatoGoogle").equals("si"))
+					return "signUpCorrect";
+				else
+					return "index";
+			}
+		}
 	}
 	
 	

@@ -35,19 +35,34 @@ function sendEmail() {
 		}
 			
 	});
+	
 	window.location = "InsertCodeSecurity.html";
 }
 
 function controlCode(c,type) {
 	
 	var input = document.getElementById('typeCode').value;
-	if(input == c){
-		if(type == "email")
+	if(input == c){	 
+		if(type == "email"){
+			$.ajax({  
+           		type : 'GET',  
+           		url : "/resetError",  
+   		 	});
 			window.location = "insertNewEmail.html";
-		if(type == "pass")
+		}
+		if(type == "pass"){
+			$.ajax({  
+           		type : 'GET',  
+           		url : "/resetError",  
+   		 	});
 			window.location = "insertNewPass.html";
+		}
 	}
 	else{
+		$.ajax({  
+         type : 'GET',  
+         url : "/activeError",  
+    	});
 		window.location = "InsertCodeSecurity.html";
 	}
 }
@@ -65,11 +80,31 @@ function controlPass(type) {
 					newPass: newPass
 				}
 			 });
+			 
+			 $.ajax({  
+           		type : 'GET',  
+           		url : "/resetError",  
+   		 	});
 			 window.location = "changePassCorrect";
 	}
 	else{
-			window.location = "insertNewPass.html";	 
+		$.ajax({  
+         type : 'GET',  
+         url : "/activeError",  
+    	});
+			window.location = "insertNewPass.html";
 	}
 	
 }
 
+function timeOutS(logStatus,errore){
+	if(logStatus == null || logStatus == "no" || logStatus == ""){
+		window.location = "/";
+	}
+	if(document.referrer == "http://localhost:8080/InsertCodeSecurity.html" || document.referrer == "http://localhost:8080/security.html"){
+		$.ajax({  
+         type : 'GET',  
+         url : "/resetError",  
+   		 });	
+	}
+}

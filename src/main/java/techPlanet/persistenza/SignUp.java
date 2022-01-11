@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 public class SignUp {
 	
 	private Connection conn;
@@ -21,7 +23,10 @@ public class SignUp {
 	}
 	
 	public String faiSignUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + req.getParameter("password") + "', '" + req.getParameter("username") +  "', '" + false + "')";
+		
+		String passw = req.getParameter("password");
+		String generatedSecuredPasswordHash = BCrypt.hashpw(passw, BCrypt.gensalt(12));
+		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + generatedSecuredPasswordHash + "', '" + req.getParameter("username") +  "', '" + false + "')";
 		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
 		

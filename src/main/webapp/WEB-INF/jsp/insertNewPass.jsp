@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -35,6 +36,9 @@
 						<label class="form-label" for="typeEmailX">Repeat New Password</label>
 					  <input type="password" id="RnewPass"  placeholder="enter here" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
+					<c:if test="${errore == 'si'}">
+					<div id="fail" class="alert-box failure">Passwords do not match</div>
+					</c:if>
 					<a>
 						<button class="btn btn-outline-light btn-lg px-5" >Confirm</button>
 					</a>

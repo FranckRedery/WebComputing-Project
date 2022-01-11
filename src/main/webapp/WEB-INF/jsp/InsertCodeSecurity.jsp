@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -10,6 +12,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/control/mail.js"></script>
 </head>
 <title>TechPlanet</title>
@@ -26,10 +29,13 @@
 					<img src="/images/index/logo.png" alt="">
 					<form action="javascript:controlCode(${codeS},'${codSic}')">
 					<div class="form-outline form-white mb-3">
-					<h3 style=" font-size: 20px; color: gray; text-align: center;">check your email, we have sent you the Security code.</h1>
+					<h3 style=" font-size: 20px; color: gray; text-align: center;">check your email, we have sent you the Security code.</h3>
 						<label class="form-label" for="typeEmailX">Code</label>
 					  <input type="number" placeholder="enter code" id="typeCode" class="form-control form-control-lg" required />
 					</div>
+					<c:if test="${errore == 'si'}">
+					<div id="fail" class="alert-box failure">Code is not correct</div>	
+					</c:if>
 					<a>
 						<button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
 					</a>

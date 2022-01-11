@@ -40,7 +40,7 @@
 					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
-					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverEmail.html">Forgot password?</a></p>
+					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverPassword">Forgot password?</a></p>
 					 <div id="bottoni">
 					<button id="log" style="margin:20px" class="btn btn-outline-light btn-lg px-4" type="submit">Login</button>
 					  <a id="G" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" class="text-white"><i class="fab fa-google fa-lg"></i></a>

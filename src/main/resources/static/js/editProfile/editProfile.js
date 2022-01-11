@@ -8,15 +8,42 @@ function timeOutS(logStatus,update){
          type : 'GET',  
          url : "/resetUpdate",  
     	});
-	document.getElementById('errore').style.display='block';	
+	document.getElementById('errore').style.display='block';
+	var i = 0;
+	  $('#closeB').prop('disabled', true);
+	  $('#closeB').off('click');
+	move(i);
 	}
-}
-
-function formImage(){
-	document.getElementById('ImageForm').submit();	
 }
 
 function reload(){
   window.location = "editProfile.html";
+}
+
+function move(i) {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 10;
+    var id = setInterval(frame, 40);
+    function frame() {
+      if (width >= 100) {
+ 		changeMessage();
+        clearInterval(id);
+ 		 $("#closeB").prop('disabled',true);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+  }
+}
+
+function changeMessage(){
+	document.getElementById("imgStatus").src = "images/account/greenCheck.gif";
+	document.getElementById("closeB").href = "javascript:reload()";
+	document.getElementById("msgAlert").innerHTML = "Image Update correctly press close button to view your new Profile Picture";
 }
 

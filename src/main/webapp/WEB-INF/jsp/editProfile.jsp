@@ -206,46 +206,44 @@
 		<div class="row">
 			<div class="col-md-4 border-right">
 				<div class="profile-pic-wrapper">
+					<c:if test="${loggatoGoogle != 'si'}">
  					 <div class="pic-holder">
- 					   <c:if test="${loggatoGoogle == 'si'}">
  					   <div class="circle">
 					     <img id="profilePicIMG" class="pic" src="${image}">
 					   </div>
-					    </c:if>
  					   <div class="circle">
- 					   <c:if test="${image != null && image != ''}">
-					      <img id="profilePicIMG" class="pic" src="${image}">										
-				       </c:if>
  					   <c:if test="${image == null || image == ''}">
 					      <img id="profilePicIMG" class="pic" src="images/account/avatar.png">										
 					   </c:if>
-					   </div>
+ 			 		 </div>
  			 		 </div>
    					  <form method="post" id="ImageForm" enctype="multipart/form-data" action="/updateImage">
-	   					 <input type="file" name="image" id="image">
+	   					 <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/gif" required/>
 	   					 <input type="hidden" name="username" value= "${username}">
 	   					 <div style="margin-top: 20px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
-	   					 	<button class="btn btn-primary profile-button" onclick="javascript:formImage()" type="button">Update Image</button>
+	   					 	<button class="btn btn-primary profile-button" type="submit">Update Image</button>
 	   					 </div>
    					  </form>
  			 <h1>Edit image here</h1>
+		  </c:if>
           </div>
 			</div>
 			
 	<div id="errore" class="modal">
 	  <div id="msg" class="modal-content animate" style="width: 50%">
 	   	<div class="container">
-	   		<a href="javascript:reload()">
-	     		<button style="background: transparent; border: 0; font-size:24px"><i  class="fa fa-close"></i></button>
-	   		</a>
-	      <img src="images/account/greenCheck.gif"  width="120" height="120" style="margin-left: auto; margin-right: auto; display: block;">
-	     <h3 style="color: white">Image Update correctly update to view your new Profile Picture </h3>
+	      <img id="imgStatus" src="images/account/loadingCircle.gif"  width="120" height="120" style="margin-left: auto; margin-right: auto; display: block;">
+	     <p id="msgAlert" style="color: white">we are uploading your Profile picture...</p>
 	     <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-	     <a href="javascript:reload()">
-	     	<button class="btn btn-primary profile-button">close</button>
-	     	<br></br>
-	     </a>
+	     <div id="myProgress">
+  			<div id="myBar">1%</div>
+		 </div>
 	     </div>
+	      <div style="display: flex; align-items: center; justify-content: center; margin-top: 15px; margin-bottom: 15px; ">
+	     <a id="closeB">
+	     	<button class="btn btn-primary profile-button">close</button>
+	     </a>
+	      </div>
 	   </div>
  	  </div>
 	 </div>

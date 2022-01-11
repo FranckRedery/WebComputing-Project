@@ -22,7 +22,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut('${loggato}')">
+<body >
 		
 	<!-- HEADER -->
 	<header>
@@ -232,12 +232,12 @@
 	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
-			<img src="images/account/list01.png" class="img-fluid rounded-start" alt="...">
+			<img src="images/account/returnLogo.png"  class="img-fluid rounded-start" alt="...">
 		  </div>
 		  <div class="col-md-8">
 			<div class="cardAcc-body">
-			  <h5 class="card-title">Purchase history</h5>
-			  <p class="card-text">Check your purchase history here.</p>
+			  <h5 class="card-title">My Returns</h5>
+			  <p class="card-text">Check your returns here.</p>
 			</div>
 		  </div>
 		</div>
