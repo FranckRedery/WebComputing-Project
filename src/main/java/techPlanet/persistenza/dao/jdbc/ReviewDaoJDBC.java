@@ -85,6 +85,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 			}
 
 		}
+		addStars(review.getStars(), review.getId());
 	}
 
 	@Override
@@ -100,8 +101,6 @@ public class ReviewDaoJDBC implements ReviewDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 	}
 	
 	public boolean AlreadyInserted(Long id, String username) {
@@ -121,5 +120,35 @@ public class ReviewDaoJDBC implements ReviewDao {
 		}
 		return false;
 	}
-
+	
+	public void addStars(float stars, Product prod) {
+		String getOverall = "select stars from reviews where id = ?";
+		float overall = 0.0f;
+		int cont = 0;
+		try {
+			PreparedStatement st = conn.prepareStatement(getOverall);
+			st.setLong(1,prod.getId());
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				overall += rs.getFloat("stars");
+				cont++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String updateOverallProduct = "update product " +
+				"set reviews = ?" + 
+				"where id = ?";
+		try {
+			PreparedStatement st;
+			st = conn.prepareStatement(updateOverallProduct);
+			st.setFloat(1, overall/cont);
+			st.setLong(2,prod.getId());
+			st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

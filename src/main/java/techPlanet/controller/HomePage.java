@@ -12,6 +12,7 @@ import techPlanet.Database;
 import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.Review;
+import techPlanet.model.Wishes;
 
 @Controller
 public class HomePage {
@@ -19,7 +20,10 @@ public class HomePage {
 	@GetMapping("/")
 	public String homePage(HttpServletRequest req) {
 		setNumberCart(req);
+		String username = (String) req.getSession().getAttribute("username");
 		List<Product> product = Database.getInstance().getProductsDao().findByLastNineInserted();
+		List<Wishes> wishes = Database.getInstance().getWishesDao().findByUser(username);
+		req.setAttribute("wishes", wishes);
 		req.setAttribute("prodotti", product);
 		return "index";
 	}
@@ -132,13 +136,29 @@ public class HomePage {
 	public String supportoClienti() {
 		return "supportoClienti";
 	}
+	
+	@GetMapping("/wishList.html")
+	public String wishListPage(HttpServletRequest req) {
+		if (req.getSession().getAttribute("username") != null) {
+			String username = (String) req.getSession().getAttribute("username");
+			List<Wishes> wishes = Database.getInstance().getWishesDao().findByUser(username);
+			req.setAttribute("wishes", wishes);
+			return "wishList";
+		}
+		else 
+			return "login";
+
+	}
 
 	public void setNumberCart(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		if (username != null) {
 			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
+			int numWishesUser = Database.getInstance().getWishesDao().getNumProdForUser(username);
 			if (numProdUser > 0)
 				req.setAttribute("numProd", numProdUser);
+			if (numWishesUser > 0)
+				req.setAttribute("numWishList", numWishesUser);
 		}
 	}
 }

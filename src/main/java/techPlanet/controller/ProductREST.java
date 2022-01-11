@@ -16,6 +16,7 @@ import techPlanet.Database;
 import techPlanet.model.Chooses;
 import techPlanet.model.Product;
 import techPlanet.model.Review;
+import techPlanet.model.Wishes;
 
 @RestController
 public class ProductREST {
@@ -24,6 +25,12 @@ public class ProductREST {
 	public void addProdToCart(@RequestBody Chooses chooses, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		Database.getInstance().getChoosesDao().saveOrUpdateProdInCart(chooses, username);
+	}
+	
+	@PostMapping("/addProductToWishList")
+	public void addProdToWishList(@RequestBody Wishes wishes, HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		Database.getInstance().getWishesDao().addToWishList(wishes, username);
 	}
 	
 	@PostMapping("/quantityBasedAddition") 

@@ -22,6 +22,10 @@ function calcTotal() {
 	
 	var totalWithIva = sum + iva;
 	document.getElementById("totWithIva").innerHTML= "$" + totalWithIva.toFixed(2);
+	
+	if (totalWithIva == 0) {
+		$("#procede").prop("disabled",true);
+	}
 }
 
 /*function generatePayment(value) {

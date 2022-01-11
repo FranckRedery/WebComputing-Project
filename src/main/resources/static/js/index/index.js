@@ -43,6 +43,21 @@ $("button#addProd").click(function(){
 			});
 });
 
+$("button.addProdWishes").click(function(){
+	let id = $(this).val();
+	let product = new Product(id);
+	let wishes = new Chooses(product);
+	$.ajax({
+		type: "POST",
+		url: "/addProductToWishList",
+		contentType: "application/json",
+		data: JSON.stringify(wishes),
+		success: function(){
+				document.getElementById(id).innerHTML = "<i class=\"fas fa-heart\"></i>";
+			}
+			});
+});
+
 function Product(id) {
 	this.id = id;
 }
@@ -50,6 +65,10 @@ function Product(id) {
 function Chooses(id, quantity) {
 	this.id = id;
 	this.quantity = quantity;	
+}
+
+function Wishes(id) {
+	this.id = id;
 }
 
 $("button#viewProd").click(function(){

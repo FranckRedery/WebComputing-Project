@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link type="text/css" rel="stylesheet" href="css/wishList/wishList.css" />
+<link rel="icon" href="images/index/logo.png" type="image/x-icon" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -14,13 +17,9 @@
 	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS only -->
-<link type="text/css" rel="stylesheet" href="css/cart/cartStyle.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Electronic</title>
 <script src="js/Signup/signUp.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/platform.js?onload=onLoad" async
@@ -28,10 +27,13 @@
 <meta name="google-signin-client_id"
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<title>Tech Planet</title>
+</head>
+
+<body onload="check()">
 
 	<!-- HEADER -->
 	<header>
@@ -198,73 +200,151 @@
 			</div>
 		</div>
 	</nav>
-	<div id="paypal-button-container"></div>
-	<div class="container mt-3">
-		<table class="table table-borderless" id="price">
-			<thead>
-				<tr>
-					<th>Product</th>
-					<th>Quantity</th>
-					<th>Subtotal</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${chooses}" var="cho">
-					<tr id="row_${cho.id.id}">
-						<td>
-							<div class="cart-info">
-								<img src="${cho.id.image}">
-								<div>
-									<p>${cho.id.name}</p>
-									<small>Price $${cho.id.price}0</small> <br> <a href="#"
-										disabled="disabled" style="text-decoration: none"
-										data-custom-value="${cho.id.id}" class="removeProd">Remove</a>
-								</div>
+
+	<div class="container">
+		<div class="row g-3 m-auto">
+			<c:forEach items="${wishes}" var="wish">
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="${wish.id.image}"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">${wish.id.name}</h5>
+						<div class="info">
+							<div class="price">
+							<h3 class="card-text"><strong>${wish.id.price}</strong></h3>
 							</div>
-						</td>
-						<c:if test="${cho.quantity >= cho.id.quantity}">
-							<td><input type="number" value="${cho.id.quantity}" min="1"
-								max="${cho.id.quantity}" id="${cho.quantity}"
-								class="currentQuantity ${cho.id.id}"
-								oninput="validity.valid||(value='');"
-								onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
-						</c:if>
-						<c:if test="${cho.quantity < cho.id.quantity}">
-							<td><input type="number" value="${cho.quantity}" min="1"
-								max="${cho.id.quantity}" id="${cho.quantity}"
-								class="currentQuantity ${cho.id.id}"
-								oninput="validity.valid||(value='');"
-								onchange="updateQuantity(${cho.id.id},${cho.quantity})"></td>
-						</c:if>
-						<td class="prod_price" class="price" id="${cho.id.price}"></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<div class="total-price">
-			<table>
-				<tr>
-					<td>Subtotal <strong>(without iva)</strong></td>
-					<td id="tot"></td>
-				</tr>
-				<tr>
-					<td>Tax <strong>(iva 22%)</strong></td>
-					<td id="iva"></td>
-				</tr>
-				<tr>
-					<td>Total</td>
-					<td id=totWithIva></td>
-				</tr>
-				<tr>
-					<td colspan="2"><button type="button" class="btn btn-primary" id="procede"
-							onclick="completeCheckout()">Procede to order</button></td>
-				</tr>
-			</table>
-		</div>
-		<div></div>
-
+							<div class="star">
+							<c:forEach var="star" begin="1" end="${wish.id.reviews}">
+							<span> <i class="fas fa-star"></i></span>
+							</c:forEach>
+							<c:forEach var="star" begin="${wish.id.reviews}" end="4">
+							<span> <i class="far fa-star"></i></span>
+							</c:forEach>
+							</div>
+						</div>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</c:forEach>
+			<!-- <div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product02.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product03.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product04.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product05.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product06.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product07.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product08.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<img alt="" src="images/prodotti/product09.png"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">wow top phone</h5>
+						<p class="card-text">lorem ipsu</p>
+						<div class="action">
+						<button type="button" class="btn btn-light">Remove</button>
+						<button type="button" class="btn btn-primary">Move to cart</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div> 
 	</div>
-
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -302,11 +382,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -319,7 +399,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>
@@ -331,10 +411,16 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
+
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="js/cart/cart.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/wishList/wishList.js"></script>
 </body>
+
 </html>

@@ -201,7 +201,7 @@
 	<div class="box-container">
 		<c:forEach items="${products}" var="prod">
 			<div class="box">
-								<div class="addedToCart" id="cart_${prod.id}"></div>
+				<div class="addedToCart" id="cart_${prod.id}"></div>
 				<div class="image">
 					<img src="${prod.image}" alt="">
 				</div>

@@ -128,8 +128,11 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
-								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+								<a href="wishList.html" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> 
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty">${numWishList}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->
@@ -335,7 +338,12 @@
 					<div class="product-img">
 						<img src="${prod.image}" alt=""
 							class="img-fluid d-block mx-auto"> <span class="heart-icon">
-							<i class="far fa-heart"></i>
+							<c:if test="${username != null}">
+							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}"><i class="far fa-heart"></i></button>
+							</c:if>
+							<c:if test="${username == null}">
+							<button type="button" class="hide" onclick="window.location.href='login.html'"><i class="far fa-heart"></i></button>
+							</c:if>
 						</span>
 						<div class="row btns w-100 mx-auto text-center">
 							<c:if test="${username != null}">
@@ -367,7 +375,6 @@
 							<c:forEach var="star" begin="${prod.reviews}" end="4">
 							<span> <i class="far fa-star"></i></span>
 							</c:forEach>
-							<span>(25 reviews)</span>
 						</div>
 					</div>
 				</div>
