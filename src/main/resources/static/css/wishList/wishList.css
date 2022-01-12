@@ -1406,7 +1406,11 @@ li {
 }
 
 .price h3 {
-	font-size: x-large;
+	font-size: 25px;
+}
+
+.col-12 {
+	margin-bottom: 16px;
 }
 
 /*=========================================================

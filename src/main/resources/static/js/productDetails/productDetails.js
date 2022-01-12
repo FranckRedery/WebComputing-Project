@@ -16,6 +16,23 @@ $("button#addProd").click(function() {
 	});
 });
 
+$("button#addProdWishes").click(function() {
+	let id = $(this).val();
+	let product = new Product(id);
+	let wishes = new Chooses(product);
+	$.ajax({
+		type: "POST",
+		url: "/addProductToWishList",
+		contentType: "application/json",
+		data: JSON.stringify(wishes),
+		success: function() {
+			setTimeout(function() {
+				location.reload();
+			}, 1000);
+		}
+	});
+});
+
 function RemoveReview(id) {
 	if (confirm("Are you sure you want to delete this review?")) {
 		$.ajax({
@@ -37,4 +54,8 @@ function Product(id) {
 function Chooses(id, quantity) {
 	this.id = id;
 	this.quantity = quantity;
+}
+
+function Wishes(id) {
+	this.id = id;
 }

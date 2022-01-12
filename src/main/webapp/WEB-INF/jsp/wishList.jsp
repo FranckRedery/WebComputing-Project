@@ -120,7 +120,7 @@
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
 								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-heart" id="heart"></i>
 								</a>
 							</div>
 							<!-- Cart -->
@@ -225,7 +225,7 @@
 						</div>
 						<div class="action">
 						<button type="button" class="btn btn-light removeProd" onclick="removeFromWishList(${wish.id.id})">Remove</button>
-						<button type="button" class="btn btn-primary">Move to cart</button>
+						<button type="button" class="btn btn-primary" onclick="moveToCart(${wish.id.id})">Move to cart</button>
 						</div>
 					</div>
 				</div>

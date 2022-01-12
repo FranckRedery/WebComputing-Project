@@ -117,17 +117,17 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
-								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+								<a href="wishList.html" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i>
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> <c:if
-										test="${username != null && numProd > 0}">
-										<div class="qty">${numProd}</div>
-									</c:if>
+									class="fa fa-shopping-cart"></i>
 								</a>
 							</div>
 							<!-- /Cart -->
