@@ -92,14 +92,16 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
-								<select class="input-select">
-									<option value="0">All Categories</option>
-									<option value="1">Smartphone</option>
-									<option value="2">TV</option>
-									<option value="3">Accessories</option>
-								</select> <input class="input" placeholder="Search here">
-								<button class="search-btn">Search</button>
+							<form method= "post" action="/searchProduct" >
+								<select class="input-select" name="categories">
+									<option value="All Categories">All Categories</option>
+									<option value="notebooks">Notebooks</option>
+									<option value="smartphones">Smartphones</option>
+									<option value="printers">Printers</option>
+									<option value="cameras">Cameras</option>
+									<option value="accessories">Accessories</option>
+								</select> <input class="input" placeholder="Search here" name="productName">
+								<button type="submit" class="search-btn">Search</button>
 							</form>
 						</div>
 					</div>
@@ -111,7 +113,10 @@
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
 								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-heart" id="heart"></i>
+									<c:if test="${username != null && numWishList > 0}">
+										<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->
@@ -175,7 +180,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="laptopsGallery.html">Laptops</a></li>
+						href="notebooksGallery.html">Notebooks</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"

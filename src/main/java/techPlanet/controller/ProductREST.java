@@ -89,4 +89,41 @@ public class ProductREST {
 		HttpSession session = req.getSession(true);
 		session.setAttribute("review", review);
 	}
+	
+	@PostMapping("/searchProduct") 
+	public void searchProduct(String categories, String productName, HttpServletResponse res, HttpServletRequest req) {
+		HttpSession session = req.getSession(true);
+		if(Database.getInstance().getProductsDao().findByName(productName.toLowerCase()) != null) {	
+			try {
+				System.out.println(productName.toLowerCase());
+				Product product = Database.getInstance().getProductsDao().findByName(productName.toLowerCase());
+				session.setAttribute("product", product);
+				res.sendRedirect("/product");
+				return;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else if(!categories.equals("All Categories")){
+			try {
+				session.setAttribute("notFound", "notFound");
+				res.sendRedirect("/" + categories +"GallerySearch.html");
+				return;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			try {
+				session.setAttribute("notFound", "notFound");
+				res.sendRedirect("/allProductGallery.html");
+				return;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 }

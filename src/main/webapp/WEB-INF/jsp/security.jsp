@@ -93,14 +93,16 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
-								<select class="input-select">
-									<option value="0">All Categories</option>
-									<option value="1">Smartphone</option>
-									<option value="2">TV</option>
-									<option value="3">Accessories</option>
-								</select> <input class="input" placeholder="Search here">
-								<button class="search-btn">Search</button>
+							<form method= "post" action="/searchProduct" >
+								<select class="input-select" name="categories">
+									<option value="All Categories">All Categories</option>
+									<option value="notebooks">Notebooks</option>
+									<option value="smartphones">Smartphones</option>
+									<option value="printers">Printers</option>
+									<option value="cameras">Cameras</option>
+									<option value="accessories">Accessories</option>
+								</select> <input class="input" placeholder="Search here" name="productName">
+								<button type="submit" class="search-btn">Search</button>
 							</form>
 						</div>
 					</div>
@@ -176,21 +178,18 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="navbar-nav me-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Laptops</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Smartphones</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Tvs</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)">Accessories</a>
-				  </li>
+				<li class="nav-item"><a class="nav-link"
+						href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="notebooksGallery.html">Notebooks</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="smartphonesGallery.html">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="camerasGallery.html">Cameras</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="accessoriesGallery.html">Accessories</a></li>
 			</ul>
 		  </div>
 		</div>

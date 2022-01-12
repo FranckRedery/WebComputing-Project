@@ -121,6 +121,8 @@ public class ReviewDaoJDBC implements ReviewDao {
 		return false;
 	}
 	
+	
+	
 	public void addStars(float stars, Product prod) {
 		String getOverall = "select stars from reviews where id = ?";
 		float overall = 0.0f;

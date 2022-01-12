@@ -1,3 +1,10 @@
+window.addEventListener("load", function(){
+	var x = document.getElementsByClassName("notFound")[0].id;	
+	if (x == "notFound") {
+		$('#myModal').modal('show');
+	}
+});
+
 $(".addProd").click(function(){
 	let id = $(this).data("custom-value");
 	let quantity = 1;

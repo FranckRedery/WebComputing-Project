@@ -11,13 +11,13 @@ function caricaOpzioni() {
 	tag.innerHTML = "";
 	let s = "";
 	switch(categoria) {
-		case "Notebook":
+		case "notebook":
 			for(let i = 0; i < opzioni[1].length; ++i) {
 				s += "<input type=\"checkbox\"  name=\"tags"  + "\" value=\"" + opzioni[1][i] + "\">"
 					+ "<label for=\"vehicle1\">" +  opzioni[1][i] + "</label><br />";
 			}
 			break;
-		case "Printers":
+		case "printers":
 			for(let i = 0; i < opzioni[0].length; ++i) {
 				s += "<input type=\"checkbox\"  name=\"tags" + "\" value=\"" + opzioni[0][i] + "\">"
 					+ "<label for=\"vehicle1\">" +  opzioni[0][i] + " </label><br />";

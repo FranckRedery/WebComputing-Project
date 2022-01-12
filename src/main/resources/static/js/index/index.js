@@ -119,4 +119,3 @@ function signOut() {
         gapi.auth2.init();
       });
  }
-

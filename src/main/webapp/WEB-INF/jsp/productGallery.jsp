@@ -33,7 +33,7 @@
 </head>
 
 <body>
-		
+
 	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
@@ -51,31 +51,32 @@
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
 						<c:if test="${isAdmin == 't'}">
-						  <a href="adminPage" style="text-decoration: none;">
-							<button class="btnAdmin">
-								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
-							</button>
-						  </a>
+							<a href="adminPage" style="text-decoration: none;">
+								<button class="btnAdmin">
+									<span>Admin View <img src="images/index/adminBtn.gif"
+										width="20" height="20"></span>
+								</button>
+							</a>
 						</c:if>
-				     <a href="javascript:signOut()" style="text-decoration: none;">
+						<a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-				  </c:if>
-				<c:if test="${loggato == 'no' || loggato == null}">
-				
-					<a style="text-decoration: none;">
-						<button onclick="resetLogin();" class="btnLog">
-							<span>Login</span>
-						</button>
-					</a>
-					<a style="text-decoration: none;">
-						<button onclick="resetSignUp();" class="btnLog">
-							<span>Sign Up</span>
-						</button>
-					</a>
-				</c:if>
+					</c:if>
+					<c:if test="${loggato == 'no' || loggato == null}">
+
+						<a style="text-decoration: none;">
+							<button onclick="resetLogin();" class="btnLog">
+								<span>Login</span>
+							</button>
+						</a>
+						<a style="text-decoration: none;">
+							<button onclick="resetSignUp();" class="btnLog">
+								<span>Sign Up</span>
+							</button>
+						</a>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -99,14 +100,16 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
-								<select class="input-select">
-									<option value="0">All Categories</option>
-									<option value="1">Smartphone</option>
-									<option value="2">TV</option>
-									<option value="3">Accessories</option>
-								</select> <input class="input" placeholder="Search here">
-								<button class="search-btn">Search</button>
+							<form method= "post" action="/searchProduct" >
+								<select class="input-select" name="categories">
+									<option value="All Categories">All Categories</option>
+									<option value="notebooks">Notebooks</option>
+									<option value="smartphones">Smartphones</option>
+									<option value="printers">Printers</option>
+									<option value="cameras">Cameras</option>
+									<option value="accessories">Accessories</option>
+								</select> <input class="input" placeholder="Search here" name="productName">
+								<button type="submit" class="search-btn">Search</button>
 							</form>
 						</div>
 					</div>
@@ -118,18 +121,18 @@
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
 								<a href="wishList.html" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> 
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
+									class="fa fa-heart" id="heart"></i> <c:if
+										test="${username != null && numWishList > 0}">
+										<div class="qty" id="wishList">${numWishList}</div>
 									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
 								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> 
-									<c:if test="${username != null && numProd > 0}">
-									<div class="qty">${numProd}</div>
+									class="fa fa-shopping-cart"></i> <c:if
+										test="${username != null && numProd > 0}">
+										<div class="qty">${numProd}</div>
 									</c:if>
 								</a>
 							</div>
@@ -139,29 +142,31 @@
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
+										<a href="account.html"
+											style="text-decoration: none; display: flex;"> <img
+											class="profilePic" src='${image}' style="border-radius: 50%;"
+											width="29" height="29" alt="Avatar"> ${username}
+										</a>
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										${username}
-									</a>
+										<a href="account.html"
+											style="text-decoration: none; display: flex;"> <c:if
+												test="${image != null && image != ''}">
+												<img class="profilePic" src='${image}'
+													style="border-radius: 50%;" width="29" height="29"
+													alt="Avatar">
+											</c:if> <c:if test="${image == null || image == ''}">
+												<img class="profilePic" src='images/account/avatar.png'
+													style="border-radius: 50%;" width="29" height="29"
+													alt="Avatar">
+											</c:if> ${username}
+										</a>
 									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none;"> <i
-									class="fa fa-user"></i>
-								</a>
+									<a href="login.html" style="text-decoration: none;"> <i
+										class="fa fa-user"></i>
+									</a>
 								</c:if>
 							</div>
 							<!-- /User Toogle -->
@@ -186,7 +191,7 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="laptopsGallery.html">Laptops</a></li>
+						href="notebooksGallery.html">Notebooks</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -199,8 +204,6 @@
 			</div>
 		</div>
 	</nav>
-
-
 	<div class="box-container">
 		<c:forEach items="${products}" var="prod">
 			<div class="box">
@@ -234,9 +237,11 @@
 							data-custom-value="${prod.id}"></a>
 					</c:if>
 					<c:if test="${username != null}">
-					<a href="#" style="-i: 2;" class="fas fa-heart addProdWishes" data-custom-value="${prod.id}"></a> 
+						<a href="#" style="-i: 2;" class="fas fa-heart addProdWishes"
+							data-custom-value="${prod.id}"></a>
 					</c:if>
-					<a href="#" style="-i: 3;" class="fa fa-binoculars viewProd" data-custom-value="${prod.id}"></a>
+					<a href="#" style="-i: 3;" class="fa fa-binoculars viewProd"
+						data-custom-value="${prod.id}"></a>
 				</div>
 			</div>
 		</c:forEach>
@@ -248,6 +253,32 @@
 		<li class="page-item"><a class="page-link" href="#">3</a></li>
 		<li class="page-item"><a class="page-link" href="#">Next</a></li>
 	</ul>
+
+	<div class="notFound" id="${notFound}">
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Product not Found</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">here are some products suggested to
+						you</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							data-bs-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
