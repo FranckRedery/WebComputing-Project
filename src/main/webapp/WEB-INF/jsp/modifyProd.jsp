@@ -29,7 +29,7 @@
 			<div class="container">
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-envelope"></i> techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 			</div>
@@ -45,7 +45,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
+							<a href="/" class="logo">
 								<img id="logo" src="images/index/logo.png" alt="">
 							</a>
 						</div>
@@ -131,32 +131,32 @@
 		<button type="submit"  class="btn btn-primary" id="btnSearch">Search the product</button>
 	</form>
 	
-	<c:if test = "${product != null}">
+	<c:if test = "${prod != null}">
      <div class="row" id="riga">
 		<div class="col-md-2">
             <label class="selectedProduct" id="selectedProd">Selected product</label>
             <div class="product-img">
-                <img src="${product.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
+                <img src="${prod.image}" class="img-fluid d-block mx-auto" width="400" height= auto>
             </div>
             <div class="product-info">
             	<span class="info" style="font-size: small;">Product ID : </span>
-                <span class="product-id" id="prodId" style="font-size: small;">${product.id}</span>
+                <span class="product-id" id="prodId" style="font-size: small;">${prod.id}</span>
                 <br>
                 <span class="info" style="font-size: small;">Category : </span>
-                <span class="product-type" style="font-size: small;">${product.category}</span>
+                <span class="product-type" style="font-size: small;">${prod.category}</span>
                 <br>
                 <span class="info" style="font-size: small;">Name : </span>
-                <span class="product-name" style="font-size: small;">${product.name}
+                <span class="product-name" style="font-size: small;">${prod.name}
                 </span>
                 <br>
                 <span class="info" style="font-size: small;">Price : </span>
-                <span class="product-price" style="font-size: medium;">$${product.price}</span>
+                <span class="product-price" style="font-size: medium;">$${prod.price}</span>
                 </div>
         </div>
         
         <div class="col-md-4">
         	<form class="needs-validation-form-modify" method="post" action="/modifyProduct" enctype="multipart/form-data" id="modifyProduct" novalidate>
-        		<input type="number" name="productID" class="form-control" required value="${product.id}" style="display: none">
+        		<input type="number" name="productID" class="form-control" required value="${prod.id}" style="display: none">
 				<div class="mb-3">
 					<label class="form-label" for="productName" style="margin-top: 3%;">Name</label>
 					<input type="text" name="productName" class="form-control" id="productNameModify" placeholder="Product name" required>
@@ -248,11 +248,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -265,7 +265,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

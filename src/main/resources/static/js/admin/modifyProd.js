@@ -48,7 +48,7 @@ function caricaOpzioni() {
 					let name = document.getElementById('productName').value;
 					$.ajax({
 						type: "POST",
-						url: "/getProdByName",
+						url: "/getProdByNameForModify",
 						contentType: "application/json",
 						data: name,
 						async: false,

@@ -51,7 +51,7 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+					<li><a href="#"><i class="fa fa-phone"></i> +39 388 357 0017</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
 							techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734

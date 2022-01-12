@@ -82,7 +82,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <img id="logo"
+							<a href="/" class="logo"> <img id="logo"
 								src="images/index/logo.png" alt="">
 							</a>
 						</div>
@@ -253,11 +253,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -270,7 +270,7 @@
 								<li><a href="#">View Cart</a></li>
 								<li><a href="#">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

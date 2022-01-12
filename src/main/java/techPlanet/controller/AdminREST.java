@@ -80,6 +80,18 @@ public class AdminREST {
 		
 	}
 	
+	@PostMapping("/getProdByNameForModify")
+	public Product getProdByNameForModify(@RequestBody String name, HttpServletRequest req) {
+		
+		Product prod = Database.getInstance().getProductsDao().findByName(name);
+		
+		HttpSession session = req.getSession(true);
+		session.setAttribute("prod", prod);
+
+		return prod;
+		
+	}
+	
 	@PostMapping("/getUserByUsername")
 	public User getUserByUsername(@RequestBody String username, HttpServletRequest req) {
 		
@@ -137,7 +149,7 @@ public class AdminREST {
 		Database.getInstance().getProductsDao().modifyProduct(product);
 		try {
 			image.transferTo(new File(path+ "/" + image.getOriginalFilename()));
-			req.getSession().removeAttribute("product");
+			req.getSession().removeAttribute("prod");
 			res.sendRedirect("/modifyProd");		
 		} catch (IllegalStateException e) {
 			System.out.println("Can't transfer the photo or can't redirect to page addProduct");
