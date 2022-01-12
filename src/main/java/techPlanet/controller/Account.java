@@ -20,6 +20,7 @@ public class Account {
 
 	@GetMapping("/myOrder.html")
 	public String myOrderPage(HttpServletRequest req) {
+		showNumberProd(req);
 		String username = (String) req.getSession().getAttribute("username");
 		List<MyOrder> orders = Database.getInstance().getMyOrderDao().findByUser(username);
 		req.setAttribute("orders", orders);
@@ -44,8 +45,10 @@ public class Account {
 	public String editProfile(HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
 		if(session.getAttribute("loggato") != null) {
-			if(session.getAttribute("loggato").equals("si"))
+			if(session.getAttribute("loggato").equals("si")) {
+				showNumberProd(req);
 				return "editProfile";
+			}
 			else 
 				return "index";
 		}
@@ -61,8 +64,10 @@ public class Account {
 			return "index";
 		else {
 			if(session.getAttribute("loggatoGoogle") == null) {
-				if(session.getAttribute("loggato").equals("si"))
+				if(session.getAttribute("loggato").equals("si")) {
+					showNumberProd(req);
 					return "security";
+				}
 				else
 					return "index";
 			}
@@ -106,5 +111,16 @@ public class Account {
 		}
 	}
 	
+	public void showNumberProd(HttpServletRequest req) {
+		String username = (String) req.getSession().getAttribute("username");
+		if (username != null) {
+			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
+			int numWishesUser = Database.getInstance().getWishesDao().getNumProdForUser(username);
+			if (numProdUser > 0)
+				req.setAttribute("numProd", numProdUser);
+			if (numWishesUser > 0)
+				req.setAttribute("numWishList", numWishesUser);
+		}
+	}
 	
 }

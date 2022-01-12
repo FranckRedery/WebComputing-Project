@@ -117,8 +117,11 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
-								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+								<a href="wishList.html" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i>
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->
@@ -209,9 +212,17 @@
 				<h4>${product.price}0</h4>
 				<input type="number" value="1" min="1" max="${product.quantity}"
 					id="quantity" oninput="validity.valid||(value='');"> <br>
-				<br> <a href=""><button type="button" class="btn btn-info">
+				<br>
+				<c:if test="${username != null}">
+				<a href=""><button type="button" class="btn btn-info" id="addProdWishes" value="${product.id}">
 						<i class="far fa-heart"></i>add to Wishlist
 					</button></a>
+				</c:if>
+				<c:if test="${username == null}">
+				<a href=""><button type="button" class="btn btn-info" value="${product.id}">
+						<i class="far fa-heart"></i>add to Wishlist
+					</button></a>
+				</c:if>
 				<c:if test="${username != null}">
 					<a href=""><button type="button" class="btn btn-info"
 							value="${product.id}" id="addProd">

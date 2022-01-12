@@ -157,7 +157,7 @@
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
-										<button type="button" class="btn btn-danger"
+										<button type="button" class="btn btn-primary"
 											data-bs-dismiss="modal" onclick="window.location.href='/'">Close</button>
 									</div>
 
