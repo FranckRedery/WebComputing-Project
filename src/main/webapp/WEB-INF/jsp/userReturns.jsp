@@ -112,7 +112,10 @@
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
 								<a href="#" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> <!--<div class="qty">0</div>-->
+									class="fa fa-heart" id="heart"></i>
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
 								</a>
 							</div>
 							<!-- Cart -->

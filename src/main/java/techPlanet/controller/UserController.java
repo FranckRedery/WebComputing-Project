@@ -15,8 +15,6 @@ import techPlanet.model.ReturnRequest;
 
 @Controller
 public class UserController {
-
-	
 		
 	@GetMapping("/itemReturn")
 	public String itemReturn() {
@@ -25,8 +23,15 @@ public class UserController {
 
 	@GetMapping("/userReturns")
 	public String userReturns(HttpServletRequest req) {
-		
 		String username = (String) req.getSession().getAttribute("username");
+		if (username != null) {
+			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
+			int numWishesUser = Database.getInstance().getWishesDao().getNumProdForUser(username);
+			if (numProdUser > 0)
+				req.setAttribute("numProd", numProdUser);
+			if (numWishesUser > 0)
+				req.setAttribute("numWishList", numWishesUser);
+		}
 		List<ReturnRequest> returns = Database.getInstance().getReturnRequestDao().findByUser(username);
 		HttpSession session = req.getSession(true);
 		session.setAttribute("returns", returns);
