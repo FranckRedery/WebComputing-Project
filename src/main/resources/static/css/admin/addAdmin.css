@@ -1,5 +1,4 @@
 #pageTitle{
-	font-family: Cinzel Decorative;
 	font-size: 40px; 
 	font-style: normal; 
 	font-variant: normal; 
@@ -24,7 +23,7 @@ input[type=text]:focus {
 	margin-bottom: 2%;
 }
 
-
+ 
 #email, #username{
 	font-size: 17px!important;
 	color: orange;
