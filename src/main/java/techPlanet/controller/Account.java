@@ -94,19 +94,19 @@ public class Account {
 	public String signUpCorrect(HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
 		if(session.getAttribute("loggato") == null) 
-			return "index";
+			return "signUpCorrect";
 		else {
 			if(session.getAttribute("loggatoGoogle") == null) {
 				if(session.getAttribute("loggato").equals("si"))
-					return "signUpCorrect";
-				else
 					return "index";
+				else
+					return "signUpCorrect";
 			}
 			else {
 				if(session.getAttribute("loggatoGoogle").equals("si"))
-					return "signUpCorrect";
-				else
 					return "index";
+				else
+					return "signUpCorrect";
 			}
 		}
 	}
