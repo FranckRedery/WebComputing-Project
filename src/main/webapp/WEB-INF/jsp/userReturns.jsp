@@ -166,6 +166,34 @@
 		</div>
 	</header>
 	<!--/HEADER-->
+	
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"> <i class="fa fa-navicon"
+					style="color: white; font-size: 28px"></i>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="laptopsGallery.html">Laptops</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="smartphonesGallery.html">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="camerasGallery.html">Cameras</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="accessoriesGallery.html">Accessories</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
 
     <div class="container" id="prova">
         <h2 style="margin-top: 5%;" id="pageTitle">Returns list</h2>

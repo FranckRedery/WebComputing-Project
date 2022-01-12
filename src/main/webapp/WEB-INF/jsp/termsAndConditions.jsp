@@ -83,7 +83,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <img id="logo"
+							<a href="/" class="logo"> <img id="logo"
 								src="images/index/logo.png" alt="">
 							</a>
 						</div>
@@ -161,6 +161,33 @@
 			</div>
 		</div>
 	</header>
+	
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"> <i class="fa fa-navicon"
+					style="color: white; font-size: 28px"></i>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="laptopsGallery.html">Laptops</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="smartphonesGallery.html">Smartphones</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="printersGallery.html">Printers</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="camerasGallery.html">Cameras</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="accessoriesGallery.html">Accessories</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	
 	<div class="termsAndConditions">
 	<h2><strong>Terms and Conditions</strong></h2>
@@ -326,30 +353,30 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Information</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Work with Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
+						<div class="footer">
+							<h3 class="footer-title">Information</h3>
+							<ul class="footer-links">
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
+							</ul>
+						</div>
+					</div>
 
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Service</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">View Cart</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">Order and Returns</a></li>
-                                <li><a href="#">Help</a></li>
-                            </ul>
-                        </div>
-                    </div>
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Service</h3>
+							<ul class="footer-links">
+								<li><a href="#">My Account</a></li>
+								<li><a href="#">View Cart</a></li>
+								<li><a href="#">Wishlist</a></li>
+								<li><a href="#">Order and Returns</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
+							</ul>
+						</div>
+					</div>
                 </div>
                 <!-- /row -->
             </div>

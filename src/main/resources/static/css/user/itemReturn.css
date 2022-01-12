@@ -133,6 +133,133 @@ ul, ol {
   padding: 0;
   list-style: none
 }
+
+/*----------------------------*\
+	Main nav
+\*----------------------------*/
+
+#navigation {
+  background: #1E1F29;
+  border-bottom: 2px solid #0b3de1;
+  border-top: 1px solid #0b3de1;
+  position: sticky;
+  top: 0;
+  z-index: 11 !important;
+}
+
+.navbar-nav>li{
+  margin-left: 10px
+}
+
+.navbar-nav>li+li {
+  float: left;
+  margin-left: 10px
+}
+
+.navbar-nav>li>a {
+  padding: 2px 0px;
+  color: white;
+}
+
+.navbar-nav>li>a:hover, .navbar-nav>li>a:focus, .navbar-nav>li.active>a {
+  color: #0064fa;
+  background-color: transparent;
+}
+
+.navbar-nav>li>a:after {
+  content: "";
+  display: inline;
+  width: 0%;
+  height: 2px;
+  background-color: #0b3de1;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.navbar-nav>li>a:hover:after, .navbar-nav>li>a:focus:after, .navbar-nav>li.active>a:after {
+  width: 100%;
+}
+
+.header-ctn li.nav-toggle {
+  display: inline;
+}
+
+
+.carousel-control-next-icon{
+  color: #0b3de1;
+}
+
+.carousel-item{
+  width: 50%;
+  height: 50%;
+}
+
+.arrowButton{
+  opacity:1;
+  width: 20%;
+}
+
+.carousel-control-next{
+  margin-right: 25%;
+  margin-top: 17%;
+}
+
+
+
+.carousel-control-prev{
+   margin-left: 25%;
+   margin-top: 17%;
+}
+
+/*----------------------------*\
+	responsive nav
+\*----------------------------*/
+
+@media only screen and (max-width: 991px) {
+  .header-ctn .menu-toggle {
+    display: inline-block;
+  }
+  #responsive-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #15161D;
+    height: 100vh;
+    max-width: 250px;
+    width: 0%;
+    overflow: hidden;
+    z-index: 22;
+    padding-top: 60px;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  #responsive-nav.active {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+    width: 100%;
+  }
+  .main-nav {
+    margin: 0px;
+    float: none;
+  }
+  .main-nav>li {
+    display: block;
+    float: none;
+  }
+  .main-nav>li+li {
+    margin-left: 0px;
+  }
+  .main-nav>li>a {
+    padding: 15px;
+    color: #FFF;
+  }
+}
+
+
   
   /*----------------------------*\
 	Inputs
