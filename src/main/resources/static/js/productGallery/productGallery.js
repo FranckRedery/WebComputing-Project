@@ -18,6 +18,22 @@ $(".addProd").click(function(){
 			});
 });
 
+$(".addProdWishes").click(function(){
+	let id = $(this).data("custom-value");
+	let product = new Product(id);
+	let wishes = new Wishes(product);
+	$.ajax({
+			type: "POST",
+			url: "/addProductToWishList",
+			contentType: "application/json",
+			data: JSON.stringify(wishes),
+			success: function(){
+				setTimeout(function() {
+   					location.reload();}, 1000);
+			},
+			});
+});
+
 $(".viewProd").click(function(){
 	var id = $(this).data("custom-value");
 	$.ajax({
@@ -38,4 +54,8 @@ function Product(id) {
 function Chooses(id, quantity) {
 	this.id = id;
 	this.quantity = quantity;	
+}
+
+function Wishes(id) {
+	this.id = id;
 }

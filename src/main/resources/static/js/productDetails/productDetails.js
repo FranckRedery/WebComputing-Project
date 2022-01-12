@@ -19,7 +19,7 @@ $("button#addProd").click(function() {
 $("button#addProdWishes").click(function() {
 	let id = $(this).val();
 	let product = new Product(id);
-	let wishes = new Chooses(product);
+	let wishes = new Wishes(product);
 	$.ajax({
 		type: "POST",
 		url: "/addProductToWishList",

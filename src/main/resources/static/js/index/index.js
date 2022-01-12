@@ -46,7 +46,7 @@ $("button#addProd").click(function(){
 $("button.addProdWishes").click(function(){
 	let id = $(this).val();
 	let product = new Product(id);
-	let wishes = new Chooses(product);
+	let wishes = new Wishes(product);
 	$.ajax({
 		type: "POST",
 		url: "/addProductToWishList",
@@ -54,6 +54,8 @@ $("button.addProdWishes").click(function(){
 		data: JSON.stringify(wishes),
 		success: function(){
 				document.getElementById(id).innerHTML = "<i class=\"fas fa-heart\"></i>";
+				setTimeout(function() {
+   					location.reload();}, 1000);
 			}
 			});
 });

@@ -206,8 +206,8 @@
 			<c:forEach items="${wishes}" var="wish">
 			<div class="col-12 col-md-6 col-lg-3" id="col_${wish.id.id}">
 				<div class="card">
-					<img alt="" src="${wish.id.image}"
-						class="card-img-top">
+					<a href="" onclick="viewProd(${wish.id.id})"><img alt="" src="${wish.id.image}"
+						class="card-img-top"></a>
 					<div class="card-body">
 						<h5 class="card-title">${wish.id.name}</h5>
 						<div class="info">

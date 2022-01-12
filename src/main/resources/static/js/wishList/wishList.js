@@ -30,6 +30,19 @@ function moveToCart(id) {
 			});
 }
 
+function viewProd(id){
+		$.ajax({
+			type: "POST",
+			url: "/viewDetailsProdPage",
+			contentType: "application/json",
+			data: JSON.stringify(id),
+			success: function(){
+				window.location = "/product";
+			}
+			});
+};
+
+
 function Product(id) {
 	this.id = id;
 }

@@ -345,7 +345,7 @@
 							</c:if>
 							</c:forEach>
 							<c:if test="${username != null && alreadyAdded}">
-							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}"><i class="fas fa-heart"></i></button>
+							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}" onclick="window.location.href='wishList.html'"><i class="fas fa-heart"></i></button>
 							</c:if>
 							<c:if test="${username != null && !alreadyAdded}">
 							<button type="button" class="hide addProdWishes" value="${prod.id}" id="${prod.id}"><i class="far fa-heart"></i></button>
