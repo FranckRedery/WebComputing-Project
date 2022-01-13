@@ -51,31 +51,32 @@
 				<ul class="header-links pull-right">
 					<c:if test="${loggato == 'si'}">
 						<c:if test="${isAdmin == 't'}">
-						  <a href="adminPage" style="text-decoration: none;">
-							<button class="btnAdmin">
-								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
-							</button>
-						  </a>
+							<a href="adminPage" style="text-decoration: none;">
+								<button class="btnAdmin">
+									<span>Admin View <img src="images/index/adminBtn.gif"
+										width="20" height="20"></span>
+								</button>
+							</a>
 						</c:if>
-				     <a href="javascript:signOut()" style="text-decoration: none;">
+						<a href="javascript:signOut()" style="text-decoration: none;">
 							<button class="btnLog">
 								<span>Log out</span>
 							</button>
 						</a>
-				  </c:if>
-				<c:if test="${loggato == 'no' || loggato == null}">
-				
-					<a style="text-decoration: none;">
-						<button onclick="resetLogin();" class="btnLog">
-							<span>Login</span>
-						</button>
-					</a>
-					<a style="text-decoration: none;">
-						<button onclick="resetSignUp();" class="btnLog">
-							<span>Sign Up</span>
-						</button>
-					</a>
-				</c:if>
+					</c:if>
+					<c:if test="${loggato == 'no' || loggato == null}">
+
+						<a style="text-decoration: none;">
+							<button onclick="resetLogin();" class="btnLog">
+								<span>Login</span>
+							</button>
+						</a>
+						<a style="text-decoration: none;">
+							<button onclick="resetSignUp();" class="btnLog">
+								<span>Sign Up</span>
+							</button>
+						</a>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -99,7 +100,7 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form method= "post" action="/searchProduct" >
+							<form method="post" action="/searchProduct">
 								<select class="input-select" name="categories">
 									<option value="All Categories">All Categories</option>
 									<option value="notebooks">Notebooks</option>
@@ -107,7 +108,8 @@
 									<option value="printers">Printers</option>
 									<option value="cameras">Cameras</option>
 									<option value="accessories">Accessories</option>
-								</select> <input class="input" placeholder="Search here" name="productName">
+								</select> <input class="input" placeholder="Search here"
+									name="productName">
 								<button type="submit" class="search-btn">Search</button>
 							</form>
 						</div>
@@ -120,9 +122,9 @@
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 25%;">
 								<a href="wishList.html" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i>
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
+									class="fa fa-heart" id="heart"></i> <c:if
+										test="${username != null && numWishList > 0}">
+										<div class="qty" id="wishList">${numWishList}</div>
 									</c:if>
 								</a>
 							</div>
@@ -141,29 +143,31 @@
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
+										<a href="account.html"
+											style="text-decoration: none; display: flex;"> <img
+											class="profilePic" src='${image}' style="border-radius: 50%;"
+											width="29" height="29" alt="Avatar"> ${username}
+										</a>
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										${username}
-									</a>
+										<a href="account.html"
+											style="text-decoration: none; display: flex;"> <c:if
+												test="${image != null && image != ''}">
+												<img class="profilePic" src='${image}'
+													style="border-radius: 50%;" width="29" height="29"
+													alt="Avatar">
+											</c:if> <c:if test="${image == null || image == ''}">
+												<img class="profilePic" src='images/account/avatar.png'
+													style="border-radius: 50%;" width="29" height="29"
+													alt="Avatar">
+											</c:if> ${username}
+										</a>
 									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none;"> <i
-									class="fa fa-user"></i>
-								</a>
+									<a href="login.html" style="text-decoration: none;"> <i
+										class="fa fa-user"></i>
+									</a>
 								</c:if>
 							</div>
 							<!-- /User Toogle -->
@@ -211,19 +215,21 @@
 			</div>
 			<div class="col-lg-6 description">
 				<h1>${product.name}</h1>
-				<h4>${product.price}0</h4>
+				<h4>$${product.price}0</h4>
 				<input type="number" value="1" min="1" max="${product.quantity}"
 					id="quantity" oninput="validity.valid||(value='');"> <br>
 				<br>
 				<c:if test="${username != null}">
-				<a href=""><button type="button" class="btn btn-info" id="addProdWishes" value="${product.id}">
-						<i class="far fa-heart"></i>add to Wishlist
-					</button></a>
+					<a href=""><button type="button" class="btn btn-info"
+							id="addProdWishes" value="${product.id}">
+							<i class="far fa-heart"></i>add to Wishlist
+						</button></a>
 				</c:if>
 				<c:if test="${username == null}">
-				<a href=""><button type="button" class="btn btn-info" value="${product.id}">
-						<i class="far fa-heart"></i>add to Wishlist
-					</button></a>
+					<a href=""><button type="button" class="btn btn-info"
+							value="${product.id}">
+							<i class="far fa-heart"></i>add to Wishlist
+						</button></a>
 				</c:if>
 				<c:if test="${username != null}">
 					<a href=""><button type="button" class="btn btn-info"
@@ -259,10 +265,10 @@
 						<div class="profile">
 							<div class="profile-img">
 								<c:if test="${rev.username.image != null}">
-								<img src="${rev.username.image}" alt="">
+									<img src="${rev.username.image}" alt="">
 								</c:if>
 								<c:if test="${rev.username.image == null}">
-								<img src="images/account/avatar.png" alt="">
+									<img src="images/account/avatar.png" alt="">
 								</c:if>
 							</div>
 							<div class="name-user">
@@ -274,7 +280,8 @@
 											onclick="window.location.href='review_purchase.html'">
 											<i class="fas fa-pencil-alt"></i>
 										</button>
-										<button class="changeReview" onclick="RemoveReview(${rev.id.id})">
+										<button class="changeReview" type="button"
+											data-bs-toggle="modal" data-bs-target="#confirmDelete">
 											<i class="fas fa-minus"></i>
 										</button>
 									</c:if>
@@ -297,12 +304,29 @@
 						<p>${rev.description}</p>
 					</div>
 				</div>
+				<div class="modal fade" id="confirmDelete" data-bs-backdrop="static"
+					data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">Are you
+									sure you want to delete this review?</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger"
+									data-bs-dismiss="modal" onclick="RemoveReview(${rev.id.id})">Yes</button>
+								<button type="button" class="btn btn-primary"
+									data-bs-dismiss="modal">No</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</c:forEach>
 		</div>
 	</section>
-
-	<!-- TItle -->
-
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->

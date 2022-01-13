@@ -328,11 +328,7 @@
 
 	<div class="container">
 		<div class="row my-5">
-			<h1 class="text-center">Featured Products</h1>
-			<p class="fw-light w-75 mx-auto text-center">Lorem ipsum dolor
-				sit amet consectetur adipisicing elit. Molestias expedita placeat
-				enim laudantium esse aperiam iure, reiciendis nobis totam earum ex
-				unde ab, ullam pariatur nisi laborum quam. Porro, corporis!</p>
+			<h1 class="text-center">New Arrivals</h1>
 		</div>
 		<div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
 			<c:forEach items="${prodotti}" var="prod">
@@ -375,7 +371,7 @@
 					</div>
 					<div class="product-info p-3">
 						<div class="addedToCart" id="cart_${prod.id}"></div>
-						<span class="product-type"> Electronics & accessories </span> <a
+						<a
 							href="productDetails.html"
 							class="d-block text-dark text-decoration-none py-2 product-name">
 							${prod.name}</a> <span class="product-price">$${prod.price}</span>

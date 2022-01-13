@@ -1,3 +1,24 @@
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 0,
+  responsiveClass:true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    768:{
+      items: 2,
+    },
+    1100: {
+      items: 3,
+    },
+    1400: {
+      items: 4,
+      loop: false,
+    }
+  }
+});
+
 $("button#addProd").click(function() {
 	let id = $(this).val();
 	let quantity = document.getElementById("quantity").value;
@@ -34,7 +55,6 @@ $("button#addProdWishes").click(function() {
 });
 
 function RemoveReview(id) {
-	if (confirm("Are you sure you want to delete this review?")) {
 		$.ajax({
 			type: "POST",
 			url: "/removeReview",
@@ -45,7 +65,6 @@ function RemoveReview(id) {
 			}
 		});
 	}
-}
 
 function Product(id) {
 	this.id = id;

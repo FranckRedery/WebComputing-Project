@@ -264,11 +264,57 @@
 				<textarea class="form-control" rows="5" id="descriptionText" name="text"
 					placeholder="what did you like or what did you not like?"></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary" id="start_button" 
+			<c:if test="${order.reviewed == false}">
+			<button type="button" class="btn btn-primary" id="start_button" 
 				disabled onclick="postReview()">Submit</button>
+			</c:if>
+			<c:if test="${order.reviewed == true}">
+			<button type="button" class="btn btn-primary" id="start_button" 
+				disabled onclick="postUpdateReview()">Submit update</button>
+			</c:if>
 		</form>
 	</div>
+	<div class="modal" id="addedReview">
+			<div class="modal-dialog">
+				<div class="modal-content">
 
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">review added successfully</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">thanks for leaving a review.</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							data-bs-dismiss="modal" onclick="window.location.href='myOrder.html'">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="updateReview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">review successfully updated</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							data-bs-dismiss="modal" onclick="redirectPage()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->

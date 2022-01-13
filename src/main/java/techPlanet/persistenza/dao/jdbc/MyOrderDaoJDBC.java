@@ -24,6 +24,32 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 	}
 	
 	@Override
+	public MyOrder findOrder(Long id, String username) {
+		String query = "select * from my_order where username = ? and id = ?";
+		MyOrder order = new MyOrder();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			st.setLong(2, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				Product product = Database.getInstance().getProductsDao().findById(rs.getLong("id"));
+				order.setId(product);
+				order.setDate_of_purchase(rs.getString("date_of_purchase"));
+				User user = Database.getInstance().getUserDao().findByPrimaryKey(rs.getString("username"));
+				order.setUsername(user);
+				order.setQuantity(rs.getLong("quantity"));
+				order.setReturned(rs.getBoolean("returned"));
+				order.setReviewed(rs.getBoolean("reviewed"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return order;
+	}
+	
+	@Override
 	public List<MyOrder> findByUser(String user) {
 		List<MyOrder> orders = new ArrayList<MyOrder>();
 		String query = "select * from my_order where username = ?";
@@ -40,6 +66,7 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 				order.setUsername(username);
 				order.setQuantity(rs.getLong("quantity"));
 				order.setReturned(rs.getBoolean("returned"));
+				order.setReviewed(rs.getBoolean("reviewed"));
 				orders.add(order);
 			}
 		} catch (SQLException e) {
@@ -68,8 +95,27 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public void setReviewed(boolean b, Long id) {
+		try {
+			String query = "update my_order "
+			+ "set reviewed = ?"
+			+ "where id = ?";
 
-		
+			
+			PreparedStatement st = conn.prepareStatement(query);
+			
+			st.setBoolean(1, b);
+			st.setLong(2, id);
+			st.executeUpdate();
+			return;
+		} catch (SQLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

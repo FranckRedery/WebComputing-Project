@@ -158,6 +158,8 @@ public class HomePage {
 
 	@GetMapping("/product")
 	public String ProductDetailsPage(HttpServletRequest req) {
+		List<Product> product = Database.getInstance().getProductsDao().findByLastNineInserted();
+		req.setAttribute("prodotti", product);
 		showNumberProd(req);
 		return "product";
 	}

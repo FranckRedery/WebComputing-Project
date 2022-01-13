@@ -83,18 +83,7 @@ body {
   animation-duration:5s;
 }
 
-.content {
-  background-color:rgba(255,255,255,.8);
-  border-radius:.25em;
-  box-shadow:0 0 .25em rgba(0,0,0,.25);
-  box-sizing:border-box;
-  left:50%;
-  padding:10vmin;
-  position:fixed;
-  text-align:center;
-  top:50%;
-  transform:translate(-50%, -50%);
-}
+/*** CAROUSEL ***/
 
 .product-item {
   border: 1px solid rgb(219,219,219);
@@ -134,11 +123,6 @@ body {
   top: 16px;
   right: 15px;
   font-size: 18px;;
-}
-
-.product-type{
-  font-size: 13px;
-  opacity: 0.8;
 }
 
 .product-name{
@@ -183,7 +167,10 @@ ul, ol {
   list-style: none
 }
 
-
+.hide {
+	background-color: transparent; 
+	border: none; 
+}
 /*----------------------------*\
 	Buttons
 \*----------------------------*/
@@ -224,58 +211,6 @@ ul, ol {
 textarea.input {
   padding: 15px;
   min-height: 90px;
-}
-
-/*-- Number input --*/
-
-.input-number {
-  position: relative;
-}
-
-.input-number input[type="number"]::-webkit-inner-spin-button, .input-number input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.input-number input[type="number"] {
-  -moz-appearance: textfield;
-  height: 40px;
-  width: 100%;
-  border: 1px solid #E4E7ED;
-  background-color: #FFF;
-  padding: 0px 35px 0px 15px;
-}
-
-.input-number .qty-up, .input-number .qty-down {
-  position: absolute;
-  display: block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #E4E7ED;
-  background-color: #FFF;
-  text-align: center;
-  font-weight: 700;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.input-number .qty-up {
-  right: 0;
-  top: 0;
-  border-bottom: 0px;
-}
-
-.input-number .qty-down {
-  right: 0;
-  bottom: 0;
-}
-
-.input-number .qty-up:hover, .input-number .qty-down:hover {
-  background-color: #E4E7ED;
-  color: #0b3de1;
 }
 
 /*-- Select input --*/
@@ -2378,7 +2313,3 @@ li {
   font-weight: 100;
 }
 
-.hide {
-	background-color: transparent; 
-	border: none; 
-}

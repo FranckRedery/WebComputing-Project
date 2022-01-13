@@ -21,7 +21,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 		super();
 		this.conn = conn;
 	}
-
+	
 	@Override
 	public List<Review> findByProduct(Long id) {
 		List<Review> reviews = new ArrayList<Review>();
@@ -85,7 +85,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 			}
 
 		}
-		addStars(review.getStars(), review.getId());
+		saveOrupdateStars(review.getId().getId());
 	}
 
 	@Override
@@ -97,6 +97,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 			st.setLong(1, id);
 			st.setString(2, username);
 			st.executeUpdate();
+			saveOrupdateStars(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -123,13 +124,13 @@ public class ReviewDaoJDBC implements ReviewDao {
 	
 	
 	
-	public void addStars(float stars, Product prod) {
+	public void saveOrupdateStars(Long id) {
 		String getOverall = "select stars from reviews where id = ?";
 		float overall = 0.0f;
 		int cont = 0;
 		try {
 			PreparedStatement st = conn.prepareStatement(getOverall);
-			st.setLong(1,prod.getId());
+			st.setLong(1,id);
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				overall += rs.getFloat("stars");
@@ -146,7 +147,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 			PreparedStatement st;
 			st = conn.prepareStatement(updateOverallProduct);
 			st.setFloat(1, overall/cont);
-			st.setLong(2,prod.getId());
+			st.setLong(2,id);
 			st.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -8,7 +8,14 @@ public class MyOrder {
 	private String date_of_purchase;
 	private Long quantity;
 	private Boolean returned;
+	private Boolean reviewed;
 	
+	public Boolean getReviewed() {
+		return reviewed;
+	}
+	public void setReviewed(Boolean reviewed) {
+		this.reviewed = reviewed;
+	}
 	public Boolean getReturned() {
 		return returned;
 	}

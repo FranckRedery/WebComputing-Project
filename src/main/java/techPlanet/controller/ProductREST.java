@@ -95,7 +95,6 @@ public class ProductREST {
 		HttpSession session = req.getSession(true);
 		if(Database.getInstance().getProductsDao().findByName(productName.toLowerCase()) != null) {	
 			try {
-				System.out.println(productName.toLowerCase());
 				Product product = Database.getInstance().getProductsDao().findByName(productName.toLowerCase());
 				session.setAttribute("product", product);
 				res.sendRedirect("/product");
