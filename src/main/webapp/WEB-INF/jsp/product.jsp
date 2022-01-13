@@ -221,7 +221,7 @@
 				<br>
 				<c:if test="${username != null}">
 					<a href=""><button type="button" class="btn btn-info"
-							id="addProdWishes" value="${product.id}">
+							id="addProdWishes" onclick="addToWishList(${product.id})">
 							<i class="far fa-heart"></i>add to Wishlist
 						</button></a>
 				</c:if>
@@ -233,7 +233,7 @@
 				</c:if>
 				<c:if test="${username != null}">
 					<a href=""><button type="button" class="btn btn-info"
-							value="${product.id}" id="addProd">
+							id="addProd" onclick="addToCart(${product.id})">
 							<i class="fa fa-cart-plus"></i>add to Cart
 						</button></a>
 				</c:if>

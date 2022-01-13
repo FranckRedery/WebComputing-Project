@@ -19,7 +19,7 @@ $('.owl-carousel').owlCarousel({
   }
 });
 
-$("button#addProd").click(function() {
+/*$("button#addProd").click(function() {
 	let id = $(this).val();
 	let quantity = document.getElementById("quantity").value;
 	let product = new Product(id);
@@ -35,10 +35,26 @@ $("button#addProd").click(function() {
 			}, 1000);
 		}
 	});
-});
+});*/
 
-$("button#addProdWishes").click(function() {
-	let id = $(this).val();
+function addToCart(id) {
+	let quantity = document.getElementById("quantity").value;
+	let product = new Product(id);
+	let chooses = new Chooses(product, quantity);
+	$.ajax({
+		type: "POST",
+		url: "/quantityBasedAddition",
+		contentType: "application/json",
+		data: JSON.stringify(chooses),
+		success: function() {
+			setTimeout(function() {
+				location.reload();
+			}, 1000);
+		}
+	});
+}
+
+function addToWishList(id) {
 	let product = new Product(id);
 	let wishes = new Wishes(product);
 	$.ajax({
@@ -52,7 +68,26 @@ $("button#addProdWishes").click(function() {
 			}, 1000);
 		}
 	});
-});
+}
+
+/*$("button#addProdWishes").click(function() {
+	alert("qui");
+	let id = $(this).val();
+	let product = new Product(id);
+	let wishes = new Wishes(product);
+	alert("qui");
+	$.ajax({
+		type: "POST",
+		url: "/addProductToWishList",
+		contentType: "application/json",
+		data: JSON.stringify(wishes),
+		success: function() {
+			setTimeout(function() {
+				location.reload();
+			}, 1000);
+		}
+	});
+});*/
 
 function RemoveReview(id) {
 		$.ajax({
