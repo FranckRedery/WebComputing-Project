@@ -54,8 +54,9 @@ public class UserREST {
 		String dateInString =new SimpleDateFormat(pattern).format(new Date());
 		request.setDate(dateInString);
 		
+
 		Database.getInstance().getReturnRequestDao().addRequest(request);
-		Database.getInstance().getMyOrderDao().setReturned(true,request.getProduct().getId());
+		Database.getInstance().getMyOrderDao().setReturned(true,request.getProduct().getId(),username);
 		
 	}
 	

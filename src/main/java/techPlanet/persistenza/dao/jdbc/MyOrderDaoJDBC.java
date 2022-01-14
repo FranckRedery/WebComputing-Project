@@ -77,17 +77,18 @@ public class MyOrderDaoJDBC implements MyOrderDao{
 	}
 
 	@Override
-	public void setReturned(boolean b, Long id) {
+	public void setReturned(boolean b, Long id, String username) {
 		try {
 			String query = "update my_order "
 			+ "set returned = ?"
-			+ "where id = ?";
+			+ "where id = ? and username = ?";
 
 			
 			PreparedStatement st = conn.prepareStatement(query);
 			
 			st.setBoolean(1, b);
 			st.setLong(2, id);
+			st.setString(3, username);
 			st.executeUpdate();
 			return;
 		} catch (SQLException e) {
