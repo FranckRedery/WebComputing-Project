@@ -29,7 +29,7 @@ public class MyOrderREST {
 	public void addReview(@RequestBody Review review, HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		Database.getInstance().getReviewDao().saveOrUpdate(review, username);
-		Database.getInstance().getMyOrderDao().setReviewed(true,review.getId().getId());
+		Database.getInstance().getMyOrderDao().setReviewed(true,review.getId().getId(), username);
 	}
 	
 }

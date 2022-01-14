@@ -90,6 +90,7 @@ public class ReviewDaoJDBC implements ReviewDao {
 
 	@Override
 	public void removeReview(Long id, String username) {
+		Database.getInstance().getMyOrderDao().setReviewed(false, id, username);
 		try {
 			String query = "delete from reviews where id = ? and username = ?"; 
 			PreparedStatement st;
@@ -146,7 +147,12 @@ public class ReviewDaoJDBC implements ReviewDao {
 		try {
 			PreparedStatement st;
 			st = conn.prepareStatement(updateOverallProduct);
-			st.setFloat(1, overall/cont);
+			if(overall == 0) {
+				st.setFloat(1, 0);
+			}
+			else {
+				st.setFloat(1, overall/cont);
+			}
 			st.setLong(2,id);
 			st.executeUpdate();
 		} catch (SQLException e) {

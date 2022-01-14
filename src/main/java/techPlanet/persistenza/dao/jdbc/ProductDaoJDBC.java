@@ -28,7 +28,7 @@ public class ProductDaoJDBC implements ProductDao {
 	@Override
 	public List<Product> findAll() {
 		List<Product> prodotti = new ArrayList<Product>();
-		String query = "select * from product";
+		String query = "select * from product order by reviews DESC";
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
@@ -56,7 +56,7 @@ public class ProductDaoJDBC implements ProductDao {
 	@Override
 	public List<Product> findByCategory(String category) {
 		List<Product> prodotti = new ArrayList<Product>();
-		String query = "select * from product where category = ?";
+		String query = "select * from product where category = ? order by reviews DESC";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, category);

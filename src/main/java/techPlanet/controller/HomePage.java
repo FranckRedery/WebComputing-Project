@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import techPlanet.Database;
 import techPlanet.model.Chooses;
 import techPlanet.model.Product;
-import techPlanet.model.Review;
 import techPlanet.model.Wishes;
 
 @Controller
@@ -63,6 +62,7 @@ public class HomePage {
 		showNumberProd(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("laptop");
 		req.setAttribute("products", products);
+		req.setAttribute("category", "notebooks");
 		req.getSession().removeAttribute("notFound");
 		return "productGallery";
 	}
