@@ -42,7 +42,9 @@
 						<div class="mb-md-3 mt-md-2 ">
 							<h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">SIGN
 								UP</h2>
-							<img src="images/index/logo.png" alt="">
+							<a href="/">
+								<img src="/images/index/logo.png" alt="">
+							  </a>
 							<div class="form-outline form-white mb-3">
 							  <c:if test="${errore == 'si'}">
 								<form name="SignUpForm" method="post"  action="javascript:SignUp()">

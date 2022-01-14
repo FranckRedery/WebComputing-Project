@@ -289,7 +289,7 @@ textarea.input {
 /*-- Select input --*/
 
 .input-select {
-  padding: 0px 15px;
+  padding: 0px 5px;
   background: #FFF;
   border: 1px solid #E4E7ED;
   height: 40px;
@@ -665,7 +665,7 @@ header{
 	responsive nav
 \*----------------------------*/
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1050px) {
   .header-ctn .menu-toggle {
     display: inline-block;
   }
@@ -924,7 +924,7 @@ header{
 
 @media only screen and (max-width: 1201px) {}
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1050px) {
   #top-header .header-links.pull-left {
     float: none !important;
   }
@@ -963,6 +963,7 @@ header{
   }
   .header-ctn > div + div {
   	margin-top: 0;
+  	
   }
   .header-ctn div {
   	margin-top: 0;
@@ -1061,4 +1062,39 @@ header{
  	 align-items: center;
  	 justify-content: center;
 }
+
+
+#logo {
+		padding-left: 20%;
+}
+
+@media screen and (max-width: 1200px) { 
+	#logo {
+		padding-left: 0%;
+	}
+}
+
+@media screen and (max-width: 991px) { 
+  .header-ctn > div + div {
+    padding-left: 1%;
+  }
+  .header-ctn div {
+	padding-left: 1%;
+  }
+}
+
+.header-search select {
+	width: 140px;
+}
+
+#nameP{
+  color: white;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
 

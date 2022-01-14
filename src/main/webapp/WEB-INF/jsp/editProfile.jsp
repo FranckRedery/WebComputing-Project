@@ -41,8 +41,7 @@
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
 							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
-							Stonecoal Road</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
@@ -115,27 +114,7 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-3">
 						<div class="header-ctn">
-							<!-- Wishlist -->
-							<div style="padding-right: 10%; padding-left: 25%;">
-								<a href="wishList.html" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> 
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- Cart -->
-							<div style="padding-right: 10%;">
-								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> 
-									<c:if test="${username != null && numProd > 0}">
-									<div class="qty">${numProd}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- /Cart -->
-
-							<!-- User Toogle -->
+						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<c:if test="${loggatoGoogle == 'si'}">
@@ -147,6 +126,7 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
 										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -154,17 +134,37 @@
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
-										${username}
-									</a>
+									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
+									</div>
 									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none;"> <i
+								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
 									class="fa fa-user"></i>
 								</a>
 								</c:if>
 							</div>
 							<!-- /User Toogle -->
+							<!-- Cart -->
+							<div style="padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;"> <i
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
+								</a>
+							</div>
+							<!-- /Cart -->
+							<!-- Wishlist -->
+							<div style="padding-right: 10%; padding-left: 0%;">
+								<a href="wishList.html" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> 
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
+								</a>
+							</div>
+							<!-- WishList -->
 						</div>
 					</div>
 				</div>
@@ -422,9 +422,9 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
+								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
+								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -434,10 +434,10 @@
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
 								<li><a href="#">Hot deals</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
+								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="smartphonesGallery.html">Smartphones</a></li>
 								<li><a href="#">Tvs</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -445,11 +445,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -458,11 +458,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
+								<li><a href="account.html">My Account</a></li>
+								<li><a href="cart.html">View Cart</a></li>
+								<li><a href="wishList.html">Wishlist</a></li>
 								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="/customerSupport">Help</a></li>
 							</ul>
 						</div>
 					</div>
@@ -475,6 +475,16 @@
 	</footer>
 	<!-- /FOOTER -->
 
+<script>
+var uploadField = document.getElementById("image");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 1048576){
+       alert("sorry can't upload because file is too big!");
+       this.value = "";
+    };
+};
+</script>
 
 </body>
 </html>

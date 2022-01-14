@@ -24,7 +24,9 @@
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">CHANGE EMAIl</h2>
-					<img src="/images/index/logo.png" alt="">
+					<a href="/">
+						<img src="/images/index/logo.png" alt="">
+					  </a>
 					<c:if test="${errore == 'si'}">
 					<form action="updateEmail">
 					<div class="form-outline form-white mb-3">

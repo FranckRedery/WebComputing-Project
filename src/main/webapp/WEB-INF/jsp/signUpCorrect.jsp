@@ -22,7 +22,9 @@
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">WELCOME TO TECH PLANET</h2>
-					<img src="/images/index/logo.png" alt="">
+					<a href="/">
+						<img src="/images/index/logo.png" alt="">
+					  </a>
 					<div class="form-outline form-white mb-3">
 					<p>Congratulations, now you can access the tech planet world</p>
 					<img src="/images/account/welcome.gif" width="180" height="120" alt=""> 

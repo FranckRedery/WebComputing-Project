@@ -22,7 +22,9 @@
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-10 mt-md-2 pb-4">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Email Sent!</h2>
-					<img src="/images/index/logo.png" alt="">
+					<a href="/">
+						<img src="/images/index/logo.png" alt="">
+					  </a>
 					<div class="form-outline form-white mb-3">
 					<img src="/images/account/email.gif" width="100" height="80" alt=""> 
 					<p>we sent you an email, with the password</p>

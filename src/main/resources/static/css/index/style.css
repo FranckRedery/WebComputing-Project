@@ -2313,3 +2313,28 @@ li {
   font-weight: 100;
 }
 
+@media screen and (max-width: 991px) { 
+  .header-ctn > div + div {
+    padding-left: 1%;
+  }
+  .header-ctn div {
+	padding-left: 1%;
+  }
+}
+
+.header-search select {
+	width: 140px;
+}
+
+#nameP{
+  color: white;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+
+

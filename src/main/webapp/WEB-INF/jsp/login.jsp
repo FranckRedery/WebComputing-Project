@@ -27,7 +27,9 @@
 				<div class="card-body p-3 text-center">
 				  <div class="mb-md-3 mt-md-2">
 					  <h2 style="color: cornsilk;" class="fw-bold mb-2 text-uppercase">Login</h2>
-					<img src="images/index/logo.png" alt="">
+					<a href="/">
+						<img src="/images/index/logo.png" alt="">
+					  </a>
 					<c:if test="${errore == 'si'}">
 					<form name="loginForm"  method="post" action="javascript:AdminLog()">
 					<div class="form-outline form-white mb-3">
