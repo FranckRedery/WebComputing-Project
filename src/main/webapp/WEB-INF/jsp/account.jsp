@@ -197,8 +197,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">${username}'s ACCOUNT</h3>
 
   <div class="containerCardsAcc">
-	<a style="text-decoration: none;" href="myOrder.html">
-	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+	<div onclick="window.location = 'myOrder.html'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/box01.png" class="img-fluid rounded-start" alt="...">
@@ -210,12 +209,10 @@
 			</div>
 		  </div>
 		</div>
-	   </a>
 	</div>
 	
 	
-	<a style="text-decoration: none;" href="editProfile.html">
-	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+	  <div onclick="window.location = 'editProfile.html'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/user01.png" class="img-fluid rounded-start" alt="...">
@@ -227,11 +224,9 @@
 			</div>
 		  </div>
 		</div>
-	   </a>
 	  </div>
 
-	  <a style="text-decoration: none;" href="/userReturns">
-	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+	  <div onclick="window.location = '/userReturns'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/returnLogo.png"  class="img-fluid rounded-start" alt="...">
@@ -243,14 +238,12 @@
 			</div>
 		  </div>
 		</div>
-	  </a>
 	 </div>
-    </div>
+	 </div>
     
     <c:if test="${loggatoGoogle == 'si'}">
-	<div class="containerCardsAcc">
-		<a style="text-decoration: none;" href="javascript:error()">
-		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+     <div class="containerCardsAcc">
+		<div onclick="javascript:error()" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
 				<img src="images/account/hack01.png" class="img-fluid rounded-start" alt="...">
@@ -262,7 +255,6 @@
 				</div>
 			  </div>
 			</div>
-		   </a>
 		</div>
 	
 	 <div id="errore" class="modal">
@@ -276,29 +268,8 @@
 	   </div>
  	  </div>
 	 </div>
-	</c:if>
-	
-	 <c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null}">
-	<div class="containerCardsAcc">
-		<a style="text-decoration: none;" href="security.html">
-		<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
-			<div class="row g-0">
-			  <div class="col-md-4">
-				<img src="images/account/hack01.png" class="img-fluid rounded-start" alt="...">
-			  </div>
-			  <div class="col-md-8">
-				<div class="cardAcc-body">
-				  <h5 class="card-title">Security</h5>
-				  <p  class="card-text">Change your email or password here.</p>
-				</div>
-			  </div>
-			</div>
-		   </a>
-		</div>
-	</c:if>
-	
-		<a style="text-decoration: none;" href="cart.html">
-		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+	 
+	 <div onclick="window.location = 'cart.html'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
 				<img src="images/account/cart01.png" class="img-fluid rounded-start" alt="...">
@@ -310,11 +281,9 @@
 				</div>
 			  </div>
 			</div>
-		   </a>
 		  </div>
 	
-		  <a style="text-decoration: none;" href="/contattaci">
-		  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+		  <div onclick="window.location = '/contattaci'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
 				<img src="images/account/help01.png" class="img-fluid rounded-start" alt="...">
@@ -326,10 +295,59 @@
 				</div>
 			  </div>
 			</div>
-		  </a>
+			</div>
+			</div>
+	 
+	 
+	</c:if>
+	
+	 <c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null}">
+	 <div class="containerCardsAcc">
+		<div onclick="window.location = 'security.html'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="images/account/hack01.png" class="img-fluid rounded-start" alt="...">
+			  </div>
+			  <div class="col-md-8">
+				<div class="cardAcc-body">
+				  <h5 class="card-title">Security</h5>
+				  <p  class="card-text">Change your email or password here.</p>
+				</div>
+			  </div>
+			</div>
 		</div>
-		</div>
-
+		
+		 <div onclick="window.location = 'cart.html'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="images/account/cart01.png" class="img-fluid rounded-start" alt="...">
+			  </div>
+			  <div class="col-md-8">
+				<div class="cardAcc-body">
+				  <h5 class="card-title">Your Cart</h5>
+				  <p class="card-text">View your shopping cart here.</p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+	
+		  <div onclick="window.location = '/contattaci'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="images/account/help01.png" class="img-fluid rounded-start" alt="...">
+			  </div>
+			  <div class="col-md-8">
+				<div class="cardAcc-body">
+				  <h5 class="card-title">Help</h5>
+				  <p class="card-text">you can find help here.</p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+	   </div>
+		
+	</c:if>
+ 
 
 
 	<!-- FOOTER -->
