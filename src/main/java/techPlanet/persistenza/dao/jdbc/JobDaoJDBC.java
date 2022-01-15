@@ -15,6 +15,8 @@ import techPlanet.model.Job;
 import techPlanet.model.Requirements;
 import techPlanet.persistenza.dao.JobDao;
 
+
+
 public class JobDaoJDBC implements JobDao {
 	
 	private Connection con;
@@ -43,9 +45,11 @@ public class JobDaoJDBC implements JobDao {
 					if(job != null) {
 						if(lavori.contains(job)) {
 							for(var i : lavori)
-								if(i.equals(job))
+								if(i.equals(job)) {
 									for(var j : job.getObligatory())
 										i.getObligatory().add(j);
+									break;
+								}
 						}
 						else
 							lavori.add(job);
@@ -69,9 +73,11 @@ public class JobDaoJDBC implements JobDao {
 			if(job != null) {
 				if(lavori.contains(job)) {
 					for(var i : lavori)
-						if(i.equals(job))
+						if(i.equals(job)) {
 							for(var j : job.getObligatory())
-								i.getObligatory().add(j);	
+								i.getObligatory().add(j);
+							break;
+						}
 				}
 				else
 					lavori.add(job);
@@ -100,21 +106,19 @@ public class JobDaoJDBC implements JobDao {
 			ResultSet rs = st.executeQuery();
 			Job job = null;
 			while (rs.next()) {
-				System.out.println("qui");
-				/* se il nuovo titolo di lavoro è diverso da quello precedente
-				 * salvo il lavoro creato e ne creo uno nuovo da inserire */
+
 				if(!prec.equals(rs.getString("j_title"))) {
 					
-					/* all'inizio job è null e prevengo che viene messo nella lista */
+
 					if(job != null) {
-						
-						/* se nella lista, ho già quel lavoro, significa che devo prendere
-						 * i suoi requisiti obbligatori e salvarli */
+
 						if(lavori.contains(job)) {
 							for(var i : lavori)
-								if(i.equals(job))
+								if(i.equals(job)) {
 									for(var j : job.getObligatory())
 										i.getObligatory().add(j);
+									break;
+								}
 						}
 						else
 							lavori.add(job);
@@ -138,9 +142,11 @@ public class JobDaoJDBC implements JobDao {
 			if(job != null) {
 				if(lavori.contains(job)) {
 					for(var i : lavori)
-						if(i.equals(job))
+						if(i.equals(job)) {
 							for(var j : job.getObligatory())
-								i.getObligatory().add(j);	
+								i.getObligatory().add(j);
+							break;
+						}
 				}
 				else
 					lavori.add(job);
@@ -207,11 +213,9 @@ public class JobDaoJDBC implements JobDao {
 			}
 		}
 		
-		// deleto prima tutti i collegamenti con requisiti conenuti in 
-		// obligatory_requirements
+
 		Database.getInstance().getObligatoryRequirementsDao().delete(job);
-		/* aggiungi i requisiti 
-		 * e li colleghi con obligatory_requirements, come con afferisce */
+
 		for(int i = 0; i < job.getObligatory().size(); ++i) {
 			job.getObligatory().get(i).setId(Database.getInstance().getRequirementsDao().saveOrUpdate(job.getObligatory().get(i)));
 			Database.getInstance().getObligatoryRequirementsDao().save(job, job.getObligatory().get(i));

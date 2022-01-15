@@ -440,7 +440,7 @@
 								<li><a href="cart.html">View Cart</a></li>
 								<li><a href="wishList.html">Wishlist</a></li>
 								<li><a href="/myOrder.html">Order and Returns</a></li>
-								<li><a href="/customerSupport">Help</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

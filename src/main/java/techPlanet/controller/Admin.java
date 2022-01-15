@@ -127,9 +127,6 @@ public class Admin {
 		if(!Database.getInstance().getUserDao().findByPrimaryKey((String) session.getAttribute("username")).isIsadmin()) {
 			return "index";
 		}
-		List<Job> job = Database.getInstance().getJobDao().findAll();
-
-		session.setAttribute("lavori", job);
 
 		return "visualizzaCV";
 	}
