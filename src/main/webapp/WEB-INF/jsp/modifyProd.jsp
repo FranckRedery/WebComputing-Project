@@ -98,12 +98,10 @@
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewJobs" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
-								</a>
 							</div>
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
-								</a>
 							</div>							
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewReports" style="text-decoration: none;">
@@ -164,7 +162,7 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="productCategory">Category</label>
-					<select class="form-select" id="productCategory" name="productCategory" placeholder="Product category" onchange = "caricaOpzioni()" required>
+					<select class="form-select" id="productCategory" name="productCategory" onchange = "caricaOpzioni()" required>
 						<option selected disabled value="">Choose a category</option>
 						<option value = "tablet">Tablet</option>
 						<option value = "smartphone">Smartphone</option>

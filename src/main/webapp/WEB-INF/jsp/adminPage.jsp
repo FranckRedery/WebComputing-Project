@@ -94,12 +94,10 @@
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewJobs" style="text-decoration: none;">
 									<i class="fas fa-user-plus" id="positions"></i></a>
-								</a>
 							</div>
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewCurriculum" style="text-decoration: none;">
 									<i class="fas fa-book-open" id="curriculum"></i></a>
-								</a>
 							</div>							
 							<div style="padding-right: 3%; margin-top: 3%">
 								<a href="/viewReports" style="text-decoration: none;">
