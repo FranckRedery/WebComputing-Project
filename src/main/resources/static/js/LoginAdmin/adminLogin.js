@@ -113,3 +113,12 @@ function sendEmailS(){
 	})
 }
 
+function ShowView() {
+  var x = document.getElementById("typePasswordX");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+

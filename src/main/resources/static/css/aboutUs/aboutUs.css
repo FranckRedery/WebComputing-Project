@@ -1045,3 +1045,13 @@ header{
 #TeamItemCard:hover {
 	 border: 1px solid #0b3de1;
 }
+
+#nameP{
+  color: white;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  margin: 0;
+}

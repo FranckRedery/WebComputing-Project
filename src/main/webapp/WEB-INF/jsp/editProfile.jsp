@@ -78,7 +78,7 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -118,15 +118,6 @@
 						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
-									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
-									</c:if>
-									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
@@ -137,7 +128,6 @@
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
-									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
@@ -211,14 +201,13 @@
 		<div class="row">
 			<div class="col-md-4 border-right">
 				<div class="profile-pic-wrapper">
-					<c:if test="${loggatoGoogle != 'si'}">
  					 <div class="pic-holder">
  					   <div class="circle">
-					     <img id="profilePicIMG" class="pic" src="${image}">
-					   </div>
- 					   <div class="circle">
- 					   <c:if test="${image == null || image == ''}">
+ 					   <c:if test="${image == null}">
 					      <img id="profilePicIMG" class="pic" src="images/account/avatar.png">										
+					   </c:if>
+ 					   <c:if test="${image != null}">
+					      <img id="profilePicIMG" class="pic" src="${image}">									
 					   </c:if>
  			 		 </div>
  			 		 </div>
@@ -230,7 +219,6 @@
 	   					 </div>
    					  </form>
  			 <h1>Edit image here</h1>
-		  </c:if>
           </div>
 			</div>
 			

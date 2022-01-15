@@ -108,3 +108,23 @@ function timeOutS(logStatus,errore){
    		 });	
 	}
 }
+
+
+function ShowViewR() {
+  var x = document.getElementById("RnewPass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function ShowView() {
+  var x = document.getElementById("newPass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+

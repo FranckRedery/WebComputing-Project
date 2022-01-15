@@ -33,10 +33,16 @@
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">New Password</label>
 					  <input type="password" id="newPass"  placeholder="enter here" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					  <div style="display: absolution; ">
+							<input style="right:10px" type="checkbox" onclick="ShowView()">Show/view
+						</div>
 					</div>
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typeEmailX">Repeat New Password</label>
 					  <input type="password" id="RnewPass"  placeholder="enter here" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					  <div style="display: absolution; ">
+							<input style="right:10px" type="checkbox" onclick="ShowViewR()">Show/view
+					  </div>
 					</div>
 					<c:if test="${errore == 'si'}">
 					<div id="fail" class="alert-box failure">Passwords do not match</div>

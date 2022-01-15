@@ -140,7 +140,7 @@ function signOutStand() {
 
 function check(){
 	if(document.referrer == "http://localhost:8080/login.html" || document.referrer == "http://localhost:8080/signUp.html"){
-		wait(200);
+		wait(50);
 		window.location.reload();
 	}
 }
@@ -158,3 +158,14 @@ function wait(ms){
      end = new Date().getTime();
   }
 }
+
+function ShowView() {
+  var x = document.getElementById("typePasswordX");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+

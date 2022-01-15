@@ -126,19 +126,19 @@ public class Control {
 	public String recoverPassword(HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
 		if(session.getAttribute("loggato") == null) 
-			return "index";
+			return "recoverPassword";
 		else {
 			if(session.getAttribute("loggatoGoogle") == null) {
 				if(session.getAttribute("loggato").equals("si"))
-					return "recoverPassword";
-				else
 					return "index";
+				else
+					return "recoverPassword";
 			}
 			else {
 				if(session.getAttribute("loggatoGoogle").equals("si"))
-					return "account";
+					return "index";
 				else
-					return "recoverPassword";
+					return "index";
 			}
 		}
 	}

@@ -32,10 +32,10 @@ public class Control {
 		
 		String cryptedID = BCrypt.hashpw(req.getParameter("id"), BCrypt.gensalt(12));
 		String sql = "insert into users values ('"+ req.getParameter("email") +"' , '" + cryptedID + "', '" + req.getParameter("username") + "', '" + false + "')";
-		String check = "SELECT username FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
+		String check = "SELECT * FROM users WHERE username = '" + req.getParameter("username") + "'" + "OR email = '" + req.getParameter("email") + "'"; 
 		HttpSession session = req.getSession(true);
 		session.setMaxInactiveInterval(10*60);
-
+		session.setAttribute("errore", "no");
 		try {
 			Statement registerStatement = conn.createStatement();
 			ResultSet rs = registerStatement.executeQuery(check);
@@ -46,8 +46,7 @@ public class Control {
 				session.setAttribute("errore", "no");
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));
-				session.setAttribute("image", req.getParameter("image"));
-				resp.sendRedirect("/");
+				session.setAttribute("image", rs.getString("image"));
 				return "index";
 			}
 			else { 
@@ -59,8 +58,7 @@ public class Control {
 				session.setAttribute("errore", "no");
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));
-				session.setAttribute("image", req.getParameter("image"));
-				resp.sendRedirect("/");
+				session.setAttribute("image","images/account/avatar.png");
 				return "index";
 			   }
 			   else {

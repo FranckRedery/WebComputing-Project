@@ -110,15 +110,6 @@
 						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
-									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
-									</c:if>
-									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
@@ -129,7 +120,6 @@
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
-									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
@@ -286,7 +276,7 @@
 			</div>
 		  </div>
 	
-		  <div onclick="window.location = '/contattaci'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+		  <div onclick="window.location = '/contactUs'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
 				<img src="images/account/help01.png" class="img-fluid rounded-start" alt="...">
@@ -334,7 +324,7 @@
 			</div>
 		  </div>
 	
-		  <div onclick="window.location = '/contattaci'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
+		  <div onclick="window.location = '/contactUs'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 300px;">
 			<div class="row g-0">
 			  <div class="col-md-4">
 				<img src="images/account/help01.png" class="img-fluid rounded-start" alt="...">

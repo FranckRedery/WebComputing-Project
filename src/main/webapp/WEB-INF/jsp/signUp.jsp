@@ -62,6 +62,9 @@
 										<input type="password" name="password" id="typePasswordX"
 											class="form-control form-control-lg" required pattern=".{6,}"
 											title="Minimo 6 caratteri" />
+											<div style="display: absolution; ">
+											<input style="right:10px" type="checkbox" onclick="ShowView()">Show/view
+										</div>
 										<div style="margin-top: 5%;" id="fail"
 											class="alert-box failure">Username or Password alredy
 											exist</div>
@@ -95,6 +98,9 @@
 										<input type="password" name="password" id="typePasswordX"
 											class="form-control form-control-lg" required pattern=".{6,}"
 											title="Minimo 6 caratteri" />
+											<div style="display: absolution; ">
+											<input style="right:10px" type="checkbox" onclick="ShowView()">Show/view
+										</div>
 										<p class="small mb-3 pb-lg-2"></p>
 										</div>
 										<div id="bottoni">

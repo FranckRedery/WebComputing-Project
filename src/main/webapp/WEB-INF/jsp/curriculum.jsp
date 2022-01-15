@@ -94,7 +94,7 @@
 						<c:if test="${isAdmin == 't'}">
 						  <a href="adminPage" style="text-decoration: none;">
 							<button class="btnAdmin">
-								<span>Admin View <img src="../images/index/adminBtn.gif"  width="20" height="20"></span>
+								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
 							</button>
 						  </a>
 						</c:if>
@@ -132,7 +132,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="/" class="logo"> <img id="logo"
-								src="../images/index/logo.png" alt="">
+								src="images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -162,26 +162,16 @@
 						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
-									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
-									</c:if>
-									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
 										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='../images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
-									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i

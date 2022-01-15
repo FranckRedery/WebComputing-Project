@@ -40,6 +40,9 @@
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
 					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+					  <div style="display: absolution; ">
+							<input style="right:10px" type="checkbox" onclick="ShowView()">Show/view
+						</div>
 					</div>
 						<div id="fail" class="alert-box failure">Username or Password is incorrect </div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverPassword">Forgot password?</a></p>
@@ -60,6 +63,9 @@
 					<div class="form-outline form-white mb-3">
 						<label class="form-label" for="typePasswordX">Password</label>
 					  <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required pattern=".{6,}" title="Minimo 6 caratteri"/>
+						<div style="display: absolution; ">
+							<input style="right:10px" type="checkbox" onclick="ShowView()">Show/view
+						</div>
 					</div>					
 					<p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverPassword">Forgot password?</a></p>
 					<div id="bottoni">
