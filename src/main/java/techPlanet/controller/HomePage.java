@@ -181,7 +181,7 @@ public class HomePage {
 	}
 	
 	@GetMapping("/viewProduct")
-	public String guidaProdotto(HttpServletRequest req) {
+	public String visualizzaGuidaProdotto(HttpServletRequest req) {
 		
 		Long id = Long.parseLong(req.getParameter("id"));
 		
@@ -196,12 +196,14 @@ public class HomePage {
 	}	
 	
 	@GetMapping("/contactUs")
-	public String contattaci() {
+	public String contattaci(HttpServletRequest req) {
+		showNumberProd(req);
 		return "contattaci";
 	}
 	
 	@GetMapping("/customerSupport")
-	public String supportoClienti() {
+	public String supportoClienti(HttpServletRequest req) {
+		showNumberProd(req);
 		return "supportoClienti";
 	}
 	
@@ -219,7 +221,7 @@ public class HomePage {
 
 	}
 
-	public void showNumberProd(HttpServletRequest req) {
+	public static void showNumberProd(HttpServletRequest req) {
 		String username = (String) req.getSession().getAttribute("username");
 		if (username != null) {
 			int numProdUser = Database.getInstance().getChoosesDao().getNumProdForUser(username);
@@ -229,5 +231,13 @@ public class HomePage {
 			if (numWishesUser > 0)
 				req.setAttribute("numWishList", numWishesUser);
 		}
+	}
+	
+	@GetMapping("/productSelectionGuide")
+	public String guidaProdotto(HttpServletRequest req) {
+		
+		showNumberProd(req);
+		return "guidaSceltaProdotto";
+		
 	}
 }

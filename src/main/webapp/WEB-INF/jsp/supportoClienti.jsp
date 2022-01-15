@@ -31,7 +31,7 @@
 
 	
 	<!-- JQUERY -->
-<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
 <!------------------------GRUPPO-------------------------------------------->	
 <meta charset="utf-8">
@@ -60,15 +60,13 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
 	integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link href="../css/guidaSceltaProdotto/guidaSceltaProdotto.css"
-	rel="stylesheet" type="text/css" />
 <script src="js/Signup/signUp.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 <meta name="google-signin-client_id"
 	content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!------------------------GRUPPO-------------------------------------------->	
+<!------------------------GRUPPO-------------------------------------------->		
 
 
 </head>
@@ -148,6 +146,7 @@
 									<option value="printers">Printers</option>
 									<option value="cameras">Cameras</option>
 									<option value="accessories">Accessories</option>
+									<option value="tvs">Tvs</option>
 								</select> <input class="input" placeholder="Search here" name="productName">
 								<button type="submit" class="search-btn">Search</button>
 							</form>
@@ -240,11 +239,12 @@
 						href="camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="accessoriesGallery.html">Accessories</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="tvsGallery.html">Tvs</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 
 <!-------------------------GRUPPO--------------------------------------------->
 	
@@ -299,7 +299,7 @@
 	
 <!-------------------------GRUPPO--------------------------------------------->	
 
-<!-- FOOTER -->
+	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
@@ -312,10 +312,9 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734
-										Stonecoal Road</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
+								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
+								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -324,11 +323,10 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
-								<li><a href="#">Tvs</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="smartphonesGallery.html">Smartphones</a></li>
+								<li><a href="tvGallery.html">Tvs</a></li>
+								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -336,11 +334,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
 								<li><a href="/contactUs">Contact Us</a></li>
 								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -349,10 +347,10 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Order and Returns</a></li>
+								<li><a href="account.html">My Account</a></li>
+								<li><a href="cart.html">View Cart</a></li>
+								<li><a href="wishList.html">Wishlist</a></li>
+								<li><a href="/myOrder.html">Order and Returns</a></li>
 								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
@@ -370,3 +368,5 @@
 	
 
 </body>
+
+</html>

@@ -24,12 +24,14 @@ import techPlanet.model.User;
 public class LavoraConNoi {
 	
 	@GetMapping("/workInCompany")
-	public String lavoraInAzienda() {		
+	public String lavoraInAzienda(HttpServletRequest req) {
+		HomePage.showNumberProd(req);
 		return "lavoraInAzienda";	
 	}
 	
 	@GetMapping("/curriculum")
-	public String curriculum() {		
+	public String curriculum(HttpServletRequest req) {	
+		HomePage.showNumberProd(req);
 		return "curriculum";	
 	}
 	

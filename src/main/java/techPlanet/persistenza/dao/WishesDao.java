@@ -10,4 +10,5 @@ public interface WishesDao {
 	public void addToWishList(Wishes wishes, String username);
 	public int getNumProdForUser(String username);
 	public void removeProductFromWishList(Long id, String username);
+	public void deleteWishesByProductId(Long id);
 }

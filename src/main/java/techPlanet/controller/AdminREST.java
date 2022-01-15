@@ -125,10 +125,17 @@ public class AdminREST {
 	@PostMapping("/deleteProdById")
 	public void deleteProdById(@RequestBody Long id, HttpServletRequest req) {
 		
-		
+		// bisogna eliminare tutte le tabelle che fanno riferimento a quel prodotto
+		// altrimenti si generano problemi
 		Database.getInstance().getMyOrderDao().deleteMyOrdersByProductId(id);	
 		Database.getInstance().getReturnRequestDao().deleteReturnRequestsByProductId(id);
+		Database.getInstance().getReviewDao().deleteReviewsByProductId(id);				
+		Database.getInstance().getWishesDao().deleteWishesByProductId(id);
+		Database.getInstance().getChoosesDao().deleteChoosesByProductId(id);
+		
+		
 		Database.getInstance().getProductsDao().deleteProductById(id);
+		
 		req.getSession().removeAttribute("product");
 	}
 	
