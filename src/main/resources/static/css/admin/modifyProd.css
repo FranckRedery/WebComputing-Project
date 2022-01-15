@@ -24,9 +24,6 @@ input[type=text]:focus {
 	color: white;
 }
 
-.row{
-	margin-right: 0%!important;
-}
 
 #prodId, .product-type, .product-name, .product-price{
 	font-size: 17px!important;

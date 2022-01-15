@@ -26,7 +26,8 @@
 
 
 <body onload="timeOut(${loggato})">
-   <!-- HEADER -->
+
+  <!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -35,8 +36,7 @@
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope"></i>
 							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i> 1734
-							Stonecoal Road</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
@@ -73,7 +73,7 @@
 		</div>
 		<!-- /TOP HEADER -->
 
-		<!-- MAIN HEADER -->
+			<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
 			<div class="container">
@@ -109,27 +109,7 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-3">
 						<div class="header-ctn">
-							<!-- Wishlist -->
-							<div style="padding-right: 10%; padding-left: 25%;">
-									<a href="wishList.html" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> 
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- Cart -->
-							<div style="padding-right: 10%;">
-								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> 
-									<c:if test="${username != null && numProd > 0}">
-									<div class="qty">${numProd}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- /Cart -->
-
-							<!-- User Toogle -->
+						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<c:if test="${loggatoGoogle == 'si'}">
@@ -141,6 +121,7 @@
 									</a>								
 									</c:if>
 									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
+									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
 										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
@@ -148,17 +129,37 @@
 										<c:if test="${image == null || image == ''}">
 										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
-										${username}
-									</a>
+									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
+									</div>
 									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none;"> <i
+								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
 									class="fa fa-user"></i>
 								</a>
 								</c:if>
 							</div>
 							<!-- /User Toogle -->
+							<!-- Cart -->
+							<div style="padding-right: 10%;">
+								<a href="cart.html" style="text-decoration: none;"> <i
+									class="fa fa-shopping-cart"></i> 
+									<c:if test="${username != null && numProd > 0}">
+									<div class="qty">${numProd}</div>
+									</c:if>
+								</a>
+							</div>
+							<!-- /Cart -->
+							<!-- Wishlist -->
+							<div style="padding-right: 10%; padding-left: 0%;">
+								<a href="wishList.html" style="text-decoration: none;"> <i
+									class="fa fa-heart" id="heart"></i> 
+									<c:if test="${username != null && numWishList > 0}">
+									<div class="qty" id="wishList">${numWishList}</div>
+									</c:if>
+								</a>
+							</div>
+							<!-- WishList -->
 						</div>
 					</div>
 				</div>

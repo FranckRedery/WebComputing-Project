@@ -89,6 +89,15 @@ ul, ol {
   padding-bottom: 30px;
 }
 
+#nameP {
+    color: white;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    margin: 0;
+}
 
 /*----------------------------*\
 	Top header

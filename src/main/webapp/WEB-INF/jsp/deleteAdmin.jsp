@@ -31,6 +31,7 @@
 					<li><a href="#"><i class="fa fa-envelope"></i> techPlanet2022@gmail.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+				</ul>
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
