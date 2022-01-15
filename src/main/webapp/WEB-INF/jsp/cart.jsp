@@ -204,7 +204,6 @@
 			</div>
 		</div>
 	</nav>
-	<div id="paypal-button-container"></div>
 	<div class="container mt-3">
 		<table class="table table-borderless" id="price">
 			<thead>

@@ -230,9 +230,9 @@
 						</div>
 						<div class="shop-body">
 							<h3>
-								Laptops<br>Collection
+								Notebooks<br>Collection
 							</h3>
-							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+							<a style="text-decoration: none;" href="notebooksGallery.html" class="cta-btn">Shop
 								now <i class="fa fa-arrow-circle-right"></i>
 							</a>
 						</div>
@@ -250,7 +250,7 @@
 							<h3>
 								Accessories<br>Collection
 							</h3>
-							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+							<a style="text-decoration: none;" href="accessoriesGallery.html" class="cta-btn">Shop
 								now <i class="fa fa-arrow-circle-right"></i>
 							</a>
 						</div>
@@ -268,7 +268,7 @@
 							<h3>
 								TVs<br>Collection
 							</h3>
-							<a style="text-decoration: none;" href="#" class="cta-btn">Shop
+							<a style="text-decoration: none;" href="tvsGallery.html" class="cta-btn">Shop
 								now <i class="fa fa-arrow-circle-right"></i>
 							</a>
 						</div>

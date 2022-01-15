@@ -10,5 +10,10 @@ public class Cart {
 	public String checkoutPage() {
 		return "checkout";
 	}
+	
+	@GetMapping("/purchaseCompleted.html")
+	public String purchaseCompleted() {
+		return "purchaseCompleted";
+	}
 
 }

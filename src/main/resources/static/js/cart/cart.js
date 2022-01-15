@@ -28,41 +28,8 @@ function calcTotal() {
 	}
 }
 
-/*function generatePayment(value) {
-	if (value==""){
-		alert("inserire un prodotto nel carrello");
-		return;
-	}
-	paypal.Buttons({
-		styles: {
-    'input': {
-      'font-size': '16pt',
-      'color': '#3A3A3A'
-     },
-    '.number': {
-      'font-family': 'monospace'
-     },
-    '.valid':  {
-      'color': 'green'
-     }
-   },
-	createOrder: function(data,actions) {
-		return actions.order.create ({
-			purchase_units: [{
-				amount: {
-					value: value
-				}
-			}]
-		});
-	},
-	onApprove: function(data,actions) {
-		return actions.order.capture().then(function(details){
-			document.getElementById("transition").style.display = "block";
-		});
-	}
-	}).render('#paypal-button-container');
-}
-*/
+
+
 
 function updateQuantity(id,quantity) {
 	let newQuantity = $('.'+ id).val();

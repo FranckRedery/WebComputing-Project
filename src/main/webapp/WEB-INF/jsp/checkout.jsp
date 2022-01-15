@@ -12,7 +12,7 @@
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/checkout/checkout.css">
-
+<script src="https://www.paypal.com/sdk/js?currency=EUR&client-id=ASGmzQFYx18CDf9Lu_NxWjMsWmjkugEzqzG-UK90RY2J1dnrRiR31TRnKVPNHs-wUX8sjz7J_LRiTNau"></script>
 </head>
 <body>
 	<main>
@@ -101,9 +101,11 @@
 							<div class="custom-control custom-radio">
 								<input id="paypal" name="paymentMethod" type="radio"
 									class="custom-control-input" required> <label
-									class="custom-control-label" for="paypal">PayPal</label>
+									class="custom-control-label" for="paypal" onchange="generatePayment(${total})">PayPal</label>
 							</div>
+							<button onclick="generatePayment(${total})">ciao</button>
 						</div>
+						<div id="paypal-button-container"></div>
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="cc-name">Name on card</label> <input type="text"
