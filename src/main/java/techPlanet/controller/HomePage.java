@@ -60,7 +60,7 @@ public class HomePage {
 	@GetMapping("/notebooksGallery.html")
 	public String notebooksGalleryPage(HttpServletRequest req) {
 		showNumberProd(req);
-		List<Product> products = Database.getInstance().getProductsDao().findByCategory("laptop");
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("notebook");
 		req.setAttribute("products", products);
 		req.setAttribute("category", "notebooks");
 		req.getSession().removeAttribute("notFound");
@@ -70,7 +70,7 @@ public class HomePage {
 	@GetMapping("/notebooksGallerySearch.html")
 	public String notebooksGalleryPageSearch(HttpServletRequest req) {
 		showNumberProd(req);
-		List<Product> products = Database.getInstance().getProductsDao().findByCategory("laptop");
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("notebook");
 		req.setAttribute("products", products);
 		return "productGallery";
 	}
@@ -139,6 +139,22 @@ public class HomePage {
 	public String accessoriesGalleryPageSearch(HttpServletRequest req) {
 		showNumberProd(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("accessory");
+		req.setAttribute("products", products);
+		return "productGallery";
+	}
+	
+	@GetMapping("/tvsGallerySearch.html")
+	public String tvsGalleryPageSearch(HttpServletRequest req) {
+		showNumberProd(req);
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("tv");
+		req.setAttribute("products", products);
+		return "productGallery";
+	}
+	
+	@GetMapping("/tvsGallery.html")
+	public String tvsGalleryPage(HttpServletRequest req) {
+		showNumberProd(req);
+		List<Product> products = Database.getInstance().getProductsDao().findByCategory("tv");
 		req.setAttribute("products", products);
 		return "productGallery";
 	}

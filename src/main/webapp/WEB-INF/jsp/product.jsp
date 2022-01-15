@@ -108,6 +108,7 @@
 									<option value="printers">Printers</option>
 									<option value="cameras">Cameras</option>
 									<option value="accessories">Accessories</option>
+									<option value="tvs">Tvs</option>
 								</select> <input class="input" placeholder="Search here"
 									name="productName">
 								<button type="submit" class="search-btn">Search</button>
@@ -201,6 +202,8 @@
 						href="camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="accessoriesGallery.html">Accessories</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="tvsGallery.html">Tvs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -216,9 +219,14 @@
 			<div class="col-lg-6 description">
 				<h1>${product.name}</h1>
 				<h4>$${product.price}0</h4>
+				<c:if test="${product.quantity > 0}">
 				<input type="number" value="1" min="1" max="${product.quantity}"
 					id="quantity" oninput="validity.valid||(value='');"> <br>
 				<br>
+				</c:if>
+				<c:if test="${product.quantity == 0}">
+					<h4 style="color: red;">Sold out</h4>
+				</c:if>
 				<c:if test="${username != null}">
 					<a href=""><button type="button" class="btn btn-info"
 							id="addProdWishes" onclick="addToWishList(${product.id})">
@@ -231,15 +239,27 @@
 							<i class="far fa-heart"></i>add to Wishlist
 						</button></a>
 				</c:if>
-				<c:if test="${username != null}">
+				<c:if test="${username != null && product.quantity > 0}">
 					<a href=""><button type="button" class="btn btn-info"
 							id="addProd" onclick="addToCart(${product.id})">
 							<i class="fa fa-cart-plus"></i>add to Cart
 						</button></a>
 				</c:if>
-				<c:if test="${username == null}">
+				<c:if test="${username != null && product.quantity == 0}">
+					<a href="javascript:void(0)"><button type="button" class="btn btn-info"
+							id="addProd" onclick="addToCart(${product.id})" disabled>
+							<i class="fa fa-cart-plus"></i>add to Cart
+						</button></a>
+				</c:if>
+				<c:if test="${username == null && product.quantity == 0}">
+					<a href="javascript:void(0)"><button type="button" class="btn btn-info"
+							value="${product.id}" disabled>
+							<i class="fa fa-cart-plus"></i>add to Cart
+						</button></a>
+				</c:if>
+				<c:if test="${username == null && product.quantity > 0}">
 					<a href="login.html"><button type="button" class="btn btn-info"
-							value="${product.id}">
+							value="${product.id}" disabled>
 							<i class="fa fa-cart-plus"></i>add to Cart
 						</button></a>
 				</c:if>

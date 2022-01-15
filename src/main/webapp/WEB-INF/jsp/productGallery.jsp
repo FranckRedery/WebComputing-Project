@@ -108,6 +108,7 @@
 									<option value="printers">Printers</option>
 									<option value="cameras">Cameras</option>
 									<option value="accessories">Accessories</option>
+									<option value="tvs">Tvs</option>
 								</select> <input class="input" placeholder="Search here" name="productName">
 								<button type="submit" class="search-btn">Search</button>
 							</form>
@@ -200,6 +201,8 @@
 						href="camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="accessoriesGallery.html">Accessories</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="tvsGallery.html">Tvs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -238,6 +241,10 @@
 					</c:if>
 					<c:if test="${username != null}">
 						<a href="#" style="-i: 2;" class="fas fa-heart addProdWishes"
+							data-custom-value="${prod.id}"></a>
+					</c:if>
+					<c:if test="${username == null}">
+						<a href="login.html" style="-i: 2;" class="fas fa-heart"
 							data-custom-value="${prod.id}"></a>
 					</c:if>
 					<a href="#" style="-i: 3;" class="fa fa-binoculars viewProd"

@@ -117,6 +117,7 @@
 									<option value="printers">Printers</option>
 									<option value="cameras">Cameras</option>
 									<option value="accessories">Accessories</option>
+									<option value="tvs">Tvs</option>
 								</select> <input class="input" placeholder="Search here" name="productName">
 								<button type="submit" class="search-btn">Search</button>
 							</form>
@@ -209,6 +210,8 @@
 						href="camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="accessoriesGallery.html">Accessories</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="tvsGallery.html">Tvs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -309,7 +312,7 @@
 				<div class="col product-item mx-auto">
 					<div class="product-img">
 						<img src="${prod.image}" alt=""
-							class="img-fluid d-block mx-auto"> <span class="heart-icon">
+							class="img-fluid d-block car"> <span class="heart-icon">
 							<c:set var="alreadyAdded" scope="request" value="false"/>
 							<c:forEach items="${wishes}" var="wish">
 							<c:if test="${wish.id.id == prod.id}">
