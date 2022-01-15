@@ -5,7 +5,7 @@
   	margin-bottom: 2%;
 }
 
-.row div {
+.divContatto .row div {
 	padding: 10px;
 }
 
@@ -14,24 +14,11 @@
 	color: gray;
 }
 
+#omino {
+	position: sticky;
+	top: 50px;
+}
 
 body {
 	overflow-wrap: break-word;
 }
-
-#navigation {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
-.header-ctn>div {
-  display: flex;
-  margin-top:0% !important;
-}
-
-.header-ctn>div+div {
-  margin-left: 2%;
-  margin-top:0% !important;
-}
-
