@@ -160,4 +160,21 @@ public class ReviewDaoJDBC implements ReviewDao {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void deleteReviewsByProductId(Long id) {
+		
+		try {
+			String query = "delete from reviews where id = ?"; 
+			PreparedStatement st;
+			st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.executeUpdate();
+			saveOrupdateStars(id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

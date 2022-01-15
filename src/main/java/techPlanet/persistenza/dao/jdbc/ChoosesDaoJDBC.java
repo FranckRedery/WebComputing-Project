@@ -231,4 +231,18 @@ public class ChoosesDaoJDBC implements ChoosesDao {
 		}
 	}
 
+	@Override
+	public void deleteChoosesByProductId(Long id) {
+		
+		try {
+			String query = "delete from chooses where id = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		
+	}
+
 }

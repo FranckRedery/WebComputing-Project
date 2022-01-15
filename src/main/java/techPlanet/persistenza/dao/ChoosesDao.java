@@ -13,4 +13,5 @@ public interface ChoosesDao {
 	public void quantityBasedAddition(Chooses chooses, String username);
 	public int getNumProdForUser(String username);
 	public void addProductToMyOrder(List<Chooses> product);
+	public void deleteChoosesByProductId(Long id);
 }

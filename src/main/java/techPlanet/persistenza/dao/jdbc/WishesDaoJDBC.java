@@ -109,4 +109,18 @@ public class WishesDaoJDBC implements WishesDao {
 				e.printStackTrace();
 			}
 	}
+
+	@Override
+	public void deleteWishesByProductId(Long id) {
+		
+		try {
+			String query = "delete from wishes where id = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, id);
+			st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+	}
 }
