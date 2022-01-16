@@ -63,17 +63,17 @@ public class Control {
 	public String recoverPasswordSent(HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
 		if(session.getAttribute("loggato") == null) 
-			return "index";
+			return "recoverPasswordSent";
 		else {
 			if(session.getAttribute("loggatoGoogle") == null) {
 				if(session.getAttribute("loggato").equals("si"))
-					return "recoverPasswordSent";
-				else
 					return "index";
+				else
+					return "recoverPasswordSent";
 			}
 			else {
 				if(session.getAttribute("loggatoGoogle").equals("si"))
-					return "account";
+					return "index";
 				else
 					return "recoverPasswordSent";
 			}
