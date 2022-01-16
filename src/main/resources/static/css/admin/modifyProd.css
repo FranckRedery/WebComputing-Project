@@ -309,6 +309,8 @@ input[type=file] {
      margin: 0px 0px 30px;
    }
    
+   .footer-links { padding-left: 0px; }
+   
    .footer-links li+li {
      margin-top: 15px;
    }
