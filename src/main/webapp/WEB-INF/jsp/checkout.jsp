@@ -30,7 +30,7 @@
 						<span class="text-muted">Your cart</span>
 					</h4>
 					<ul class="list-group mb-3">
-						<li class="list-group-item d-flex justify-content-between"><span>Total
+						<li class="list-group-item d-flex justify-content-between total" id="${total}"><span>Total
 								(USD)</span> <strong>${total}.00$</strong></li>
 					</ul>
 				</div>
@@ -76,81 +76,12 @@
 						</div>
 						<hr class="mb-4">
 						<h4 class="mb-3">Payment</h4>
-
-						<div class="d-block my-3">
-							<div class="custom-control custom-radio">
-								<input id="credit" name="paymentMethod" type="radio"
-									class="custom-control-input" checked required> <label
-									class="custom-control-label" for="credit">Credit card</label>
-							</div>
-							<div class="custom-control custom-radio">
-								<input id="debit" name="paymentMethod" type="radio"
-									class="custom-control-input" required> <label
-									class="custom-control-label" for="debit">Debit card</label>
-							</div>
-							<div class="custom-control custom-radio">
-								<input id="paypal" name="paymentMethod" type="radio"
-									class="custom-control-input" required> <label
-									class="custom-control-label" for="paypal" onchange="generatePayment(${total})">PayPal</label>
-							</div>
-							<button onclick="generatePayment(${total})">ciao</button>
-						</div>
 						<div id="paypal-button-container"></div>
-						<div class="row">
-							<div class="col-md-6 mb-3">
-								<label for="cc-name">Name on card</label> <input type="text"
-									class="form-control" id="cc-name" placeholder="Mario Rossi"
-									required onkeyup="stoppedTyping()"> <small
-									class="text-muted">Full name as displayed on card</small>
-							</div>
-							<div class="col-md-6 mb-3">
-								<label for="cc-number">Credit card number</label> <input
-									type="text" class="form-control" id="cc-number" placeholder=""
-									required pattern="[0-9].{13,16}" required
-									title="13 to 16 numbers" onkeyup="stoppedTyping()">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3 mb-3">
-								<label for="cc-expiration">Expiration</label> <input type="text"
-									class="form-control" id="cc-expiration" placeholder="MM/YYYY"
-									required onkeyup="stoppedTyping()">
-							</div>
-							<div class="col-md-3 mb-3">
-								<label for="cc-cvv">CVV</label> <input type="text"
-									class="form-control" id="cc-cvv" placeholder="XXX" required
-									pattern="[0-9]{3}" required title="3 number required"
-									onkeyup="stoppedTyping()">
-							</div>
-						</div>
 						<hr class="mb-4">
 						<button class="btn btn-primary btn-lg btn-block"
 							id="completeOrder" type="button" data-bs-toggle="modal"
-							data-bs-target="#myModal" disabled onclick="toEmptyCart()">proceed
+							data-bs-target="#myModal" onclick="toEmptyCart()">proceed
 							to order</button>
-						<div class="modal" id="myModal">
-							<div class="modal-dialog">
-								<div class="modal-content">
-
-									<!-- Modal Header -->
-									<div class="modal-header">
-										<h4 class="modal-title">purchase completed</h4>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal"></button>
-									</div>
-
-									<!-- Modal body -->
-									<div class="modal-body">thanks for the purchase, you will be able to manage the purchased products directly from the my orders page</div>
-
-									<!-- Modal footer -->
-									<div class="modal-footer">
-										<button type="button" class="btn btn-primary"
-											data-bs-dismiss="modal" onclick="window.location.href='/'">Close</button>
-									</div>
-
-								</div>
-							</div>
-						</div>
 					</form>
 				</div>
 			</div>
@@ -158,9 +89,9 @@
 			<footer class="my-5 pt-5 text-muted text-center text-small">
 				<p class="mb-1">&copy; 2021 - 2045 Tech Planet</p>
 				<ul class="list-inline">
-					<li class="list-inline-item"><a href="#">Privacy</a></li>
-					<li class="list-inline-item"><a href="#">Terms</a></li>
-					<li class="list-inline-item"><a href="#">Support</a></li>
+					<li class="list-inline-item"><a href="/privacyPolicy">Privacy</a></li>
+					<li class="list-inline-item"><a href="/termsAndConditions">Terms</a></li>
+					<li class="list-inline-item"><a href="/customerSupport">Support</a></li>
 				</ul>
 			</footer>
 		</div>

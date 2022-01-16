@@ -245,7 +245,7 @@
 				</c:if>
 				<c:if test="${username == null && product.quantity > 0}">
 					<a href="login.html"><button type="button" class="btn btn-info"
-							value="${product.id}" disabled>
+							value="${product.id}">
 							<i class="fa fa-cart-plus"></i>add to Cart
 						</button></a>
 				</c:if>

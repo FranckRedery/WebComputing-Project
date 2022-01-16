@@ -279,10 +279,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hot-deal">
-						<h2 class="text-uppercase">hot deal this week</h2>
-						<p>New Collection Up to 50% OFF</p>
-						<a style="text-decoration: none;" class="primary-btn cta-btn"
-							href="#">Shop now</a>
+						<br><br><h2 class="text-uppercase">Free shipping this week</h2>
+						<p>also for new members</p><br><br>
 					</div>
 				</div>
 			</div>

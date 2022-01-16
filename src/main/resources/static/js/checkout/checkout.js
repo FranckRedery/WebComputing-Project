@@ -1,19 +1,18 @@
+window.addEventListener("load", function(){
+	var value = $(".total").attr("id");
+	generatePayment(value);
+});
+
 function toEmptyCart() {
 	$.ajax({
 			type: "POST",
 			url: "/ToEmptyCart",
 			contentType: "application/json",
-			success: function(){},
+			success: function(){
+				window.location = "/purchaseCompleted.html";
+			},
 			});
 }
-
-function stoppedTyping(){
-    if($("#cc-number").val().length > 0 && $("#cc-name").val().length > 0 && $("#cc-expiration").val().length > 0 && $("#cc-cvv").val().length > 0) {
-       	$("#completeOrder").prop("disabled",false);
-	} else { 
- 		$("#completeOrder").prop("disabled",true);
-       	}
-    }
 
 function generatePayment(value) {
 	if (value==""){
