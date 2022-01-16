@@ -167,7 +167,7 @@
 	<!--/HEADER-->
 
 
-	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -204,9 +204,16 @@
 				<div class="info">
 					<h3 class="title">${prod.name}</h3>
 					<div class="subInfo">
+						<c:if test="${prod.quantity > 0}">
 						<div class="price">
 							<strong>${prod.price}0$</strong>
 						</div>
+						</c:if>
+						<c:if test="${prod.quantity == 0}">
+						<div class="price">
+							<strong>SOLD OUT</strong>
+						</div>
+						</c:if>
 						<div class="stars">
 							<c:forEach var="star" begin="1" end="${prod.reviews}">
 								<span> <i class="fas fa-star"></i></span>
@@ -218,11 +225,11 @@
 					</div>
 				</div>
 				<div class="overlay">
-					<c:if test="${username != null}">
+					<c:if test="${username != null && prod.quantity > 0}">
 						<a href="#" style="-i: 1;" class="fas fa-shopping-cart addProd"
 							data-custom-value="${prod.id}"></a>
 					</c:if>
-					<c:if test="${username == null}">
+					<c:if test="${username == null && prod.quantity > 0}">
 						<a href="login.html" style="-i: 1;" class="fas fa-shopping-cart"
 							data-custom-value="${prod.id}"></a>
 					</c:if>
@@ -266,6 +273,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -279,10 +287,9 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734
-										Stonecoal Road</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
+								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
+								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -291,11 +298,12 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
-								<li><a href="#">Tvs</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
+								<li><a href="smartphonesGallery.html">Smartphones</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
+								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -303,11 +311,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Work with Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="/aboutUs.html">About Us</a></li>
+								<li><a href="/contactUs">Contact Us</a></li>
+								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="/privacyPolicy">Privacy Policy</a></li>
+								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -316,11 +324,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Order and Returns</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="account.html">My Account</a></li>
+								<li><a href="cart.html">View Cart</a></li>
+								<li><a href="wishList.html">Wishlist</a></li>
+								<li><a href="/myOrder.html">Order and Returns</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>
@@ -332,6 +340,7 @@
 		<!-- /top footer -->
 	</footer>
 	<!-- /FOOTER -->
+
 	<script src="js/productGallery/productGallery.js"></script>
 
 </body>

@@ -42,15 +42,11 @@
 								<label for="firstName">First name</label> <input type="text"
 									class="form-control" id="firstName" placeholder="${name}"
 									value="" readonly>
-								<div class="invalid-feedback">Valid first name is
-									required.</div>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="lastName">Last name</label> <input type="text"
 									class="form-control" id="lastName" placeholder="${surname}"
 									value="" readonly>
-								<div class="invalid-feedback">Valid last name is required.
-								</div>
 							</div>
 						</div>
 
@@ -59,24 +55,18 @@
 							<div class="input-group">
 								<input type="text" class="form-control" id="username"
 									placeholder="${username}" readonly>
-								<div class="invalid-feedback" style="width: 100%;">Your
-									username is required.</div>
 							</div>
 						</div>
 
 						<div class="mb-3">
 							<label for="email">Email</label> <input type="email"
 								class="form-control" id="email" placeholder="${email}" readonly>
-							<div class="invalid-feedback">Please enter a valid email
-								address for shipping updates.</div>
 						</div>
 
 						<div class="mb-3">
 							<label for="address">Address</label> <input type="text"
 								class="form-control" id="address" placeholder="${addressline1}"
 								readonly>
-							<div class="invalid-feedback">Please enter your shipping
-								address.</div>
 						</div>
 
 						<div class="mb-3">
@@ -112,15 +102,12 @@
 									class="form-control" id="cc-name" placeholder="Mario Rossi"
 									required onkeyup="stoppedTyping()"> <small
 									class="text-muted">Full name as displayed on card</small>
-								<div class="invalid-feedback">Name on card is required</div>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="cc-number">Credit card number</label> <input
 									type="text" class="form-control" id="cc-number" placeholder=""
 									required pattern="[0-9].{13,16}" required
 									title="13 to 16 numbers" onkeyup="stoppedTyping()">
-								<div class="invalid-feedback">Credit card number is
-									required</div>
 							</div>
 						</div>
 						<div class="row">
@@ -128,14 +115,12 @@
 								<label for="cc-expiration">Expiration</label> <input type="text"
 									class="form-control" id="cc-expiration" placeholder="MM/YYYY"
 									required onkeyup="stoppedTyping()">
-								<div class="invalid-feedback">Expiration date required</div>
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="cc-cvv">CVV</label> <input type="text"
 									class="form-control" id="cc-cvv" placeholder="XXX" required
 									pattern="[0-9]{3}" required title="3 number required"
 									onkeyup="stoppedTyping()">
-								<div class="invalid-feedback">Security code required</div>
 							</div>
 						</div>
 						<hr class="mb-4">

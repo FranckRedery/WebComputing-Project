@@ -207,7 +207,7 @@
 	<!--/HEADER-->
 
 
-	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#mynavbar">

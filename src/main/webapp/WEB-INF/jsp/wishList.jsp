@@ -168,7 +168,7 @@
 	<!--/HEADER-->
 
 
-	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -206,9 +206,16 @@
 					<div class="card-body">
 						<h5 class="card-title">${wish.id.name}</h5>
 						<div class="info">
+							<c:if test="${wish.id.quantity > 0}">
 							<div class="price">
 							<h3 class="card-text"><strong>$${wish.id.price}0</strong></h3>
 							</div>
+							</c:if>
+							<c:if test="${wish.id.quantity == 0}">
+							<div class="price">
+							<h3 class="card-text" style="color: red"><strong>SOLD OUT</strong></h3>
+							</div>
+							</c:if>
 							<div class="star">
 							<c:forEach var="star" begin="1" end="${wish.id.reviews}">
 							<span> <i class="fas fa-star"></i></span>
@@ -220,7 +227,9 @@
 						</div>
 						<div class="action">
 						<button type="button" class="btn btn-light removeProd" onclick="removeFromWishList(${wish.id.id})">Remove</button>
-						<button type="button" class="btn btn-primary" onclick="moveToCart(${wish.id.id})">Move to cart</button>
+						<c:if test="${wish.id.quantity > 0}">
+							<button type="button" class="btn btn-primary" onclick="moveToCart(${wish.id.id})">Move to cart</button>
+						</c:if>
 						</div>
 					</div>
 				</div>
@@ -228,6 +237,7 @@
 			</c:forEach>
 		</div> 
 	</div>
+
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
@@ -241,10 +251,9 @@
 							<h3 class="footer-title">About Us</h3>
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734
-										Stonecoal Road</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i>email@email.com</a></li>
+								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
+								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -253,11 +262,12 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
-								<li><a href="#">Tvs</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
+								<li><a href="smartphonesGallery.html">Smartphones</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
+								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -278,10 +288,10 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Order and Returns</a></li>
+								<li><a href="account.html">My Account</a></li>
+								<li><a href="cart.html">View Cart</a></li>
+								<li><a href="wishList.html">Wishlist</a></li>
+								<li><a href="/myOrder.html">Order and Returns</a></li>
 								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>

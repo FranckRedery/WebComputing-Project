@@ -178,7 +178,7 @@
 	<!--/HEADER-->
 
 
-	<nav id="navigation" class="navbar navbar-expand-sm bg-dark">
+	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -320,15 +320,19 @@
 							</c:if>
 						</span>
 						<div class="row btns w-100 mx-auto text-center">
-							<c:if test="${username != null}">
+							<c:if test="${username != null && prod.quantity > 0}">
 								<button type="button" class="col-6 py-2" value="${prod.id}" id="addProd">
 									<i class="fa fa-cart-plus"></i>add to Cart
 								</button>
 							</c:if>
-							<c:if test="${username == null}">
+							<c:if test="${username == null && prod.quantity > 0}">
 								<button type="button" class="col-6 py-2"
 									onclick="window.location.href='login.html'">
 									<i class="fa fa-cart-plus"></i>add to Cart
+								</button>
+							</c:if>
+							<c:if test="${(username == null || username != null) && prod.quantity == 0}">
+								<button type="button" class="col-6 py-2" disabled>SOLD OUT
 								</button>
 							</c:if>
 							<button type="button" class="col-6 py-2" value="${prod.id}" id="viewProd">
@@ -402,9 +406,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
 								<li><a href="smartphonesGallery.html">Smartphones</a></li>
-								<li><a href="tvGallery.html">Tvs</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
 								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
