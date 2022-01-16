@@ -4,6 +4,10 @@ body {
     color: #333;
     margin: 0;
   }
+  
+ a {
+    font-weight: 500;
+}
 
   ul, ol {
     margin: 0;

@@ -1,6 +1,3 @@
-window.addEventListener("load", function(){
-		
-});
 
 $('.owl-carousel').owlCarousel({
   loop: true,

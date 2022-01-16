@@ -344,7 +344,7 @@
 						<a
 							href="productDetails.html"
 							class="d-block text-dark text-decoration-none py-2 product-name">
-							${prod.name}</a> <span class="product-price">$${prod.price}</span>
+							${prod.name}</a> <span class="product-price">$${prod.price}0</span>
 							<div class="rating d-flex mt-1 reviews" id="${prod.reviews}">
 							<c:forEach var="star" begin="1" end="${prod.reviews}">
 							<span> <i class="fas fa-star"></i></span>

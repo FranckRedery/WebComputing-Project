@@ -197,9 +197,9 @@
 
 	<!-- Single product details -->
 
-	<div class="small-container single-product">
-		<div id="riga" class="row">
-			<div class="col-lg-3">
+	<div class="container single-product">
+		<div class="row">
+			<div class="col-lg-6">
 				<img src="${product.image}" width=100% id="productImg">
 			</div>
 			<div class="col-lg-6 description">

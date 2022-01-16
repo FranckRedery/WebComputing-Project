@@ -17,6 +17,10 @@ ul, ol {
   list-style: none
 }
 
+a {
+    font-weight: 500;
+}
+
 /*----------------------------*\
 	Inputs
 \*----------------------------*/
@@ -278,7 +282,7 @@ header{
 }
 
   td img{
-      width: 70px;
+      width: 80px;
       height: 80px;
       margin-right: 10px;
  }

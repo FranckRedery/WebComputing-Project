@@ -156,6 +156,7 @@ public class HomePage {
 		showNumberProd(req);
 		List<Product> products = Database.getInstance().getProductsDao().findByCategory("tv");
 		req.setAttribute("products", products);
+		req.getSession().removeAttribute("notFound");
 		return "productGallery";
 	}
 	

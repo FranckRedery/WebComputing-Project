@@ -10,6 +10,10 @@ body {
     padding: 0;
     list-style: none
   }
+  
+  a {
+    font-weight: 500;
+}
 
   /*----------------------------*\
 	Inputs
@@ -286,7 +290,7 @@ body {
 }
   
 .single-product input {
-  width: 50px;
+  width: 70px;
   height: 40px;
   padding-left: 10px;
   font-size: 20px;
@@ -455,6 +459,10 @@ input:focus{
 
 .fa-minus {
 	color: red;
+}
+
+.description {
+	padding-top: 90px;
 }
 
 /*=========================================================
