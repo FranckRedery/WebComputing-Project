@@ -17,7 +17,7 @@ function compila() {
 		document.getElementById("rigaIndiceDomande").style.display = ""; 
 		pannelloSuperiore(categoriaSelezionata.toLowerCase());
 		switch(categoriaSelezionata) {
-			case "printers":
+			case "printer":
 				inserisciDomanda(domande.stampanti.elencoDomande[ind].domanda);
 				if(domande.stampanti.elencoDomande[ind].unaOpzione)
 					inserisciRisposteRadio(domande.stampanti.elencoDomande[ind].risposte);
@@ -53,7 +53,7 @@ function pannelloSuperiore(stringa) {
 		case("notebook"):
 			prodotto = "notebook";
 			break;
-		case("printers"):
+		case("printer"):
 			prodotto = "printer";
 			break;
 		default:

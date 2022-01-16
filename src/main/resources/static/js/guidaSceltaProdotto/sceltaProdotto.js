@@ -67,7 +67,7 @@ function vaiAllaDomanda(i) {
 
 function caricaInfo(indiceRisposta) {
 	switch(categoriaSelezionata) {
-		case("printers"):
+		case("printer"):
 			caricaDescrizione(domande.stampanti.elencoDomande[ind].risposte[indiceRisposta].descrizione);
 			break;
 		case("notebook"):
@@ -194,7 +194,7 @@ function clearText(field){
 
 function numeroDomandeCategoriaSelezionata() {
 	switch(categoriaSelezionata) {
-		case "printers":
+		case "printer":
 			numDomandeTotaliCategoria = domande.stampanti.elencoDomande.length;
 			break;
 		case "notebook":

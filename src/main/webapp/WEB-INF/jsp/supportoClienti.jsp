@@ -313,9 +313,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
 								<li><a href="smartphonesGallery.html">Smartphones</a></li>
-								<li><a href="tvGallery.html">Tvs</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
 								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>

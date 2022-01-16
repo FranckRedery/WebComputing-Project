@@ -25,7 +25,7 @@ categorie = {
 	"descrizione": "Welcome!%Answer these simple questions and we will help you find the ideal product for your needs."
 };
 
-categorie.categoria.push("Notebook", "Printers");
+categorie.categoria.push("Notebook", "Printer");
 
 
 var domande = new Object();
