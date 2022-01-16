@@ -1,4 +1,5 @@
-$('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
+$('table').on('click', '[class="btn btn-success btn-lg"]', function(){
+	
 	let usernameField = $(this).closest("tr").find("#username").text();
 	let productID = $(this).closest("tr").find("#prodId").text();
     let moneyreturned = $(this).closest("tr").find("#amount").val();
@@ -7,7 +8,7 @@ $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 	let product = new Product(productID);
 	let returnRequest = new ReturnRequest(user,product,moneyreturned,status);
 	
-	if(moneyreturned == "" || moneyreturned == 0){
+	if(moneyreturned == "" || moneyreturned <= 0){
 		$(this).closest('tr').find('#amount-cell').html('Insert a value > 0<input type="number" value="0" class="text-center" step=".01"min="0" max="9999" oninput="validity.valid||(value="");" id="amount">');
 	}
 	else{
@@ -32,7 +33,7 @@ $('table').on('click', '[class="btn btn-success btn-lg"]', function(e){
 
 
 
-$('table').on('click', '[class="btn btn-danger btn-lg"]', function(e){
+$('table').on('click', '[class="btn btn-danger btn-lg"]', function(){
        
 
 	let usernameField = $(this).closest("tr").find("#username").text();

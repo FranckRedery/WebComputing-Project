@@ -24,99 +24,99 @@
         <body>
             <!-- HEADER -->
             <header>
-                <!-- TOP HEADER -->
-                <div id="top-header">
-                    <div class="container">
-                        <ul class="header-links pull-left">
-                            <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> techPlanet2022@gmail.com</a></li>
-                            <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
-                            <li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
-                        </ul>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +39 388 357 0017</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i> techPlanet2022@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                    <li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="/" class="logo">
+                                <img id="logo" src="images/index/logo.png" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- /TOP HEADER -->
+                    <!-- /LOGO -->
 
-                <!-- MAIN HEADER -->
-                <div id="header">
-                    <!-- container -->
-                    <div class="container">
-                        <!-- row -->
-                        <div class="row">
-                            <!-- LOGO -->
-                            <div class="col-md-3">
-                                <div class="header-logo">
-                                    <a href="/" class="logo">
-                                        <img id="logo" src="images/index/logo.png" alt="">
-                                    </a>
-                                </div>
+                    <!-- ACCOUNT -->
+                    <div class="col-md-9">
+                        <div class="header-ctn">
+
+                            <!-- Wishlist -->
+                            <div style="padding-right: 3%; margin-top: 3%" id="firstElement">
+                                <a href="addProduct" style="text-decoration: none;">
+                                    <i class="fas fa-cart-plus" id="add"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
                             </div>
-                            <!-- /LOGO -->
 
-                            <!-- ACCOUNT -->
-                            <div class="col-md-9">
-                                <div class="header-ctn">
-
-                                    <!-- Wishlist -->
-                                    <div style="padding-right: 3%; margin-top: 3%" id="firstElement">
-                                        <a href="addProduct" style="text-decoration: none;">
-                                            <i class="fas fa-cart-plus" id="add"></i>
-                                            <!--<div class="qty">0</div>-->
-                                        </a>
-                                    </div>
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="deleteProd" style="text-decoration: none;">
-                                            <i class="fas fa-trash" id="trash"></i>
-                                            <!--<div class="qty">0</div>-->
-                                        </a>
-                                    </div>
-
-                                    <!-- Cart -->
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="modifyProd" style="text-decoration: none;">
-                                            <i class="fas fa-edit"></i>
-                                            <!--<div class="qty">0</div>-->
-                                        </a>
-                                    </div>
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="returnRequests" style="text-decoration: none;">
-                                            <i class="fas fa-truck-loading" id="truck2"></i></a>
-                                    </div>
-                                    <!-- /Cart -->
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="addAdmin" style="text-decoration: none;">
-                                            <i class="fas fa-user-tie" id="addAdmin"></i></a>
-                                    </div>
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="deleteAdmin" style="text-decoration: none;">
-                                            <i class="fas fa-user-slash" id="deleteAdmin"></i></a>
-                                    </div>
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="/viewJobs" style="text-decoration: none;">
-                                            <i class="fas fa-user-plus" id="positions"></i></a>
-                                    </div>
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="/viewCurriculum" style="text-decoration: none;">
-                                            <i class="fas fa-book-open" id="curriculum"></i></a>
-                                    </div>
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="/viewReports" style="text-decoration: none;">
-                                            <i class="fas fa-bug" id="report"></i>
-                                            <!--<div class="qty">0</div>-->
-                                        </a>
-                                    </div>
-
-                                </div>
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="deleteProd" style="text-decoration: none;">
+                                    <i class="fas fa-trash" id="trash"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
                             </div>
+
+                            <!-- Cart -->
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="modifyProd" style="text-decoration: none;">
+                                    <i class="fas fa-edit"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="returnRequests" style="text-decoration: none;">
+                                    <i class="fas fa-truck-loading" id="truck2"></i></a>
+                            </div>
+                            <!-- /Cart -->
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="addAdmin" style="text-decoration: none;">
+                                    <i class="fas fa-user-tie" id="addAdmin"></i></a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="deleteAdmin" style="text-decoration: none;">
+                                    <i class="fas fa-user-slash" id="deleteAdmin"></i></a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="/viewJobs" style="text-decoration: none;">
+                                    <i class="fas fa-user-plus" id="positions"></i></a>
+                            </div>
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="/viewCurriculum" style="text-decoration: none;">
+                                    <i class="fas fa-book-open" id="curriculum"></i></a>
+                            </div>
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="/viewReports" style="text-decoration: none;">
+                                    <i class="fas fa-bug" id="report"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </div>
+    </header>
             <!--/HEADER-->
 
             <h2 style="margin-top:2%;" id="pageTitle">Modify product</h2>
