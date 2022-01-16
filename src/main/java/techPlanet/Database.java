@@ -55,6 +55,7 @@ public class Database {
 		}
 	}
 	
+	
 	public ProductDao getProductsDao() {
 		return new ProductDaoJDBC(conn);
 	}
