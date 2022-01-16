@@ -150,6 +150,15 @@
 						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
+									<c:if test="${loggatoGoogle == 'si'}">
+									<a href="account.html"
+										style="text-decoration: none; display: flex;"> <img
+										class="profilePic" src='${image}'
+										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										${username}
+									</a>								
+									</c:if>
+									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
@@ -160,6 +169,7 @@
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
+									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
@@ -240,12 +250,12 @@
 				<div id = "centraContatti">
 					<div class = "divContatto">
 						<div class = "row">
-							<div class="col-sm-4">
+							<div class="col-md-4">
 								<figure class = "figure">
-									<img src = "../images/contattaci/telefono.png" width = 100%>
+									<img src = "../images/contattaci/telefono.png" width = 100% id = "imageContatti">
 								</figure>
 							</div>
-							<div class="col-sm-8" id = "contatti">
+							<div class="col-md-8" id = "contatti">
 								<p><strong>Cangeri Fabio </strong><a href = "tel:+393668401360">3668401360</a></p>
 								<p><strong>Giacoia Stefano </strong><a href = "tel:+393883570017">3883570017</a></p>
 								<p><strong>Muto Antonio </strong><a href = "tel:+393203557439">3203557439</a></p>
@@ -255,12 +265,12 @@
 					</div>
 					<div class = "divContatto">
 						<div class = "row">
-							<div class="col-sm-4">
+							<div class="col-md-4">
 								<figure class = "figure">
-									<img src = "../images/contattaci/mail.png" width = 100%>
+									<img src = "../images/contattaci/mail.png" width = 100% id = "imageContatti">
 								</figure>
 							</div>
-							<div class="col-sm-8" id = "contatti">
+							<div class="col-md-8" id = "contatti">
 								<p><strong>Cangeri Fabio </strong><a href = "mailto:fabiocangeri@gmail.com">fabiocangeri@gmail.com</a></p>
 								<p><strong>Giacoia Stefano </strong><a href = "mailto:s.giacoia@gmail.com">s.giacoia@gmail.com</a></p>
 								<p><strong>Muto Antonio </strong><a href = "mailto:antonio.muto09@gmail.com">antonio.muto09@gmail.com</a></p>

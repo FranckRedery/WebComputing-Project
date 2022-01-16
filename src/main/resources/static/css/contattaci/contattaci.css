@@ -9,6 +9,10 @@
 	padding: 10px;
 }
 
+.divContatto figure {
+	display: initial;
+}
+
 #contatti a {
 	text-decoration: none;
 	color: gray;
@@ -21,4 +25,26 @@
 
 body {
 	overflow-wrap: break-word;
+}
+
+#imageContatti {
+	width: 35%;
+}
+
+@media screen and (max-width: 580px) {
+
+	#container {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	
+	#contatti {
+		text-align: center;
+	}
+	
+	#divContatti {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
 }
