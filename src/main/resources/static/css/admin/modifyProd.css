@@ -8,8 +8,6 @@
 	color: black;
 }
 
-
-
 input[type=text] {
     box-sizing: border-box;
     border-radius: 4px;
@@ -179,7 +177,9 @@ input[type=file] {
        color: #FFF;
      }
      
-   
+.row{
+	margin-right: 0%!important;
+}
    /*=========================================================
        02 -> HEADER
    ===========================================================*/
