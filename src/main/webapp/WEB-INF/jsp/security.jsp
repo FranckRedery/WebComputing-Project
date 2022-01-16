@@ -193,8 +193,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">SECURITY</h3>
 
   <div class="containerCardsAcc">
-	<a id="emailCard" style="text-decoration: none;" href="setMailCode">
-	<div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
+	<div onclick="window.location = 'setMailCode'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/chiocciola01.png" class="img-fluid rounded-start" alt="...">
@@ -206,11 +205,9 @@
 			</div>
 		  </div>
 		</div>
-	   </a>
 	</div>
 
-	<a style="text-decoration: none;" href="setPassCode">
-	  <div id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
+	  <div onclick="window.location = 'setPassCode'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/lock01.png" class="img-fluid rounded-start" alt="...">
@@ -222,7 +219,6 @@
 			</div>
 		  </div>
 		</div>
-	   </a>
 	  </div>
     </div>
     
@@ -251,10 +247,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
 								<li><a href="smartphonesGallery.html">Smartphones</a></li>
-								<li><a href="#">Tvs</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
 								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
@@ -279,8 +276,8 @@
 								<li><a href="account.html">My Account</a></li>
 								<li><a href="cart.html">View Cart</a></li>
 								<li><a href="wishList.html">Wishlist</a></li>
-								<li><a href="#">Order and Returns</a></li>
-								<li><a href="/customerSupport">Help</a></li>
+								<li><a href="/myOrder.html">Order and Returns</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

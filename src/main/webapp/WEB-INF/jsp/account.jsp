@@ -367,10 +367,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="notebooksGallery.html">Laptops</a></li>
+								<li><a href="notebooksGallery.html">Notebooks</a></li>
 								<li><a href="smartphonesGallery.html">Smartphones</a></li>
-								<li><a href="#">Tvs</a></li>
+								<li><a href="tvsGallery.html">Tvs</a></li>
+								<li><a href="printersGallery.html">Printers</a></li>
+								<li><a href="camerasGallery.html">Cameras</a></li>
 								<li><a href="accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
@@ -395,8 +396,8 @@
 								<li><a href="account.html">My Account</a></li>
 								<li><a href="cart.html">View Cart</a></li>
 								<li><a href="wishList.html">Wishlist</a></li>
-								<li><a href="#">Order and Returns</a></li>
-								<li><a href="/customerSupport">Help</a></li>
+								<li><a href="/myOrder.html">Order and Returns</a></li>
+								<li><a href="/customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

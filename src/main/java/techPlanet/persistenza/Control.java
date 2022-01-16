@@ -44,6 +44,7 @@ public class Control {
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");
+				session.setAttribute("isAdmin", rs.getString("isadmin"));
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));
 				session.setAttribute("image", rs.getString("image"));
@@ -55,6 +56,7 @@ public class Control {
 				preparedStmt.execute();
 				session.setAttribute("loggato", "si");
 				session.setAttribute("loggatoGoogle", "si");
+				session.setAttribute("isAdmin", false);
 				session.setAttribute("errore", "no");
 				session.setAttribute("email", req.getParameter("email"));
 				session.setAttribute("username", req.getParameter("username"));

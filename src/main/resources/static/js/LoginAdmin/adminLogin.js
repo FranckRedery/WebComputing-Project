@@ -55,7 +55,6 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); 
   
-    window.location = "/";
     
   $.ajax({
 		type: 'POST',
@@ -68,6 +67,8 @@ function onSignIn(googleUser) {
 			image: image
 		}	
 	});
+	wait(1000);
+    window.location = "/";
 }
 
 
@@ -122,3 +123,10 @@ function ShowView() {
   }
 }
 
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}

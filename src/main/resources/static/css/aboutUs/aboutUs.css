@@ -1055,3 +1055,5 @@ header{
   text-overflow: ellipsis;
   margin: 0;
 }
+
+.footer-links { padding-left: 0px; }

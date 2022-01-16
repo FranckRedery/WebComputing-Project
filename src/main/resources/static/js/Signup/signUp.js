@@ -140,8 +140,8 @@ function signOutStand() {
 
 function check(){
 	if(document.referrer == "http://localhost:8080/login.html" || document.referrer == "http://localhost:8080/signUp.html"){
-		wait(50);
-		window.location.reload();
+	    wait(200);
+		window.location = "/";
 	}
 }
 
