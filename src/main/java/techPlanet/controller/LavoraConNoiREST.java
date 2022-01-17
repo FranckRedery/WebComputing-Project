@@ -22,8 +22,6 @@ public class LavoraConNoiREST {
 		
 		List<Job> lavori = Database.getInstance().getJobDao().findAllStatus(true);
 		
-		System.out.println(lavori);
-		
 		return lavori;
 		
 	}

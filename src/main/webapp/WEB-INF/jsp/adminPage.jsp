@@ -185,8 +185,8 @@
     </div>
 
 
-    <!-- FOOTER -->
-    <footer id="footer">
+	<!-- FOOTER -->
+	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
 			<!-- container -->
@@ -249,7 +249,7 @@
 		</div>
 		<!-- /top footer -->
 	</footer>
-    <!-- /FOOTER -->
+	<!-- /FOOTER -->
 </body>
 
 </html>

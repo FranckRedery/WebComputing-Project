@@ -70,11 +70,9 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i>
-							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+					<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>techPlanet2022@gmail.com</a></li>
+					<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+					<li><a href="#"><i class="fas fa-dollar-sign"></i> USD</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
@@ -150,15 +148,6 @@
 						<!-- User Toogle -->
 							<div>
 								<c:if test="${loggato == 'si'}">
-									<c:if test="${loggatoGoogle == 'si'}">
-									<a href="account.html"
-										style="text-decoration: none; display: flex;"> <img
-										class="profilePic" src='${image}'
-										style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										${username}
-									</a>								
-									</c:if>
-									<c:if test="${loggatoGoogle == 'no' || loggatoGoogle == null }">
 									<div style="display: flex">
 									<a href="account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
@@ -169,7 +158,6 @@
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
-									</c:if>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
 								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
@@ -205,7 +193,6 @@
 		</div>
 	</header>
 	<!--/HEADER-->
-
 
 	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
@@ -309,7 +296,6 @@
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
 								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
 								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>

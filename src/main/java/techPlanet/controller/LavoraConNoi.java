@@ -43,13 +43,16 @@ public class LavoraConNoi {
 	}
 	
 	@PostMapping("/loginCurriculum")
-	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String username, String pass) throws IOException {
+	public String faiLogin(HttpServletRequest req, HttpServletResponse resp, String email, String pass) throws IOException {
 		
-		if(Database.getInstance().getLogin().faiLoginCurriculum(username, pass)) {
+		String username = Database.getInstance().getLogin().faiLoginCurriculum(email, pass);
+		
+		if(username != null) {
 			User utente = Database.getInstance().getUserDao().findByPrimaryKey(username);
-			
+
 			HttpSession session = req.getSession(true);
 			session.setAttribute("user", utente);
+			
 		}
 		
 		return "curriculum";

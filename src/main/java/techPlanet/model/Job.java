@@ -60,8 +60,6 @@ public class Job {
 		this.requirements = requirements;
 	}
 	public boolean ugualiTotalmente(Job job) {
-		// controllo se hanno entrambi gli stessi requisiti obbligatori
-		// anche se posizionati in posti diversi
 		int cont = 0;
 //		System.out.println(this.obligatory.size());
 		for(int i = 0; i < this.obligatory.size(); ++i) {

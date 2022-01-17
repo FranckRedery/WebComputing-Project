@@ -121,6 +121,15 @@ function inviaSegnalazione() {
 	}
 }
 
+function eliminaEsitoSegnalazione() {
+	
+	var row = document.getElementById("segnalazione2");
+	
+	if(row.innerHTML != "")
+		row.innerHTML = "";
+	
+}
+
 function stampaEsitoSegnalazione() {
 	
 	var row = document.getElementById("segnalazione2");

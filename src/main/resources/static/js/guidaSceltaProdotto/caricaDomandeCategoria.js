@@ -41,7 +41,8 @@ function compila() {
 //		console.log(preferenzeUtente);
 		
 	}
-
+	
+	eliminaEsitoSegnalazione();
 	caricaFocusDomanda();
 }
 

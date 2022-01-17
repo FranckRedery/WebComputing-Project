@@ -71,137 +71,101 @@
 
 <!------------------------GRUPPO-------------------------------------------->	
 
-	<!-- HEADER -->
-	<header>
-		<!-- TOP HEADER -->
-		<div id="top-header">
-			<div class="container">
-				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i>
-							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
-				</ul>
-				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
-				<ul class="header-links pull-right">
-					<c:if test="${loggato == 'si'}">
-						<c:if test="${isAdmin == 't'}">
-						  <a href="adminPage" style="text-decoration: none;">
-							<button class="btnAdmin">
-								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
-							</button>
-						  </a>
-						</c:if>
-				     <a href="javascript:signOut()" style="text-decoration: none;">
-							<button class="btnLog">
-								<span>Log out</span>
-							</button>
-						</a>
-				  </c:if>
-				<c:if test="${loggato == 'no' || loggato == null}">
-				
-					<a style="text-decoration: none;">
-						<button onclick="resetLogin();" class="btnLog">
-							<span>Login</span>
-						</button>
-					</a>
-					<a style="text-decoration: none;">
-						<button onclick="resetSignUp();" class="btnLog">
-							<span>Sign Up</span>
-						</button>
-					</a>
-				</c:if>
-				</ul>
-			</div>
-		</div>
-		<!-- /TOP HEADER -->
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>techPlanet2022@gmail.com</a></li>
+					<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+					<li><a href="#"><i class="fas fa-dollar-sign"></i> USD</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
 
-			<!-- MAIN HEADER -->
-		<div id="header">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<!-- LOGO -->
-					<div class="col-md-3">
-						<div class="header-logo">
-							<a href="/" class="logo"> <img id="logo"
-								src="images/index/logo.png" alt="">
-							</a>
-						</div>
-					</div>
-					<!-- /LOGO -->
-					<!-- SEARCH BAR -->
-					<div class="col-md-6">
-						<div class="header-search">
-							<form method= "post" action="/searchProduct" >
-								<select class="input-select" name="categories">
-									<option value="All Categories">All Categories</option>
-									<option value="notebooks">Notebooks</option>
-									<option value="smartphones">Smartphones</option>
-									<option value="printers">Printers</option>
-									<option value="cameras">Cameras</option>
-									<option value="accessories">Accessories</option>
-									<option value="tvs">Tvs</option>
-								</select> <input class="input" placeholder="Search here" name="productName">
-								<button type="submit" class="search-btn">Search</button>
-							</form>
-						</div>
-					</div>
-					<!-- /SEARCH BAR -->
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="/" class="logo">
+                                <img id="logo" src="images/index/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
 
-					<!-- ACCOUNT -->
-					<div class="col-md-3">
-						<div class="header-ctn">
-						<!-- User Toogle -->
-							<div>
-								<c:if test="${loggato == 'si'}">
-									<div style="display: flex">
-									<a href="account.html" style="text-decoration: none; display: flex;">
-										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
-										</c:if>
-									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
-									</div>
-								</c:if>
-								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
-									class="fa fa-user"></i>
-								</a>
-								</c:if>
-							</div>
-							<!-- /User Toogle -->
-							<!-- Cart -->
-							<div style="padding-right: 10%;">
-								<a href="cart.html" style="text-decoration: none;"> <i
-									class="fa fa-shopping-cart"></i> 
-									<c:if test="${username != null && numProd > 0}">
-									<div class="qty">${numProd}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- /Cart -->
-							<!-- Wishlist -->
-							<div style="padding-right: 10%; padding-left: 0%;">
-								<a href="wishList.html" style="text-decoration: none;"> <i
-									class="fa fa-heart" id="heart"></i> 
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
-									</c:if>
-								</a>
-							</div>
-							<!-- WishList -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!--/HEADER-->
+                    <!-- ACCOUNT -->
+                    <div class="col-md-9">
+                        <div class="header-ctn">
+                        
+                        	<div style="padding-right: 3%; margin-top: 3%">
+                            	<a href="adminPage" style="text-decoration: none;">
+                           		<i class="fa fa-home"></i></a>
+                            </div>
+
+                            <!-- Wishlist -->
+                            <div style="padding-right: 3%; margin-top: 3%" id="firstElement">
+                                <a href="addProduct" style="text-decoration: none;">
+                                    <i class="fas fa-cart-plus" id="add"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="deleteProd" style="text-decoration: none;">
+                                    <i class="fas fa-trash" id="trash"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
+                            </div>
+
+                            <!-- Cart -->
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="modifyProd" style="text-decoration: none;">
+                                    <i class="fas fa-edit"></i>
+                                    <!--<div class="qty">0</div>-->
+                                </a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="returnRequests" style="text-decoration: none;">
+                                    <i class="fas fa-truck-loading" id="truck2"></i></a>
+                            </div>
+                            <!-- /Cart -->
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="addAdmin" style="text-decoration: none;">
+                                    <i class="fas fa-user-tie" id="addAdmin"></i></a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="deleteAdmin" style="text-decoration: none;">
+                                    <i class="fas fa-user-slash" id="deleteAdmin"></i></a>
+                            </div>
+
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="/viewJobs" style="text-decoration: none;">
+                                    <i class="fas fa-user-plus" id="positions"></i></a>
+                            </div>
+                            
+                            <div style="padding-right: 3%; margin-top: 3%">
+                                <a href="/viewCurriculum" style="text-decoration: none;">
+                                    <i class="fas fa-book-open" id="curriculum"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/HEADER-->
 
 <!------------------------GRUPPO-------------------------------------------->	
 
@@ -251,7 +215,6 @@
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
 								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
 								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>

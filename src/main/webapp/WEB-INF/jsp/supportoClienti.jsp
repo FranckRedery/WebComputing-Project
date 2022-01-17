@@ -80,11 +80,9 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i>
-							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
+					<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>techPlanet2022@gmail.com</a></li>
+					<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+					<li><a href="#"><i class="fas fa-dollar-sign"></i> USD</a></li>
 				</ul>
 				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
 				<ul class="header-links pull-right">
@@ -206,7 +204,6 @@
 	</header>
 	<!--/HEADER-->
 
-
 	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
@@ -236,6 +233,7 @@
 		</div>
 	</nav>
 
+
 <!-------------------------GRUPPO--------------------------------------------->
 	
 	
@@ -253,9 +251,9 @@
 				</div>
 				<div class="col-sm-6">
 					<select name="origin" id = "origin">
-						<option value="problem with purchased device">Problem with purchased device</option>
-						<option value="order assistance">Order assistance</option>
-						<option value="other">Other</option>
+						<option value="Problem with purchased device">Problem with purchased device</option>
+						<option value="Order assistance">Order assistance</option>
+						<option value="Other">Other</option>
 					</select>
 				</div>
 			</div>
@@ -303,7 +301,6 @@
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
 								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
 								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>

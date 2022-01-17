@@ -34,7 +34,6 @@ function PosizioneLavoro(titolo, descrizione, requisiti, obbligatori, attivo) {
 var ind = 0;
 var posizioneApertaTitle = "";
 
-
 posLavoro = new Array();
 
 elementiNav = new Array();

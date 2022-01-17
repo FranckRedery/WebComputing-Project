@@ -24,21 +24,22 @@ public class Login {
 		this.conn = conn;
 	}
 	
-	public boolean faiLoginCurriculum(String username, String pass) {
-		String sql = "select * from users where username = '" + username + "'";
+	public String faiLoginCurriculum(String email, String pass) {
+		String sql = "select * from users where email = '" + email + "'";
 		
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
-				return true;
+				if(BCrypt.checkpw(pass, rs.getString("password")))
+					return rs.getString("username");
 			}
 				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 

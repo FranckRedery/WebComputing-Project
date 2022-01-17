@@ -56,6 +56,11 @@
                             <div class="col-md-9">
                                 <div class="header-ctn">
 
+									<div style="padding-right: 3%; margin-top: 3%">
+                                        <a href="adminPage" style="text-decoration: none;">
+                                        <i class="fa fa-home"></i></a>
+                                    </div>
+
                                     <!-- Wishlist -->
                                     <div style="padding-right: 3%; margin-top: 3%" id="firstElement">
                                         <a href="addProduct" style="text-decoration: none;">
@@ -88,11 +93,6 @@
                                     <div style="padding-right: 3%; margin-top: 3%">
                                         <a href="addAdmin" style="text-decoration: none;">
                                             <i class="fas fa-user-tie" id="addAdmin"></i></a>
-                                    </div>
-
-                                    <div style="padding-right: 3%; margin-top: 3%">
-                                        <a href="deleteAdmin" style="text-decoration: none;">
-                                            <i class="fas fa-user-slash" id="deleteAdmin"></i></a>
                                     </div>
 
                                     <div style="padding-right: 3%; margin-top: 3%">

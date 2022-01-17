@@ -41,8 +41,9 @@ function faiLogin(event) {
 			stringa += "username";
 	}
 	
-	if(stringa != "")
+	if(stringa != "") {
 		stringaErroreLogin(stringa);
+	}
 	
 	document.querySelector("#login").submit;
 }

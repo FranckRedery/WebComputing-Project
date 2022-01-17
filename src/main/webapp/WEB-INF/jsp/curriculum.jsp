@@ -82,41 +82,9 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-					<li><a href="#"><i class="fa fa-envelope"></i>
-							techPlanet2022@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-					<li><a href="#"><i class="fa fa-eur"></i> EUR</a></li>
-				</ul>
-				<a id="log" href="login.html"></a> <a id="sign" href="signUp.html"></a>
-				<ul class="header-links pull-right">
-					<c:if test="${loggato == 'si'}">
-						<c:if test="${isAdmin == 't'}">
-						  <a href="adminPage" style="text-decoration: none;">
-							<button class="btnAdmin">
-								<span>Admin View <img src="images/index/adminBtn.gif"  width="20" height="20"></span>
-							</button>
-						  </a>
-						</c:if>
-				     <a href="javascript:signOut()" style="text-decoration: none;">
-							<button class="btnLog">
-								<span>Log out</span>
-							</button>
-						</a>
-				  </c:if>
-				<c:if test="${loggato == 'no' || loggato == null}">
-				
-					<a style="text-decoration: none;">
-						<button onclick="resetLogin();" class="btnLog">
-							<span>Login</span>
-						</button>
-					</a>
-					<a style="text-decoration: none;">
-						<button onclick="resetSignUp();" class="btnLog">
-							<span>Sign Up</span>
-						</button>
-					</a>
-				</c:if>
+					<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>techPlanet2022@gmail.com</a></li>
+					<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
+					<li><a href="#"><i class="fas fa-dollar-sign"></i> USD</a></li>
 				</ul>
 			</div>
 		</div>
@@ -132,7 +100,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="/" class="logo"> <img id="logo"
-								src="images/index/logo.png" alt="">
+								src="../images/index/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -163,18 +131,18 @@
 							<div>
 								<c:if test="${loggato == 'si'}">
 									<div style="display: flex">
-									<a href="account.html" style="text-decoration: none; display: flex;">
+									<a href="../account.html" style="text-decoration: none; display: flex;">
 										<c:if test="${image != null && image != ''}">
-										 <img class="profilePic" src='${image}' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src="../'${image}'" style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 										<c:if test="${image == null || image == ''}">
-										 <img class="profilePic" src='images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
+										 <img class="profilePic" src='../images/account/avatar.png' style="border-radius: 50%;" width="29" height="29" alt="Avatar">
 										</c:if>
 									</a><p id="nameP" class="overflow-ellipsis">${username}</p>
 									</div>
 								</c:if>
 								<c:if test="${loggato == 'no' || loggato == null }">
-								<a href="login.html" style="text-decoration: none; margin-right: 20px;"> <i
+								<a href="../login.html" style="text-decoration: none; margin-right: 20px;"> <i
 									class="fa fa-user"></i>
 								</a>
 								</c:if>
@@ -182,7 +150,7 @@
 							<!-- /User Toogle -->
 							<!-- Cart -->
 							<div style="padding-right: 10%;">
-								<a href="cart.html" style="text-decoration: none;"> <i
+								<a href="../cart.html" style="text-decoration: none;"> <i
 									class="fa fa-shopping-cart"></i> 
 									<c:if test="${username != null && numProd > 0}">
 									<div class="qty">${numProd}</div>
@@ -192,7 +160,7 @@
 							<!-- /Cart -->
 							<!-- Wishlist -->
 							<div style="padding-right: 10%; padding-left: 0%;">
-								<a href="wishList.html" style="text-decoration: none;"> <i
+								<a href="../wishList.html" style="text-decoration: none;"> <i
 									class="fa fa-heart" id="heart"></i> 
 									<c:if test="${username != null && numWishList > 0}">
 									<div class="qty" id="wishList">${numWishList}</div>
@@ -208,7 +176,6 @@
 	</header>
 	<!--/HEADER-->
 
-
 	<nav id="navigation" class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
@@ -222,22 +189,21 @@
 					<li class="nav-item"><a class="nav-link"
 						href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="notebooksGallery.html">Notebooks</a></li>
+						href="../notebooksGallery.html">Notebooks</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="smartphonesGallery.html">Smartphones</a></li>
+						href="../smartphonesGallery.html">Smartphones</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="printersGallery.html">Printers</a></li>
+						href="../printersGallery.html">Printers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="camerasGallery.html">Cameras</a></li>
+						href="../camerasGallery.html">Cameras</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="accessoriesGallery.html">Accessories</a></li>
+						href="../accessoriesGallery.html">Accessories</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="tvsGallery.html">Tvs</a></li>
+						href="../tvsGallery.html">Tvs</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 
 
 <!-------------------------GRUPPO--------------------------------------------->
@@ -276,16 +242,19 @@
 				</div>
 				
 				<div id = "login">
-					<c:if test= "${username == null}">
+					<c:if test= "${username == null && user == null}">
 						<a href = "javascript:formLogin()">Registered user? Click here</a>
 					</c:if>
 					<c:if test= "${username != null}">
-						Hi ${username} 
+						Hi ${username}
+					</c:if> 
+					<c:if test= "${user != null}">
+						Hi ${user.username}
 					</c:if>
 					<div id = "formLogin">
 						<form id = "formCurriculum" method="post" action="loginCurriculum">
-							<label for ="username">Username: </label> 
-							<input type="text" id = "user" name="username" placeholder="Your username.."/> <br/>
+							<label for ="email">Email: </label> 
+							<input type="text" id = "user" name="email" placeholder="Your email.."/> <br/>
 							<label for ="pass">Password: </label>
 							<input type="password" id = "pass" name="pass" placeholder="Your password.."/> <br/>
 							<button id = "pulsanteLogin" onclick = "faiLogin(event)">Login</button>
@@ -363,7 +332,7 @@
 												</label>
 											</td>
 											<td>
-												<input type="text" name = "nome" id="nome" placeholder="Your first name ..." value = "${name}">
+												<input type="text" name = "nome" id="nome" placeholder="Your first name ..." value = "${name}${user.name}">
 											</td>
 										</tr>
 										<tr>
@@ -374,7 +343,7 @@
 												</label>
 											</td>
 											<td>
-												<input type="text" name = "cognome" id="cognome" placeholder="Your last name ..." value = "${surname}">
+												<input type="text" name = "cognome" id="cognome" placeholder="Your last name ..." value = "${surname}${user.surname}">
 											</td>
 										</tr>
 										<tr>
@@ -396,7 +365,7 @@
 												</label>
 											</td>
 										    <td>
-												<input type="email" name = "email" id="mail" placeholder="Your e-mail ..." value = "${email}">
+												<input type="email" name = "email" id="mail" placeholder="Your e-mail ..." value = "${email}${user.email}">
 											</td>
 										</tr>
 										<tr>
@@ -407,7 +376,7 @@
 												</label>
 											</td>
 										    <td>
-												<input type="tel" id="phone" name="phone" placeholder = "Your phone ..." value = "${phonenumber}">
+												<input type="tel" id="phone" name="phone" placeholder = "Your phone ..." value = "${phonenumber}${user.phoneNumber}">
 											</td>
 										</tr>
 									</tbody>
@@ -559,7 +528,6 @@
 							<p>We are a friend with a passion of tecnologies.</p>
 							<ul class="footer-links">
 								<li><a href="http://www.shorturl.at/nwES4"><i class="fa fa-map-marker"></i>Ponte Pietro Bucci, 87036 Quattromiglia CS</a></li>
-								<li><i class="fa fa-phone"></i>+021-95-51-84</li>
 								<li><a href="mailto:teachplanet22@gmail.com"><i class="fa fa-envelope"></i>teachplanet22@gmail.com</a></li>
 							</ul>
 						</div>
@@ -569,12 +537,12 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="notebooksGallery.html">Notebooks</a></li>
-								<li><a href="smartphonesGallery.html">Smartphones</a></li>
-								<li><a href="tvsGallery.html">Tvs</a></li>
-								<li><a href="printersGallery.html">Printers</a></li>
-								<li><a href="camerasGallery.html">Cameras</a></li>
-								<li><a href="accessoriesGallery.html">Accessories</a></li>
+								<li><a href="../notebooksGallery.html">Notebooks</a></li>
+								<li><a href="../smartphonesGallery.html">Smartphones</a></li>
+								<li><a href="../tvsGallery.html">Tvs</a></li>
+								<li><a href="../printersGallery.html">Printers</a></li>
+								<li><a href="../camerasGallery.html">Cameras</a></li>
+								<li><a href="../accessoriesGallery.html">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -582,11 +550,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
-								<li><a href="/aboutUs.html">About Us</a></li>
-								<li><a href="/contactUs">Contact Us</a></li>
-								<li><a href="/workWithUs/workInCompany">Work with Us</a></li>
-								<li><a href="/privacyPolicy">Privacy Policy</a></li>
-								<li><a href="/termsAndConditions">Terms & Conditions</a></li>
+								<li><a href="../aboutUs.html">About Us</a></li>
+								<li><a href="../contactUs">Contact Us</a></li>
+								<li><a href="../workWithUs/workInCompany">Work with Us</a></li>
+								<li><a href="../privacyPolicy">Privacy Policy</a></li>
+								<li><a href="../termsAndConditions">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
@@ -595,11 +563,11 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="account.html">My Account</a></li>
-								<li><a href="cart.html">View Cart</a></li>
-								<li><a href="wishList.html">Wishlist</a></li>
-								<li><a href="/myOrder.html">Order and Returns</a></li>
-								<li><a href="/customerSupport">Customer Support</a></li>
+								<li><a href="../account.html">My Account</a></li>
+								<li><a href="../cart.html">View Cart</a></li>
+								<li><a href="../wishList.html">Wishlist</a></li>
+								<li><a href="../myOrder.html">Order and Returns</a></li>
+								<li><a href="../customerSupport">Customer Support</a></li>
 							</ul>
 						</div>
 					</div>

@@ -57,11 +57,9 @@
                                 <div class="header-ctn">
 
                                     <!-- Wishlist -->
-                                    <div style="padding-right: 3%; margin-top: 3%" id="firstElement">
-                                        <a href="addProduct" style="text-decoration: none;">
-                                            <i class="fas fa-cart-plus" id="add"></i>
-                                            <!--<div class="qty">0</div>-->
-                                        </a>
+   									<div style="padding-right: 3%; margin-top: 3%">
+                                        <a href="adminPage" style="text-decoration: none;">
+                                            <i class="fa fa-home"></i></a>
                                     </div>
 
                                     <div style="padding-right: 3%; margin-top: 3%">
