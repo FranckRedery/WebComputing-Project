@@ -46,7 +46,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<title>Tech Planet</title>
+<title>My Order</title>
 </head>
 
 <body>

@@ -30,7 +30,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<title>Tech Planet</title>
+<title>WishList</title>
 </head>
 
 <body>
@@ -151,9 +151,6 @@
 							<div style="padding-right: 10%; padding-left: 0%;">
 								<a href="wishList.html" style="text-decoration: none;"> <i
 									class="fa fa-heart" id="heart"></i> 
-									<c:if test="${username != null && numWishList > 0}">
-									<div class="qty" id="wishList">${numWishList}</div>
-									</c:if>
 								</a>
 							</div>
 							<!-- WishList -->
