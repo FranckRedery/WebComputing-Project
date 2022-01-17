@@ -128,6 +128,10 @@ public class Admin {
 			return "index";
 		}
 
+		List<Job> jobs = Database.getInstance().getJobDao().findAll();
+		
+		session.setAttribute("lavori", jobs);
+		
 		return "visualizzaCV";
 	}
 	
