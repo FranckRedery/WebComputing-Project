@@ -45,8 +45,8 @@ public class Control {
 				session.setAttribute("loggatoGoogle", "si");
 				session.setAttribute("errore", "no");
 				session.setAttribute("isAdmin", rs.getString("isadmin"));
-				session.setAttribute("email", req.getParameter("email"));
-				session.setAttribute("username", req.getParameter("username"));
+				session.setAttribute("email", rs.getString("email"));
+				session.setAttribute("username", rs.getString("username"));
 				session.setAttribute("image", rs.getString("image"));
 				return "index";
 			}
