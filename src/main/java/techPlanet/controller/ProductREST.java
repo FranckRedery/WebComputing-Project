@@ -94,9 +94,9 @@ public class ProductREST {
 	@PostMapping("/searchProduct") 
 	public void searchProduct(String categories, String productName, HttpServletResponse res, HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
-		if(Database.getInstance().getProductsDao().findByName(productName.toLowerCase()) != null) {	
+		if(Database.getInstance().getProductsDao().findByName(productName) != null) {	
 			try {
-				Product product = Database.getInstance().getProductsDao().findByName(productName.toLowerCase());
+				Product product = Database.getInstance().getProductsDao().findByName(productName);
 				session.setAttribute("product", product);
 				res.sendRedirect("/product");
 				return;
