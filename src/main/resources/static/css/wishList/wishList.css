@@ -335,15 +335,15 @@ li {
 ===========================================================*/
 
 @media only screen and (max-width: 1400px) {
-	.price h3 {
-		font-size: 15px;
+	.info{
+		display: block;
 	}
 }
 
 @media only screen and (max-width: 991px) {
- 	.price h3 {
-		font-size: 25px;
-	}
+ 	.info {
+ 		display: flex;
+ 	}
 	
   .header-logo {
     float: none;
