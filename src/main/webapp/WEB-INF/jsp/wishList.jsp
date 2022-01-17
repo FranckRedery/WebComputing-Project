@@ -33,7 +33,7 @@
 <title>Tech Planet</title>
 </head>
 
-<body onload="check()">
+<body>
 
 	<!-- HEADER -->
 	<header>

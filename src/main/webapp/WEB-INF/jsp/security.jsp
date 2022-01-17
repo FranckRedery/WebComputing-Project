@@ -26,7 +26,7 @@
 <title>TechPlanet</title>
 </head>
 
-<body onload="timeOut('${loggato}')">
+<body>
 		
 	<!-- HEADER -->
 	<header>

@@ -33,7 +33,7 @@
 </head>
 <title>TechPlanet</title>
 </head>
-<body id="b" onload="checkRefresh(${loggato});">
+<body id="b">
 	<div class="container py-3 h-100">
 		<div class="row d-flex justify-content-center align-items-center h-10">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">

@@ -46,7 +46,7 @@
 <title>Tech Planet</title>
 </head>
 
-<body onload="timeOut('${loggato}'">
+<body>
 		
 	<!-- HEADER -->
 	<header>

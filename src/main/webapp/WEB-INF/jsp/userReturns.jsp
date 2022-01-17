@@ -26,7 +26,7 @@
             <title>Returns page</title>
         </head>
 
-        <body onload="timeOut(${loggato})">
+        <body >
 
 
            <!-- HEADER -->
