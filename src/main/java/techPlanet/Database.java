@@ -35,6 +35,7 @@ import techPlanet.persistenza.dao.jdbc.WishesDaoJDBC;
 
 public class Database {
 	
+
 	private static Database instance = null;
 	private Connection conn;
 	
