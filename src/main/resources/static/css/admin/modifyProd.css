@@ -188,6 +188,11 @@ input[type=file] {
        Top header
    \*----------------------------*/
    
+      a {
+    font-weight: 500;
+	}
+   
+   
    #top-header {
      background-color: #2c2d30;
      height: auto;
@@ -335,38 +340,44 @@ input[type=file] {
      ===========================================================*/
      
      
-     @media only screen and (max-width: 991px) {
-       #top-header .header-links.pull-left {
-         float: none !important;
-       }
-       #top-header .header-links.pull-right {
-         display: inline-block;
-         float: none !important;
-         margin-top: 5px;
-       }
-       .header-logo {
-         float: none;
-         text-align: center;
-       }
-       .header-logo .logo {
-         display: inline-block;
-       }
-     }
-     
-     @media only screen and (max-width: 767px) {
-       
-       input[type=text] {
+@media only screen and (max-width: 1201px) {}
+  
+  @media only screen and (max-width: 991px) {
+    #top-header .header-links.pull-left {
+      float: none !important;
+    }
+    #top-header .header-links.pull-right {
+      display: inline-block;
+      float: none !important;
+      margin-top: 5px;
+    }
+    .header-logo {
+      float: none;
+      text-align: center;
+    }
+    .header-logo .logo {
+      display: inline-block;
+    }
+
+
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .section-title .section-nav {
+      float: none;
+      margin-top: 10px;
+    }
+    .section-tab-nav li {
+      margin-top: 10px;
+    }
+    
+     input[type=text] {
     		width: 40%!important;
     		box-sizing: border-box;
     		border-radius: 4px;
   		}
-  		
-  		#productCategory{
-  			width: 40%!important;
-  		}
-       
-       
-       .col-md-2{
+  	
+  	.col-md-2{
        		margin-bottom: 5%;
        		margin-right:0%;
        		margin-left:0%;
@@ -377,38 +388,38 @@ input[type=file] {
        		margin-right:7%;
        		margin-left:10%;
    	   }
-   
-       #firstElement{
-         padding-left: 10%!important;
-       }
-     }
-     
-     @media only screen and (max-width: 480px) {
-       [class*='col-xs'] {
-         width: 100%;
-       }
-     }
-   
-     #logo {
-           padding-left: 20%;
-   }
-   
-   @media screen and (max-width: 1200px) { 
-       #logo {
-           padding-left: 0%;
-       }
-       
-       input[type=text] {
+
+  }
+  
+  @media only screen and (max-width: 480px) {
+    [class*='col-xs'] {
+      width: 100%;
+    }
+  }
+
+  #logo {
+		padding-left: 20%;
+}
+
+@media screen and (max-width: 1200px) { 
+	#logo {
+		padding-left: 0%;
+	}
+	
+	 input[type=text] {
     		width: 50%;
     		box-sizing: border-box;
     		border-radius: 4px;
   		}
-  		
-  		#productCategory{
-  			width: 80%;
-  		}
-   }
-   
+	
+}
+
+@media screen and (max-width: 468px) { 
+	.header-ctn {
+		margin-left: 0px;
+	}
+}
+
    @media screen and (min-width: 1200px){
 	
 	input[type=text] {
@@ -417,4 +428,3 @@ input[type=file] {
     	border-radius: 4px;
   		}
 	}
-   

@@ -110,6 +110,11 @@ ul, ol {
 	02 -> HEADER
 ===========================================================*/
 
+   a {
+    font-weight: 500;
+	}
+
+
 #top-header {
   background-color: #2c2d30;
   height: auto;
@@ -273,9 +278,18 @@ header{
     .header-logo .logo {
       display: inline-block;
     }
+
+
   }
   
   @media only screen and (max-width: 767px) {
+    .section-title .section-nav {
+      float: none;
+      margin-top: 10px;
+    }
+    .section-tab-nav li {
+      margin-top: 10px;
+    }
     
     .btn.btn-success{
    		margin-top: 100%;
@@ -295,6 +309,7 @@ header{
     	border-radius: 50%!important;
     	width: 50px;
 	}
+
   }
   
   @media only screen and (max-width: 480px) {
@@ -310,5 +325,12 @@ header{
 @media screen and (max-width: 1200px) { 
 	#logo {
 		padding-left: 0%;
+	}
+	
+}
+
+@media screen and (max-width: 468px) { 
+	.header-ctn {
+		margin-left: 0px;
 	}
 }
