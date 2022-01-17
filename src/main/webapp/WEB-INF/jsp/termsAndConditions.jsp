@@ -78,7 +78,7 @@
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
-				<div class="row">
+				<div class="row head">
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
