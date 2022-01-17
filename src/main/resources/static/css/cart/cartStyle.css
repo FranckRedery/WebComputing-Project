@@ -408,19 +408,15 @@ body {
   ===========================================================*/
   
   
-  @media only screen and (max-width: 991px) {
-
-    .header-logo {
-      float: none;
-      text-align: center;
-    }
-    .header-logo .logo {
-      display: inline-block;
-    }
+@media only screen and (max-width: 991px) {
+	 .header-logo {
+    	float: none;
+    	text-align: center;
+  		}
+  .header-logo .logo {
+    display: inline-block;
   }
-  
-@media only screen and (max-width: 767px) {
-  .section-title .section-nav {
+	.section-title .section-nav {
     float: none;
     margin-top: 10px;
   }
@@ -429,6 +425,59 @@ body {
   }
   .header-ctn div {
   	margin-top: 0;
+  }
+  
+    .header-ctn > div + div {
+    padding-left: 1%;
+  }
+  .header-ctn div {
+	padding-left: 1%;
+  }
+  
+  .row.head{
+  display: block!important
+  }
+	
+   .col-md-3, .col-md-6 {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+   }
+   
+   .col-md-6 {
+   width: 75%!important}
+   
+     #header {
+  	padding-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+	  .section-title .section-nav {
+    float: none;
+    margin-top: 10px;
+  }
+  .header-ctn > div + div {
+  	margin-top: 0;
+  }
+  .header-ctn div {
+  	margin-top: 0;
+  }
+	.row.head{
+  display: block!important
+  }
+	
+   .col-md-3, .col-md-6 {
+  margin: auto;
+  width: 50%!important;
+  padding: 10px;
+   }
+   
+   .col-md-6 {
+   width: 100%!important}
+  
+  #header {
+  	padding-top: 0px;
   }
 }
 #logo {
