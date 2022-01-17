@@ -1,13 +1,13 @@
-function sendEmailS(){
+function sendEmailFake(){
 	
 	Email.send({
 		Host: "smtp.gmail.com",
 		Username: "techplanet2022@gmail.com",
 		Password: "progettoweb2021",
-		To: "",
+		To: "xxxx@xx.com",
 		From: "techplanet22@gmail.com",
 		Subject: "Welcome to the Future",
-		Body: ""
+		Body: "xx"
 	})
 }
 
@@ -128,3 +128,12 @@ function ShowView() {
   }
 }
 
+function startEmail(){
+	sendEmailFake();
+	window.location = "setMailCode";
+}
+
+function startPass(){
+	sendEmailFake();
+	window.location = "setPassCode";
+}

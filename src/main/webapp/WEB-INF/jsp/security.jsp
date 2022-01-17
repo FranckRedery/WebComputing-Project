@@ -16,11 +16,12 @@
     <script src="js/control/mail.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/Signup/signUp.js"></script>
-    <script src="js/Signup/signUp.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 	<meta name="google-signin-client_id" content="397262973292-raelfe22asjtmti3g7f4idddbjl30mn3.apps.googleusercontent.com">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 
 <title>TechPlanet</title>
@@ -191,7 +192,7 @@
 	<h3 style="text-align: center; margin-top: 1%;">SECURITY</h3>
 
   <div class="containerCardsAcc">
-	<div onclick="window.location = 'setMailCode'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
+	<div onclick="javascript:startEmail()" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/chiocciola01.png" class="img-fluid rounded-start" alt="...">
@@ -205,7 +206,7 @@
 		</div>
 	</div>
 
-	  <div onclick="window.location = 'setPassCode'" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
+	  <div onclick="javascript:startPass()" id="cardsAcc" class="card mb-4" style="max-width: 300px; max-height: 200px;">
 		<div class="row g-0">
 		  <div class="col-md-4">
 			<img src="images/account/lock01.png" class="img-fluid rounded-start" alt="...">
