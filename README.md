@@ -14,3 +14,4 @@ Il dump del database si trova in src/main/resources/static/db
 
 Per aggiornare in tempo reale i file caricati nel database: 
      Window -> Preference -> General -> Workspace. Spuntare "Refresh using native hooks or polling"
+ 
