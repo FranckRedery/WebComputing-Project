@@ -218,7 +218,7 @@
 						</button></a>
 				</c:if>
 				<c:if test="${username == null}">
-					<a href=""><button type="button" class="btn btn-info"
+					<a href="/login.html"><button type="button" class="btn btn-info"
 							value="${product.id}">
 							<i class="far fa-heart"></i>add to Wishlist
 						</button></a>
