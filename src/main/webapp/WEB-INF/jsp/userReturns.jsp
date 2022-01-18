@@ -222,7 +222,7 @@
                                             <br>
                                             <span class="info" style="font-size: small;">Price : </span>
                                             <span class="product-price" style="font-size: medium;">$${item.product.price
-                                                * item.quantity}</span>
+                                                * item.quantity}0</span>
                                         </div>
                                     </div>
                                 </td>
@@ -255,14 +255,14 @@
                                     </c:if>
                                 </td>
                                 <c:if test="${item.moneyreturned !=0.0}">
-                                    <td class="refund-cell-accepted">$${item.moneyreturned}</td>
+                                    <td class="refund-cell-accepted">$${item.moneyreturned}0</td>
                                 </c:if>
                                 <c:if test="${item.moneyreturned == 0.0}">
                                     <c:if test="${item.status == 'pending'}">
-                                        <td class="refund-cell-pending">$${item.moneyreturned}</td>
+                                        <td class="refund-cell-pending">$${item.moneyreturned}0</td>
                                     </c:if>
                                     <c:if test="${item.status == 'declined'}">
-                                        <td class="refund-cell-declined">$${item.moneyreturned}</td>
+                                        <td class="refund-cell-declined">$${item.moneyreturned}0</td>
                                     </c:if>
                                 </c:if>
                             </tr>
