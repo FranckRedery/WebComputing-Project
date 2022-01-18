@@ -182,7 +182,7 @@
                                             <br>
                                             <span class="info" style="font-size: small;">Price : </span>
                                             <span class="product-price" style="font-size: medium;">$${item.product.price
-                                                * item.quantity}</span>
+                                                * item.quantity}0</span>
                                         </div>
                                     </div>
                                 </td>
