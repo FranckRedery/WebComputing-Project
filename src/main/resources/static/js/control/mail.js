@@ -130,10 +130,21 @@ function ShowView() {
 
 function startEmail(){
 	sendEmailFake();
+	$.ajax({  
+         type : 'GET',  
+         url : "/resetError",  
+   		 });
 	window.location = "setMailCode";
 }
 
 function startPass(){
 	sendEmailFake();
+	$.ajax({  
+         type : 'GET',  
+         url : "/resetError",  
+   		 });
 	window.location = "setPassCode";
 }
+
+
+

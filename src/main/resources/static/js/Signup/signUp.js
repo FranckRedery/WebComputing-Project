@@ -33,7 +33,6 @@ function resetSignUp(){
     });
     
     signOutStand();
-    
      window.location = document.getElementById('sign').href;
 }
 
@@ -168,4 +167,16 @@ function ShowView() {
   }
 }
 
+function sendEmailFake(){
+	
+	Email.send({
+		Host: "smtp.gmail.com",
+		Username: "techplanet2022@gmail.com",
+		Password: "progettoweb2021",
+		To: "xxxx@xx.com",
+		From: "techplanet22@gmail.com",
+		Subject: "Welcome to the Future",
+		Body: "xx"
+	})
+}
 

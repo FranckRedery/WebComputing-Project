@@ -21,6 +21,7 @@ function checkRefresh(logged){
 }
 
 function SignUp() {
+	sendEmailFake();
   var username = document.forms["SignUpForm"]["username"].value;
   var email = document.forms["SignUpForm"]["email"].value;
   var password = document.forms["SignUpForm"]["password"].value;
@@ -36,12 +37,10 @@ function SignUp() {
 		},
 		success: function(data){
 			if(data == "signUp"){
-			  console.log("Errore")
 			  window.location.reload();
 			}
 			if(data == "signUpCorrect"){
 			  sendWelcomeEmail(email);				
-			  console.log("email")
 			  window.location = "/signUpCorrect.html";
 			}
 		}
@@ -49,7 +48,7 @@ function SignUp() {
 }
 
 function sendWelcomeEmail(emailId){
-	
+	console.log("sending email...")
 	Email.send({
 		Host: "smtp.gmail.com",
 		Username: "techplanet2022@gmail.com",
@@ -62,16 +61,16 @@ function sendWelcomeEmail(emailId){
 	
 }
 
-function sendEmailS(){
+function sendEmailFake(){
 	
 	Email.send({
 		Host: "smtp.gmail.com",
 		Username: "techplanet2022@gmail.com",
 		Password: "progettoweb2021",
-		To: "",
+		To: "xxxx@xx.com",
 		From: "techplanet22@gmail.com",
 		Subject: "Welcome to the Future",
-		Body: ""
+		Body: "xx"
 	})
 }
 
