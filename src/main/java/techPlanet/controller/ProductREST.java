@@ -97,7 +97,10 @@ public class ProductREST {
 		if(Database.getInstance().getProductsDao().findByName(productName) != null) {	
 			try {
 				Product product = Database.getInstance().getProductsDao().findByName(productName);
+				session.removeAttribute("review");
+				List<Review> review = Database.getInstance().getReviewDao().findByProduct(product.getId());
 				session.setAttribute("product", product);
+				session.setAttribute("review", review);
 				res.sendRedirect("/product");
 				return;
 			} catch (IOException e) {
