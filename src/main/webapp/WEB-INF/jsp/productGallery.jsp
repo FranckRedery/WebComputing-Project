@@ -208,7 +208,7 @@
 						</div>
 						</c:if>
 						<c:if test="${prod.quantity == 0}">
-						<div class="price">
+						<div class="price" style="color: red;">
 							<strong>SOLD OUT</strong>
 						</div>
 						</c:if>
