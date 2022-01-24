@@ -1,3 +1,7 @@
+Prima di lanciare il progetto bisogna avere installato tomcat https://tomcat.apache.org/download-90.cgi . 
+Una volta importato il progetto su eclipse (versione enterprise) andare in proprietà del progetto -> Project Facets -> convert to faceted form.. -> Selezionare Java, Javascript e Dynamic Web module. Cliccando su Dynamic web module andare su runtimes e spuntare apache tomcat e applicare i cambiamenti.
+
+
 Account già creati per effettuare login
 
      (admin) Email: francescoreda02@gmail.com   pass: ciaociao
